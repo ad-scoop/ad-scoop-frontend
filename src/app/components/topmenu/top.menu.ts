@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./top.menu.css']
 })
 export class TopMenu {
-  image = '/app/images/logo.jpeg';
+  image = '/app/images/logoSmall.jpeg';
 }
