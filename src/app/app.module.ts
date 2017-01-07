@@ -4,12 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { TopMenu } from './components/topmenu/top.menu';
+//import { TopMenu } from './components/topmenu/top.menu';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TopMenu
+    AppComponent
+    //TopMenu
   ],
   imports: [
     BrowserModule,
