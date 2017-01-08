@@ -1,11 +1,11 @@
 @font-face {
     font-family: ChaletLondonNineteenSixty;
-    src: url(app/fonts/ChaletLondonNineteenSixty.ttf);
+    src: url(/assets/fonts/ChaletLondonNineteenSixty.ttf);
 }
 
 .topMenu {
 	height: 110px;
-    height: 110px;
+    height: 65px;
     padding-top: 47px;
     padding-right: 41px;
     padding-left: 41px;
@@ -21,6 +21,7 @@
 
 .topMenuItems {
 	float: right;
+	margin-top: 14px;
 }
 
 .topMenuItems a {
