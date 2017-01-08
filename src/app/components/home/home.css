@@ -1,0 +1,21 @@
+.frontBack {
+	background-image: url(/assets/images/front.jpeg);
+	height: 318px;
+	background-position: center;
+	background-repeat: no-repeat; 
+}
+
+.textArea {
+	height: 318px;
+	background-color: #dae8e7;
+	max-width: 1500px;
+}
+
+.leftText {
+    font-family: ChaletNewYorkNineteenSixty;
+    color: white;
+    font-size: 39px;
+    width: 300px;
+    padding-left: 30px;
+    padding-top: 16px;
+}

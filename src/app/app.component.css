@@ -1,5 +1,20 @@
-.frontBack {
-	background-image: url(/assets/images/front.jpeg);
-	height: 318px;
-	max-width: 1500px;
+@font-face {
+    font-family: ChaletLondonNineteenSixty;
+    src: url(/assets/fonts/ChaletLondonNineteenSixty.ttf);
+}
+
+@font-face {
+    font-family: ChaletNewYorkNineteenSixty;
+    src: url(/assets/fonts/ChaletNewYorkNineteenSixty.ttf);
+}
+
+.main {
+    max-width: 1500px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
 }
