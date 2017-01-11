@@ -13,17 +13,3 @@
 .logoSmall {
 	float: left;
 }
-
-.topMenuItems {
-	float: right;
-	margin-top: 14px;
-}
-
-.topMenuItems a {
-	text-decoration: none;
-}
-
-.topMenuItems span {
-	margin-left: 5px;
-    margin-right: 5px;
-}

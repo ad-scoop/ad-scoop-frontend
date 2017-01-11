@@ -1,12 +1,15 @@
-<nav class="topMenu">
-	<a href="/" class="logoSmall"><img alt="adscoope" [src] = "image"/></a>
-	<span class="topMenuItems">
-		<a href="/">Om os</a>
-		<span>|</span>
-		<a href="/">Idéen</a>
-		<span>|</span>
-		<a href="/">Kontakt</a>
-		<span>|</span>
-		<a href="/">Login</a>
-	</span>
-</nav>
+<div class="topMenu">
+	<md-tab-group>
+		  <md-tab focued="true">
+		  	  <template md-tab-label>
+		  	  	<img alt="adscoope" [src] = "image" class="image"/>
+		  	  </template>
+		  	  <home></home>
+		  </md-tab>
+		  <md-tab label="Login"><login></login></md-tab>
+ 	  	  <md-tab label="Idéen">  </md-tab>
+	      <md-tab label="Kontakt"></md-tab>
+	      <md-tab label="Om os">  </md-tab>
+	</md-tab-group>
+</div>
+

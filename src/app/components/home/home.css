@@ -7,12 +7,13 @@
 
 .textArea {
 	height: 318px;
-	background-color: #dae8e7;
 	max-width: 1500px;
+	margin: 1px;
+	background-color: 
 }
 
 .leftText {
-    font-family: ChaletNewYorkNineteenSixty;
+ //   font-family: ChaletNewYorkNineteenSixty;
     color: white;
     font-size: 39px;
     width: 300px;

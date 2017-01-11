@@ -1,0 +1,12 @@
+@import '~@angular/material/core/theming/all-theme';
+
+@include md-core();
+
+$primary-color-dark:   #3a9c93
+$primary-color:        #00BCD4
+$primary-color-light:  #c9e1df
+$primary-color-text:   #FFFFFF
+$accent-color:         #222732
+$primary-text-color:   #212121
+$secondary-text-color: #757575
+$divider-color:        #BDBDBD

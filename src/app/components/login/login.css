@@ -1,0 +1,10 @@
+.buttonRight {
+	float: right;
+}
+
+.center {
+	margin: auto;
+	width: 15%;
+	overflow: hidden;
+	margin-top: 100px;
+}
