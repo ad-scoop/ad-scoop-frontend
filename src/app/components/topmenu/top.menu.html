@@ -1,15 +1,12 @@
 <div class="topMenu">
-	<md-tab-group>
-		  <md-tab focued="true">
-		  	  <template md-tab-label>
-		  	  	<img alt="adscoope" [src] = "image" class="image"/>
-		  	  </template>
-		  	  <home></home>
-		  </md-tab>
-		  <md-tab label="Login"><login></login></md-tab>
- 	  	  <md-tab label="Idéen">  </md-tab>
-	      <md-tab label="Kontakt"></md-tab>
-	      <md-tab label="Om os">  </md-tab>
-	</md-tab-group>
+	<a href="/" class="logoSmall"><img alt="adscoope" [src] = "image"/></a>
+	<span class="topMenuItems">
+		<a md-button routerLink=".">Om os</a>
+		<span>|</span>
+		<a md-button routerLink=".">Idéen</a>
+		<span>|</span>
+		<a md-button routerLink=".">Kontakt</a>
+		<span>|</span>
+		<a md-button routerLink="login">Login</a>
+	</span>
 </div>
-

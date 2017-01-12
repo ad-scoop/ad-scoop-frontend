@@ -10,6 +10,7 @@ import { TopMenu } from './components/topmenu/top.menu';
 import { appRoutes } from './app.routes';
 import { Home } from './components/home/home';
 import { Login } from './components/login/login';
+import { DirectiveFoucs } from './utils/directive.foucs';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { Login } from './components/login/login';
     AppComponent,
     Home,
     Login,
-    TopMenu
+    TopMenu,
+    DirectiveFoucs
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,17 @@
-.buttonRight {
+.right {
 	float: right;
+	margin: 5px;
 }
 
 .center {
 	margin: auto;
-	width: 15%;
+	width: 50%;
 	overflow: hidden;
-	margin-top: 100px;
+	padding: 100px;
+}
+
+.cardWidth {
+    width: 175px;
+    margin: auto;
+    height: 180px;
 }
