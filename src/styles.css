@@ -1,11 +1,1 @@
-@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
-
-.dark-primary-color    { background: #3a9c93; }
-.default-primary-color { background: #00BCD4; }
-.light-primary-color   { background: #c9e1df; }
-.text-primary-color    { color: #FFFFFF; }
-.accent-color          { background: #222732; }
-.primary-text-color    { color: #212121; }
-.secondary-text-color  { color: #757575; }
-.divider-color         { border-color: #BDBDBD; }
-
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';

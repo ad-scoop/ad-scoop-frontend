@@ -1,6 +1,6 @@
 .right {
 	float: right;
-	margin: 5px;
+	margin:	24px
 }
 
 .center {
@@ -13,5 +13,5 @@
 .cardWidth {
     width: 175px;
     margin: auto;
-    height: 180px;
+    height: 210px;
 }
