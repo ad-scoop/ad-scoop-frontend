@@ -1,8 +1,10 @@
 .frontBack {
 	background-image: url(/assets/images/front.jpeg);
-	height: 318px;
+	height: 41vh;
 	background-position: center;
-	background-repeat: no-repeat; 
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
 }
 
 .textArea {
@@ -11,11 +13,19 @@
 	margin: 1px;
 }
 
-.leftText {
-    font-family: ChaletNewYorkNineteenSixty;
+.leftBanner {
+    position: relative;
     color: white;
-    font-size: 39px;
-    width: 300px;
-    padding-left: 30px;
-    padding-top: 16px;
+    font-size: 47px;
+    width: 270px;
+    top: 52px;
+    left: 2vw;}
+
+.rightBanner {
+	background-image: url(/assets/images/rightside.png);
+	height: 284px;
+	wight: 241px;
+	background-position: center;
+	background-repeat: no-repeat;
+	float: right;
 }

@@ -27,9 +27,18 @@
     margin-right: 5px;
 }
 
+.dropDowntopMenuItems {
+   display: none;
+}
+
 @media (max-width: 700px) {
 	
     .topMenuItems {
         display: none;
     }
+    
+    .dropDowntopMenuItems {
+        display: block;
+    }
+    
 }
