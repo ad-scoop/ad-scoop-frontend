@@ -9,6 +9,31 @@
 		<span>|</span>
 		<a md-button routerLink="login">Login</a>
 	</span>
-	<span>
+	<span class="dropDowntopMenuItems">
+		<button md-button [mdMenuTriggerFor]="menu">
+  			<md-icon>menu</md-icon>
+		</button>
+		<md-menu #menu="mdMenu">
+	  		<button md-menu-item routerLink=".">
+	  			<md-icon>home</md-icon>
+	    		<span>Hjem</span>
+	  		</button>
+	  		<button md-menu-item routerLink=".">
+	  			<md-icon></md-icon>
+	    		<span>Om os</span>
+	  		</button>
+	  		<button md-menu-item routerLink=".">
+	  			<md-icon></md-icon>
+	    		<span>Idéen</span>
+	  		</button>
+	  		<button md-menu-item routerLink=".">
+	    		<md-icon></md-icon>
+	    		<span>Kontakt</span>
+	  		</button>
+	  		<button md-menu-item routerLink="login">
+	    		<md-icon>person</md-icon>
+	    		<span>Login</span>
+	  		</button>
+		</md-menu>
 	</span>
 </div>
