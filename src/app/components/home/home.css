@@ -8,24 +8,65 @@
 }
 
 .textArea {
-	height: 318px;
-	max-width: 1500px;
-	margin: 1px;
+	background-color: #dae8e7; 
+	height : 448px;
+	width: 100%;
+	height: 448px;
 }
 
 .leftBanner {
-    position: relative;
-    color: white;
-    font-size: 47px;
-    width: 270px;
-    top: 52px;
-    left: 2vw;}
+	position: relative;
+	color: white;
+	font-size: 47px;
+	width: 270px;
+	top: 52px;
+	left: 2vw;
+}
 
 .rightBanner {
 	background-image: url(/assets/images/rightside.png);
 	height: 284px;
-	wight: 241px;
+	width: 241px;
 	background-position: center;
 	background-repeat: no-repeat;
 	float: right;
+	position: relative;
+	top: -262px;
+	right: 2vw;
+}
+
+.bullets {
+	width: 400px;
+	float: left;	
+}
+
+.advances {
+	width: 400px;
+	float: left;
+}
+
+.advertiser {
+	background-image: url(/assets/images/advertiser.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 185px;
+	width: 185px;
+	float: left;
+}
+
+.website {
+	background-image: url(/assets/images/website.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 185px;
+	width: 185px;
+	float: left;
+}
+
+@media (max-width: 1000px) {
+	
+	.rightBanner {
+		display: none;
+	}
+	    
 }

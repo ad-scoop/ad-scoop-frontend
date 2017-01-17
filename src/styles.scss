@@ -2,17 +2,41 @@
 
 @include md-core();
 
-$primary-color-dark:   #3a9c93;
-$primary-color:        #00BCD4;
-$primary-color-light:  #c9e1df;
-$primary-color-text:   #FFFFFF;
-$accent-color:         #222732;
-$primary-text-color:   #212121;
-$secondary-text-color: #757575;
-$divider-color:        #BDBDBD;
+$ad-cyan: (
+  50: #dae8e7,
+  100: #c5e0de,
+  200: #b2d9d6,
+  300: #9fd1ce,
+  400: #8dc9c5,
+  500: #7cc2bd,
+  600: #6cbab5,
+  700: #5db3ac,
+  800: #4faba4,
+  900: #3a9c93,
+  A100: #f8e8c4,
+  A200: #f1d390,
+  A400: #eabd51,
+  A700: #e5b022,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: $black-87-opacity,
+    A700: $black-87-opacity,
+  )
+);
 
-$ad-app-primary: md-palette($md-blue-grey);
-$ad-app-accent:  md-palette($md-blue-grey, A200, A100, A400);
+$ad-app-primary: md-palette($ad-cyan);
+$ad-app-accent:  md-palette($ad-cyan, A200, A100, A400);
 
 $ad-app-theme: md-light-theme($ad-app-primary, $ad-app-accent);
 
