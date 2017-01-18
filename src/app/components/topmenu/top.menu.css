@@ -1,11 +1,6 @@
 .topMenu {
-	height: 110px;
     height: 65px;
-    padding-top: 47px;
-	font-family: ChaletLondonNineteenSixty;
-	font-size: 15px;
-	color: black;
-	font-weight: bold;
+    padding-top: 30px;
 }
 
 .logoSmall {
