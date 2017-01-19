@@ -173,4 +173,13 @@
 	.textArea {
 		min-height: 1120px;
 	}
+	.footer {
+		top: 1615px;
+	}
+}
+
+@media ( max-width : 325px) {
+	.textArea {
+		min-height: 1300px;
+	}
 }
