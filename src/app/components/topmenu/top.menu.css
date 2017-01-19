@@ -1,6 +1,8 @@
 .topMenu {
-    height: 65px;
-    padding-top: 30px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10;
 }
 
 .logoSmall {
@@ -8,7 +10,9 @@
 }
 
 .topMenuItems {
-	float: right;
+    position: absolute;
+    right: 0;
+    top: 7px;
 }
 
 .topMenuItems a {

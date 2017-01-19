@@ -10,8 +10,9 @@ import { TopMenu } from './components/topmenu/top.menu';
 import { appRoutes } from './app.routes';
 import { Home } from './components/home/home';
 import { Login } from './components/login/login';
-import { DirectiveFoucs } from './utils/directive.foucs';
+import { Footer } from './components/footer/footer';
 
+import { DirectiveFoucs } from './utils/directive.foucs';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DirectiveFoucs } from './utils/directive.foucs';
     Home,
     Login,
     TopMenu,
-    DirectiveFoucs
+    DirectiveFoucs,
+    Footer
   ],
   imports: [
     BrowserModule,

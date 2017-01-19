@@ -4,10 +4,11 @@
 }
 
 .center {
-	margin: auto;
-	width: 50%;
-	overflow: hidden;
-	padding: 100px;
+    margin: auto;
+    height: 210px;
+    transform: translateY(-50%);
+    position: relative;
+    top: 200px;
 }
 
 .cardWidth {
