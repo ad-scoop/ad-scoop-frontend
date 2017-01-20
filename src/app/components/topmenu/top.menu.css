@@ -1,8 +1,7 @@
 .topMenu {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 10;
+	padding-top: 10px;
+	height: 50px;
+	background-color: white;		
 }
 
 .logoSmall {
@@ -10,9 +9,9 @@
 }
 
 .topMenuItems {
-    position: absolute;
-    right: 0;
-    top: 7px;
+	position: absolute;
+	right: 0;
+	top: 7px;
 }
 
 .topMenuItems a {
@@ -21,22 +20,22 @@
 
 .topMenuItems span {
 	margin-left: 5px;
-    margin-right: 5px;
+	margin-right: 5px;
 }
 
 .dropDowntopMenuItems {
-   display: none;
+	display: none;
 }
 
-@media (max-width: 770px) {
-	
-    .topMenuItems {
-        display: none;
-    }
-    
-    .dropDowntopMenuItems {
-        display: block;
-        float: right;
-    }
-    
+@media ( max-width : 770px) {
+	.topMenuItems {
+		display: none;
+	}
+	.dropDowntopMenuItems {
+		display: block;
+		float: right;
+	}
+	.topMenu {
+		position: fixed;
+	}
 }

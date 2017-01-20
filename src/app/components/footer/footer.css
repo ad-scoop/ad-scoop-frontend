@@ -1,10 +1,7 @@
 .footer {
-    position: absolute;
-    top: 1005px;
-    left: 0;
     text-align: center;
-    right: 0;
     font-weight: bold;
     font-size: 18px;
     height: 60px;
+    width: 100%;
 }
