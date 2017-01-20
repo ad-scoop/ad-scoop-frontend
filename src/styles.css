@@ -1,9 +1,19 @@
 @import '~https://fonts.googleapis.com/icon?family=Material+Icons';
 
-body, html, home, app-root, top-Menu, footer {
+body, html, home, app-root, top-Menu, footer, login {
 	width: 100%;
 	margin: 0;
 	display: block;
+}
+
+footer {
+    text-align: center;
+    height: 30px;
+    background-color: white;
+}
+
+login {
+    min-height: 700px;
 }
 
 @media ( max-width : 1000px) {
