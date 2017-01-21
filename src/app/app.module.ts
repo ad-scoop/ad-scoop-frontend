@@ -11,6 +11,7 @@ import { appRoutes } from './app.routes';
 import { Home } from './components/home/home';
 import { Login } from './components/login/login';
 import { Footer } from './components/footer/footer';
+import { UnderConstruction } from './components/underConstruction/underConstruction';
 
 import { DirectiveFoucs } from './utils/directive.foucs';
 
@@ -21,7 +22,8 @@ import { DirectiveFoucs } from './utils/directive.foucs';
     Login,
     TopMenu,
     DirectiveFoucs,
-    Footer
+    Footer,
+    UnderConstruction
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,14 @@ import { DirectiveFoucs } from './utils/directive.foucs';
     HttpModule,
     MaterialModule.forRoot(),
   ],
-  providers: [],
+  providers: [ {
+      
+      provide: 'CanAlwaysActivateGuard',
+      useValue: () => {
+          return true;
+      }
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
