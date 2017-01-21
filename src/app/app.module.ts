@@ -11,7 +11,7 @@ import { appRoutes } from './app.routes';
 import { Home } from './components/home/home';
 import { Login } from './components/login/login';
 import { Footer } from './components/footer/footer';
-import { UnderConstruction } from './components/underconstruction/underConstruction';
+import { UnderConstruction } from './components/underconstruction/under.construction';
 
 import { DirectiveFoucs } from './utils/directive.foucs';
 
