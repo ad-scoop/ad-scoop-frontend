@@ -32,13 +32,8 @@ import { DirectiveFoucs } from './utils/directive.foucs';
     HttpModule,
     MaterialModule.forRoot(),
   ],
-  providers: [ {
-      
-      provide: 'CanAlwaysActivateGuard',
-      useValue: () => {
-          return true;
-      }
-  }
+  providers: [
+    
   ],
   bootstrap: [AppComponent]
 })
