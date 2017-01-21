@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'underConstruction',
-  templateUrl: './under.onstruction.html'
+  templateUrl: './under.construction.html'
 })
 export class UnderConstruction {
 }
