@@ -1,4 +1,4 @@
-<form class="center">
+<form class="center" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
 	<md-card class="cardWidth"> 
 		<md-card-content> 
 			
@@ -6,15 +6,15 @@
 				<div md-card-avatar><md-icon>person</md-icon></div>
     			<md-card-title>Log ind</md-card-title> 
 			</md-card-header> 
-			<div>
-				<md-input placeholder="Email" focuced tabindex="1"></md-input>
+ 			<div>
+				<md-input id="email" placeholder="Email" focuced tabindex="1" [(ngModel)]="model.email" name="email" required ></md-input>
 			</div>
 			<div>
-				<md-input type="password" placeholder="Password" tabindex="2"></md-input>
+				<md-input type="password" placeholder="Password" tabindex="2" [(ngModel)]="model.password" name="eamil" required ></md-input>
 			</div>
 			<md-card-footer>
-				<button color="primary" md-button type="submit" align="end" tabindex="3">Login</button>
-				<button color="accent" md-button type="submit" align="end" tabindex="3" class="right">Opret</button>
+				<button color="primary" md-button type="submit" align="end" tabindex="3">Log ind</button>
+				<button color="accent" md-button align="end" tabindex="3" class="right">Opret</button>
 			</md-card-footer> 
 		</md-card-content> 
 	</md-card>

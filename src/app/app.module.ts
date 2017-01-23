@@ -12,6 +12,8 @@ import { Home } from './components/home/home';
 import { Login } from './components/login/login';
 import { Footer } from './components/footer/footer';
 import { UnderConstruction } from './components/underconstruction/under.construction';
+import { UserService } from './services/user.service';
+import { AdvertiserModule } from './advertiser/advertiser.module';
 
 import { DirectiveFoucs } from './utils/directive.foucs';
 
@@ -23,7 +25,7 @@ import { DirectiveFoucs } from './utils/directive.foucs';
     TopMenu,
     DirectiveFoucs,
     Footer,
-    UnderConstruction
+    UnderConstruction,
   ],
   imports: [
     BrowserModule,
@@ -31,9 +33,10 @@ import { DirectiveFoucs } from './utils/directive.foucs';
     RouterModule.forRoot(appRoutes),
     HttpModule,
     MaterialModule.forRoot(),
+    AdvertiserModule,
   ],
   providers: [
-    
+    UserService,
   ],
   bootstrap: [AppComponent]
 })

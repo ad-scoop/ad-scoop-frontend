@@ -5,13 +5,18 @@
 }
 
 .logoSmall {
+	background-image: url('/assets/images/logoSmall.jpeg');
+	background-repeat: no-repeat;
 	float: left;
+	width: 195px;
+	height: 39px;
+	margin-left: 10px !important;
 }
 
 .topMenuItems {
 	position: absolute;
 	right: 0;
-	top: 7px;
+	top: 10px;
 }
 
 .topMenuItems a {

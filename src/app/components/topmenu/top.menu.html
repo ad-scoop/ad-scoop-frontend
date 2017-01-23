@@ -1,14 +1,21 @@
-<a md-button routerLink="." class="logoSmall"><img alt="adscoope" [src] = "image"/></a>
-<span class="topMenuItems">
+<a md-button routerLink="." class="logoSmall"></a>
+<span *ngIf="userService.isNotLoggedIn()" class="topMenuItems">
 	<a md-button routerLink="underConstruction">Om os</a>
 	<span>|</span>
 	<a md-button routerLink="underConstruction">Idéen</a>
 	<span>|</span>
 	<a md-button routerLink="underConstruction">Kontakt</a>
 	<span>|</span>
-	<a md-button routerLink="login">Login</a>
+	<a md-button routerLink="login">Log ind</a>
 </span>
-<span class="dropDowntopMenuItems">
+
+<span *ngIf="userService.isLoggedInAsAdvertiser()" class="topMenuItems" >
+	<a md-button routerLink="advertiser/planning">Planlægning</a>
+	<span>|</span>
+	<a md-button (click)="userService.logout()">Log ud</a>
+</span>
+
+  <span class="dropDowntopMenuItems">
 	<button md-button [mdMenuTriggerFor]="menu">
  			<md-icon>menu</md-icon>
 	</button>
@@ -16,6 +23,10 @@
   		<button md-menu-item routerLink=".">
   			<md-icon>home</md-icon>
     		<span>Hjem</span>
+  		</button>
+  		<button *ngIf="userService.isLoggedInAsAdvertiser()" md-menu-item routerLink="advertiser/planning">
+  			<md-icon></md-icon>
+    		<span>Planlægning</span>
   		</button>
   		<button md-menu-item routerLink="underConstruction">
   			<md-icon></md-icon>
@@ -29,9 +40,16 @@
     		<md-icon></md-icon>
     		<span>Kontakt</span>
   		</button>
-  		<button md-menu-item routerLink="login">
+  		<button *ngIf="userService.isNotLoggedIn()" md-menu-item routerLink="login">
     		<md-icon>person</md-icon>
-    		<span>Login</span>
+    		<span>Log ind</span>
+  		</button>
+  		<button *ngIf="userService.isLoggedIn()"  md-menu-item (click)="userService.logout()">
+    		<md-icon>person</md-icon>
+    		<span>Log ud</span>
   		</button>
 	</md-menu>
+	
 </span>
+
+
