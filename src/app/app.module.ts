@@ -11,6 +11,9 @@ import { appRoutes } from './app.routes';
 import { Home } from './components/home/home';
 import { Login } from './components/login/login';
 import { Footer } from './components/footer/footer';
+import { UnderConstruction } from './components/underconstruction/under.construction';
+import { UserService } from './services/user.service';
+import { AdvertiserModule } from './advertiser/advertiser.module';
 
 import { DirectiveFoucs } from './utils/directive.foucs';
 
@@ -21,7 +24,8 @@ import { DirectiveFoucs } from './utils/directive.foucs';
     Login,
     TopMenu,
     DirectiveFoucs,
-    Footer
+    Footer,
+    UnderConstruction,
   ],
   imports: [
     BrowserModule,
@@ -29,8 +33,11 @@ import { DirectiveFoucs } from './utils/directive.foucs';
     RouterModule.forRoot(appRoutes),
     HttpModule,
     MaterialModule.forRoot(),
+    AdvertiserModule,
   ],
-  providers: [],
+  providers: [
+    UserService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
