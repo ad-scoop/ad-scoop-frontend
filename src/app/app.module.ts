@@ -12,7 +12,11 @@ import { Home } from './components/home/home';
 import { Login } from './components/login/login';
 import { Footer } from './components/footer/footer';
 import { UnderConstruction } from './components/underconstruction/under.construction';
+import { Alert } from './components/alert/alert';
+
 import { UserService } from './services/user.service';
+import { AlertService } from './services/alert.service';
+
 import { AdvertiserModule } from './advertiser/advertiser.module';
 
 import { DirectiveFoucs } from './utils/directive.foucs';
@@ -26,6 +30,7 @@ import { DirectiveFoucs } from './utils/directive.foucs';
     DirectiveFoucs,
     Footer,
     UnderConstruction,
+    Alert,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +42,7 @@ import { DirectiveFoucs } from './utils/directive.foucs';
   ],
   providers: [
     UserService,
+    AlertService,
   ],
   bootstrap: [AppComponent]
 })

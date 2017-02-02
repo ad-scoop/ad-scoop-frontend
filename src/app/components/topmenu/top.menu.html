@@ -12,7 +12,7 @@
 <span *ngIf="userService.isLoggedInAsAdvertiser()" class="topMenuItems" >
 	<a md-button routerLink="advertiser/planning">Planlægning</a>
 	<span>|</span>
-	<a md-button (click)="userService.logout()">Log ud</a>
+	<a md-button (click)="logout()">Log ud</a>
 </span>
 
   <span class="dropDowntopMenuItems">
@@ -44,7 +44,7 @@
     		<md-icon>person</md-icon>
     		<span>Log ind</span>
   		</button>
-  		<button *ngIf="userService.isLoggedIn()"  md-menu-item (click)="userService.logout()">
+  		<button *ngIf="userService.isLoggedIn()" md-menu-item (click)="logout()">
     		<md-icon>person</md-icon>
     		<span>Log ud</span>
   		</button>

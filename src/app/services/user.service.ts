@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response,Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 
 import { User } from './../model/user';
 import { UserRole } from './../model/user.role';
@@ -8,8 +10,8 @@ import { UserRole } from './../model/user.role';
 @Injectable()
 export class UserService {
 
-    private token: string;
-    private labels: string[];
+    private token: string | null;
+    private labels: string[] | null;
     
     private baseUrl: string = 'http://localhost:8181/user';
 
@@ -28,6 +30,7 @@ export class UserService {
     logout(): void {
         this.token = null;
         this.labels = null;
+        localStorage.setItem('currentUser', null);
     }
 
     isLoggedIn(): boolean {
@@ -35,7 +38,7 @@ export class UserService {
     }
 
     isNotLoggedIn(): boolean {
-        return this.token == null;
+        return this.token === null;
     }
 
     isLoggedInAsAdvertiser(): boolean  {
@@ -53,11 +56,15 @@ export class UserService {
     }
     
     private mapUser(response: Response): boolean {
-        this.token = response.json().token;
-        this.labels = response.json().labels;
-        if (this.token) {
-            localStorage.setItem('currentUser', JSON.stringify({ labels: this.labels, token: this.token }));        
-            return true;
+        try {
+            this.token = response.json().token;
+            this.labels = response.json().labels;
+            if (this.token) {
+                localStorage.setItem('currentUser', JSON.stringify({ labels: this.labels, token: this.token }));        
+                return true;
+            }
+        } catch (error) {
+            return false;
         }
         return false;
      }

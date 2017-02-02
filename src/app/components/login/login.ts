@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from './../../services/user.service';
+import { AlertService } from './../../services/alert.service';
 import { Router } from '@angular/router';
 
 @Component( {
@@ -12,7 +13,7 @@ export class Login {
 
     model: any = {};
 
-    constructor( private router: Router, private userServcie: UserService ) { }
+    constructor( private router: Router, private userServcie: UserService, private alertService: AlertService ) { }
 
     login() {
         this.userServcie.login( this.model.email, this.model.password )
@@ -20,10 +21,11 @@ export class Login {
                 if ( result === true) {
                     this.redirect();
                 } else {
+                    this.alertService.error('E-mail eller password er forkert!');
                 }
             });
     }
-
+    
     private redirect(): void {
         if ( this.userServcie.isLoggedInAsAdvertiser() ) {
             this.router.navigate( ['/advertiser/planning'] );
