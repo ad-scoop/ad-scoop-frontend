@@ -2,13 +2,19 @@ import { UserRole } from  './user.role';
 
 export class User {
     
-    constructor(email: string, role : UserRole) {
+    constructor(email: string, password : string) {
         this.email = email;
-        this.role = role;
+        this.password = password;
     }
     
     email: string;
 
-    role: UserRole;
-
+    password: string;
+    
+    firstname: string;
+    
+    lastname: string; 
+    
+    labels: string[];
+    
 }
