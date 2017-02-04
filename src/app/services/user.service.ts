@@ -10,16 +10,9 @@ import { UserRole } from './../model/user.role';
 @Injectable()
 export class UserService {
 
-    private token: string | null;
-    private labels: string[] | null;
-    
     private baseUrl: string = 'http://localhost:8181/user';
 
-    constructor(private http : Http) {
-        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        this.token = currentUser && currentUser.token;
-        this.labels = currentUser && currentUser.labels;
-    }
+    constructor(private http : Http) {  }
 
     login( email: string, password: string ): Observable<boolean> {
         return this.http
@@ -28,28 +21,36 @@ export class UserService {
     }
 
     logout(): void {
-        this.token = null;
-        this.labels = null;
         localStorage.setItem('currentUser', null);
     }
 
     isLoggedIn(): boolean {
-        return this.token != null;
+        return this.getToken() != null;
     }
 
     isNotLoggedIn(): boolean {
-        return this.token === null;
+        return this.getToken() === null;
     }
 
     isLoggedInAsAdvertiser(): boolean  {
-        return this.isLoggedIn() && this.labels.find(e => e === 'advertiser') != undefined;
+        return this.isLoggedIn() && this.getLabels().find(e => e === 'advertiser') != undefined;
     }
 
     isLoggedAsProvider(): boolean  {
-        return this.isLoggedIn() && this.labels.find(e => e === 'provider') != undefined;
+        return this.isLoggedIn() && this.getLabels().find(e => e === 'provider') != undefined;
     }
     
-    private getHeaders(){
+    getToken(): string {
+        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        return currentUser && currentUser.token;
+    }
+    
+    getLabels(): string[] {
+        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        return currentUser && currentUser.labels;
+    }
+    
+    private getHeaders(): Headers {
         let headers = new Headers();
         headers.append('Accept', 'application/json');
         return headers;
@@ -57,10 +58,10 @@ export class UserService {
     
     private mapUser(response: Response): boolean {
         try {
-            this.token = response.json().token;
-            this.labels = response.json().labels;
-            if (this.token) {
-                localStorage.setItem('currentUser', JSON.stringify({ labels: this.labels, token: this.token }));        
+            let token = response.json().token;
+            let labels = response.json().labels;
+            if (token) {
+                localStorage.setItem('currentUser', JSON.stringify({ labels: labels, token: token }));        
                 return true;
             }
         } catch (error) {
