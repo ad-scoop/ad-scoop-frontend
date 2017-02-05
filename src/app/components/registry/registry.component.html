@@ -6,7 +6,6 @@
 				<div md-card-avatar><md-icon>person</md-icon></div>
     			<md-card-title>Registere</md-card-title> 
 			</md-card-header> 
-
 			
 			<md-input id="firstname" placeholder="Firstname" focuced tabindex="1" [(ngModel)]="model.firstname" name="firstname" required #firstname="ngModel">
 				<md-hint *ngIf="f.hasError('required','firstname')" [ngStyle]="{'color': 'red'}">Fornavnet er krævet</md-hint>
