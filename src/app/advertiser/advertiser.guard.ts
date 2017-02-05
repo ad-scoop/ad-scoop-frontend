@@ -10,11 +10,11 @@ export class AdvertiserGuard implements CanActivate, CanActivateChild {
     constructor( private userService: UserService, private router: Router ) { }
 
     canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot ): Observable<boolean> {
-//        if (this.userService.isLoggedIn()) {
-//            return Observable.of(true);
-//        }
-//        this.router.navigate(['/login']);
-        return Observable.of(true);
+        if (this.userService.isLoggedIn()) {
+            return Observable.of(true);
+        }
+        this.router.navigate(['/login']);
+        return Observable.of(false);
     }
 
     canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
