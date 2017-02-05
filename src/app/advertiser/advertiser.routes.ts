@@ -5,8 +5,8 @@ import { AdvertiserGuard } from './advertiser.guard';
 
 
 export const advertiserRoutes: Routes = [
-  { path: 'advertiser', 
-    component: AdvertiserComponent, 
+  { path: 'advertiser',
+    component: AdvertiserComponent,
     canActivate: [AdvertiserGuard],
     children: [ {
                path: '',
@@ -14,7 +14,7 @@ export const advertiserRoutes: Routes = [
                children: [
                    { path: 'planning', component: Planning },
                ]
-        } 
+        }
     ]
   }
 ];

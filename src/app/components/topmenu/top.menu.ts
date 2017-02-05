@@ -10,12 +10,12 @@ import { Router } from '@angular/router';
 })
 export class TopMenu {
 
-    constructor(public userService: UserService, private router: Router, ) { }
+    constructor(public userService: UserService, private router: Router) { }
 
     logout() {
         this.userService.logout();
         this.router.navigate( ['/'] );
     }
 
-    
 }
+

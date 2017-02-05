@@ -10,9 +10,9 @@ import { UserRole } from './../model/user.role';
 @Injectable()
 export class UserService {
 
-    private baseUrl: string = 'http://localhost:8181/user';
+    private baseUrl = 'http://localhost:8181/user';
 
-    constructor(private http : Http) {  }
+    constructor(private http: Http) {  }
 
     login( email: string, password: string ): Observable<boolean> {
         return this.http
@@ -21,11 +21,11 @@ export class UserService {
     }
 
     logout(): void {
-        localStorage.setItem('currentUser', null);
+        localStorage.removeItem('currentUser');
     }
 
     isLoggedIn(): boolean {
-        return this.getToken() != null;
+        return this.getToken() !== null;
     }
 
     isNotLoggedIn(): boolean {
@@ -33,35 +33,35 @@ export class UserService {
     }
 
     isLoggedInAsAdvertiser(): boolean  {
-        return this.isLoggedIn() && this.getLabels().find(e => e === 'advertiser') != undefined;
+        return this.isLoggedIn() && this.getLabels().find(e => e === 'advertiser') !== null;
     }
 
     isLoggedAsProvider(): boolean  {
-        return this.isLoggedIn() && this.getLabels().find(e => e === 'provider') != undefined;
+        return this.isLoggedIn() && this.getLabels().find(e => e === 'provider') !== null;
     }
-    
+
     getToken(): string {
-        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         return currentUser && currentUser.token;
     }
-    
+
     getLabels(): string[] {
-        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         return currentUser && currentUser.labels;
     }
-    
+
     private getHeaders(): Headers {
         let headers = new Headers();
         headers.append('Accept', 'application/json');
         return headers;
     }
-    
+
     private mapUser(response: Response): boolean {
         try {
             let token = response.json().token;
             let labels = response.json().labels;
             if (token) {
-                localStorage.setItem('currentUser', JSON.stringify({ labels: labels, token: token }));        
+                localStorage.setItem('currentUser', JSON.stringify({ labels: labels, token: token }));
                 return true;
             }
         } catch (error) {
@@ -69,6 +69,6 @@ export class UserService {
         }
         return false;
      }
-    
+
 }
 

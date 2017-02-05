@@ -1,0 +1,24 @@
+.radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.radio-button {
+  margin: 5px;
+}
+
+.selected-value {
+  margin: 15px 0;
+}
+
+.input {
+  width: 150px;
+}
+
+.content {
+	height: 350px;
+}
+
+.right {
+	float: right;
+}
