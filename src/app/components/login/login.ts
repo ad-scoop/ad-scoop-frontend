@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { RegistryComponent } from '../registry/registry.component'
+import { Component, ViewContainerRef } from '@angular/core';
 import { UserService } from './../../services/user.service';
 import { AlertService } from './../../services/alert.service';
 import { Router } from '@angular/router';
+import {MdDialog, MdDialogConfig, MdDialogRef} from '@angular/material';
 
 @Component( {
     selector: 'login',
@@ -11,9 +13,15 @@ import { Router } from '@angular/router';
 
 export class Login {
 
+    dialogRef: MdDialogRef<any>;
     model: any = {};
 
-    constructor( private router: Router, private userServcie: UserService, private alertService: AlertService ) { }
+    constructor(
+      private router: Router,
+      private userServcie: UserService,
+      private alertService: AlertService,
+      public dialog: MdDialog,
+      public viewContainerRef: ViewContainerRef ) { }
 
     login() {
         this.userServcie.login( this.model.email, this.model.password )
@@ -25,7 +33,17 @@ export class Login {
                 }
             });
     }
-    
+
+    registry(): void {
+      let config = new MdDialogConfig();
+      config.viewContainerRef = this.viewContainerRef;
+
+      this.dialogRef = this.dialog.open(RegistryComponent, config);
+      this.dialogRef.afterClosed().subscribe(result => {
+        this.dialogRef = null;
+      });
+    }
+
     private redirect(): void {
         if ( this.userServcie.isLoggedInAsAdvertiser() ) {
             this.router.navigate( ['/advertiser/planning'] );
@@ -33,6 +51,5 @@ export class Login {
             this.router.navigate( ['/provider/planning'] );
         }
     }
-
 
 }

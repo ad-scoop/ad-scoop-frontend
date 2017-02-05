@@ -1,0 +1,39 @@
+<form class="center" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+	<md-card class="cardWidth"> 
+		<md-card-content> 
+			
+			<md-card-header>
+				<div md-card-avatar><md-icon>person</md-icon></div>
+    			<md-card-title>Registere</md-card-title> 
+			</md-card-header> 
+
+			
+			<md-input id="firstname" placeholder="Firstname" focuced tabindex="1" [(ngModel)]="model.firstname" name="firstname" required #firstname="ngModel">
+				<md-hint *ngIf="f.hasError('required','firstname')" [ngStyle]="{'color': 'red'}">Fornavnet er krævet</md-hint>
+			</md-input>
+
+			<md-input id="middelltname" placeholder="middelltname" focuced tabindex="1" [(ngModel)]="model.middelltname" name="middelltname"></md-input>
+
+			<md-input id="surname" placeholder="surname" focuced tabindex="1" [(ngModel)]="model.surname" name="surname" required #surname="ngModel">
+				<md-hint *ngIf="f.hasError('required','surname')" [ngStyle]="{'color': 'red'}">Efternavnet er krævet</md-hint>
+			</md-input>
+
+			<md-input id="email" placeholder="Email" focuced tabindex="1" [(ngModel)]="model.email" name="email" required #email="ngModel">
+				<md-hint *ngIf="f.hasError('required','email')" [ngStyle]="{'color': 'red'}">Email adressen er krævet</md-hint>
+			</md-input>
+
+			<md-input type="password" placeholder="Password" tabindex="2" [(ngModel)]="model.password" name="passeord" required >
+				<md-hint *ngIf="f.hasError('required','passeord')" [ngStyle]="{'color': 'red'}">Password er krævet</md-hint>
+			</md-input>
+
+			<md-input type="password" placeholder="PasswordCheck" tabindex="3" [(ngModel)]="model.password" name="passeord" required >
+				<md-hint *ngIf="f.hasError('required','passeord')" [ngStyle]="{'color': 'red'}">Password er krævet</md-hint>
+			</md-input>
+
+
+			<md-card-footer>
+				<button md-button align="end" tabindex="3" class="right">Opret</button>
+			</md-card-footer> 
+		</md-card-content> 
+	</md-card>
+</form>

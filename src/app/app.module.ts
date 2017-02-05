@@ -20,6 +20,7 @@ import { AlertService } from './services/alert.service';
 import { AdvertiserModule } from './advertiser/advertiser.module';
 
 import { DirectiveFoucs } from './utils/directive.foucs';
+import { RegistryComponent } from './components/registry/registry.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { DirectiveFoucs } from './utils/directive.foucs';
     Footer,
     UnderConstruction,
     Alert,
+    RegistryComponent,
   ],
   imports: [
     BrowserModule,
