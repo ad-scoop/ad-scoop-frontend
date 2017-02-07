@@ -1,6 +1,6 @@
 import { RegistryComponent } from '../registry/registry.component'
 import { Component, ViewContainerRef } from '@angular/core';
-import { UserService } from './../../services/user.service';
+import { AuthenticationService } from './../../services/authentication.service';
 import { AlertService } from './../../services/alert.service';
 import { Router } from '@angular/router';
 import {MdDialog, MdDialogConfig, MdDialogRef} from '@angular/material';
@@ -18,7 +18,7 @@ export class Login {
 
     constructor(
       private router: Router,
-      private userServcie: UserService,
+      private userServcie: AuthenticationService,
       private alertService: AlertService,
       public dialog: MdDialog,
       public viewContainerRef: ViewContainerRef ) { }

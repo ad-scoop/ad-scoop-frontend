@@ -1,4 +1,4 @@
-<form class="center" (ngSubmit)="f.form.valid && login()" #f="ngForm">
+<form class="center" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
 	<md-card class="cardWidth"> 
 		<md-card-content> 
 			
@@ -8,18 +8,18 @@
 			</md-card-header> 
 			
 			<md-input-container>
-				<input md-input id="email" placeholder="Email" focuced [(ngModel)]="model.email" name="email" required #email="ngModel">
-				<md-hint *ngIf="f.hasError('required','email')" [ngStyle]="{'color': 'red'}">Email adressen er krævet</md-hint>
+				<input md-input type="email" placeholder="Email" focuced [(ngModel)]="model.email" name="email" required #email="ngModel">
+				<md-hint *ngIf="email.errors && (email.dirty || email.touched)" [ngStyle]="{'color': 'red'}">Email adressen er krævet</md-hint>
 			</md-input-container>
-			
+				
 			<md-input-container>
-				<input md-input type="password" placeholder="Password" [(ngModel)]="model.password" name="passeord" required >
-				<md-hint *ngIf="f.hasError('required','passeord')" [ngStyle]="{'color': 'red'}">Password er krævet</md-hint>
+				<input md-input type="password" placeholder="Password" [(ngModel)]="model.password" name="password" required #password="ngModel">
+				<md-hint *ngIf="password.errors && (password.dirty || password.touched)" [ngStyle]="{'color': 'red'}">Password er krævet</md-hint>
 			</md-input-container>
 
 			<md-card-footer>
-				<button color="primary" md-button type="submit" align="end" >Log ind</button>
-				<button md-button align="end" class="right" (click)="registry()">Opret</button>
+				<button color="primary" md-button type="submit" align="end">Log ind</button>
+				<a md-button color="accent" align="end" class="right" (click)="registry()">Opret</a>
 			</md-card-footer> 
 		</md-card-content> 
 	</md-card>

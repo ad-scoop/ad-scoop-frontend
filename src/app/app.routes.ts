@@ -7,6 +7,6 @@ import { UnderConstruction } from './components/underconstruction/under.construc
 export const appRoutes: Routes = [
   { path: '', component: Home },
   { path: 'login', component: Login },
+  { path: 'regstry', component: RegistryComponent },
   { path: 'underConstruction', component: UnderConstruction }
-  
 ];

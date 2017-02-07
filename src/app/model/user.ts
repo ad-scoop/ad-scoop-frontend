@@ -1,20 +1,21 @@
 import { UserRole } from  './user.role';
 
 export class User {
-    
-    constructor(email: string, password : string) {
-        this.email = email;
-        this.password = password;
-    }
-    
-    email: string;
 
-    password: string;
-    
-    firstname: string;
-    
-    lastname: string; 
-    
-    labels: string[];
-    
+    public email: string;
+    public password: string;
+    public firstname: string;
+    public middelname: string;
+    public lastname: string;
+    public labels: string[];
+
+    constructor(model: any) {
+      this.email = model.email;
+      this.password = model.password;
+      this.firstname = model.firstname;
+      this.middelname = model.middlename;
+      this.lastname = model.lastname;
+      this.labels = [model.role];
+  }
+
 }

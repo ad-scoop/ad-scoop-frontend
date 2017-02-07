@@ -16,3 +16,10 @@ login {
     min-height: 700px;
 }
 
+.alert-danger {
+	color: red;
+}
+
+.alert {
+	text-align: center;
+}

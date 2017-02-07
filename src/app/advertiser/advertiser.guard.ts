@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild } from '@angular/router';
-import { UserService } from './../services/user.service';
+import { AuthenticationService } from './../services/authentication.service';
 import { Observable } from 'rxjs';
 
 
 @Injectable()
 export class AdvertiserGuard implements CanActivate, CanActivateChild {
 
-    constructor( private userService: UserService, private router: Router ) { }
+    constructor( private userService: AuthenticationService, private router: Router ) { }
 
     canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot ): Observable<boolean> {
         if (this.userService.isLoggedIn()) {

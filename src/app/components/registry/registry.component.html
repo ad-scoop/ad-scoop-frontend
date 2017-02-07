@@ -1,54 +1,57 @@
-<form class="center" (ngSubmit)="f.form.valid && login()" #f="ngForm">
-	<md-card> 
+<form class="center" (ngSubmit)="f.form.valid && create()" #f="ngForm">
+	<md-card>
 		<md-card-content class="content"> 
-			
+			<alert></alert> 
 			<md-card-header>
 				<div md-card-avatar><md-icon>person</md-icon></div>
     			<md-card-title>Registere</md-card-title> 
 			</md-card-header> 
 			
-			<md-radio-group>
-  				<md-radio-button class="radio-button" value="advetiser" >Jeg er annoncør</md-radio-button>
-  				<md-radio-button class="radio-button" value="provider" >Jeg har et website</md-radio-button>
+			<md-radio-group clas="radio-button" [(ngModel)]="model.role" name="role">
+  				<md-radio-button class="radio-button" value="advetiser" checked>Jeg er annoncør</md-radio-button>
+  				<md-radio-button class="radio-button" value="provider">Jeg har et website</md-radio-button>
 			</md-radio-group>
 			
 			<div>
 				<md-input-container class="input">
-					<input md-input id="firstname" placeholder="Fornavn" [(ngModel)]="model.firstname" name="firstname" required #firstname="ngModel">
-					<md-hint *ngIf="f.hasError('required','firstname')" [ngStyle]="{'color': 'red'}">Fornavnet er krævet</md-hint>
+					<input md-input placeholder="Fornavn" [(ngModel)]="model.firstname" name="firstname" required #firstname="ngModel">
+					<md-hint *ngIf="firstname.errors && (firstname.dirty || firstname.touched)" [ngStyle]="{'color': 'red'}">Fornavnet er krævet</md-hint>
 				</md-input-container>
 	
 				<md-input-container class="input">
-					<input md-input id="middelltname" placeholder="middelltname" [(ngModel)]="model.middelltname" name="middelltname">
+					<input md-input placeholder="Mellemnavn" [(ngModel)]="model.middelltname" name="middelltname" #middelltname="ngModel">
 				</md-input-container>
-	
+		
 				<md-input-container class="input">
-					<input md-input id="surname" placeholder="surname" [(ngModel)]="model.surname" name="surname" required #surname="ngModel">
-					<md-hint *ngIf="f.hasError('required','surname')" [ngStyle]="{'color': 'red'}">Efternavnet er krævet</md-hint>
+					<input md-input placeholder="Efternavn" [(ngModel)]="model.lastname" name="lastname" required #lastname="ngModel">
+					<md-hint *ngIf="lastname.errors && (lastname.dirty || lastname.touched)" [ngStyle]="{'color': 'red'}">Efternavnet er krævet</md-hint>
+				</md-input-container>
+			</div>
+ 	
+			<div>
+				<md-input-container class="input">
+					<input md-input tyep="email" placeholder="Email" [(ngModel)]="model.email" name="email" required #email="ngModel">
+					<md-hint *ngIf="email.errors && (email.dirty || email.touched)" [ngStyle]="{'color': 'red'}">Email adressen er krævet</md-hint>
 				</md-input-container>
 			</div>
 
 			<div>
 				<md-input-container class="input">
-					<input md-input id="email" placeholder="Email" [(ngModel)]="model.email" name="email" required #email="ngModel">
-					<md-hint *ngIf="f.hasError('required','email')" [ngStyle]="{'color': 'red'}">Email adressen er krævet</md-hint>
+					<input md-input type="password" placeholder="Password" [(ngModel)]="model.password" name="password" required #password="ngModel">
+					<md-hint *ngIf="password.errors && (password.dirty || password.touched)" [ngStyle]="{'color': 'red'}">Password er krævet</md-hint>
 				</md-input-container>
 			</div>
 
 			<div>
 				<md-input-container class="input">
-					<input md-input type="password" placeholder="Password" [(ngModel)]="model.password" name="passeord" required >
-					<md-hint *ngIf="f.hasError('required','passeord')" [ngStyle]="{'color': 'red'}">Password er krævet</md-hint>
-				</md-input-container>
-	
-				<md-input-container class="input">
-					<input md-input type="password" placeholder="PasswordCheck" [(ngModel)]="model.password" name="passeord" required >
-					<md-hint *ngIf="f.hasError('required','passeord')" [ngStyle]="{'color': 'red'}">Password er krævet</md-hint>
+					<input md-input type="password" placeholder="Gendtag password" [(ngModel)]="model.passwordtest" name="passwordtest" required #passwordtest="ngModel">
+					<md-hint *ngIf="passwordtest.errors && (passwordtest.dirty || passwordtest.touched)" [ngStyle]="{'color': 'red'}">Password er krævet</md-hint>
 				</md-input-container>
 			</div>
 
 			<md-card-footer>
-				<button md-button align="end" class="right">Opret</button>
+				<button md-button color="accent" align="end" class="right" (click)="dialogRef.close()">Annuller</button>
+				<button md-button color="primary" align="end" class="right" type="submit">Opret</button>
 			</md-card-footer> 
 		</md-card-content> 
 	</md-card>

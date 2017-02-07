@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { UserService } from './../../services/user.service';
+import { AuthenticationService } from './../../services/authentication.service';
 import { Router } from '@angular/router';
 
 @Component( {
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class TopMenu {
 
-    constructor(public userService: UserService, private router: Router) { }
+    constructor(public userService: AuthenticationService, private router: Router) { }
 
     logout() {
         this.userService.logout();

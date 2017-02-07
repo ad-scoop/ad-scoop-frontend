@@ -14,13 +14,14 @@ import { Footer } from './components/footer/footer';
 import { UnderConstruction } from './components/underconstruction/under.construction';
 import { Alert } from './components/alert/alert';
 
-import { UserService } from './services/user.service';
+import { AuthenticationService } from './services/authentication.service';
 import { AlertService } from './services/alert.service';
 
 import { AdvertiserModule } from './advertiser/advertiser.module';
 
 import { DirectiveFoucs } from './utils/directive.foucs';
 import { RegistryComponent } from './components/registry/registry.component';
+import { UserService } from './services/user.service'
 
 @NgModule({
   declarations: [
@@ -43,8 +44,9 @@ import { RegistryComponent } from './components/registry/registry.component';
     AdvertiserModule,
   ],
   providers: [
-    UserService,
+    AuthenticationService,
     AlertService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
