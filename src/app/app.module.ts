@@ -21,7 +21,9 @@ import { AdvertiserModule } from './advertiser/advertiser.module';
 
 import { DirectiveFoucs } from './utils/directive.foucs';
 import { RegistryComponent } from './components/registry/registry.component';
-import { UserService } from './services/user.service'
+import { UserService } from './services/user.service';
+
+import 'hammerjs';
 
 @NgModule({
   declarations: [

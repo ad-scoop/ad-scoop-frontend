@@ -18,5 +18,8 @@
       "../node_modules/@types"
     ]
   },
-  "compileOnSave": false
+  "compileOnSave": false,
+  "types": [
+      "hammerjs"
+    ]
 }

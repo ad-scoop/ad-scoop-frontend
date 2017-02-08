@@ -25,13 +25,10 @@ export class Login {
 
     login() {
         this.userServcie.login( this.model.email, this.model.password )
-            .subscribe( result => {
-                if ( result === true) {
-                    this.redirect();
-                } else {
-                    this.alertService.error('E-mail eller password er forkert!');
-                }
-            });
+            .subscribe(
+              (data) => this.redirect(),
+              (err) => this.alertService.error('E-mail eller password er forkert!')
+            );
     }
 
     registry(): void {
