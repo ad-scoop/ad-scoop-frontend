@@ -18,6 +18,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { AlertService } from './services/alert.service';
 
 import { AdvertiserModule } from './advertiser/advertiser.module';
+import { ActivationComponent } from './components/activation/activation.component'
 
 import { DirectiveFoucs } from './utils/directive.foucs';
 import { RegistryComponent } from './components/registry/registry.component';
@@ -36,6 +37,7 @@ import 'hammerjs';
     UnderConstruction,
     Alert,
     RegistryComponent,
+    ActivationComponent,
   ],
   imports: [
     BrowserModule,
