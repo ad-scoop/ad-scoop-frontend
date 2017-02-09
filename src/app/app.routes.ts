@@ -1,3 +1,4 @@
+import { ActivationComponent } from './components/activation/activation.component'
 import { Routes } from '@angular/router';
 import { Home } from './components/home/home';
 import { Login } from './components/login/login';
@@ -8,5 +9,7 @@ export const appRoutes: Routes = [
   { path: '', component: Home },
   { path: 'login', component: Login },
   { path: 'regstry', component: RegistryComponent },
-  { path: 'underConstruction', component: UnderConstruction }
+  { path: 'underConstruction', component: UnderConstruction },
+  { path: 'activation', component: ActivationComponent },
+
 ];

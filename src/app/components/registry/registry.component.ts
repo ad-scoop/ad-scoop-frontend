@@ -25,14 +25,17 @@ export class RegistryComponent implements OnInit {
   create(): void {
     this.userService.create(new User(this.model))
       .subscribe(
-        (data) => this.alertService.error('Du er nu oprret, en mail med et aktiverings link er afsendt.'),
-        (err) => {
-          if (err.status === 409) {
-            this.alertService.error('E-mail adressen findes i forvejen');
-          } else {
-            this.alertService.error('Fejl ved oprettelse');
-          }
-    });
+      (data) => {
+        this.dialogRef.close();
+        this.alertService.success('Du bliver nu afsendt en mail med et aktiverings link.');
+      },
+      (err) => {
+        if (err.status === 409) {
+          this.alertService.error('E-mail adressen findes i forvejen');
+        } else {
+          this.alertService.error('Fejl ved oprettelse');
+        }
+      });
   }
 
 }

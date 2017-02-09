@@ -10,22 +10,34 @@ export class UserService {
 
   constructor(private http: Http) { }
 
-  create(newUser: any): Observable<boolean> {
-      return this.http
-              .post(`${this.baseUrl}/create`, newUser, this.getHeaders())
-              .map(response => {
-                  if (response.status < 200 || response.status >= 300) {
-                    throw new Error('' + response.status);
-                  } else {
-                    return true;
-                  }
-              });
+  public create(newUser: any): Observable<boolean> {
+    return this.http
+      .post(this.baseUrl + '/create', newUser, this.getHeaders())
+      .map(response => {
+        if (response.status < 200 || response.status >= 300) {
+          throw new Error('' + response.status);
+        } else {
+          return true;
+        }
+      });
+  }
+
+  public activate(token: string): Observable<boolean> {
+    return this.http
+      .post(this.baseUrl + '/activate', token, this.getHeaders())
+      .map(response => {
+        if (response.status < 200 || response.status >= 300) {
+          throw new Error('' + response.status);
+        } else {
+          return true;
+        }
+      });
   }
 
   private getHeaders(): Headers {
-        let headers = new Headers();
-        headers.append('Accept', 'application/json');
-        return headers;
+    let headers = new Headers();
+    headers.append('Accept', 'application/json');
+    return headers;
   }
 
 }

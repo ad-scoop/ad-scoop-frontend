@@ -17,7 +17,7 @@ export class AuthenticationService {
 
     login( email: string, password: string ): Observable<boolean> {
         return this.http
-            .post('${this.baseUrl}/login', { email: email, password: password }, this.getHeaders())
+            .post(this.baseUrl + '/login', { email: email, password: password }, this.getHeaders())
             .map(this.mapUser)
             .catch(response => {
               throw new Error('' + response.status)
