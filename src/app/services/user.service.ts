@@ -12,7 +12,7 @@ export class UserService {
 
   public create(newUser: any): Observable<boolean> {
     return this.http
-      .post(this.baseUrl + '/create', newUser, this.getHeaders())
+      .post(this.baseUrl + '/create', newUser, this.getJsonHeaders())
       .map(response => {
         if (response.status < 200 || response.status >= 300) {
           throw new Error('' + response.status);
@@ -24,7 +24,7 @@ export class UserService {
 
   public activate(token: string): Observable<boolean> {
     return this.http
-      .post(this.baseUrl + '/activate', token, this.getHeaders())
+      .post(this.baseUrl + '/activate', token, this.getTextHeaders())
       .map(response => {
         if (response.status < 200 || response.status >= 300) {
           throw new Error('' + response.status);
@@ -34,9 +34,15 @@ export class UserService {
       });
   }
 
-  private getHeaders(): Headers {
+  private getJsonHeaders(): Headers {
     let headers = new Headers();
     headers.append('Accept', 'application/json');
+    return headers;
+  }
+
+  private getTextHeaders(): Headers {
+    let headers = new Headers();
+    headers.append('Content-Type', 'text/html; charset=utf-8');
     return headers;
   }
 
