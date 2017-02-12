@@ -7,8 +7,8 @@ import { AdvertiserComponent } from './advertiser.component';
 import { AdvertiserGuard } from './advertiser.guard';
 import { MaterialModule } from '@angular/material';
 
-
 import { CampaignComponent } from './components/campaign/campaign.component';
+import { BannerlistComponent } from './components/bannerlist/bannerlist.component';
 
 @NgModule({
   imports: [
@@ -20,6 +20,7 @@ import { CampaignComponent } from './components/campaign/campaign.component';
   declarations: [
     CampaignComponent,
     AdvertiserComponent,
+    BannerlistComponent,
   ],
   providers: [
     AdvertiserGuard,
