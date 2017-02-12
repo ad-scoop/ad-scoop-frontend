@@ -9,6 +9,7 @@ import { MaterialModule } from '@angular/material';
 
 import { CampaignComponent } from './components/campaign/campaign.component';
 import { BannerlistComponent } from './components/bannerlist/bannerlist.component';
+import { BannerUploadComponent } from './components/bannerupload/bannerupload.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { BannerlistComponent } from './components/bannerlist/bannerlist.componen
     CampaignComponent,
     AdvertiserComponent,
     BannerlistComponent,
+    BannerUploadComponent,
   ],
   providers: [
     AdvertiserGuard,
