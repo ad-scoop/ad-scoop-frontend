@@ -14,23 +14,23 @@
 			
 			<div>
 				<md-input-container class="input">
-					<input md-input placeholder="Fornavn" [(ngModel)]="model.firstname" name="firstname" required #firstname="ngModel">
+					<input md-input placeholder="Fornavn" [(ngModel)]="model.firstname" name="firstname" required maxlength="200" #firstname="ngModel">
 					<md-hint *ngIf="firstname.errors && (firstname.dirty || firstname.touched)" [ngStyle]="{'color': 'red'}">Fornavnet er krævet</md-hint>
 				</md-input-container>
 	
 				<md-input-container class="input">
-					<input md-input placeholder="Mellemnavn" [(ngModel)]="model.middelltname" name="middelltname" #middelltname="ngModel">
+					<input md-input placeholder="Mellemnavn" [(ngModel)]="model.middelltname" name="middelltname" maxlength="200" #middelltname="ngModel">
 				</md-input-container>
 		
 				<md-input-container class="input">
-					<input md-input placeholder="Efternavn" [(ngModel)]="model.lastname" name="lastname" required #lastname="ngModel">
+					<input md-input placeholder="Efternavn" [(ngModel)]="model.lastname" name="lastname" required maxlength="200" #lastname="ngModel">
 					<md-hint *ngIf="lastname.errors && (lastname.dirty || lastname.touched)" [ngStyle]="{'color': 'red'}">Efternavnet er krævet</md-hint>
 				</md-input-container>
 			</div>
  	
 			<div>
 				<md-input-container class="input">
-					<input md-input tyep="email" placeholder="Email" [(ngModel)]="model.email" name="email" required #email="ngModel" autocomplete="off">
+					<input md-input tyep="email" placeholder="Email" [(ngModel)]="model.email" name="email" required #email="ngModel" maxlength="200" autocomplete="off">
 					<md-hint *ngIf="email.errors && (email.dirty || email.touched)" [ngStyle]="{'color': 'red'}">Email adressen er krævet</md-hint>
 				</md-input-container>
 			</div>
@@ -46,6 +46,7 @@
 				<md-input-container class="input">
 					<input md-input type="password" placeholder="Gendtag password" [(ngModel)]="model.passwordtest" name="passwordtest" required #passwordtest="ngModel">
 					<md-hint *ngIf="passwordtest.errors && (passwordtest.dirty || passwordtest.touched)" [ngStyle]="{'color': 'red'}">Password er krævet</md-hint>
+					<md-hint *ngIf="passwordtest.value != password.value && (passwordtest.dirty || passwordtest.touched)" [ngStyle]="{'color': 'red'}">De to password er forskellige</md-hint>
 				</md-input-container>
 			</div>
 

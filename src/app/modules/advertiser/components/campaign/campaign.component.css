@@ -1,0 +1,19 @@
+.right {
+	float: right;
+	margin-bottom: 24px;
+}
+
+.center {
+    margin: auto;
+    height: 210px;
+    transform: translateY(-50%);
+    position: relative;
+    top: 200px;
+}
+
+.cardWidth {
+    width: 90%;
+    margin: auto;
+    height: 210px;
+    margin-bottom: 5px;
+}

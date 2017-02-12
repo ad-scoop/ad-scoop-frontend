@@ -43,9 +43,9 @@ export class Login {
 
     private redirect(): void {
         if ( this.userServcie.isLoggedInAsAdvertiser() ) {
-            this.router.navigate( ['/advertiser/planning'] );
+            this.router.navigate( ['/advertiser/campaigns'] );
         } else if ( this.userServcie.isLoggedAsProvider() ) {
-            this.router.navigate( ['/provider/planning'] );
+            this.router.navigate( ['/provider/sites'] );
         }
     }
 

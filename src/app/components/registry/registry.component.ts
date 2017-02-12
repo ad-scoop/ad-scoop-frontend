@@ -1,7 +1,8 @@
 import { User } from '../../model/user'
 import { AlertService } from '../../services/alert.service'
 import { UserService } from '../../services/user.service'
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, Input, OnInit, ElementRef } from '@angular/core';
+import { Validator, AbstractControl } from '@angular/forms'
 import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
 
 @Component({
@@ -10,6 +11,9 @@ import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
   styleUrls: ['./registry.component.css']
 })
 export class RegistryComponent implements OnInit {
+
+  @Input() passwordtest: string;
+  @Input() password: string;
 
   model: any = {};
 

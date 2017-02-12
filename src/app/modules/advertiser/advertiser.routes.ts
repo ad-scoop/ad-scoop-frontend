@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { Planning } from './components/planning/planning';
+import { CampaignComponent } from './components/campaign/campaign.component';
 import { AdvertiserComponent } from './advertiser.component';
 import { AdvertiserGuard } from './advertiser.guard';
 
@@ -12,7 +12,7 @@ export const advertiserRoutes: Routes = [
                path: '',
                canActivateChild: [AdvertiserGuard],
                children: [
-                   { path: 'planning', component: Planning },
+                   { path: 'campaigns', component: CampaignComponent },
                ]
         }
     ]

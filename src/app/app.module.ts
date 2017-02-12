@@ -17,11 +17,13 @@ import { Alert } from './components/alert/alert';
 import { AuthenticationService } from './services/authentication.service';
 import { AlertService } from './services/alert.service';
 
-import { AdvertiserModule } from './advertiser/advertiser.module';
+import { AdvertiserModule } from './modules/advertiser/advertiser.module';
+import { ProviderModule } from './modules/provider/provider.module';
 import { ActivationComponent } from './components/activation/activation.component';
 
 import { DirectiveFoucs } from './utils/directive.foucs';
 import { RegistryComponent } from './components/registry/registry.component';
+import { CampaignService } from './services/campaign.service'
 import { UserService } from './services/user.service';
 
 import 'hammerjs';
@@ -46,11 +48,13 @@ import 'hammerjs';
     HttpModule,
     MaterialModule.forRoot(),
     AdvertiserModule,
+    ProviderModule,
   ],
   providers: [
     AuthenticationService,
     AlertService,
-    UserService
+    UserService,
+    CampaignService,
   ],
   bootstrap: [AppComponent]
 })

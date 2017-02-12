@@ -1,0 +1,25 @@
+<form class="center" (ngSubmit)="f.form.valid && create()" #f="ngForm" novalidate>
+	<md-card class="cardWidth"> 
+		<md-card-content> 
+			
+			<md-card-header>
+				<div md-card-avatar><md-icon>assignment</md-icon></div>
+    			<md-card-title>Kampagne</md-card-title> 
+			</md-card-header> 
+			
+			<md-input-container>
+				<input md-input type="text" placeholder="Navn" focuced [(ngModel)]="model.name" name="name" required #name="ngModel">
+				<md-hint *ngIf="name.errors && (name.dirty || name.touched)" [ngStyle]="{'color': 'red'}">Navnet er kr�vet</md-hint>
+			</md-input-container>
+				
+			<md-input-container>
+				<input md-input type="number" placeholder="Maksimal kampangne beløb pr. dag" [(ngModel)]="model.maxamount" name="maxamount" required #maxamount="ngModel">
+				<md-hint *ngIf="maxamount.errors && (maxamount.dirty || maxamount.touched)" [ngStyle]="{'color': 'red'}">Bel�bet er kr�vet</md-hint>
+			</md-input-container>
+
+			<md-card-footer>
+				<button color="primary" md-button type="submit" align="end">Næste</button>
+			</md-card-footer> 
+		</md-card-content> 
+	</md-card>
+</form>
