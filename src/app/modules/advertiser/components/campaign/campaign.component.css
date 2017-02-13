@@ -1,19 +1,50 @@
-.right {
+.cardWidth {
+	margin: auto;
+	margin-bottom: 10px;
+	float: left;
+	width: 100%;
+	background-color: #dae8e7;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.cardWidth md-card-header {
+	margin-left: 10px;
+}
+
+.cardWidth button {
 	float: right;
-	margin-bottom: 24px;
+	margin-right: 12px;
+	position: relative;
+	top: -25px;
+}
+
+.cardWidth md-card {
+	width: 29%;
+	float: left;
+	height: 100px;
+	margin: 10px;
+}
+
+.banner {
+	overflow: auto;
 }
 
 .center {
-    margin: auto;
-    height: 210px;
-    transform: translateY(-50%);
-    position: relative;
-    top: 200px;
+	margin: auto;
 }
 
-.cardWidth {
-    width: 90%;
-    margin: auto;
-    height: 210px;
-    margin-bottom: 5px;
+.headerbuttons {
+	float: right;
+}
+
+@media ( max-width : 770px) {
+	
+	.cardWidth md-card {
+		width: auto;
+		float: none;
+		height: 100px;
+		margin: 10px;
+	}
+	
 }

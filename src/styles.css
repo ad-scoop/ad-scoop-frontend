@@ -1,6 +1,6 @@
 @import '~https://fonts.googleapis.com/icon?family=Material+Icons';
 
-body, html, home, app-root, top-Menu, footer, login {
+body, html, home, app-root, top-Menu, footer, login, app-capaign {
 	width: 100%;
 	margin: 0;
 	display: block;

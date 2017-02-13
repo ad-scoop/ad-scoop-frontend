@@ -2,6 +2,8 @@ import { Campaign } from '../../../../model/campaign';
 import { CampaignService } from '../../../../services/campaign.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { BannerComponent } from './../banner/banner.component';
+import { SiteComponent } from './../site/site.component';
 
 @Component({
   selector: 'app-campaign',

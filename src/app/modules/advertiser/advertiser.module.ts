@@ -8,9 +8,10 @@ import { AdvertiserGuard } from './advertiser.guard';
 import { MaterialModule } from '@angular/material';
 
 import { CampaignComponent } from './components/campaign/campaign.component';
-import { BannerlistComponent } from './components/bannerlist/bannerlist.component';
+import { BannerComponent } from './components/banner/banner.component';
 import { BannerUploadComponent } from './components/bannerupload/bannerupload.component';
 import { CreatecampaignComponent } from './components/createcampaign/createcampaign.component';
+import { SiteComponent } from './components/site/site.component'
 
 @NgModule({
   imports: [
@@ -22,9 +23,10 @@ import { CreatecampaignComponent } from './components/createcampaign/createcampa
   declarations: [
     CampaignComponent,
     AdvertiserComponent,
-    BannerlistComponent,
+    BannerComponent,
     BannerUploadComponent,
     CreatecampaignComponent,
+    SiteComponent,
   ],
   providers: [
     AdvertiserGuard,
