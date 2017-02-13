@@ -6,7 +6,6 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 import { User } from './../model/user';
-import { UserRole } from './../model/user.role';
 
 @Injectable()
 export class AuthenticationService {

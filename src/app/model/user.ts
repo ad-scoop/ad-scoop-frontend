@@ -1,5 +1,3 @@
-import { UserRole } from  './user.role';
-
 export class User {
 
     public email: string;
