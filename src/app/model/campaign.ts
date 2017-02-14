@@ -10,6 +10,8 @@ export class Campaign {
   constructor(
     public name: string,
     public startDate: Date,
-    public maxValue: number) { }
+    public maxValue: number,
+    public clicks: number,
+    public price: number) { }
 
 }

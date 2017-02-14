@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SiteComponent implements OnInit {
 
-  @Input() site: Site;
+  @Input() sites: Site[];
 
 
   constructor() { }

@@ -1,6 +1,11 @@
 .bannerimg {
-	margin: 0;
-	height: 100px;
-	clip: auto;
-	width: 100px;
+    margin: 1px;
+    height: 75px;
+    clip: auto;
+    width: 100px;
+    float: left;
 } 
+
+h3 {
+	margin: 0;
+}

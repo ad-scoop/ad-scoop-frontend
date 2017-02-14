@@ -23,10 +23,14 @@
 	width: 29%;
 	float: left;
 	height: 100px;
-	margin: 10px;
+	margin: 0 0 10px 10px;
 }
 
 .banner {
+	overflow: auto;
+}
+
+.site {
 	overflow: auto;
 }
 
@@ -35,6 +39,22 @@
 }
 
 .headerbuttons {
+	float: right;
+}
+
+.campaign div {
+	padding-bottom: 5px;
+	width: 100%;
+}
+
+.campaign label {
+	display: inline-block;
+	font-weight: bold;
+}
+
+.campaign span {
+	display: inline-block;
+	text-align: right;
 	float: right;
 }
 

@@ -1,0 +1,15 @@
+table {
+	width: 100%;
+}
+
+th {
+	text-align: left;
+}
+
+.click {
+	text-align: right;
+}
+
+h3 {
+	margin: 0;
+}
