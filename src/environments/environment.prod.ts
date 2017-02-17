@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  userUrl: 'http://0.0.0.0:8181/user'
+  userUrl: 'http://ad-scoop.com:8181/user'
 };
