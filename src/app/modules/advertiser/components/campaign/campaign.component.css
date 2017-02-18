@@ -10,6 +10,13 @@
 
 .cardWidth md-card-header {
 	margin-left: 10px;
+	height: 25px;
+}
+.cardWidth md-card-title {
+	font-weight: bold;
+    font-size: 16px;
+    position: relative;
+    top: 2px;
 }
 
 .cardWidth button {
@@ -22,7 +29,7 @@
 .cardWidth md-card {
 	width: 29%;
 	float: left;
-	height: 100px;
+	height: 115px;
 	margin: 0 0 10px 10px;
 }
 
@@ -63,7 +70,7 @@
 	.cardWidth md-card {
 		width: auto;
 		float: none;
-		height: 100px;
+		height: 115px;
 		margin: 10px;
 	}
 	

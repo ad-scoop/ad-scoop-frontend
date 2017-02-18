@@ -2,8 +2,9 @@ export class Banner {
 
   constructor(
     public name: string,
-    public weight: number,
+    public width: number,
     public height: number,
+    public clicks: number,
     public picture: string) { }
 
 }

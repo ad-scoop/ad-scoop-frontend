@@ -1,4 +1,8 @@
 <h3>Reklamer</h3> 
-<div *ngFor="let banner of banners">
-	<img class="bannerimg" alt="manglende billede" [src]="banner.picture">
+<div class="banner" *ngFor="let banner of banners">
+	<label class="clicklabel">Klik</label>
+	<span class="clickvalue">{{banner.clicks}} stk.</span>
+	<img [alt]="banner.name" [src]="banner.picture">
+	<span class="heightvalue">{{banner.height}} px</span>
+	<span class="widthvalue">{{banner.width}} px</span>
 </div>
