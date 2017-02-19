@@ -1,3 +1,4 @@
+import { AppModule } from '../../app.module'
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -11,7 +12,8 @@ import { CampaignComponent } from './components/campaign/campaign.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { BannerUploadComponent } from './components/bannerupload/bannerupload.component';
 import { CreatecampaignComponent } from './components/createcampaign/createcampaign.component';
-import { SiteComponent } from './components/site/site.component'
+import { SiteComponent } from './components/site/site.component';
+import { ConfirmDialogComponent } from './components/confirmdialog/confirmdialog.component';
 
 @NgModule({
   imports: [
@@ -27,6 +29,7 @@ import { SiteComponent } from './components/site/site.component'
     BannerUploadComponent,
     CreatecampaignComponent,
     SiteComponent,
+    ConfirmDialogComponent,
   ],
   providers: [
     AdvertiserGuard,

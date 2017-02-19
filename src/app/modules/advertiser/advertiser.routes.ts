@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { CampaignComponent } from './components/campaign/campaign.component';
 import { AdvertiserComponent } from './advertiser.component';
 import { AdvertiserGuard } from './advertiser.guard';
+import { ConfirmDialogComponent } from './components/confirmdialog/confirmdialog.component';
 
 
 export const advertiserRoutes: Routes = [
@@ -13,6 +14,7 @@ export const advertiserRoutes: Routes = [
                canActivateChild: [AdvertiserGuard],
                children: [
                    { path: 'campaigns', component: CampaignComponent },
+                   { path: 'confirm', component: ConfirmDialogComponent },
                ]
         }
     ]

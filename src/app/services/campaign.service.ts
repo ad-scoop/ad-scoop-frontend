@@ -42,4 +42,8 @@ export class CampaignService {
     return Observable.of(this.campains);
   }
 
+  public remove(campaign: Campaign): void {
+    this.campains.splice(this.campains.indexOf(campaign), 1);
+  }
+
 }

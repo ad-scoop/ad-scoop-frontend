@@ -23,7 +23,7 @@ import { ActivationComponent } from './components/activation/activation.componen
 
 import { DirectiveFoucs } from './utils/directive.foucs';
 import { RegistryComponent } from './components/registry/registry.component';
-import { CampaignService } from './services/campaign.service'
+import { CampaignService } from './services/campaign.service';
 import { UserService } from './services/user.service';
 
 import 'hammerjs';
