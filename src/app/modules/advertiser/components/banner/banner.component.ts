@@ -1,18 +1,33 @@
 import { Banner } from '../../../../model/banner';
 import { Component, OnInit, Input } from '@angular/core';
+import { MdDialogRef, MdDialog } from '@angular/material';
 
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.css']
 })
-export class BannerComponent implements OnInit {
+export class BannerComponent {
 
   @Input() banners: Banner[];
 
-  constructor() { }
+  constructor(public dialog: MdDialog) { }
 
-  ngOnInit() {
+  openDialog(banner: Banner) {
+    let dialogRef = this.dialog.open(BannerDialogComponent);
+    dialogRef.componentInstance.banner = banner;
   }
+
+}
+
+@Component({
+  templateUrl: './banner.dialog.component.html',
+  styleUrls: ['./banner.component.css']
+})
+export class BannerDialogComponent {
+
+  @Input() banner: Banner;
+
+  constructor(public dialogRef: MdDialogRef<BannerDialogComponent>) { }
 
 }

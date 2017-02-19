@@ -20,11 +20,11 @@ export class CampaignService {
   ];
 
   private sites: Site[] = [
-    new Site('Gundmann', 'http://www.gundmann.dk', 4),
-    new Site('adscoop', 'http://www.ad-scoop.dk', 2),
-    new Site('Hansen', 'http://www.hansen.dk', 1),
-    new Site('VIF', 'http://www.vif.dk', 1),
-    new Site('Amager bf', 'http://www.amager-bf.dk', 2)
+    new Site('Gundmann', 'http://www.gundmann.dk', 4, true),
+    new Site('adscoop', 'http://www.ad-scoop.dk', 2, true),
+    new Site('Hansen', 'http://www.hansen.dk', 0, false),
+    new Site('VIF', 'http://www.vif.dk', 1, true),
+    new Site('Amager bf', 'http://www.amager-bf.dk', 3, true)
   ];
 
   private campains: Campaign[] = [

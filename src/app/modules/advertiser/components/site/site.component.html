@@ -2,11 +2,13 @@
 	<h3>Hjemmesider</h3> 
 	<table>
 		<tr>
+			<th></th>
 			<th>Navn</th>
 			<th>Adresse</th>
 			<th class="click">Klik</th>
 		</tr>
 		<tr *ngFor="let site of sites">
+			<td><md-icon *ngIf="site.accepted">checked</md-icon></td>
 			<td>{{site.name}}</td>
 			<td><a [href]="site.url">{{site.url}}</a></td>
 			<td class="click">{{site.clicks}}</td>

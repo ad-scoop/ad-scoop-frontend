@@ -11,7 +11,8 @@ export class SiteComponent implements OnInit {
   @Input() sites: Site[];
 
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

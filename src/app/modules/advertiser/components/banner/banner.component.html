@@ -2,7 +2,7 @@
 <div class="banner" *ngFor="let banner of banners">
 	<label class="clicklabel">Klik</label>
 	<span class="clickvalue">{{banner.clicks}} stk.</span>
-	<img [alt]="banner.name" [src]="banner.picture">
+	<a (click)="openDialog(banner)"><img align="middle" [alt]="banner.name" [src]="banner.picture"></a>
 	<span class="heightvalue">{{banner.height}} px</span>
 	<span class="widthvalue">{{banner.width}} px</span>
 </div>
