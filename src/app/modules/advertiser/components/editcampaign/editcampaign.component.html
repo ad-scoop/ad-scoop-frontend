@@ -1,0 +1,23 @@
+<form class="center" (ngSubmit)="f.form.valid && edit()" #f="ngForm" novalidate>
+	<div>
+		<md-input-container>
+			<input md-input type="text" placeholder="Navn" focuced [(ngModel)]="campaign.name" name="name" required #name="ngModel">
+			<md-hint *ngIf="name.errors && (name.dirty || name.touched)" [ngStyle]="{'color': 'red'}">Navnet er krævet</md-hint>
+		</md-input-container>
+			
+		<md-input-container>
+			<input md-input type="number" placeholder="Maksimal kampangne beløb pr. dag" [(ngModel)]="campaign.maxValue" name="maxamount" required #maxamount="ngModel">
+			<md-hint *ngIf="maxamount.errors && (maxamount.dirty || maxamount.touched)" [ngStyle]="{'color': 'red'}">Beløbet er krævet</md-hint>
+		</md-input-container>
+	</div>
+	<div>
+		<md-input-container>
+			<input md-input type="datetime-local" placeholder="Start dato" [(ngModel)]="campaign.startDate" name="startdate" required #startdate="ngModel">
+			<md-hint *ngIf="startdate.errors && (startdate.dirty || startdate.touched)" [ngStyle]="{'color': 'red'}">Start dato</md-hint>
+		</md-input-container>
+	
+		<md-input-container>
+			<input md-input type="datetime-local" placeholder="Slut dato" [(ngModel)]="campaign.enddate" name="enddate" required #enddate="ngModel">
+		</md-input-container>
+	</div>
+</form>

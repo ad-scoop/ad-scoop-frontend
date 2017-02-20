@@ -1,11 +1,11 @@
 import { Campaign } from '../../../../model/campaign';
 import { CampaignService } from '../../../../services/campaign.service';
-import { ConfirmDialogComponent } from '../confirmdialog/confirmdialog.component';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BannerComponent } from './../banner/banner.component';
 import { SiteComponent } from './../site/site.component';
 import { MdDialog } from '@angular/material';
+import { MdDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-campaign',
@@ -35,5 +35,56 @@ export class CampaignComponent implements OnInit {
       }
     });
   }
+
+  public add(): void {
+    let campaign = new Campaign('', new Date());
+    this.openEditDialog(campaign, 'Ændre kampagne').subscribe(result => {
+      if (result === 'true') {
+        this.campaignService.edit(campaign);
+        this.ngOnInit();
+      }
+    });
+  }
+
+  public edit(campaign: Campaign): void {
+    this.openEditDialog(campaign, 'Opret kampagne').subscribe(result => {
+      if (result === 'true') {
+        this.campaignService.create(campaign);
+        this.ngOnInit();
+      }
+    });
+  }
+
+  private openEditDialog(campaign: Campaign, type: string): Observable<any> {
+    let dialogRef = this.dialog.open(EditDialogComponent);
+    dialogRef.componentInstance.type = type;
+    dialogRef.componentInstance.campaign = campaign;
+    return dialogRef.afterClosed();
+  }
+
+}
+
+@Component({
+  templateUrl: './confirmdialog.component.html',
+})
+export class ConfirmDialogComponent {
+
+  public headline: string;
+  public confirmation: string;
+
+  constructor(public dialogRef: MdDialogRef<ConfirmDialogComponent>) { }
+
+}
+
+@Component({
+  templateUrl: './editdialog.component.html',
+  styleUrls: ['./campaign.component.css']
+})
+export class EditDialogComponent {
+
+  public type: string;
+  public campaign: Campaign;
+
+  constructor(public dialogRef: MdDialogRef<ConfirmDialogComponent>) { }
 
 }

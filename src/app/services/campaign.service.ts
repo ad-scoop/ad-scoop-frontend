@@ -28,10 +28,9 @@ export class CampaignService {
   ];
 
   private campains: Campaign[] = [
-    new Campaign('Campaign 1', new Date(), 20.7, 10, 207.00),
-    new Campaign('Campaign 2', new Date(), 30.5, 5, 152.5),
-    new Campaign('Campaign 3', new Date(), 100.35, 0
-      , 0)
+    new Campaign('Campaign 1', new Date()),
+    new Campaign('Campaign 2', new Date()),
+    new Campaign('Campaign 3', new Date()),
   ];
 
   constructor(private http: Http) { }
@@ -44,6 +43,13 @@ export class CampaignService {
 
   public remove(campaign: Campaign): void {
     this.campains.splice(this.campains.indexOf(campaign), 1);
+  }
+
+  public edit(campaign: Campaign): void {
+
+  }
+  public create(campaign: Campaign): void {
+
   }
 
 }

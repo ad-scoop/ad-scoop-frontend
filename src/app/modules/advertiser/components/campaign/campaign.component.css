@@ -65,6 +65,10 @@
 	float: right;
 }
 
+.rightbutton button {
+	float: right;
+}
+
 @media ( max-width : 770px) {
 	
 	.cardWidth md-card {

@@ -1,8 +1,8 @@
 <md-card class="cardWidth" *ngFor="let campaign of campaigns; let i = index"> 
 	<md-card-content> 
 		<button md-mini-fab (click)="remove(campaign)"><md-icon>remove</md-icon></button>
-		<button md-mini-fab ><md-icon>edit</md-icon></button>
-		<button md-mini-fab *ngIf="i == 0"><md-icon>add</md-icon></button>
+		<button md-mini-fab (click)="edit(campaign)"><md-icon>edit</md-icon></button>
+		<button md-mini-fab *ngIf="i == 0" (click)="add()"><md-icon>add</md-icon></button>
 		<md-card-header>
 			<div md-card-avatar><md-icon>group_work</md-icon></div>
    			<md-card-title>{{campaign.name}}</md-card-title> 

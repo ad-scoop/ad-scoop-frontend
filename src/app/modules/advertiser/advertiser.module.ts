@@ -8,12 +8,11 @@ import { AdvertiserComponent } from './advertiser.component';
 import { AdvertiserGuard } from './advertiser.guard';
 import { MaterialModule } from '@angular/material';
 
-import { CampaignComponent } from './components/campaign/campaign.component';
+import { CampaignComponent, ConfirmDialogComponent, EditDialogComponent } from './components/campaign/campaign.component';
 import { BannerComponent, BannerDialogComponent } from './components/banner/banner.component';
 import { BannerUploadComponent } from './components/bannerupload/bannerupload.component';
-import { CreatecampaignComponent } from './components/createcampaign/createcampaign.component';
+import { EditCampaignComponent } from './components/editcampaign/editcampaign.component';
 import { SiteComponent } from './components/site/site.component';
-import { ConfirmDialogComponent } from './components/confirmdialog/confirmdialog.component';
 
 @NgModule({
   imports: [
@@ -27,10 +26,11 @@ import { ConfirmDialogComponent } from './components/confirmdialog/confirmdialog
     AdvertiserComponent,
     BannerComponent,
     BannerUploadComponent,
-    CreatecampaignComponent,
+    EditCampaignComponent,
     SiteComponent,
     ConfirmDialogComponent,
     BannerDialogComponent,
+    EditDialogComponent,
   ],
   providers: [
     AdvertiserGuard,
