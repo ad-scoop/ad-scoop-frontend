@@ -1,5 +1,5 @@
 .inputcontainer input {
-  width: 185px;
+	width: 225px;
 }
 
 .inputcontainer md-input-container {
@@ -8,4 +8,13 @@
 
 md-hint {
 	height: 10px;
+}
+
+.right {
+	float: right;
+}
+
+.siteList {
+	display: block;
+	margin-bottom: 15px;
 }

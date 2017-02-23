@@ -13,3 +13,13 @@ th {
 h3 {
 	margin: 0;
 }
+
+.doNotHide {
+	display: inherit;
+}
+
+@media ( max-width : 1325px) {
+	.hideSmall {
+		display: none;	
+	}
+}

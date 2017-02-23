@@ -6,15 +6,23 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './site.component.html',
   styleUrls: ['./site.component.css']
 })
-export class SiteComponent implements OnInit {
+export class SiteComponent {
 
   @Input() sites: Site[];
-
+  @Input() showclicks = true;
+  @Input() hideSmall = 'hideSmall';
+  @Input() firstColName = '';
+  @Input() headline = 'Hjemmesider';
+  @Input() clickFunction: ClickFunction;
 
   constructor() {
   }
 
-  ngOnInit() {
+  click(site: Site) {
+    this.clickFunction(site);
   }
 
 }
+
+type ClickFunction = (site: Site) => void;
+

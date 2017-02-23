@@ -12,6 +12,7 @@ import { CampaignComponent, ConfirmDialogComponent, EditDialogComponent } from '
 import { BannerComponent, BannerDialogComponent } from './components/banner/banner.component';
 import { BannerUploadComponent } from './components/bannerupload/bannerupload.component';
 import { EditCampaignComponent } from './components/editcampaign/editcampaign.component';
+import { SearchsitesComponent } from './components/searchsites/searchsites.component'
 import { SiteComponent } from './components/site/site.component';
 
 @NgModule({
@@ -31,6 +32,7 @@ import { SiteComponent } from './components/site/site.component';
     ConfirmDialogComponent,
     BannerDialogComponent,
     EditDialogComponent,
+    SearchsitesComponent,
   ],
   providers: [
     AdvertiserGuard,

@@ -12,11 +12,12 @@
 	margin-left: 10px;
 	height: 25px;
 }
+
 .cardWidth md-card-title {
 	font-weight: bold;
-    font-size: 16px;
-    position: relative;
-    top: 2px;
+	font-size: 16px;
+	position: relative;
+	top: 2px;
 }
 
 .cardWidth button {
@@ -65,17 +66,68 @@
 	float: right;
 }
 
+.rightbutton {
+	margin-top: 15px;
+	margin-bottom: 10px;
+	display: block;
+	position: relative;
+}
+
 .rightbutton button {
 	float: right;
 }
 
+a {
+	display: none;
+}
+
+.next {
+	display: none;
+}
+
+.back {
+	display: none;
+}
+
+@media ( max-width : 500px) {
+	.next {
+		display: inherit;
+		float: right;
+		margin-right: 20px;
+	}
+	.back {
+		display: inherit;
+		float: right;
+	}
+	.rightbutton {
+		display: none;
+	}
+	a {
+		cursor: pointer;
+		float: left;
+		display: inherit;
+	}
+	.small {
+		display: block;
+		margin-right: 30px;
+	}
+	.fullscreen-dialog {
+		height: 100%;
+		width: 100%;
+		max-height: 100%;
+		max-width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: 0;
+	}
+}
+
 @media ( max-width : 770px) {
-	
 	.cardWidth md-card {
 		width: auto;
 		float: none;
 		height: 115px;
 		margin: 10px;
 	}
-	
 }

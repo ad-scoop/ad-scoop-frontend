@@ -1,13 +1,18 @@
-<md-card>
+<md-card class="fullscreen-dialog">
 	<md-card-content> 
-		<md-card-header>
+		<a (click)="dialogRef.close('false')"><md-icon>close</md-icon></a>
+		<button class="next" color="primary" md-button (click)="next()" align="end">Næste</button>
+		<button class="back" color="primary" md-button (click)="back()" *ngIf="selectedStep != 1" align="end">Tilbage</button>
+		<md-card-header color="accent">
 			<div md-card-avatar><md-icon>group_work</md-icon></div>
    			<md-card-title>{{type}}</md-card-title> 
 		</md-card-header> 
-		<app-editcampaign campaign="campaign"></app-editcampaign>
+		<app-editcampaign class="small"  *ngIf="selectedStep == 1" [campaign]="campaign"></app-editcampaign>
+		<app-searchsites class="small" *ngIf="selectedStep == 2" [campaign]="campaign"></app-searchsites>
 		<md-card-footer class="rightbutton">
 			<button md-button color="accent" (click)="dialogRef.close('false')" align="end">Annuller</button>
-			<button color="primary" md-button type="submit">Næste</button>
+			<button color="primary" md-button (click)="next()">Næste</button>
+			<button color="primary" md-button (click)="back()" *ngIf="selectedStep != 1">Tilbage</button>
 		</md-card-footer> 
 	</md-card-content> 
 </md-card>

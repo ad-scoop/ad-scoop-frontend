@@ -20,11 +20,11 @@ export class CampaignService {
   ];
 
   private sites: Site[] = [
-    new Site('Gundmann', 'http://www.gundmann.dk', 4, true),
-    new Site('adscoop', 'http://www.ad-scoop.dk', 2, true),
-    new Site('Hansen', 'http://www.hansen.dk', 0, false),
-    new Site('VIF', 'http://www.vif.dk', 1, true),
-    new Site('Amager bf', 'http://www.amager-bf.dk', 3, true)
+    new Site('Gundmann', 'http://www.gundmann.dk', 4, true, 'Sunhed', '2720'),
+    new Site('adscoop', 'http://www.ad-scoop.dk', 2, true, 'Forening', '2720'),
+    new Site('Hansen', 'http://www.hansen.dk', 0, false, 'Frisør', '2000'),
+    new Site('VIF', 'http://www.vif.dk', 1, true, 'Forening', '2720'),
+    new Site('Amager bf', 'http://www.amager-bf.dk', 3, true, 'Købmand', '2750')
   ];
 
   private campains: Campaign[] = [
@@ -48,8 +48,12 @@ export class CampaignService {
   public edit(campaign: Campaign): void {
 
   }
+
   public create(campaign: Campaign): void {
 
   }
 
+  public serche(model: any): Site[] {
+    return this.sites;
+  }
 }
