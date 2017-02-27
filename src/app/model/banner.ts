@@ -1,3 +1,5 @@
+import { FileInfo } from './fileinfo';
+
 export class Banner {
 
   constructor(

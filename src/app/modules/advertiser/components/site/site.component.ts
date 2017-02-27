@@ -14,6 +14,7 @@ export class SiteComponent {
   @Input() firstColName = '';
   @Input() headline = 'Hjemmesider';
   @Input() clickFunction: ClickFunction;
+  @Input() removeColumn = false;
 
   constructor() {
   }

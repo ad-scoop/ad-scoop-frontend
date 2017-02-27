@@ -46,7 +46,15 @@ export class CampaignService {
   }
 
   public edit(campaign: Campaign): void {
-
+    for (let key in this.campains) {
+      if (this.campains.hasOwnProperty(key)) {
+        if (campaign.name === this.campains[key].name) {
+          this.campains[key] = campaign;
+          return;
+        }
+      }
+    }
+    this.campains.push(campaign);
   }
 
   public create(campaign: Campaign): void {

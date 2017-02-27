@@ -1,6 +1,7 @@
 import { Campaign } from '../../../../model/campaign';
 import { Site } from '../../../../model/site';
-import { CampaignService } from '../../../../services/campaign.service'
+import { CampaignService } from '../../../../services/campaign.service';
+import { EditInterface } from '../editdialog/editinterface';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -8,29 +9,41 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './searchsites.component.html',
   styleUrls: ['./searchsites.component.css']
 })
-export class SearchsitesComponent {
+export class SearchsitesComponent implements EditInterface {
 
   @Input() campaign: Campaign;
   model: any = {};
   firstColName = 'Vælg';
   foudnsites: Site[] = [];
-  selectedsites: Site[] = [];
   serchedHeadeline = 'Fremsøgte hjemmesider';
   selectedHeadline = 'Valgte hjemmesider';
+  removeColumn = true;
 
   addFunction = (site: Site) => {
-    this.selectedsites.push(site);
+    this.campaign.sites.push(site);
     this.foudnsites.splice(this.foudnsites.indexOf(site), 1);
   }
 
   removeFunction = (site: Site) => {
-    this.selectedsites.splice(this.selectedsites.indexOf(site), 1);
+    this.campaign.sites.splice(this.campaign.sites.indexOf(site), 1);
   }
 
   constructor(private campaignService: CampaignService) { }
 
   search(): void {
     this.foudnsites = this.campaignService.serche(this.model);
+  }
+
+  valid(): boolean {
+    return true;
+  }
+
+  invalid(): void {
+
+  }
+
+  edit(): void {
+
   }
 
 }

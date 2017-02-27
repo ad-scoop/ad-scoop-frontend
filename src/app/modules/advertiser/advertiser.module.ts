@@ -8,11 +8,12 @@ import { AdvertiserComponent } from './advertiser.component';
 import { AdvertiserGuard } from './advertiser.guard';
 import { MaterialModule } from '@angular/material';
 
-import { CampaignComponent, ConfirmDialogComponent, EditDialogComponent } from './components/campaign/campaign.component';
+import { CampaignComponent, ConfirmDialogComponent } from './components/campaign/campaign.component';
 import { BannerComponent, BannerDialogComponent } from './components/banner/banner.component';
 import { BannerUploadComponent } from './components/bannerupload/bannerupload.component';
 import { EditCampaignComponent } from './components/editcampaign/editcampaign.component';
-import { SearchsitesComponent } from './components/searchsites/searchsites.component'
+import { EditDialogComponent } from './components/editdialog/editdialog.component';
+import { SearchsitesComponent } from './components/searchsites/searchsites.component';
 import { SiteComponent } from './components/site/site.component';
 
 @NgModule({

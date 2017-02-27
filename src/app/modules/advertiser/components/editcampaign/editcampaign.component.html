@@ -1,25 +1,25 @@
-<form class="center" (ngSubmit)="f.form.valid && edit()" #f="ngForm" novalidate>
+<form class="center" (ngSubmit)="edit()" #f="ngForm" novalidate>
 	<div class="inputcontainer">
 		<md-input-container>
-			<input md-input type="text" placeholder="Navn" focuced [(ngModel)]="campaign.name" name="name" required #name="ngModel">
+			<input md-input type="text" placeholder="Navn" focuced [(ngModel)]="model.name" name="name" required #name="ngModel">
 			<md-hint *ngIf="!(name.errors && (name.dirty || name.touched))">Navnet på kampagnen</md-hint>
 			<md-hint *ngIf="name.errors && (name.dirty || name.touched)" [ngStyle]="{'color': 'red'}">Navnet på kampagnen er krævet</md-hint>
 		</md-input-container>
 			
 		<md-input-container>
-			<input md-input type="number" placeholder="Maksimal beløb pr. dag" [(ngModel)]="campaign.maxValue" name="maxamount" required #maxamount="ngModel">
+			<input md-input type="number" placeholder="Maksimal beløb pr. dag" [(ngModel)]="model.maxValue" name="maxamount" required #maxamount="ngModel">
 			<md-hint *ngIf="!(maxamount.errors && (maxamount.dirty || maxamount.touched))">Maksimal beløb pr. dag kampagnen må koste.</md-hint>
 			<md-hint *ngIf="maxamount.errors && (maxamount.dirty || maxamount.touched)" [ngStyle]="{'color': 'red'}">Maksimal beløb pr. dag er krævet</md-hint>
 		</md-input-container>
 	</div>
 	<div class="inputcontainer">
 		<md-input-container>
-			<input md-input type="date" placeholder="Start dato" [(ngModel)]="campaign.startDate" name="startdate" required #startdate="ngModel">
-			<md-hint *ngIf="startdate.errors && (startdate.dirty || startdate.touched)" [ngStyle]="{'color': 'red'}">Start dato</md-hint>
+			<input md-input type="date" placeholder="Start dato" [(ngModel)]="model.startDate" name="startdate" required #startdate="ngModel">
+			<md-hint *ngIf="startdate.errors && (startdate.dirty || startdate.touched)" [ngStyle]="{'color': 'red'}">Start dato er krævet</md-hint>
 		</md-input-container>
 	
 		<md-input-container>
-			<input md-input type="date" placeholder="Slut dato" [(ngModel)]="campaign.enddate" name="enddate" required #enddate="ngModel">
+			<input md-input type="date" placeholder="Slut dato" [(ngModel)]="model.enddate" name="enddate" #enddate="ngModel">
 		</md-input-container>
 	</div>
 </form>

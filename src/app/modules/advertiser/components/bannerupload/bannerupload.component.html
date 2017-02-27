@@ -1,3 +1,14 @@
-<p>
-  banner upload works!
-</p>
+
+<button md-raised-button id="file-button" (click)="upload()">
+	<label for="file-input">Vælg et billede</label>  
+</button>
+<input id="file-input" #fileinput type="file" accept="image/*" (change)="onChange($event)">
+
+<md-input-container>
+	<input md-input type="text" placeholder="Navnet på banneren" focuced [(ngModel)]="model.name" name="name" required #name="ngModel">
+	<md-hint *ngIf="name.errors && (name.dirty || name.touched)" [ngStyle]="{'color': 'red'}">Navnet på banneren er krævet</md-hint>
+</md-input-container>
+
+<button md-raised-button (click)="addBanner()">Tilføj</button>
+
+<app-banner [banners]="campaign.banners"></app-banner>
