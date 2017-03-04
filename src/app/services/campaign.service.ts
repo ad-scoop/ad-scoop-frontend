@@ -25,30 +25,30 @@ export class CampaignService {
       });
   }
 
-  public remove(campaign: Campaign): Observable<any> {
+  public remove(campaign: Campaign): Observable<boolean> {
     return this.http
       .delete(this.baseUrl + '/remove?name=' + campaign.name, this.getHeadersWithToken())
-      .map(response => {
-        if (response.status < 200 || response.status >= 300) {
-          throw new Error('Fejl ved opretteslse af kampagne' + response.status);
-        } else {
-          return true;
-        }
+      .map(response => true)
+      .catch(response => {
+        throw new Error('Fejl ved sletning af kampagnen' + response.status);
       });
   }
 
-  public edit(campaign: Campaign): void {
+  public edit(campaign: Campaign): Observable<boolean> {
+    return this.http
+      .post(this.baseUrl + '/update', campaign, this.getHeadersWithToken())
+      .map(response => true)
+      .catch(response => {
+        throw new Error('Fejl ved ændring af kampagnen' + response.status);
+      });
   }
 
   public create(campaign: Campaign): Observable<boolean> {
     return this.http
       .post(this.baseUrl + '/create', campaign, this.getHeadersWithToken())
-      .map(response => {
-        if (response.status < 200 || response.status >= 300) {
-          throw new Error('Fejl ved opretteslse af kampagne' + response.status);
-        } else {
-          return true;
-        }
+      .map(response => true)
+      .catch(response => {
+        throw new Error('Fejl ved oprettelse af kampagnen' + response.status);
       });
   }
 
@@ -62,18 +62,6 @@ export class CampaignService {
     headers.append('Accept', 'application/json');
     headers.append('token', this.authService.getToken());
     return new RequestOptions({ headers: headers });;
-  }
-
-  private handleError(error: any) {
-    let errMsg = (error.message) ? error.message :
-      error.status ? '${error.status} - ${error.statusText}' : 'Server error';
-    console.error(errMsg);
-    return Observable.throw(errMsg);
-  }
-
-  private extractData(res: Response) {
-    let body = res.json();
-    return body || {};
   }
 
 }

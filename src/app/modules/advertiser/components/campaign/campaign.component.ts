@@ -1,4 +1,5 @@
 import { Campaign } from '../../../../model/campaign';
+import { AlertService } from '../../../../services/alert.service';
 import { CampaignService } from '../../../../services/campaign.service';
 import { EditCampaignComponent } from '../editcampaign/editcampaign.component';
 import { EditDialogComponent } from '../editdialog/editdialog.component';
@@ -21,7 +22,8 @@ export class CampaignComponent implements OnInit {
 
   constructor(
     public dialog: MdDialog,
-    private campaignService: CampaignService) { }
+    private campaignService: CampaignService,
+    private alertService: AlertService) { }
 
   ngOnInit() {
     this.campaignService.getCampaigns().subscribe(cam => this.campaigns = cam);
@@ -32,12 +34,10 @@ export class CampaignComponent implements OnInit {
     dialogRef.componentInstance.headline = 'Slet kampagne';
     dialogRef.componentInstance.confirmation = 'Er du sikker?';
     dialogRef.afterClosed().subscribe(result => {
-      if (result === 'true') {
-        this.campaignService.remove(campaign)
-          .subscribe(
+      if (result) {
+        this.campaignService.remove(campaign).subscribe(
           responce => this.ngOnInit(),
-          error => { throw new Error('Fejl ved sletning af kampagner ' + error); });
-        ;
+          error => this.alertService.error(error));
       }
     });
   }
@@ -46,13 +46,9 @@ export class CampaignComponent implements OnInit {
     let campaign = new Campaign('', new Date());
     this.openEditDialog(campaign, 'Opret').subscribe(result => {
       if (result) {
-        this.campaignService.create(result)
-          .subscribe(created => {
-            if (created) {
-              this.ngOnInit();
-            }
-          }
-          );
+        this.campaignService.create(result).subscribe(
+          responce => this.ngOnInit(),
+          error => this.alertService.error(error));
       }
     });
   }
@@ -60,8 +56,9 @@ export class CampaignComponent implements OnInit {
   public edit(campaign: Campaign): void {
     this.openEditDialog(campaign, 'Ændre').subscribe(result => {
       if (result) {
-        this.campaignService.edit(result);
-        this.ngOnInit();
+        this.campaignService.edit(result).subscribe(
+          responce => this.ngOnInit(),
+          error => this.alertService.error(error));
       }
     });
   }
