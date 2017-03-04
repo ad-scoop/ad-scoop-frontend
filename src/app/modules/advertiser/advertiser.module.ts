@@ -1,4 +1,4 @@
-import { AppModule } from '../../app.module'
+import { AppModule } from '../../app.module';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -15,6 +15,7 @@ import { EditCampaignComponent } from './components/editcampaign/editcampaign.co
 import { EditDialogComponent } from './components/editdialog/editdialog.component';
 import { SearchsitesComponent } from './components/searchsites/searchsites.component';
 import { SiteComponent } from './components/site/site.component';
+import { FoucsDirective } from './utils/foucs.directive';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { SiteComponent } from './components/site/site.component';
     FormsModule,
   ],
   declarations: [
+    FoucsDirective,
     CampaignComponent,
     AdvertiserComponent,
     BannerComponent,

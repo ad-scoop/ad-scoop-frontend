@@ -21,20 +21,20 @@ import { AdvertiserModule } from './modules/advertiser/advertiser.module';
 import { ProviderModule } from './modules/provider/provider.module';
 import { ActivationComponent } from './components/activation/activation.component';
 
-import { DirectiveFoucs } from './utils/directive.foucs';
 import { RegistryComponent } from './components/registry/registry.component';
 import { CampaignService } from './services/campaign.service';
 import { UserService } from './services/user.service';
+import { FoucsDirective } from './utils/foucs.directive';
 
 import 'hammerjs';
 
 @NgModule({
   declarations: [
+    FoucsDirective,
     AppComponent,
     Home,
     Login,
     TopMenu,
-    DirectiveFoucs,
     Footer,
     UnderConstruction,
     Alert,

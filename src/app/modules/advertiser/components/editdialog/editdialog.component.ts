@@ -1,5 +1,5 @@
 import { Campaign } from '../../../../model/campaign';
-import { CampaignService } from '../../../../services/campaign.service';
+import { BannerUploadComponent } from '../bannerupload/bannerupload.component';
 import { EditCampaignComponent } from '../editcampaign/editcampaign.component';
 import { SearchsitesComponent } from '../searchsites/searchsites.component';
 import { EditInterface } from './editinterface';
@@ -7,9 +7,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
 
 enum SelectedStep {
-  CAMPAIGN = 1,
-  SITES = 2,
-  BANNER = 3
+  CAMPAIGN,
+  BANNER,
+  SITES
 }
 
 @Component({
@@ -20,13 +20,17 @@ export class EditDialogComponent {
 
   @ViewChild('searchsites') searchsites: SearchsitesComponent;
   @ViewChild('editcampaign') editCampaign: EditCampaignComponent;
+  @ViewChild('searchbanner') bannerUpload: BannerUploadComponent;
 
   private _campaign: Campaign;
   private originalCampaign: Campaign;
+
   public type: string;
   public selectedStep: SelectedStep = SelectedStep.CAMPAIGN;
 
-  constructor(public dialogRef: MdDialogRef<EditDialogComponent>, private campaignService: CampaignService) { }
+  public selectedStepEnum = SelectedStep;
+
+  constructor(public dialogRef: MdDialogRef<EditDialogComponent>) { }
 
   get campaign(): Campaign {
     return this._campaign;
@@ -50,17 +54,26 @@ export class EditDialogComponent {
   }
 
   edit(): void {
-    this.campaignService.edit(this._campaign);
-    this.dialogRef.close();
+    this.dialogRef.close(this._campaign);
   }
 
   valid(): boolean {
     return this.findActive() && this.findActive().valid();
   }
 
+  isNotFirstStep(): boolean {
+    return this.selectedStep !== SelectedStep.CAMPAIGN;
+  }
+
+  isSiteStep(): boolean {
+    return this.selectedStep === SelectedStep.SITES;
+  }
+
   private findActive(): EditInterface {
     if (SelectedStep.CAMPAIGN === this.selectedStep) {
       return this.editCampaign;
+    } else if (SelectedStep.BANNER === this.selectedStep) {
+      return this.bannerUpload;
     }
     return this.searchsites;
   }

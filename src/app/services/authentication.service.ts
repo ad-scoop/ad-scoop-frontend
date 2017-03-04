@@ -1,6 +1,6 @@
 import { environment } from '../../environments/environment'
 import { Injectable } from '@angular/core';
-import { Http, Response,Headers } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -19,7 +19,7 @@ export class AuthenticationService {
             .post(this.baseUrl + '/login', { email: email, password: password }, this.getHeaders())
             .map(this.mapUser)
             .catch(response => {
-              throw new Error('' + response.status)
+              throw new Error('' + response.status);
             });
     }
 
@@ -74,4 +74,3 @@ export class AuthenticationService {
      }
 
 }
-

@@ -1,4 +1,4 @@
-import { Banner } from '../../../../model/banner';
+import { BannerNode } from '../../../../model/bannerNode';
 import { Component, OnInit, Input } from '@angular/core';
 import { MdDialogRef, MdDialog } from '@angular/material';
 
@@ -9,11 +9,11 @@ import { MdDialogRef, MdDialog } from '@angular/material';
 })
 export class BannerComponent {
 
-  @Input() banners: Banner[];
+  @Input() banners: BannerNode[];
 
   constructor(public dialog: MdDialog) { }
 
-  openDialog(banner: Banner) {
+  openDialog(banner: BannerNode) {
     let dialogRef = this.dialog.open(BannerDialogComponent);
     dialogRef.componentInstance.banner = banner;
   }
@@ -26,7 +26,7 @@ export class BannerComponent {
 })
 export class BannerDialogComponent {
 
-  @Input() banner: Banner;
+  @Input() banner: BannerNode;
 
   constructor(public dialogRef: MdDialogRef<BannerDialogComponent>) { }
 

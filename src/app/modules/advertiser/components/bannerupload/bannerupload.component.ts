@@ -1,6 +1,7 @@
-import { Banner } from '../../../../model/banner';
+import { BannerNode } from '../../../../model/bannerNode';
 import { Campaign } from '../../../../model/campaign';
 import { FileInfo } from '../../../../model/fileinfo';
+import { EditInterface } from '../editdialog/editinterface';
 import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, Input, ViewChild, ElementRef } from '@angular/core';
   templateUrl: './bannerupload.component.html',
   styleUrls: ['./bannerupload.component.css']
 })
-export class BannerUploadComponent {
+export class BannerUploadComponent implements EditInterface {
 
   @Input() campaign: Campaign;
 
@@ -18,6 +19,17 @@ export class BannerUploadComponent {
   model: any = {};
 
   constructor() { }
+
+  valid(): boolean {
+    return true;
+  }
+
+  invalid(): void {
+  }
+
+  edit() {
+    console.log('test');
+  }
 
   upload(): void {
     this.fileInput.nativeElement.click();
@@ -30,7 +42,7 @@ export class BannerUploadComponent {
 
   addBanner(): void {
     this.base64(this.file, fileInfo => {
-      this.campaign.banners.push(new Banner(
+      this.campaign.banners.push(new BannerNode(
         this.model.name,
         fileInfo.width,
         fileInfo.height,
@@ -39,15 +51,16 @@ export class BannerUploadComponent {
     });
   }
 
-  base64(file: any, callback): void {
+  base64(file: File, callback): void {
     let fileInfo = new FileInfo();
     fileInfo.imageType = file.type;
-    fileInfo.width = file.width;
-    fileInfo.height = file.height;
 
     function readerOnload(e) {
       fileInfo.base64 = 'data:' + fileInfo.imageType + ';base64,' + btoa(e.target.result);
-
+      let img = new Image();
+      img.src = fileInfo.base64;
+      fileInfo.width = img.width;
+      fileInfo.height = img.height;
       callback(fileInfo);
     };
 

@@ -1,4 +1,8 @@
+import { BannerSpace } from './bannerspace';
+
 export class Site {
+
+  public bannerSpace: BannerSpace[];
 
   constructor(
     public name: string,

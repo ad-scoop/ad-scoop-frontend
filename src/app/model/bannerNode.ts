@@ -1,6 +1,6 @@
 import { FileInfo } from './fileinfo';
 
-export class Banner {
+export class BannerNode {
 
   constructor(
     public name: string,

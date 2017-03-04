@@ -1,3 +1,4 @@
+<div class="noCampagins" *ngIf="!campaigns || campaigns.length == 0"><span>Du har ingen kampagner tryk på kanppen for at tilføje en kampagne</span><button md-mini-fab (click)="add()"><md-icon>add</md-icon></button></div>
 <md-card class="cardWidth" *ngFor="let campaign of campaigns; let i = index"> 
 	<md-card-content> 
 		<button md-mini-fab (click)="remove(campaign)"><md-icon>remove</md-icon></button>
@@ -18,7 +19,7 @@
 			</div>
 			<div>
 				<label>Maksimal værdi pr. dag</label>
-				<span>{{campaign.maxValue | currency: 'DKK' :true:'1.2-2'}}</span>
+				<span>{{campaign.maxPricePrDay | currency: 'DKK' :true:'1.2-2'}}</span>
 			</div>
 			<div>
 				<label>Klik</label>

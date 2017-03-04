@@ -7,9 +7,9 @@
 		</md-input-container>
 			
 		<md-input-container>
-			<input md-input type="number" placeholder="Maksimal beløb pr. dag" [(ngModel)]="model.maxValue" name="maxamount" required #maxamount="ngModel">
-			<md-hint *ngIf="!(maxamount.errors && (maxamount.dirty || maxamount.touched))">Maksimal beløb pr. dag kampagnen må koste.</md-hint>
-			<md-hint *ngIf="maxamount.errors && (maxamount.dirty || maxamount.touched)" [ngStyle]="{'color': 'red'}">Maksimal beløb pr. dag er krævet</md-hint>
+			<input md-input type="number" placeholder="Maksimal beløb pr. dag" [(ngModel)]="model.maxPricePrDay" name="maxPricePrDay" required #maxPricePrDay="ngModel">
+			<md-hint *ngIf="!(maxPricePrDay.errors && (maxPricePrDay.dirty || maxPricePrDay.touched))">Maksimal beløb pr. dag kampagnen må koste.</md-hint>
+			<md-hint *ngIf="maxPricePrDay.errors && (maxPricePrDay.dirty || maxPricePrDay.touched)" [ngStyle]="{'color': 'red'}">Maksimal beløb pr. dag er krævet</md-hint>
 		</md-input-container>
 	</div>
 	<div class="inputcontainer">

@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { BannerUpladComponent } from './banneruplad.component';
+import { BannerUploadComponent } from './bannerupload.component';
 
 describe('BannerupladComponent', () => {
-  let component: BannerUpladComponent;
-  let fixture: ComponentFixture<BannerUpladComponent>;
+  let component: BannerUploadComponent;
+  let fixture: ComponentFixture<BannerUploadComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BannerUpladComponent ]
+      declarations: [ BannerUploadComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BannerUpladComponent);
+    fixture = TestBed.createComponent(BannerUploadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

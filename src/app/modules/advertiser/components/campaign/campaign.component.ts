@@ -1,8 +1,8 @@
 import { Campaign } from '../../../../model/campaign';
 import { CampaignService } from '../../../../services/campaign.service';
-import { EditCampaignComponent } from '../editcampaign/editcampaign.component'
-import { EditDialogComponent } from '../editdialog/editdialog.component'
-import { SearchsitesComponent } from '../searchsites/searchsites.component'
+import { EditCampaignComponent } from '../editcampaign/editcampaign.component';
+import { EditDialogComponent } from '../editdialog/editdialog.component';
+import { SearchsitesComponent } from '../searchsites/searchsites.component';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BannerComponent } from './../banner/banner.component';
@@ -33,8 +33,11 @@ export class CampaignComponent implements OnInit {
     dialogRef.componentInstance.confirmation = 'Er du sikker?';
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'true') {
-        this.campaignService.remove(campaign);
-        this.ngOnInit();
+        this.campaignService.remove(campaign)
+          .subscribe(
+          responce => this.ngOnInit(),
+          error => { throw new Error('Fejl ved sletning af kampagner ' + error); });
+        ;
       }
     });
   }
@@ -42,17 +45,22 @@ export class CampaignComponent implements OnInit {
   public add(): void {
     let campaign = new Campaign('', new Date());
     this.openEditDialog(campaign, 'Opret').subscribe(result => {
-      if (result === 'true') {
-        this.campaignService.edit(campaign);
-        this.ngOnInit();
+      if (result) {
+        this.campaignService.create(result)
+          .subscribe(created => {
+            if (created) {
+              this.ngOnInit();
+            }
+          }
+          );
       }
     });
   }
 
   public edit(campaign: Campaign): void {
     this.openEditDialog(campaign, 'Ændre').subscribe(result => {
-      if (result === 'true') {
-        this.campaignService.create(campaign);
+      if (result) {
+        this.campaignService.edit(result);
         this.ngOnInit();
       }
     });

@@ -1,3 +1,16 @@
+.noCampagins {
+	text-align: center;
+	margin-top: 60px;
+}
+
+.noCampagins button {
+	margin: 15px;
+}
+
+.noCampagins span {
+	display: block;
+}
+
 .cardWidth {
 	margin: auto;
 	margin-bottom: 10px;

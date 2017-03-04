@@ -17,16 +17,16 @@ export class EditCampaignComponent implements EditInterface, OnInit {
 
   constructor() { }
 
-  edit() {
-    console.log('test');
-  }
-
   ngOnInit(): void {
     this.model = this.campaign;
   }
 
   valid(): boolean {
     return this.form && this.form.valid;
+  }
+
+  edit() {
+    console.log('test');
   }
 
   invalid(): void {

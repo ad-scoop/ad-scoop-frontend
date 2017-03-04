@@ -1,21 +1,21 @@
 <md-card class="fullscreen-dialog">
 	<md-card-content> 
-		<a (click)="dialogRef.close('false')"><md-icon>close</md-icon></a>
-		<button class="next" color="primary" md-button (click)="next()" *ngIf="selectedStep != 3" align="end">Næste</button>
-		<button class="next" color="primary" md-raised-button type="submit" *ngIf="selectedStep == 3" align="end">{{type}}</button>
-		<button class="back" color="primary" md-button (click)="back()" *ngIf="selectedStep != 1" align="end">Tilbage</button>
+		<a (click)="dialogRef.close()"><md-icon>close</md-icon></a>
+		<button class="next" color="primary" md-button (click)="next()" *ngIf="!isSiteStep()">Næste</button>
+		<button class="next" color="primary" md-raised-button (click)="edit()" *ngIf="isSiteStep()">{{type}}</button>
+		<button class="back" color="primary" md-button (click)="back()" *ngIf="isNotFirstStep()">Tilbage</button>
 		<md-card-header color="accent">
 			<div md-card-avatar><md-icon>group_work</md-icon></div>
    			<md-card-title>{{type}} kampagne</md-card-title> 
 		</md-card-header> 
-		<app-editcampaign #editcampaign class="small" *ngIf="selectedStep == 1" [campaign]="campaign"></app-editcampaign>
-		<app-searchsites #searchsites class="small" *ngIf="selectedStep == 2" [campaign]="campaign"></app-searchsites>
-		<app-bannerupload #searchsites class="small" *ngIf="selectedStep == 3" [campaign]="campaign"></app-bannerupload>
+		<app-editcampaign #editcampaign class="small" *ngIf="selectedStep == selectedStepEnum.CAMPAIGN" [campaign]="campaign"></app-editcampaign>
+		<app-searchsites #searchsites class="small" *ngIf="selectedStep == selectedStepEnum.SITES" [campaign]="campaign"></app-searchsites>
+		<app-bannerupload #searchbanner class="small" *ngIf="selectedStep == selectedStepEnum.BANNER" [campaign]="campaign"></app-bannerupload>
 		<md-card-footer class="rightbutton">
-			<button md-button color="accent" (click)="dialogRef.close('false')" align="end">Annuller</button>
-			<button color="primary" md-button (click)="next()" *ngIf="selectedStep != 3">Næste</button>
-			<button color="primary" md-raised-button (click)="edit()" *ngIf="selectedStep == 3">{{type}}</button>
-			<button color="primary" md-button (click)="back()" *ngIf="selectedStep != 1">Tilbage</button>
+			<button md-button color="accent" (click)="dialogRef.close()">Annuller</button>
+			<button color="primary" md-button (click)="next()" *ngIf="!isSiteStep()">Næste</button>
+			<button color="primary" md-raised-button (click)="edit()" *ngIf="isSiteStep()">{{type}}</button>
+			<button color="primary" md-button (click)="back()" *ngIf="isNotFirstStep()">Tilbage</button>
 		</md-card-footer> 
 	</md-card-content> 
 </md-card>
