@@ -1,4 +1,4 @@
-import { BannerNode } from './banner';
+import { BannerNode } from './bannerNode';
 import { Site } from './site';
 
 export class Campaign {
