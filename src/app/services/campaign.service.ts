@@ -14,6 +14,15 @@ export class CampaignService {
 
   private baseUrl = environment.publisherUrl;
 
+  
+  private sites: Site[] = [
+    new Site('Gundmann', 'http://www.gundmann.dk', 4, true, 'Sunhed', '2720'),
+    new Site('adscoop', 'http://www.ad-scoop.dk', 2, true, 'Forening', '2720'),
+    new Site('Hansen', 'http://www.hansen.dk', 0, false, 'Frisør', '2000'),
+    new Site('VIF', 'http://www.vif.dk', 1, true, 'Forening', '2720'),
+    new Site('Amager bf', 'http://www.amager-bf.dk', 3, true, 'Købmand', '2750')
+  ];
+  
   constructor(private http: Http, private authService: AuthenticationService) { }
 
   getCampaigns(): Observable<Campaign[]> {
@@ -21,7 +30,7 @@ export class CampaignService {
       .get(this.baseUrl + '/listUserCampagins', this.getHeadersWithToken())
       .map((resp: Response) => resp.json())
       .catch(response => {
-        throw new Error('Fejl ved henting af kampagner' + response.status);
+        throw new Error('Fejl ved henting af kampagner');
       });
   }
 
@@ -30,7 +39,7 @@ export class CampaignService {
       .delete(this.baseUrl + '/remove?name=' + campaign.name, this.getHeadersWithToken())
       .map(response => true)
       .catch(response => {
-        throw new Error('Fejl ved sletning af kampagnen' + response.status);
+        throw new Error('Fejl ved sletning af kampagnen');
       });
   }
 
@@ -39,7 +48,7 @@ export class CampaignService {
       .post(this.baseUrl + '/update', campaign, this.getHeadersWithToken())
       .map(response => true)
       .catch(response => {
-        throw new Error('Fejl ved ændring af kampagnen' + response.status);
+        throw new Error('Fejl ved ændring af kampagnen');
       });
   }
 
@@ -48,12 +57,12 @@ export class CampaignService {
       .post(this.baseUrl + '/create', campaign, this.getHeadersWithToken())
       .map(response => true)
       .catch(response => {
-        throw new Error('Fejl ved oprettelse af kampagnen' + response.status);
+        throw new Error('Fejl ved oprettelse af kampagnen');
       });
   }
 
   public serche(model: any): Site[] {
-    return null;
+    return this.sites;
   }
 
   private getHeadersWithToken(): RequestOptions {

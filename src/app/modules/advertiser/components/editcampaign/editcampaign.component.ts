@@ -1,6 +1,6 @@
 import { Campaign } from '../../../../model/campaign';
 import { EditInterface } from '../editdialog/editinterface';
-import { Component, Input, ViewChild, OnInit } from '@angular/core';
+import { Component, Input, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { NgForm, AbstractControl } from '@angular/forms';
 import { MdDialogRef } from '@angular/material';
 
@@ -9,17 +9,12 @@ import { MdDialogRef } from '@angular/material';
   templateUrl: './editcampaign.component.html',
   styleUrls: ['./editcampaign.component.css'],
 })
-export class EditCampaignComponent implements EditInterface, OnInit {
+export class EditCampaignComponent implements EditInterface {
 
   @Input() campaign: Campaign;
-  model: any = {};
   @ViewChild('f') form: NgForm;
 
   constructor() { }
-
-  ngOnInit(): void {
-    this.model = this.campaign;
-  }
 
   valid(): boolean {
     return this.form && this.form.valid;

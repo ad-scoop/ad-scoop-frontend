@@ -43,7 +43,7 @@ export class CampaignComponent implements OnInit {
   }
 
   public add(): void {
-    let campaign = new Campaign('', new Date());
+    let campaign = new Campaign(new Date().valueOf());
     this.openEditDialog(campaign, 'Opret').subscribe(result => {
       if (result) {
         this.campaignService.create(result).subscribe(
