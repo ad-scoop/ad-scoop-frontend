@@ -14,12 +14,12 @@
 	</div>
 	<div class="inputcontainer">
 		<md-input-container>
-			<input md-input type="date" placeholder="Start dato" [(ngModel)]="campaign.startDateStr" name="startDate" required #startDate="ngModel">
+			<input md-input type="text" placeholder="Start dato" [(ngModel)]="campaign.startDate" name="startDate" required #startDate="ngModel">
 			<md-hint *ngIf="startDate.errors && (startDate.dirty || startDate.touched)" [ngStyle]="{'color': 'red'}">Start dato er krævet</md-hint>
 		</md-input-container>
 	
-<!-- 		<md-input-container>
+ 		<md-input-container>
 			<input md-input type="date" placeholder="Slut dato" [(ngModel)]="campaign.endDate" name="enddate" #enddate="ngModel">
 		</md-input-container>
- -->	</div>
+ 	</div>
 </form>

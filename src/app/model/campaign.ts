@@ -9,18 +9,9 @@ export class Campaign {
   public maxPricePrDay: number;
   public price: number;
   public name: string;
-  public startDateStr = '2018-01-01';
 
   public sites: Site[] = [];
 
   constructor(public startDate: number) { }
-
-  //  get startDateStr(): string {
-  //    return '2018-01-01';
-  //  }
-  //
-  //  set startDateStr(startDate: string) {
-  //    this.startDate = new Date(startDate).getTime();
-  //  }
 
 }

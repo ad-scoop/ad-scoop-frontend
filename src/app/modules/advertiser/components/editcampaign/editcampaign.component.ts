@@ -24,6 +24,14 @@ export class EditCampaignComponent implements EditInterface {
     console.log('test');
   }
 
+  parseDate(dateString: string): number {
+    if (dateString) {
+      return new Date(dateString).getTime();
+    } else {
+      return null;
+    }
+  }
+
   invalid(): void {
     for (let key in this.form.controls) {
       if (this.form.controls.hasOwnProperty(key)) {
