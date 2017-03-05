@@ -1,5 +1,6 @@
 import { Campaign } from '../../../../model/campaign';
 import { EditInterface } from '../editdialog/editinterface';
+import { DatePipe } from '@angular/common';
 import { Component, Input, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { NgForm, AbstractControl } from '@angular/forms';
 import { MdDialogRef } from '@angular/material';
@@ -9,12 +10,19 @@ import { MdDialogRef } from '@angular/material';
   templateUrl: './editcampaign.component.html',
   styleUrls: ['./editcampaign.component.css'],
 })
-export class EditCampaignComponent implements EditInterface {
+export class EditCampaignComponent implements EditInterface, OnInit {
 
+  @ViewChild('startDate') startDate: ElementRef;
+  @ViewChild('endDate') endDate: ElementRef;
   @Input() campaign: Campaign;
   @ViewChild('f') form: NgForm;
 
   constructor() { }
+
+  ngOnInit(): void {
+    this.startDate.nativeElement.setAttribute('value', this.dateParse(this.campaign.startDate));
+    this.endDate.nativeElement.setAttribute('value', this.dateParse(this.campaign.endDate));
+  }
 
   valid(): boolean {
     return this.form && this.form.valid;
@@ -22,6 +30,14 @@ export class EditCampaignComponent implements EditInterface {
 
   edit() {
     console.log('test');
+  }
+
+  dateParse(date: number): string {
+    if (date) {
+      return new DatePipe('en-US').transform(new Date(date), 'yyyy-MM-dd');
+    } else {
+      return null;
+    }
   }
 
   parseDate(dateString: string): number {
