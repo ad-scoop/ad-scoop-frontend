@@ -20,6 +20,9 @@ export class SearchsitesComponent implements EditInterface {
   removeColumn = true;
 
   addFunction = (site: Site) => {
+    if (!this.campaign.sites) {
+      this.campaign.sites = [];
+    }
     this.campaign.sites.push(site);
     this.foudnsites.splice(this.foudnsites.indexOf(site), 1);
   }
