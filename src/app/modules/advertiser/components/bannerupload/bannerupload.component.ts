@@ -1,6 +1,8 @@
+import { environment } from '../../../../../environments/environment';
 import { BannerNode } from '../../../../model/bannerNode';
 import { Campaign } from '../../../../model/campaign';
 import { FileInfo } from '../../../../model/fileinfo';
+import { AlertService } from '../../../../services/alert.service';
 import { EditInterface } from '../editdialog/editinterface';
 import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 
@@ -15,10 +17,11 @@ export class BannerUploadComponent implements EditInterface {
 
   @ViewChild('fileinput') fileInput: ElementRef;
 
-  private file: any;
+  private maxPictureSize = environment.maxPictureSize;
+  private file: File;
   model: any = {};
 
-  constructor() { }
+  constructor(private alertService: AlertService) { }
 
   valid(): boolean {
     return true;
@@ -37,7 +40,12 @@ export class BannerUploadComponent implements EditInterface {
 
   onChange(event: any) {
     this.file = event.srcElement.files[0];
-    this.model.name = this.file.name;
+    if (this.file.size > this.maxPictureSize) {
+      this.alertService.warn('Filen: ' + this.file.name + ' er for stor.');
+      this.file = null;
+    } else {
+      this.model.name = this.file.name;
+    }
   }
 
   addBanner(): void {

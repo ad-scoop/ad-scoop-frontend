@@ -1,7 +1,8 @@
 <form class="center" (ngSubmit)="f.form.valid && create()" #f="ngForm" >
-	<md-card>
+	<md-card class="fullscreen-dialog">
 		<md-card-content class="content"> 
-			<alert></alert> 
+			<a (click)="dialogRef.close()"><md-icon>close</md-icon></a>
+			<button md-button color="primary" class="create" type="submit">Opret</button>
 			<md-card-header>
 				<div md-card-avatar><md-icon>person</md-icon></div>
     			<md-card-title>Registere</md-card-title> 
@@ -46,7 +47,7 @@
 				<md-input-container class="input">
 					<input md-input type="password" placeholder="Gendtag password" [(ngModel)]="model.passwordtest" name="passwordtest" required #passwordtest="ngModel">
 					<md-hint *ngIf="passwordtest.errors && (passwordtest.dirty || passwordtest.touched)" [ngStyle]="{'color': 'red'}">Password er krævet</md-hint>
-					<md-hint *ngIf="passwordtest.value != password.value && (passwordtest.dirty || passwordtest.touched)" [ngStyle]="{'color': 'red'}">De to password er forskellige</md-hint>
+					<md-hint *ngIf="(passwordtest.value != password.value) && (passwordtest.dirty || passwordtest.touched)" [ngStyle]="{'color': 'red'}">De to password er forskellige</md-hint>
 				</md-input-container>
 			</div>
 

@@ -14,7 +14,7 @@ export class SearchsitesComponent implements EditInterface {
   @Input() campaign: Campaign;
   model: any = {};
   firstColName = 'Vælg';
-  foudnsites: Site[] = [];
+  foundsites: Site[] = [];
   serchedHeadeline = 'Fremsøgte hjemmesider';
   selectedHeadline = 'Valgte hjemmesider';
   removeColumn = true;
@@ -24,7 +24,7 @@ export class SearchsitesComponent implements EditInterface {
       this.campaign.sites = [];
     }
     this.campaign.sites.push(site);
-    this.foudnsites.splice(this.foudnsites.indexOf(site), 1);
+    this.foundsites.splice(this.foundsites.indexOf(site), 1);
   }
 
   removeFunction = (site: Site) => {
@@ -34,7 +34,7 @@ export class SearchsitesComponent implements EditInterface {
   constructor(private campaignService: CampaignService) { }
 
   search(): void {
-    this.foudnsites = this.campaignService.serche(this.model);
+    this.foundsites = this.campaignService.serche(this.model);
   }
 
   valid(): boolean {

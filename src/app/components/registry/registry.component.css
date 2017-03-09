@@ -1,18 +1,18 @@
 .radio-group {
-  display: inline-flex;
-  flex-direction: column;
+	display: inline-flex;
+	flex-direction: column;
 }
 
 .radio-button {
-  margin: 5px;
+	margin: 5px;
 }
 
 .selected-value {
-  margin: 15px 0;
+	margin: 15px 0;
 }
 
 .input {
-  width: 150px;
+	width: 150px;
 }
 
 .content {
@@ -21,4 +21,38 @@
 
 .right {
 	float: right;
+}
+
+a {
+	display: none;
+}
+
+.create {
+	display: none;
+}
+
+@media ( max-width : 500px) {
+	.create {
+		display: inherit;
+		float: right;
+		margin-right: 20px;
+	}
+	a {
+		cursor: pointer;
+		float: left;
+		display: inherit;
+	}
+	.md-card-footer {
+		display: none;
+	}	
+	.fullscreen-dialog {
+		height: 100%;
+		width: 100%;
+		max-height: 100%;
+		max-width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: 0;
+	}
 }

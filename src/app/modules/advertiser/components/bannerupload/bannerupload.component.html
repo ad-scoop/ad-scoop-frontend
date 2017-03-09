@@ -5,8 +5,7 @@
 <input id="file-input" #fileinput type="file" accept="image/*" (change)="onChange($event)">
 
 <md-input-container>
-	<input md-input type="text" placeholder="Navnet på banneren" focuced [(ngModel)]="model.name" name="name" required #name="ngModel">
-	<md-hint *ngIf="name.errors && (name.dirty || name.touched)" [ngStyle]="{'color': 'red'}">Navnet på banneren er krævet</md-hint>
+	<input md-input type="text" placeholder="Navnet på banneren" focuced [(ngModel)]="model.name" name="name" #name="ngModel">
 </md-input-container>
 
 <button md-raised-button (click)="addBanner()">Tilføj</button>

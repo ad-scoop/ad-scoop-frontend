@@ -59,18 +59,14 @@ export class AuthenticationService {
         return headers;
     }
 
-    private mapUser(response: Response): boolean {
-        try {
-            let token = response.json().token;
-            let labels = response.json().labels;
-            if (token) {
-                localStorage.setItem('currentUser', JSON.stringify({ labels: labels, token: token }));
-                return true;
-            }
-        } catch (error) {
-            return false;
+    private mapUser(response: Response): void {
+        let token = response.json().token;
+        let labels = response.json().labels;
+        if (token) {
+            localStorage.setItem('currentUser', JSON.stringify({ labels: labels, token: token }));
+        } else {
+          throw new Error('Fejl ved login');
         }
-        return false;
      }
 
 }
