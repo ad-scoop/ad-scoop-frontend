@@ -11,7 +11,7 @@ export class Campaign extends AbstractId {
   public price: number;
   public name: string;
 
-  public sites: WebSite[] = [];
+  public webSites: WebSite[] = [];
 
   constructor(public startDate: number) {
     super();

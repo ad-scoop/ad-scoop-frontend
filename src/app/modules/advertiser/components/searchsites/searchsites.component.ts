@@ -20,15 +20,15 @@ export class SearchsitesComponent implements EditInterface {
   removeColumn = true;
 
   addFunction = (site: WebSite) => {
-    if (!this.campaign.sites) {
-      this.campaign.sites = [];
+    if (!this.campaign.webSites) {
+      this.campaign.webSites = [];
     }
-    this.campaign.sites.push(site);
+    this.campaign.webSites.push(site);
     this.foundsites.splice(this.foundsites.indexOf(site), 1);
   }
 
   removeFunction = (site: WebSite) => {
-    this.campaign.sites.splice(this.campaign.sites.indexOf(site), 1);
+    this.campaign.webSites.splice(this.campaign.webSites.indexOf(site), 1);
   }
 
   constructor(private campaignService: CampaignService) { }
