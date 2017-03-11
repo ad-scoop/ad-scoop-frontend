@@ -1,5 +1,5 @@
 import { Campaign } from '../../../../model/campaign';
-import { Site } from '../../../../model/site';
+import { WebSite } from '../../../../model/site';
 import { CampaignService } from '../../../../services/campaign.service';
 import { EditInterface } from '../editdialog/editinterface';
 import { Component, OnInit, Input } from '@angular/core';
@@ -14,12 +14,12 @@ export class SearchsitesComponent implements EditInterface {
   @Input() campaign: Campaign;
   model: any = {};
   firstColName = 'Vælg';
-  foundsites: Site[] = [];
+  foundsites: WebSite[] = [];
   serchedHeadeline = 'Fremsøgte hjemmesider';
   selectedHeadline = 'Valgte hjemmesider';
   removeColumn = true;
 
-  addFunction = (site: Site) => {
+  addFunction = (site: WebSite) => {
     if (!this.campaign.sites) {
       this.campaign.sites = [];
     }
@@ -27,7 +27,7 @@ export class SearchsitesComponent implements EditInterface {
     this.foundsites.splice(this.foundsites.indexOf(site), 1);
   }
 
-  removeFunction = (site: Site) => {
+  removeFunction = (site: WebSite) => {
     this.campaign.sites.splice(this.campaign.sites.indexOf(site), 1);
   }
 

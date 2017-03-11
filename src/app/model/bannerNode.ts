@@ -1,12 +1,15 @@
+import { AbstractId } from './abstractid';
 import { FileInfo } from './fileinfo';
 
-export class BannerNode {
+export class Banner extends AbstractId {
 
   constructor(
     public name: string,
     public width: number,
     public height: number,
     public clicks: number,
-    public picture: string) { }
+    public picture: string) {
+    super();
+   }
 
 }

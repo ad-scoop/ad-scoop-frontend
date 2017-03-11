@@ -4,8 +4,8 @@ import { Http, Headers, Response, RequestOptionsArgs, RequestOptions } from '@an
 import { Observable } from 'rxjs';
 
 import { Campaign } from '../model/campaign';
-import { BannerNode } from '../model/bannerNode';
-import { Site } from '../model/site';
+import { Banner } from '../model/bannerNode';
+import { WebSite } from '../model/site';
 import { AuthenticationService } from './authentication.service';
 
 
@@ -14,15 +14,15 @@ export class CampaignService {
 
   private baseUrl = environment.publisherUrl;
 
-  
-  private sites: Site[] = [
-    new Site('Gundmann', 'http://www.gundmann.dk', 4, true, 'Sunhed', '2720'),
-    new Site('adscoop', 'http://www.ad-scoop.dk', 2, true, 'Forening', '2720'),
-    new Site('Hansen', 'http://www.hansen.dk', 0, false, 'Frisør', '2000'),
-    new Site('VIF', 'http://www.vif.dk', 1, true, 'Forening', '2720'),
-    new Site('Amager bf', 'http://www.amager-bf.dk', 3, true, 'Købmand', '2750')
+
+  private sites: WebSite[] = [
+    new WebSite('Gundmann', 'http://www.gundmann.dk', 4, true, 'Sunhed', '2720'),
+    new WebSite('adscoop', 'http://www.ad-scoop.dk', 2, true, 'Forening', '2720'),
+    new WebSite('Hansen', 'http://www.hansen.dk', 0, false, 'Frisør', '2000'),
+    new WebSite('VIF', 'http://www.vif.dk', 1, true, 'Forening', '2720'),
+    new WebSite('Amager bf', 'http://www.amager-bf.dk', 3, true, 'Købmand', '2750')
   ];
-  
+
   constructor(private http: Http, private authService: AuthenticationService) { }
 
   getCampaigns(): Observable<Campaign[]> {
@@ -36,7 +36,7 @@ export class CampaignService {
 
   public remove(campaign: Campaign): Observable<boolean> {
     return this.http
-      .delete(this.baseUrl + '/remove?name=' + campaign.name, this.getHeadersWithToken())
+      .delete(this.baseUrl + '/remove?id=' + campaign.id, this.getHeadersWithToken())
       .map(response => true)
       .catch(response => {
         throw new Error('Fejl ved sletning af kampagnen');
@@ -61,7 +61,7 @@ export class CampaignService {
       });
   }
 
-  public serche(model: any): Site[] {
+  public serche(model: any): WebSite[] {
     return this.sites;
   }
 

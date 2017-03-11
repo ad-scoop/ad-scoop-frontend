@@ -1,5 +1,5 @@
 import { environment } from '../../../../../environments/environment';
-import { BannerNode } from '../../../../model/bannerNode';
+import { Banner } from '../../../../model/bannerNode';
 import { Campaign } from '../../../../model/campaign';
 import { FileInfo } from '../../../../model/fileinfo';
 import { AlertService } from '../../../../services/alert.service';
@@ -50,7 +50,7 @@ export class BannerUploadComponent implements EditInterface {
 
   addBanner(): void {
     this.base64(this.file, fileInfo => {
-      this.campaign.banners.push(new BannerNode(
+      this.campaign.banners.push(new Banner(
         this.model.name,
         fileInfo.width,
         fileInfo.height,

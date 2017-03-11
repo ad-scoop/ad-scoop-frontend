@@ -1,6 +1,7 @@
+import { AbstractId } from './abstractid';
 import { BannerSpace } from './bannerspace';
 
-export class Site {
+export class WebSite extends AbstractId {
 
   public bannerSpace: BannerSpace[];
 
@@ -10,6 +11,8 @@ export class Site {
     public clicks: number,
     public accepted: boolean,
     public industry: string,
-    public zip: string) { }
+    public zip: string) {
+    super();
+  }
 
 }

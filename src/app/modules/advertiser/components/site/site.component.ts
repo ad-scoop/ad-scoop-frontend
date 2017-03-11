@@ -1,4 +1,4 @@
-import { Site } from '../../../../model/site';
+import { WebSite } from '../../../../model/site';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SiteComponent {
 
-  @Input() sites: Site[];
+  @Input() sites: WebSite[];
   @Input() showclicks = true;
   @Input() hideSmall = 'hideSmall';
   @Input() firstColName = '';
@@ -19,11 +19,11 @@ export class SiteComponent {
   constructor() {
   }
 
-  click(site: Site) {
+  click(site: WebSite) {
     this.clickFunction(site);
   }
 
 }
 
-type ClickFunction = (site: Site) => void;
+type ClickFunction = (site: WebSite) => void;
 
