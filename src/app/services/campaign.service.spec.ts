@@ -2,11 +2,27 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { CampaignService } from './campaign.service';
+import { Http } from '@angular/http';
+import { AuthenticationService } from './authentication.service';
 
 describe('BannerService', () => {
+  
+  class HttpMock {
+    
+  }
+  
+  class AuthenticationServiceMock {
+    
+  }
+  
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CampaignService]
+      providers: [
+        CampaignService,
+        { provide: Http, useClass: HttpMock },
+        { provide: AuthenticationService, useClass: AuthenticationServiceMock },
+        
+      ]
     });
   });
 

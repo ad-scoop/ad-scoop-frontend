@@ -2,11 +2,20 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { UserService } from './user.service';
+import { Http } from '@angular/http';
 
 describe('UserService', () => {
+
+  class HttpMock {
+
+  }
+
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [UserService]
+      providers: [
+        UserService,
+        { provide: Http, useClass: HttpMock },
+      ]
     });
   });
 
