@@ -8,12 +8,12 @@
 			</md-card-header> 
 			
 			<md-input-container>
-				<input md-input type="email" placeholder="Email" focuced [(ngModel)]="model.email" name="email" required #email="ngModel">
+				<input mdInput type="email" placeholder="Email" focuced [(ngModel)]="model.email" name="email" required #email="ngModel">
 				<md-hint *ngIf="email.errors && (email.dirty || email.touched)" [ngStyle]="{'color': 'red'}">Email adressen er krævet</md-hint>
 			</md-input-container>
 				
 			<md-input-container>
-				<input md-input type="password" placeholder="Password" [(ngModel)]="model.password" name="password" required #password="ngModel">
+				<input mdInput type="password" placeholder="Password" [(ngModel)]="model.password" name="password" required #password="ngModel">
 				<md-hint *ngIf="password.errors && (password.dirty || password.touched)" [ngStyle]="{'color': 'red'}">Password er krævet</md-hint>
 			</md-input-container>
 

@@ -18,7 +18,6 @@ describe('BannerupladComponent', () => {
     getMessage(): Observable<any> { return Observable.of(''); }
   }
 
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
