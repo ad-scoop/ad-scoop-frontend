@@ -45,7 +45,7 @@ module.exports = function (config) {
         flags: ['--no-sandbox']
       }
     },
-    singleRun: false,
+    singleRun: true,
     reporters: ['dots', 'junit'],
     junitReporter: {
       outputFile: 'test-results.xml'
