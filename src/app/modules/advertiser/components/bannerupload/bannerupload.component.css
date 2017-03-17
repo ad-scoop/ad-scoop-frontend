@@ -1,3 +1,18 @@
 #file-input {
 	display: none;
 }
+
+.add {
+	position: absolute;
+	right: 25px;
+} 
+
+app-banner {
+    overflow: auto;
+    height: 362px;
+    display: block;
+}
+
+.bannerName {
+	margin-left: 10px;
+}

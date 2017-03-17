@@ -1,8 +1,6 @@
-.rightbutton {
-	margin-top: 15px;
-	margin-bottom: 10px;
-	display: block;
-	position: relative;
+md-card-content {
+	width: 500px;
+	min-height: 500px;
 }
 
 .rightbutton button {
@@ -24,12 +22,13 @@ a {
 @media ( max-width : 500px) {
 	.next {
 		display: inherit;
-		float: right;
-		margin-right: 20px;
+		position: absolute;
+		right: 20px;
 	}
 	.back {
 		display: inherit;
-		float: right;
+		position: absolute;
+		right: 110px;
 	}
 	.rightbutton {
 		display: none;
@@ -54,4 +53,3 @@ a {
 		border-radius: 0;
 	}
 }
-

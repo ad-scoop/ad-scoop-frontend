@@ -1,12 +1,12 @@
 <md-card class="fullscreen-dialog">
 	<md-card-content> 
 		<a (click)="dialogRef.close()"><md-icon>close</md-icon></a>
-		<button class="next" color="primary" md-button (click)="next()" *ngIf="!isSiteStep()">Næste</button>
-		<button class="next" color="primary" md-raised-button (click)="edit()" *ngIf="isSiteStep()">{{type}}</button>
-		<button class="back" color="primary" md-button (click)="back()" *ngIf="isNotFirstStep()">Tilbage</button>
 		<md-card-header color="accent">
+			<button class="next" color="primary" md-button (click)="next()" *ngIf="!isSiteStep()">Næste</button>
+			<button class="next" color="primary" md-raised-button (click)="edit()" *ngIf="isSiteStep()">{{type}}</button>
+			<button class="back" color="primary" md-button (click)="back()" *ngIf="isNotFirstStep()">Tilbage</button>
 			<div md-card-avatar><md-icon>group_work</md-icon></div>
-   			<md-card-title>{{type}} kampagne</md-card-title> 
+   			<md-card-title>{{type}}</md-card-title> 
 		</md-card-header> 
 		<app-editcampaign #editcampaign class="small" *ngIf="selectedStep == selectedStepEnum.CAMPAIGN" [campaign]="campaign"></app-editcampaign>
 		<app-searchsites #searchsites class="small" *ngIf="selectedStep == selectedStepEnum.SITES" [campaign]="campaign"></app-searchsites>

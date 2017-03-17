@@ -1,9 +1,11 @@
 .inputcontainer input {
-  width: 185px;
+	width: 185px;
 }
 
 .inputcontainer md-input-container {
 	margin-bottom: 30px;
+	float: left;
+	clear: left;
 }
 
 md-hint {

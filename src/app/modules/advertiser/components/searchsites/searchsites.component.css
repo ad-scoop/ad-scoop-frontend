@@ -18,3 +18,8 @@ md-hint {
 	display: block;
 	margin-bottom: 15px;
 }
+
+.appSites {
+	overflow: auto;
+	height: 230px;
+}

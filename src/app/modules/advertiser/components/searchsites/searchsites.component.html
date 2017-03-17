@@ -4,18 +4,19 @@
 	</p>
 	<div class="inputcontainer">		
 		<md-input-container>
-			<input mdInput focuced type="text" placeholder="Geografisk område" [(ngModel)]="model.area" name="area" #area="ngModel" >
+			<input mdInput focuced type="text" focuced placeholder="Geografisk område" [(ngModel)]="model.area" name="area" #area="ngModel" >
 			<md-hint>Det geografisk område der skal søges på f.eks. Ålborg, eller sjælland</md-hint>
 		</md-input-container>
 		<md-checkbox [(ngModel)]="model.near" name="near" #near="ngModel">Inden for dit postnummer og omegen</md-checkbox>
 	</div>
 	<div class="inputcontainer">
 		<md-input-container>
-			<input mdInput type="text" placeholder="Branche" focuced [(ngModel)]="model.branche" name="branche" #branche="ngModel">
+			<input mdInput type="text" placeholder="Branche" [(ngModel)]="model.branche" name="branche" #branche="ngModel">
 			<md-hint >Søge tekst efter branche f.eks. foreninger</md-hint>
 		</md-input-container>
 		<button class="right" md-raised-button md-button (click)="search()">Søg</button>
 	</div>
+	<div class="appSites">
 	<app-site 
 		class="siteList" 
 		[sites]="foundsites" 
@@ -36,4 +37,5 @@
 		[clickFunction]="removeFunction"
 		[removeColumn]="removeColumn">
 	</app-site>
+	</div>
 </form>
