@@ -8,7 +8,7 @@
 			<div md-card-avatar><md-icon>group_work</md-icon></div>
    			<md-card-title>{{type}}</md-card-title> 
 		</md-card-header>
-		<app-editsite></app-editsite> 
+		<app-editsite [site]="site"></app-editsite> 
 		<md-card-footer class="rightbutton">
 			<button md-button color="accent" (click)="dialogRef.close()">Annuller</button>
 			<button color="primary" md-button (click)="next()">Næste</button>

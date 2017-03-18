@@ -1,4 +1,6 @@
 /* tslint:disable:no-unused-variable */
+import { WebSite } from '../../../../model/site';
+import { UrlSafePipe } from '../../../../utils/urlsafe.pipe';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
@@ -16,7 +18,7 @@ describe('EditsiteComponent', () => {
       imports: [
         MaterialModule.forRoot(),
       ],
-      declarations: [EditSiteComponent],
+      declarations: [EditSiteComponent, UrlSafePipe],
     })
       .compileComponents();
   }));
@@ -24,6 +26,7 @@ describe('EditsiteComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EditSiteComponent);
     component = fixture.componentInstance;
+    component.site = new WebSite('Gundmann', 'http://www.gundmann.dk', 4, true, 'Sunhed', '2720');
     fixture.detectChanges();
   });
 

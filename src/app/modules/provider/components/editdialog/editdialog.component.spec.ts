@@ -1,4 +1,6 @@
 /* tslint:disable:no-unused-variable */
+import { WebSite } from '../../../../model/site';
+import { UrlSafePipe } from '../../../../utils/urlsafe.pipe';
 import { EditSiteComponent } from '../editsite/editsite.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -22,7 +24,8 @@ describe('EditdialogComponent', () => {
       ],
       declarations: [
         EditDialogComponent,
-        EditSiteComponent
+        EditSiteComponent,
+        UrlSafePipe
       ],
       providers: [
         { provide: MdDialogRef, useClass: MdDialogRefMock },
@@ -35,6 +38,7 @@ describe('EditdialogComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EditDialogComponent);
     component = fixture.componentInstance;
+    component.site = new WebSite('Gundmann', 'http://www.gundmann.dk', 4, true, 'Sunhed', '2720');
     fixture.detectChanges();
   });
 

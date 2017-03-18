@@ -1,0 +1,55 @@
+md-card-content {
+	width: 500px;
+	min-height: 500px;
+}
+
+.rightbutton button {
+	float: right;
+}
+
+a {
+	display: none;
+}
+
+.next {
+	display: none;
+}
+
+.back {
+	display: none;
+}
+
+@media ( max-width : 500px) {
+	.next {
+		display: inherit;
+		position: absolute;
+		right: 20px;
+	}
+	.back {
+		display: inherit;
+		position: absolute;
+		right: 110px;
+	}
+	.rightbutton {
+		display: none;
+	}
+	a {
+		cursor: pointer;
+		float: left;
+		display: inherit;
+	}
+	.small {
+		display: block;
+		margin-right: 30px;
+	}
+	.fullscreen-dialog {
+		height: 100%;
+		width: 100%;
+		max-height: 100%;
+		max-width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: 0;
+	}
+}

@@ -7,6 +7,7 @@ import { providerRoutes } from './provider.routes';
 import { ProviderComponent } from './provider.component';
 import { ProviderGuard } from './provider.guard';
 import { MaterialModule } from '@angular/material';
+import { UrlSafePipe } from '../../utils/urlsafe.pipe';
 
 import {SiteComponent } from './components/site/site.component';
 
@@ -21,6 +22,7 @@ import {SiteComponent } from './components/site/site.component';
     EditSiteComponent,
     EditDialogComponent,
     ProviderComponent,
+    UrlSafePipe
   ],
   providers: [
     ProviderGuard,
