@@ -1,0 +1,19 @@
+<md-card class="fullscreen-dialog">
+	<md-card-content> 
+		<a (click)="dialogRef.close()"><md-icon>close</md-icon></a>
+		<md-card-header color="accent">
+			<button class="next" color="primary" md-button (click)="next()">Næste</button>
+			<button class="next" color="primary" md-raised-button (click)="edit()">{{type}}</button>
+			<button class="back" color="primary" md-button (click)="back()">Tilbage</button>
+			<div md-card-avatar><md-icon>group_work</md-icon></div>
+   			<md-card-title>{{type}}</md-card-title> 
+		</md-card-header>
+		<app-editsite></app-editsite> 
+		<md-card-footer class="rightbutton">
+			<button md-button color="accent" (click)="dialogRef.close()">Annuller</button>
+			<button color="primary" md-button (click)="next()">Næste</button>
+			<button color="primary" md-raised-button (click)="edit()">{{type}}</button>
+			<button color="primary" md-button (click)="back()">Tilbage</button>
+		</md-card-footer> 
+	</md-card-content> 
+</md-card>

@@ -9,6 +9,7 @@ import { BannerComponent } from '../banner/banner.component';
 import { Campaign } from '../../../../model/campaign';
 
 import { BannerUploadComponent } from './bannerupload.component';
+import { Observable } from 'rxjs';
 
 describe('BannerupladComponent', () => {
   let component: BannerUploadComponent;
@@ -37,7 +38,7 @@ describe('BannerupladComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BannerUploadComponent);
     component = fixture.componentInstance;
-    component.campaign = new Campaign();
+    component.campaign = new Campaign(0);
     fixture.detectChanges();
   });
 

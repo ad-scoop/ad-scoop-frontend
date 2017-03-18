@@ -20,7 +20,7 @@ describe('ActivationComponent', () => {
 
   class UserServiceMock {
     public activate(token: string): Observable<boolean> {
-      return Observable.of("Test")
+      return Observable.of(true)
     }
   }
 
@@ -30,7 +30,7 @@ describe('ActivationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [        
+      declarations: [
         ActivationComponent],
       imports: [
         RouterTestingModule.withRoutes([
@@ -41,17 +41,17 @@ describe('ActivationComponent', () => {
         { provide: AlertService, useClass: AlertServiceMock },
         { provide: UserService, useClass: UserServiceMock },
       ]
-  })
-    .compileComponents();
-}));
+    })
+      .compileComponents();
+  }));
 
-beforeEach(() => {
-  fixture = TestBed.createComponent(ActivationComponent);
-  component = fixture.componentInstance;
-  fixture.detectChanges();
-});
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ActivationComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-it('should create', () => {
-  expect(component).toBeTruthy();
-});
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });

@@ -15,20 +15,21 @@ describe('SearchsitesComponent', () => {
   let fixture: ComponentFixture<SearchsitesComponent>;
 
   class CampaignServiceMock {
-    
+
   }
-  
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         SearchsitesComponent,
-        SiteComponent,],
+        SiteComponent
+      ],
       imports: [
         MaterialModule.forRoot(),
         FormsModule,
       ],
       providers: [
-         { provide: CampaignService, useClass: CampaignServiceMock },
+        { provide: CampaignService, useClass: CampaignServiceMock },
       ]
     })
       .compileComponents();
@@ -37,7 +38,7 @@ describe('SearchsitesComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SearchsitesComponent);
     component = fixture.componentInstance;
-    component.campaign = new Campaign();
+    component.campaign = new Campaign(0);
     fixture.detectChanges();
   });
 

@@ -15,6 +15,7 @@ import { Observable } from 'rxjs';
 describe('AppComponent', () => {
   class AuthenticationServiceMock {
     isNotLoggedIn(): boolean { return false; }
+    isLoggedAsProvider(): boolean { return true; }
     isLoggedInAsAdvertiser(): boolean { return true; }
     isLoggedIn(): boolean { return true; }
   }

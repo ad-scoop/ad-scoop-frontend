@@ -14,7 +14,6 @@ export class CampaignService {
 
   private baseUrl = environment.publisherUrl;
 
-
   private sites: WebSite[] = [
     new WebSite('Gundmann', 'http://www.gundmann.dk', 4, true, 'Sunhed', '2720'),
     new WebSite('adscoop', 'http://www.ad-scoop.dk', 2, true, 'Forening', '2720'),

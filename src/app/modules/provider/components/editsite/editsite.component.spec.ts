@@ -2,31 +2,28 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { Campaign } from '../../../../model/campaign';
-import { FormsModule } from '@angular/forms';
+import { MdDialogRef } from '@angular/material';
 import { MaterialModule } from '@angular/material';
 
-import { EditCampaignComponent } from './editcampaign.component';
+import { EditSiteComponent } from './editsite.component';
 
-describe('CreatecampaignComponent', () => {
-  let component: EditCampaignComponent;
-  let fixture: ComponentFixture<EditCampaignComponent>;
+describe('EditsiteComponent', () => {
+  let component: EditSiteComponent;
+  let fixture: ComponentFixture<EditSiteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [EditCampaignComponent],
       imports: [
         MaterialModule.forRoot(),
-        FormsModule,
       ],
+      declarations: [EditSiteComponent],
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditCampaignComponent);
+    fixture = TestBed.createComponent(EditSiteComponent);
     component = fixture.componentInstance;
-    component.campaign = new Campaign(0);
     fixture.detectChanges();
   });
 

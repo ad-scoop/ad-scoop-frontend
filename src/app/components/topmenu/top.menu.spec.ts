@@ -8,13 +8,15 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 
 describe('AppComponent', () => {
-  
+
   class AuthenticationServiceMock {
     isNotLoggedIn(): boolean { return false; }
     isLoggedInAsAdvertiser(): boolean { return true; }
+    isLoggedAsProvider(): boolean { return true; }
     isLoggedIn(): boolean { return true; }
   }
-  
+
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -24,12 +26,12 @@ describe('AppComponent', () => {
           { path: 'login', component: TopMenu },
           { path: '.', component: TopMenu }
         ]),
-      ]
+      ],
       declarations: [
         TopMenu
       ],
       providers: [
-         { provide: AuthenticationService, useClass: AuthenticationServiceMock },
+        { provide: AuthenticationService, useClass: AuthenticationServiceMock },
       ],
     });
     TestBed.compileComponents();

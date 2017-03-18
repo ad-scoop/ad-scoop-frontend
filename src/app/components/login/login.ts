@@ -45,7 +45,7 @@ export class Login {
     if (this.userServcie.isLoggedInAsAdvertiser()) {
       this.router.navigate(['/advertiser/campaigns']);
     } else if (this.userServcie.isLoggedAsProvider()) {
-      this.router.navigate(['/provider/sites']);
+      this.router.navigate(['/provider/site']);
     }
   }
 

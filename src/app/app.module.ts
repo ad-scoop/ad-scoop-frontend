@@ -23,6 +23,7 @@ import { ActivationComponent } from './components/activation/activation.componen
 
 import { RegistryComponent } from './components/registry/registry.component';
 import { CampaignService } from './services/campaign.service';
+import { SiteService } from './services/site.service';
 import { UserService } from './services/user.service';
 import { FoucsDirective } from './utils/foucs.directive';
 
@@ -55,6 +56,7 @@ import 'hammerjs';
     AlertService,
     UserService,
     CampaignService,
+    SiteService
   ],
   bootstrap: [AppComponent]
 })

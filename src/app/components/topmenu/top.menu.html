@@ -11,6 +11,11 @@
 	<a md-button (click)="logout()">Log ud</a>
 </span>
 
+<span *ngIf="userService.isLoggedAsProvider()" class="topMenuItems">
+	<a md-button routerLink="provider/site">Websider</a> <span>|</span>
+	<a md-button (click)="logout()">Log ud</a>
+</span>
+
 <span class="dropDowntopMenuItems">
 	<button md-button [mdMenuTriggerFor]="menu">
 		<md-icon>menu</md-icon>

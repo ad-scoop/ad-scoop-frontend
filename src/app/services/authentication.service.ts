@@ -36,11 +36,11 @@ export class AuthenticationService {
     }
 
     isLoggedInAsAdvertiser(): boolean  {
-        return this.isLoggedIn() && this.getLabels().find(e => e === 'advertiser') !== null;
+        return this.isLoggedIn() && this.getLabels().find(e => e === 'advetiser') === 'advetiser';
     }
 
     isLoggedAsProvider(): boolean  {
-        return this.isLoggedIn() && this.getLabels().find(e => e === 'provider') !== null;
+        return this.isLoggedIn() && this.getLabels().find(e => e === 'provider') === 'provider';
     }
 
     getToken(): string {
