@@ -9,6 +9,8 @@ import { MaterialModule, MdDialog } from '@angular/material';
 
 import { SiteComponent } from './site.component';
 import { Observable } from 'rxjs';
+import { UrlSafePipe } from '../../../../utils/urlsafe.pipe';
+
 
 describe('SiteComponent', () => {
   let component: SiteComponent;
@@ -31,7 +33,7 @@ describe('SiteComponent', () => {
       imports: [
         MaterialModule.forRoot(),
       ],
-      declarations: [SiteComponent],
+      declarations: [SiteComponent, UrlSafePipe],
       providers: [
         { provide: SiteService, useClass: SiteServiceMock },
         { provide: AlertService, useClass: AlertServiceMock },

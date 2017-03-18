@@ -1,4 +1,4 @@
-<md-card class="cardWidth" *ngFor="let site of sites; let i = index"> 
+<md-card *ngFor="let site of sites; let i = index"> 
 	<md-card-content> 
 		<button md-mini-fab (click)="remove(site)"><md-icon>remove</md-icon></button>
 		<button md-mini-fab (click)="edit(site)"><md-icon>edit</md-icon></button>
@@ -6,6 +6,9 @@
 		<md-card-header>
 			<div md-card-avatar><md-icon>group_work</md-icon></div>
    			<md-card-title>{{site.name}}</md-card-title> 
-		</md-card-header> 
+		</md-card-header>
+		<div class="frame">
+			<iframe [src]="site.url | urlsafe"></iframe>
+		</div>
 	</md-card-content>
 </md-card>
