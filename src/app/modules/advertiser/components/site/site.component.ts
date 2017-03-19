@@ -23,6 +23,12 @@ export class SiteComponent {
     this.clickFunction(site);
   }
 
+  getZip(site: WebSite): String {
+    if (site.area) {
+      return site.area.zip;
+    }
+    return '';
+  }
 }
 
 type ClickFunction = (site: WebSite) => void;
