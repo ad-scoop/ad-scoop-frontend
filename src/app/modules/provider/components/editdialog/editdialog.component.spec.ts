@@ -38,7 +38,7 @@ describe('EditdialogComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EditDialogComponent);
     component = fixture.componentInstance;
-    component.site = new WebSite('Gundmann', 'http://www.gundmann.dk', 4, true, 'Sunhed', '2720');
+    component.site = new WebSite('', '', true);
     fixture.detectChanges();
   });
 

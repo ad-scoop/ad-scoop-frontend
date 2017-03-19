@@ -1,3 +1,7 @@
+import { Area } from '../model/area';
+import { Demografi } from '../model/demografi';
+import { Gender } from '../model/gender';
+import { Organisation } from '../model/organisation';
 import { WebSite } from '../model/site';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -6,12 +10,44 @@ import { Observable } from 'rxjs';
 export class SiteService {
 
   private webSites: WebSite[] = [
-    new WebSite('Gundmann', 'http://www.gundmann.dk', 4, true, 'Sunhed', '2720'),
-    new WebSite('adscoop', 'http://www.ad-scoop.dk', 2, true, 'Forening', '2720'),
-    new WebSite('Hansen', 'http://www.hansen.dk', 0, false, 'Frisør', '2000'),
-    new WebSite('VIF', 'http://www.vif.dk', 1, true, 'Forening', '2720'),
-    new WebSite('Amager bf', 'http://www.amager-bf.dk', 3, true, 'Købmand', '2750')
+    new WebSite(
+      'Gundmann',
+      'http://www.gundmann.dk',
+      true,
+      new Demografi(Gender.Unisex),
+      new Area('2720', 'Denmark'),
+      new Organisation('Sunhed')
+    ),
+    new WebSite(
+      'adscoop',
+      'http://www.ad-scoop.dk',
+      true,
+      new Demografi(Gender.Man),
+      new Area('2720', 'Denmark'),
+      new Organisation('Forening')),
+    new WebSite(
+      'Hansen',
+      'http://www.hansen.dk',
+      false,
+      new Demografi(Gender.Woman),
+      new Area('2720', 'Denmark'),
+      new Organisation('Frisør')),
+    new WebSite(
+      'VIF',
+      'http://www.vif.dk',
+      true,
+      new Demografi(Gender.Unisex),
+      new Area('2720', 'Denmark'),
+      new Organisation('Forening')),
+    new WebSite(
+      'Amager',
+      'http://www.amager.dk',
+      true,
+      new Demografi(Gender.Unisex),
+      new Area('2720', 'Denmark'),
+      new Organisation('Købmand'))
   ];
+
 
   constructor() { }
 

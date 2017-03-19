@@ -15,7 +15,7 @@
 			<td>{{site.name}}</td>
 			<td><a [href]="site.url">{{site.url}}</a></td>
 			<td [class]="hideSmall">{{site.industry}}</td>
-			<td [class]="hideSmall">{{site.zip}}</td>
+			<td [class]="hideSmall">{{site.area.zip}}</td>
 			<td *ngIf="showclicks" class="click">{{site.clicks}}</td>
 		</tr>
 	</table>

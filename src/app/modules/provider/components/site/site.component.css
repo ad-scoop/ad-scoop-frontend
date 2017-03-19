@@ -1,12 +1,27 @@
-md-card {
-	float: left;
-	max-width: 272px;
-	max-height: 500px;
-	margin: 10px;
+.info {
+	padding: 10px;
+}
+
+.info label {
+	font-weight: bold;
+}
+
+.info div {
+	margin-bottom: 10px;
 }
 
 .frame {
-	margin-left: -24px;
+	height: 250px;
+}
+
+md-card {
+	float: left;
+	max-width: 320px;
+	max-height: 500px;
+	margin: 10px;
+	padding-right: 0px;
+	padding-left: 0px;
+	background-color: #dae8e7;
 }
 
 button {
