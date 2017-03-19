@@ -1,3 +1,8 @@
+.main {
+	display: table;
+	margin: 0 auto;
+}
+
 .info {
 	padding: 10px;
 }
@@ -10,8 +15,41 @@
 	margin-bottom: 10px;
 }
 
+.frame-container {
+	width: calc(1280px * 0.25);
+	height: calc(768px * 0.25);
+	display: inline-block;
+	overflow: hidden;
+	position: relative;
+}
+
 .frame {
-	height: 250px;
+	position: relative;
+	-ms-zoom: 0.25;
+	-moz-transform: scale(0.25);
+	-moz-transform-origin: 0 0;
+	-o-transform: scale(0.25);
+	-o-transform-origin: 0 0;
+	-webkit-transform: scale(0.25);
+	-webkit-transform-origin: 0 0;
+}
+
+.frame:after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.frame iframe {
+	width: 1280px;
+	height: 768px;
+	border: 0;
+	opacity: 0;
+	transition: all 300ms ease-in-out;
 }
 
 md-card {
@@ -29,20 +67,4 @@ button {
 	margin-right: 12px;
 	position: relative;
 	top: -25px;
-}
-
-iframe {
-	width: 1280px;
-	height: 950px;
-	border: 0;
-	-ms-transform: scale(0.25);
-	-moz-transform: scale(0.25);
-	-o-transform: scale(0.25);
-	-webkit-transform: scale(0.25);
-	transform: scale(0.25);
-	-ms-transform-origin: 0 0;
-	-moz-transform-origin: 0 0;
-	-o-transform-origin: 0 0;
-	-webkit-transform-origin: 0 0;
-	transform-origin: 0 0;
 }
