@@ -8,11 +8,11 @@
     			<md-card-title>Registere</md-card-title> 
 			</md-card-header> 
 			
-			<md-radio-group clas="radio-button" [(ngModel)]="model.role" name="role">
-  				<md-radio-button class="radio-button" value="advetiser" checked>Jeg er annoncør</md-radio-button>
-  				<md-radio-button class="radio-button" value="provider">Jeg har et website</md-radio-button>
-			</md-radio-group>
-			
+			<div>
+				<md-checkbox (change)="changeLabelAdvertiser()" #advetiser [required]="!provider.checked">Jeg er annoncør</md-checkbox>
+				<md-checkbox (change)="changeLabelProvider()"  #provider  [required]="!advetiser.checked">Jeg har et website</md-checkbox>
+				<md-hint *ngIf="(advetiser.dirty || advetiser.touched || provider.dirty || provider.touched) && !provider.checked && !advetiser.checked" [ngStyle]="{'color': 'red'}">Vælg én af profilerne</md-hint>
+			</div>
 			<div>
 				<md-input-container class="input">
 					<input mdInput placeholder="Fornavn" [(ngModel)]="model.firstname" name="firstname" required maxlength="200" #firstname="ngModel">

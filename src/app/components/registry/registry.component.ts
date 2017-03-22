@@ -1,5 +1,6 @@
 import { User } from '../../model/user'
 import { AlertService } from '../../services/alert.service'
+import { AuthenticationService } from '../../services/authentication.service';
 import { UserService } from '../../services/user.service'
 import { Component, Input, OnInit, ElementRef } from '@angular/core';
 import { Validator, AbstractControl } from '@angular/forms'
@@ -23,7 +24,24 @@ export class RegistryComponent implements OnInit {
     private alertService: AlertService) { }
 
   ngOnInit() {
-    this.model.role = 'advetiser';
+    this.model.labels = [];
+  }
+
+  changeLabelAdvertiser(): void {
+    this.changeLabel(AuthenticationService.ADVERTISER);
+  }
+
+  changeLabelProvider(): void {
+    this.changeLabel(AuthenticationService.PROVIDER);
+  }
+
+  changeLabel(label: string): void {
+    let index = this.model.labels.indexOf(label);
+    if (index > -1) {
+      this.model.labels.splice(index, 1);
+    } else {
+      this.model.labels.push(label);
+    }
   }
 
   create(): void {

@@ -16,7 +16,7 @@ export class User extends AbstractId {
     this.firstname = model.firstname;
     this.middelname = model.middlename;
     this.lastname = model.lastname;
-    this.labels = [model.role];
+    this.labels = model.labels;
   }
 
 }

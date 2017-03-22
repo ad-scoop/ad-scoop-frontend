@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { TopMenu } from './components/topmenu/top.menu';
 import { appRoutes } from './app.routes';
 import { Home } from './components/home/home';
-import { Login } from './components/login/login';
+import { Login, ProfileDialogComponent } from './components/login/login';
 import { Footer } from './components/footer/footer';
 import { UnderConstruction } from './components/underconstruction/under.construction';
 import { Alert } from './components/alert/alert';
@@ -41,6 +41,7 @@ import 'hammerjs';
     Alert,
     RegistryComponent,
     ActivationComponent,
+    ProfileDialogComponent,
   ],
   imports: [
     BrowserModule,

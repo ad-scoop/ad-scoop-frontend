@@ -11,18 +11,18 @@ describe('BannerlistComponent', () => {
   let fixture: ComponentFixture<BannerComponent>;
 
   class MdDialogMock {
-    
+
   }
-  
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BannerComponent ],
+      declarations: [BannerComponent],
       providers: [
         { provide: MdDialog, useClass: MdDialogMock },
       ]
-      
+
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
