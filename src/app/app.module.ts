@@ -26,6 +26,7 @@ import { CampaignService } from './services/campaign.service';
 import { SiteService } from './services/site.service';
 import { UserService } from './services/user.service';
 import { FoucsDirective } from './utils/foucs.directive';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import 'hammerjs';
 
@@ -57,7 +58,8 @@ import 'hammerjs';
     AlertService,
     UserService,
     CampaignService,
-    SiteService
+    SiteService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })

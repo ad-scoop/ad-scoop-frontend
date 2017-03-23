@@ -12,7 +12,7 @@ export class AuthenticationService {
 
   public static ADVERTISER = 'advertiser';
   public static PROVIDER = 'provider';
-  
+
   private baseUrl = environment.userUrl;
 
   constructor(private http: Http) { }
