@@ -38,12 +38,20 @@ export class SiteComponent implements OnInit {
           error => this.alertService.error(error));
       }
     });
-
-    this.ngOnInit();
   }
 
   add(): void {
-    this.ngOnInit();
+    let site = new WebSite('', '', false);
+    this.openEditDialog(site, 'Opret').subscribe(result => {
+      if (result) {
+        this.siteService.edit(result).subscribe(
+          responce => {
+            this.siteService.add(site);
+            this.ngOnInit();
+          },
+          error => this.alertService.error(error));
+      }
+    });
   }
 
   private openEditDialog(site: WebSite, type: string): Observable<any> {

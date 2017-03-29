@@ -17,6 +17,6 @@ export class WebSite extends AbstractId {
     public area?: Area,
     public organisation?: Organisation,
     public clicks?: number
-    ) { super(); }
+  ) { super(); }
 
 }

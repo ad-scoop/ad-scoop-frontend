@@ -1,3 +1,10 @@
-<div>
-	<iframe [src]="site.url | urlsafe"></iframe>
-</div>	
+<div class="small">
+	<md-input-container class="width60"> 
+		<input mdInput type="text" placeholder="Web-adresse" focuced [(ngModel)]="url" name="name" required></md-input-container>
+	<button md-raised-button class="right" (click)="refresh()">Vis</button>
+</div>
+<div class="box">
+	<div class="frame">
+		<iframe [src]="site.url | urlsafe"></iframe>
+	</div>
+</div>

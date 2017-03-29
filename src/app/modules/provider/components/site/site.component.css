@@ -1,6 +1,9 @@
-.main {
-	display: table;
-	margin: 0 auto;
+.centerContent {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
 }
 
 .info {
@@ -9,6 +12,8 @@
 
 .info label {
 	font-weight: bold;
+	width: 100px;
+	display: inline-block;
 }
 
 .info div {
@@ -16,9 +21,7 @@
 }
 
 .frame-container {
-	width: calc(1280px * 0.25);
 	height: calc(768px * 0.25);
-	display: inline-block;
 	overflow: hidden;
 	position: relative;
 }
@@ -53,7 +56,7 @@
 md-card {
 	float: left;
 	max-width: 320px;
-	max-height: 500px;
+	max-height: 340px;
 	margin: 10px;
 	padding-right: 0px;
 	padding-left: 0px;

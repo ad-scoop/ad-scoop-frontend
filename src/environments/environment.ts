@@ -6,6 +6,6 @@
 export const environment = {
   production: false,
   userUrl: 'http://localhost:8181/user',
-  publisherUrl: 'http://localhost:8182/campagin',
+  publisherUrl: 'http://localhost:8182/publisher/campagin',
   maxPictureSize: 512000,
 };

@@ -1,5 +1,13 @@
+.centerContent {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
 md-card-content {
-	width: 500px;
+	max-width: 500px;
 	min-height: 500px;
 }
 

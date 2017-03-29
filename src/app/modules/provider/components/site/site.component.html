@@ -1,4 +1,4 @@
-<div class="main">
+<div class="centerContent">
 	<md-card *ngFor="let site of sites; let i = index"> 
 		<md-card-content> 
 			<button md-mini-fab (click)="remove(site)"><md-icon>remove</md-icon></button>
@@ -15,7 +15,7 @@
 			</div>
 			<div class="info">
 				<div>
-					<label>Adresse</label>
+					<label>Web-adresse</label>
 					<span><a [href]="site.url">{{site.url}}</a></span>
 				</div>
 				<div>

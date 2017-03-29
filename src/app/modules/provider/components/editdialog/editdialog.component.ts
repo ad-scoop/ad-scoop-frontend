@@ -1,5 +1,6 @@
 import { EditInterface } from '../../../advertiser/components/editdialog/editinterface';
 import { EditSiteComponent } from '../editsite/editsite.component';
+import { EditSiteInfoComponent } from '../editsiteinfo/editsiteinfo.component';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
 
@@ -20,9 +21,10 @@ export class EditDialogComponent implements OnInit {
   @Input() site;
 
   @ViewChild('editSite') editSite: EditSiteComponent;
-  //  @ViewChild('editcampaign') editCampaign: EditCampaignComponent;
+  @ViewChild('editsiteinfo') editsiteinfo: EditSiteInfoComponent;
   //  @ViewChild('searchbanner') bannerUpload: BannerUploadComponent;
 
+  public type: string;
   private selectedStep = SelectedStep.URL;
   public selectedStepEnum = SelectedStep;
 
@@ -55,7 +57,7 @@ export class EditDialogComponent implements OnInit {
     if (SelectedStep.URL === this.selectedStep) {
       return this.editSite;
     } else if (SelectedStep.INFO === this.selectedStep) {
-      return null;
+      return this.editsiteinfo;
     }
     return null;
   }

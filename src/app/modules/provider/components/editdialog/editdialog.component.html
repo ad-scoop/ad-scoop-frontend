@@ -8,7 +8,8 @@
 			<div md-card-avatar><md-icon>group_work</md-icon></div>
    			<md-card-title>{{type}}</md-card-title> 
 		</md-card-header>
-		<app-editsite #editDialog [site]="site" *ngIf="selectedStep == selectedStepEnum.URL" ></app-editsite> 
+		<app-editsite class="centerContent" #editSite [site]="site" *ngIf="selectedStep == selectedStepEnum.URL" ></app-editsite> 
+		<app-editsiteinfo #editsiteinfo [site]="site" *ngIf="selectedStep == selectedStepEnum.INFO" ></app-editsiteinfo>
 		<md-card-footer class="rightbutton">
 			<button md-button color="accent" (click)="dialogRef.close()">Annuller</button>
 			<button color="primary" md-button (click)="next()">Næste</button>
