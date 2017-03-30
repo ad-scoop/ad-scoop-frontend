@@ -26,7 +26,7 @@ describe('BannerupladComponent', () => {
         BannerComponent],
       imports: [
         MaterialModule.forRoot(),
-        FormsModule,  
+        FormsModule,
       ],
       providers: [
          { provide: AlertService, useClass: AlertServiceMock },

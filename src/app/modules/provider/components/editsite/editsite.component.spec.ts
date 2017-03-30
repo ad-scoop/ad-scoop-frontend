@@ -8,6 +8,7 @@ import { MdDialogRef } from '@angular/material';
 import { MaterialModule } from '@angular/material';
 
 import { EditSiteComponent } from './editsite.component';
+import { FormsModule } from '@angular/forms';
 
 describe('EditsiteComponent', () => {
   let component: EditSiteComponent;
@@ -17,6 +18,7 @@ describe('EditsiteComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         MaterialModule.forRoot(),
+        FormsModule
       ],
       declarations: [EditSiteComponent, UrlSafePipe],
     })

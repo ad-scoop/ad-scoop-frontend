@@ -1,3 +1,4 @@
+import { WebSite } from '../../../../model/site';
 import { EditInterface } from '../../../advertiser/components/editdialog/editinterface';
 import { EditSiteComponent } from '../editsite/editsite.component';
 import { EditSiteInfoComponent } from '../editsiteinfo/editsiteinfo.component';
@@ -18,7 +19,7 @@ enum SelectedStep {
 })
 export class EditDialogComponent implements OnInit {
 
-  @Input() site;
+  @Input() site: WebSite;
 
   @ViewChild('editSite') editSite: EditSiteComponent;
   @ViewChild('editsiteinfo') editsiteinfo: EditSiteInfoComponent;

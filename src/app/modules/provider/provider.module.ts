@@ -1,6 +1,6 @@
 import { EditDialogComponent } from './components/editdialog/editdialog.component';
 import { EditSiteComponent } from './components/editsite/editsite.component';
-import { NgModule }       from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule }   from '@angular/common';
 import { RouterModule } from '@angular/router';
