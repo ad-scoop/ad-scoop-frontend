@@ -2,6 +2,8 @@
 import { Area } from '../../../../model/area';
 import { Demografi } from '../../../../model/demografi';
 import { Gender } from '../../../../model/gender';
+import { Industry } from '../../../../model/industry';
+import { Organisation } from '../../../../model/organisation';
 import { WebSite } from '../../../../model/site';
 import { SiteService } from '../../../../services/site.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -10,7 +12,6 @@ import { DebugElement } from '@angular/core';
 import { MaterialModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { FormControl } from '@angular/forms';
 import { fakeAsync, tick } from '@angular/core/testing';
 
 import { EditSiteInfoComponent } from './editsiteinfo.component';
@@ -20,6 +21,7 @@ describe('EditsiteinfoComponent', () => {
   let fixture: ComponentFixture<EditSiteInfoComponent>;
 
   class SiteServiceMock {
+    industries: Industry[] = [];
   }
 
   beforeEach(async(() => {
@@ -29,7 +31,7 @@ describe('EditsiteinfoComponent', () => {
         FormsModule,
         ReactiveFormsModule,
       ],
-      declarations: [FormControl, EditSiteInfoComponent],
+      declarations: [EditSiteInfoComponent],
       providers: [
         { provide: SiteService, useClass: SiteServiceMock },
       ]
@@ -41,7 +43,7 @@ describe('EditsiteinfoComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EditSiteInfoComponent);
     component = fixture.componentInstance;
-    component.site = new WebSite('', '', false, new Demografi([Gender.Man]), new Area('', ''));
+    component.site = new WebSite('', '', false, new Demografi([Gender.Man]), new Area('', ''), new Organisation('test'));
     fixture.detectChanges();
   });
 

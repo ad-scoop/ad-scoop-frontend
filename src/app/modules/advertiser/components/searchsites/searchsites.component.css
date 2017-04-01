@@ -23,3 +23,7 @@ md-hint {
 	overflow: auto;
 	height: 230px;
 }
+
+.doNotHide {
+	display: inherit;
+}

@@ -1,5 +1,5 @@
 import { WebSite } from '../../../../model/site';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-site',
@@ -29,6 +29,14 @@ export class SiteComponent {
     }
     return '';
   }
+
+  getIndustry(site: WebSite): String {
+    if (site.organisation) {
+      return site.organisation.type;
+    }
+    return '';
+  }
+
 }
 
 type ClickFunction = (site: WebSite) => void;
