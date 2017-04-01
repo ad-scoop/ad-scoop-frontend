@@ -20,9 +20,9 @@ describe('AppComponent', () => {
     isLoggedIn(): boolean { return true; }
   }
   class AlertServiceMock {
-    getMessage(): Observable<any> { return Observable.of(''); } 
+    getMessage(): Observable<any> { return Observable.of(''); }
   }
-  
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -39,8 +39,8 @@ describe('AppComponent', () => {
         Alert,
       ],
       providers: [
-         { provide: AuthenticationService, useClass: AuthenticationServiceMock },
-         { provide: AlertService, useClass: AlertServiceMock },
+        { provide: AuthenticationService, useClass: AuthenticationServiceMock },
+        { provide: AlertService, useClass: AlertServiceMock },
       ]
     });
     TestBed.compileComponents();

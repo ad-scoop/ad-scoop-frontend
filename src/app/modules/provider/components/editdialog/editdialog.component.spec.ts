@@ -10,9 +10,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { MaterialModule, MdDialogRef } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { EditDialogComponent } from './editdialog.component';
-import { FormsModule } from '@angular/forms';
 
 describe('EditdialogComponent', () => {
   let component: EditDialogComponent;
@@ -26,7 +26,8 @@ describe('EditdialogComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         MaterialModule.forRoot(),
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
       ],
       declarations: [
         EditDialogComponent,
@@ -45,7 +46,7 @@ describe('EditdialogComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EditDialogComponent);
     component = fixture.componentInstance;
-    component.site = new WebSite('', '', true, new Demografi(Gender.Children), new Area('', ''));
+    component.site = new WebSite('', '', true, new Demografi([Gender.Children]), new Area('', ''));
     fixture.detectChanges();
   });
 

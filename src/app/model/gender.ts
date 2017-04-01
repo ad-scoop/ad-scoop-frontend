@@ -1,7 +1,7 @@
 export const enum Gender {
 
   Man,
-  Woman ,
+  Woman,
   Children,
   Unisex
 

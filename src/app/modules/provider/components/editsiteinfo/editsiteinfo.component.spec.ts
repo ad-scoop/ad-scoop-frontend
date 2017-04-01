@@ -8,7 +8,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { MaterialModule } from '@angular/material';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { FormControl } from '@angular/forms';
+import { fakeAsync, tick } from '@angular/core/testing';
 
 import { EditSiteInfoComponent } from './editsiteinfo.component';
 
@@ -22,10 +25,11 @@ describe('EditsiteinfoComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        MaterialModule.forRoot(),
-        FormsModule
+        MaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
       ],
-      declarations: [EditSiteInfoComponent],
+      declarations: [FormControl, EditSiteInfoComponent],
       providers: [
         { provide: SiteService, useClass: SiteServiceMock },
       ]
@@ -37,7 +41,7 @@ describe('EditsiteinfoComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EditSiteInfoComponent);
     component = fixture.componentInstance;
-    component.site = new WebSite('', '', false, new Demografi(Gender.Man), new Area('', ''));
+    component.site = new WebSite('', '', false, new Demografi([Gender.Man]), new Area('', ''));
     fixture.detectChanges();
   });
 

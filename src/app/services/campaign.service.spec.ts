@@ -6,22 +6,22 @@ import { Http } from '@angular/http';
 import { AuthenticationService } from './authentication.service';
 
 describe('BannerService', () => {
-  
+
   class HttpMock {
-    
+
   }
-  
+
   class AuthenticationServiceMock {
-    
+
   }
-  
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
         CampaignService,
         { provide: Http, useClass: HttpMock },
         { provide: AuthenticationService, useClass: AuthenticationServiceMock },
-        
+
       ]
     });
   });

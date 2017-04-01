@@ -49,7 +49,7 @@ import 'hammerjs';
     FormsModule,
     RouterModule.forRoot(appRoutes),
     HttpModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     AdvertiserModule,
     ProviderModule,
   ],

@@ -1,4 +1,4 @@
-import { environment } from '../../environments/environment'
+import { environment } from '../../environments/environment';
 import { Area } from '../model/area';
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptionsArgs, RequestOptions } from '@angular/http';
@@ -23,35 +23,35 @@ export class CampaignService {
       'Gundmann',
       'http://www.gundmann.dk',
       true,
-      new Demografi(Gender.Unisex),
+      new Demografi([Gender.Unisex]),
       new Area('2720', 'Denmark'),
       new Organisation('Sunhed')),
     new WebSite(
       'adscoop',
       'http://www.ad-scoop.dk',
       true,
-      new Demografi(Gender.Man),
+      new Demografi([Gender.Man]),
       new Area('2720', 'Denmark'),
       new Organisation('Forening')),
     new WebSite(
       'Hansen',
       'http://www.hansen.dk',
       false,
-      new Demografi(Gender.Woman),
+      new Demografi([Gender.Woman]),
       new Area('2720', 'Denmark'),
       new Organisation('Frisør')),
     new WebSite(
       'VIF',
       'http://www.vif.dk',
       true,
-      new Demografi(Gender.Unisex),
+      new Demografi([Gender.Unisex]),
       new Area('2720', 'Denmark'),
       new Organisation('Forening')),
     new WebSite(
       'Amager',
       'http://www.amager.dk',
       true,
-      new Demografi(Gender.Unisex),
+      new Demografi([Gender.Unisex]),
       new Area('2720', 'Denmark'),
       new Organisation('Købmand'))
   ];
@@ -103,7 +103,7 @@ export class CampaignService {
     headers.append('Content-Type', 'application/json; charset=utf-8');
     headers.append('Accept', 'application/json');
     headers.append('token', this.authService.getToken());
-    return new RequestOptions({ headers: headers });;
+    return new RequestOptions({ headers: headers });
   }
 
 }

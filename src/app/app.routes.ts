@@ -1,4 +1,4 @@
-import { ActivationComponent } from './components/activation/activation.component'
+import { ActivationComponent } from './components/activation/activation.component';
 import { Routes } from '@angular/router';
 import { Home } from './components/home/home';
 import { Login, ProfileDialogComponent } from './components/login/login';

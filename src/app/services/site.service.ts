@@ -1,6 +1,7 @@
 import { Area } from '../model/area';
 import { Demografi } from '../model/demografi';
 import { Gender } from '../model/gender';
+import { Industry } from '../model/industry';
 import { Organisation } from '../model/organisation';
 import { WebSite } from '../model/site';
 import { Injectable } from '@angular/core';
@@ -14,7 +15,7 @@ export class SiteService {
       'Gundmann',
       'http://www.gundmann.dk',
       true,
-      new Demografi(Gender.Unisex),
+      new Demografi([Gender.Unisex]),
       new Area('2720', 'Denmark'),
       new Organisation('Sunhed')
     ),
@@ -22,39 +23,39 @@ export class SiteService {
       'adscoop',
       'http://www.ad-scoop.dk',
       true,
-      new Demografi(Gender.Man),
+      new Demografi([Gender.Man]),
       new Area('2720', 'Denmark'),
       new Organisation('Forening')),
     new WebSite(
       'Hansen',
       'http://www.hansen.dk',
       false,
-      new Demografi(Gender.Woman),
+      new Demografi([Gender.Woman]),
       new Area('2720', 'Denmark'),
       new Organisation('Frisør')),
     new WebSite(
       'VIF',
       'http://www.vif.dk',
       true,
-      new Demografi(Gender.Unisex),
+      new Demografi([Gender.Unisex]),
       new Area('2720', 'Denmark'),
       new Organisation('Forening')),
     new WebSite(
       'Amager',
       'http://www.amager.dk',
       true,
-      new Demografi(Gender.Unisex),
+      new Demografi([Gender.Unisex]),
       new Area('2720', 'Denmark'),
       new Organisation('Købmand'))
   ];
 
-  countries: string[] = [
+  countries = [
     'Afghanistan',
     'Albanien',
     'Algeriet',
     'Andorra',
     'Angola',
-    'Antigua &Barbuda',
+    'Antigua & Barbuda',
     'Argentina',
     'Armenien',
     'Aserbajdsjan',
@@ -88,6 +89,7 @@ export class SiteService {
     'Costa Rica',
     'Cuba',
     'Cypern',
+    'Danmark',
     'Darussalem',
     'Demokratiske rep. Congo',
     'Djibouti',
@@ -246,7 +248,71 @@ export class SiteService {
     'Østtimor'
   ];
 
+  industries: Industry[] = [
+    Industry.create('Bygge og anlæg', [
+      'Anlægsarbejde',
+      'Opførelse og nedrivning af byggeri',
+      'Færdiggørelse af byggeri'
+    ]),
+    Industry.create('Handel', [
+      'Butikker',
+      'Engros'
+    ]),
+    Industry.create('Industri', [
+      'Elektronik',
+      'Energi og råstoffer',
+      'Installation og reparation af maskiner og udstyr',
+      'Kemi og medicin',
+      'Metal og maskiner',
+      'Plast, glas og beton',
+      'Tekstil og papir',
+      'Transportmidler',
+      'Træ og møbler'
+    ]),
+    Industry.create('Kontor og kommunikation', [
+      'Film, presse og bøger',
+      'IT og telekommunikation',
+      'Kontor'
+    ]),
+    Industry.create('Landbrug og fødevarer', [
+      'Landbrug, skovbrug og fiskeri',
+      'Slagterier',
+      'Nærings- og nydelsesmidler'
+    ]),
+    Industry.create('Offentlig service', [
+      'Politi, beredskab og fængsler',
+      'Religiøse institutioner og begravelsesvæsen',
+      'Vand, kloak og affald'
+    ]),
+    Industry.create('Privat service', [
+      'Frisører og anden personlig pleje',
+      'Hotel og camping',
+      'Kultur og sport',
+      'Rengøring',
+      'Restauranter og barer'
+    ]),
+    Industry.create('Transport', [
+      'Transport af gods',
+      'Transport af passagerer'
+    ]),
+    Industry.create('Social og sundhed', [
+      'Daginstitutioner',
+      'Døgninstitutioner og hjemmepleje',
+      'Hospitaler',
+      'Læger, tandlæger og dyrlæger'
+    ]),
+    Industry.create('Undervisning og forskning', [
+      'Undervisning',
+      'Universiteter og forskning'
+    ])
+  ];
+
   constructor() { }
+
+  public getCountries(): string[] {
+    return this.countries;
+  }
+
 
   public sites(): Observable<WebSite[]> {
     return Observable.of(this.webSites);
