@@ -9,6 +9,7 @@ import { ProviderComponent } from './provider.component';
 import { ProviderGuard } from './provider.guard';
 import { MaterialModule } from '@angular/material';
 import { UrlSafePipe } from '../../utils/urlsafe.pipe';
+import { BannerComponent } from './components/banner/banner.component';
 import { EditSiteInfoComponent } from './components/editsiteinfo/editsiteinfo.component';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
@@ -31,6 +32,7 @@ import { FoucsDirective } from './utils/foucs.directive';
     ProviderComponent,
     UrlSafePipe,
     EditSiteInfoComponent,
+    BannerComponent
   ],
   providers: [
     ProviderGuard,

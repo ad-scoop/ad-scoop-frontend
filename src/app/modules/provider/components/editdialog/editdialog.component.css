@@ -1,3 +1,8 @@
+app-banner {
+	min-width: 500px;
+    display: block;
+}
+
 .centerContent {
 	display: flex;
 	flex-direction: row;

@@ -11,6 +11,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { MaterialModule, MdDialogRef } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BannerComponent } from '../banner/banner.component';
 
 import { EditDialogComponent } from './editdialog.component';
 
@@ -33,7 +34,8 @@ describe('EditdialogComponent', () => {
         EditDialogComponent,
         EditSiteComponent,
         UrlSafePipe,
-        EditSiteInfoComponent
+        EditSiteInfoComponent,
+        BannerComponent
       ],
       providers: [
         { provide: MdDialogRef, useClass: MdDialogRefMock },

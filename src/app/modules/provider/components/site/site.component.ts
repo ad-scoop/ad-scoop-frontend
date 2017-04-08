@@ -57,6 +57,7 @@ export class SiteComponent implements OnInit {
   private openEditDialog(site: WebSite, type: string): Observable<any> {
     let dialogRef = this.dialog.open(EditDialogComponent);
     dialogRef.componentInstance.site = site;
+    dialogRef.componentInstance.type = type;
     return dialogRef.afterClosed();
   }
 

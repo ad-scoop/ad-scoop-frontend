@@ -23,7 +23,6 @@ export class EditDialogComponent {
   @ViewChild('searchbanner') bannerUpload: BannerUploadComponent;
 
   private _campaign: Campaign;
-  private originalCampaign: Campaign;
 
   public type: string;
   public selectedStep: SelectedStep = SelectedStep.CAMPAIGN;
@@ -37,8 +36,7 @@ export class EditDialogComponent {
   }
 
   set campaign(campaign: Campaign) {
-    this.originalCampaign = campaign;
-    this._campaign = JSON.parse(JSON.stringify(this.originalCampaign));
+    this._campaign = JSON.parse(JSON.stringify(campaign));
   }
 
   next(): void {

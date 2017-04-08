@@ -1,0 +1,13 @@
+canvas {
+	width: 100%;
+}
+
+#websitesim {
+	width: 500px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    height: 400px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}

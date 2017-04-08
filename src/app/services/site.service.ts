@@ -3,6 +3,8 @@ import { Demografi } from '../model/demografi';
 import { Gender } from '../model/gender';
 import { Industry } from '../model/industry';
 import { Organisation } from '../model/organisation';
+import { PlaceSelection } from '../model/placeselection';
+import { PlaceType } from '../model/placetype';
 import { WebSite } from '../model/site';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -305,6 +307,33 @@ export class SiteService {
       'Undervisning',
       'Universiteter og forskning'
     ])
+  ];
+
+  bannerSizes = [
+    [468,  60],
+    [728,  90],
+    [336, 280],
+    [300, 250],
+    [250, 250],
+    [160, 600],
+    [120, 600],
+    [120, 240],
+    [240, 400],
+    [234,  60],
+    [180, 150],
+    [125, 125],
+    [120,  90],
+    [120,  60],
+    [ 88,  31],
+    [  0,   0]
+  ];
+
+  bannerLocations: PlaceSelection[] = [
+    new PlaceSelection(PlaceType.Top,    'Top'),
+    new PlaceSelection(PlaceType.Bottom, 'Bund'),
+    new PlaceSelection(PlaceType.Right,  'Højre'),
+    new PlaceSelection(PlaceType.Left,   'Venstre'),
+    new PlaceSelection(PlaceType.Define, 'Definer')
   ];
 
   constructor() { }
