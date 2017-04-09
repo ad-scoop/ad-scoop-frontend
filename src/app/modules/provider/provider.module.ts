@@ -12,6 +12,7 @@ import { UrlSafePipe } from '../../utils/urlsafe.pipe';
 import { BannerComponent } from './components/banner/banner.component';
 import { EditSiteInfoComponent } from './components/editsiteinfo/editsiteinfo.component';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SiteComponent } from './components/site/site.component';
 import { FoucsDirective } from './utils/foucs.directive';
@@ -23,6 +24,7 @@ import { FoucsDirective } from './utils/foucs.directive';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   declarations: [
     FoucsDirective,

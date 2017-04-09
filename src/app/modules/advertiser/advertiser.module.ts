@@ -7,6 +7,7 @@ import { advertiserRoutes } from './advertiser.routes';
 import { AdvertiserComponent } from './advertiser.component';
 import { AdvertiserGuard } from './advertiser.guard';
 import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CampaignComponent, ConfirmDialogComponent } from './components/campaign/campaign.component';
 import { BannerComponent, BannerDialogComponent } from './components/banner/banner.component';
@@ -23,6 +24,7 @@ import { FoucsDirective } from './utils/foucs.directive';
     RouterModule.forChild(advertiserRoutes),
     MaterialModule.forRoot(),
     FormsModule,
+    BrowserAnimationsModule,
   ],
   declarations: [
     FoucsDirective,

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { TopMenu } from './components/topmenu/top.menu';
@@ -52,6 +53,7 @@ import 'hammerjs';
     MaterialModule,
     AdvertiserModule,
     ProviderModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     AuthenticationService,
