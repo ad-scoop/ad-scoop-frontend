@@ -5,8 +5,10 @@ import { DebugElement } from '@angular/core';
 import { MaterialModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { MdDialogRef } from '@angular/material';
-import { UserService } from '../../services/user.service'
-import { AlertService } from '../../services/alert.service'
+import { UserService } from '../../services/user.service';
+import { AlertService } from '../../services/alert.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+   
 
 import { RegistryComponent } from './registry.component';
 import { Observable } from 'rxjs';
@@ -32,6 +34,7 @@ describe('RegistryComponent', () => {
       imports: [
         MaterialModule.forRoot(),
         FormsModule,
+        BrowserAnimationsModule,
       ],
       declarations: [RegistryComponent],
       providers: [

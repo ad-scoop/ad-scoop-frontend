@@ -5,10 +5,11 @@ import { DebugElement } from '@angular/core';
 import { Campaign } from '../../../../model/campaign';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { EditCampaignComponent } from './editcampaign.component';
 
-describe('CreatecampaignComponent', () => {
+describe('EditCampaignComponent', () => {
   let component: EditCampaignComponent;
   let fixture: ComponentFixture<EditCampaignComponent>;
 
@@ -18,6 +19,7 @@ describe('CreatecampaignComponent', () => {
       imports: [
         MaterialModule.forRoot(),
         FormsModule,
+        BrowserAnimationsModule,
       ],
     })
       .compileComponents();

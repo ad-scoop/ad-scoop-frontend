@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { MdDialog } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BannerComponent } from './banner.component';
 
@@ -19,7 +20,8 @@ describe('BannerlistComponent', () => {
       declarations: [BannerComponent],
       providers: [
         { provide: MdDialog, useClass: MdDialogMock },
-      ]
+      ],
+      imports: [ BrowserAnimationsModule ],
 
     })
       .compileComponents();

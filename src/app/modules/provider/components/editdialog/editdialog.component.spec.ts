@@ -12,6 +12,7 @@ import { DebugElement } from '@angular/core';
 import { MaterialModule, MdDialogRef } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BannerComponent } from '../banner/banner.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { EditDialogComponent } from './editdialog.component';
 
@@ -28,7 +29,8 @@ describe('EditdialogComponent', () => {
       imports: [
         MaterialModule.forRoot(),
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
       ],
       declarations: [
         EditDialogComponent,

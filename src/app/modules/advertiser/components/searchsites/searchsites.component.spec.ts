@@ -7,10 +7,11 @@ import { MaterialModule } from '@angular/material';
 import { CampaignService } from '../../../../services/campaign.service';
 import { Campaign } from '../../../../model/campaign';
 import { SiteComponent } from '../site/site.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SearchsitesComponent } from './searchsites.component';
 
-describe('SearchsitesComponent', () => {
+describe('SearchSitesComponent', () => {
   let component: SearchsitesComponent;
   let fixture: ComponentFixture<SearchsitesComponent>;
 
@@ -27,6 +28,7 @@ describe('SearchsitesComponent', () => {
       imports: [
         MaterialModule.forRoot(),
         FormsModule,
+        BrowserAnimationsModule,
       ],
       providers: [
         { provide: CampaignService, useClass: CampaignServiceMock },

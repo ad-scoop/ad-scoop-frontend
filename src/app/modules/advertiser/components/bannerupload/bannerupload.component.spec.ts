@@ -7,11 +7,12 @@ import { MaterialModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { BannerComponent } from '../banner/banner.component';
 import { Campaign } from '../../../../model/campaign';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BannerUploadComponent } from './bannerupload.component';
 import { Observable } from 'rxjs';
 
-describe('BannerupladComponent', () => {
+describe('BannerUploadComponent', () => {
   let component: BannerUploadComponent;
   let fixture: ComponentFixture<BannerUploadComponent>;
 
@@ -23,13 +24,15 @@ describe('BannerupladComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         BannerUploadComponent,
-        BannerComponent],
+        BannerComponent,
+      ],
       imports: [
         MaterialModule.forRoot(),
         FormsModule,
+        BrowserAnimationsModule,
       ],
       providers: [
-         { provide: AlertService, useClass: AlertServiceMock },
+        { provide: AlertService, useClass: AlertServiceMock },
       ]
     })
       .compileComponents();

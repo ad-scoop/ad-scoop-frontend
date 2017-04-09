@@ -6,6 +6,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
 import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { EditSiteComponent } from './editsite.component';
 import { FormsModule } from '@angular/forms';
@@ -18,7 +19,8 @@ describe('EditsiteComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         MaterialModule.forRoot(),
-        FormsModule
+        FormsModule,
+        BrowserAnimationsModule,
       ],
       declarations: [EditSiteComponent, UrlSafePipe],
     })

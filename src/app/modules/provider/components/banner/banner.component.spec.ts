@@ -6,6 +6,7 @@ import { WebSite } from '../../../../model/site';
 import { MaterialModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { SiteService } from '../../../../services/site.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BannerComponent } from './banner.component';
 
@@ -21,7 +22,9 @@ describe('BannerComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         MaterialModule.forRoot(),
-        FormsModule],
+        FormsModule,
+        BrowserAnimationsModule,
+      ],
       declarations: [BannerComponent],
       providers: [
         { provide: SiteService, useClass: SiteServiceMock },

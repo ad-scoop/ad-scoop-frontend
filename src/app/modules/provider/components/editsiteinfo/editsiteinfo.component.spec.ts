@@ -13,6 +13,7 @@ import { MaterialModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { fakeAsync, tick } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { EditSiteInfoComponent } from './editsiteinfo.component';
 
@@ -30,6 +31,7 @@ describe('EditsiteinfoComponent', () => {
         MaterialModule,
         FormsModule,
         ReactiveFormsModule,
+        BrowserAnimationsModule,
       ],
       declarations: [EditSiteInfoComponent],
       providers: [
