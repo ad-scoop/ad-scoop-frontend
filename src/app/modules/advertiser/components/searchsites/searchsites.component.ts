@@ -18,6 +18,7 @@ export class SearchsitesComponent implements EditInterface {
   serchedHeadeline = 'Fremsøgte hjemmesider';
   selectedHeadline = 'Valgte hjemmesider';
   removeColumn = true;
+  doNotHide = '';
 
   addFunction = (site: WebSite) => {
     if (!this.campaign.webSites) {

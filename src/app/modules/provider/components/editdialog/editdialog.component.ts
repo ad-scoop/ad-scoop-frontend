@@ -27,7 +27,7 @@ export class EditDialogComponent {
   @ViewChild('banner') banner: BannerComponent;
 
   public type: string;
-  private selectedStep = SelectedStep.URL;
+  public selectedStep = SelectedStep.URL;
   public selectedStepEnum = SelectedStep;
 
   constructor(public dialogRef: MdDialogRef<EditDialogComponent>) { }
