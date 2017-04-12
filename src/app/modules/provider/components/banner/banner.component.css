@@ -1,13 +1,20 @@
 canvas {
-	width: 100%;
-}
+/* 	height: 300px;
+	width: 500px;
+ */}
 
 #websitesim {
 	width: 500px;
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-    height: 400px;
-    margin-top: 10px;
-    margin-bottom: 20px;
+/* 	border-color: black;
+	border-width: 1px;
+	border-style: solid;
+ */	height: 400px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.box {
+	border-color: red;
+	border-width: 1px;
+	border-style: solid;
 }
