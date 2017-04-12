@@ -7,7 +7,7 @@ import { PlaceSelection } from '../model/placeselection';
 import { PlaceType } from '../model/placetype';
 import { WebSite } from '../model/site';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class SiteService {
@@ -15,7 +15,7 @@ export class SiteService {
   private webSites: WebSite[] = [
     new WebSite(
       'Gundmann',
-      'http://www.gundmann.dk',
+      'https://www.gundmann.dk',
       true,
       new Demografi([Gender.Unisex]),
       new Area('2720', 'Denmark'),
@@ -23,28 +23,28 @@ export class SiteService {
     ),
     new WebSite(
       'adscoop',
-      'http://www.ad-scoop.dk',
+      'https://www.ad-scoop.dk',
       true,
       new Demografi([Gender.Man]),
       new Area('2720', 'Denmark'),
       new Organisation('Forening')),
     new WebSite(
       'Hansen',
-      'http://www.hansen.dk',
+      'https://www.hansen.dk',
       false,
       new Demografi([Gender.Woman]),
       new Area('2720', 'Denmark'),
       new Organisation('Frisør')),
     new WebSite(
       'VIF',
-      'http://www.vif.dk',
+      'https://www.vif.dk',
       true,
       new Demografi([Gender.Unisex]),
       new Area('2720', 'Denmark'),
       new Organisation('Forening')),
     new WebSite(
       'Amager',
-      'http://www.amager.dk',
+      'https://www.amager.dk',
       true,
       new Demografi([Gender.Unisex]),
       new Area('2720', 'Denmark'),
