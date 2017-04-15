@@ -10,7 +10,7 @@ import { AlertService } from '../../services/alert.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { RegistryComponent } from './registry.component';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 describe('RegistryComponent', () => {
   let component: RegistryComponent;

@@ -9,7 +9,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { MaterialModule } from '@angular/material';
 import { AuthenticationService } from './services/authentication.service';
 import { AlertService } from './services/alert.service';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 
 describe('AppComponent', () => {

@@ -10,7 +10,7 @@ import { Campaign } from '../../../../model/campaign';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BannerUploadComponent } from './bannerupload.component';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 describe('BannerUploadComponent', () => {
   let component: BannerUploadComponent;

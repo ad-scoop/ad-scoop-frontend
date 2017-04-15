@@ -1,37 +1,42 @@
-<div>
-	<md-select placeholder="Størrelse" name="size" [(ngModel)]="selectedSize">
-		<md-option *ngFor="let size of bannerSizes" [value]="size">
-	    	{{ size[0] }} x {{ size[1] }}
-	  	</md-option>
-	  	<md-option [value]="define">
-	  		{{define}}
-	  	</md-option>
-	</md-select>
-	<md-input-container *ngIf="isSizeDefineSelected()">
-		<input mdInput type="text" placeholder="Bredde" name="width" [(ngModel)]="model.width" #width="ngModel">
-	</md-input-container>
-	<md-input-container *ngIf="isSizeDefineSelected()">
-		<input mdInput type="text" placeholder="Højde" name="height" [(ngModel)]="model.height" #height="ngModel">
-	</md-input-container>
-</div>
-<div>
-	<md-select placeholder="Placering" name="location" [(ngModel)]="selectedLocation">
-		<md-option *ngFor="let location of bannerLocations" [value]="location">
-	    	{{ location.name }}
-	  	</md-option>
+<div class="input">
+	<div>
+		<md-select placeholder="Størrelse" name="size" [(ngModel)]="selectedSize">
+			<md-option *ngFor="let size of bannerSizes" [value]="size">
+		    	{{ size[0] }} x {{ size[1] }}
+		  	</md-option>
+		  	<md-option [value]="define">
+		  		{{define}}
+		  	</md-option>
 		</md-select>
-	
-	<md-input-container *ngIf="isLocationDefineSelected()">
-		<input mdInput type="text" placeholder="Top placering" name="top" [(ngModel)]="model.top" #top="ngModel">
-	</md-input-container>
-	<md-input-container *ngIf="isLocationDefineSelected()">
-		<input mdInput type="text" placeholder="Venstre placering" name="left" [(ngModel)]="model.left" #left="ngModel">
-	</md-input-container>
+		<md-input-container>
+			<input mdInput [disabled]="!isSizeDefineSelected()" type="text" placeholder="Bredde" name="width" [(ngModel)]="model.width" #width="ngModel">
+		</md-input-container>
+		<md-input-container>
+			<input mdInput [disabled]="!isSizeDefineSelected()" type="text" placeholder="Højde" name="height" [(ngModel)]="model.height" #height="ngModel">
+		</md-input-container>
+	</div>
+	<div>
+		<md-select placeholder="Placering" name="location" [(ngModel)]="selectedLocation">
+			<md-option *ngFor="let location of bannerLocations" [value]="location">
+		    	{{ location.name }}
+		  	</md-option>
+			</md-select>
+		
+		<md-input-container>
+			<input mdInput [disabled]="!isLocationDefineSelected()" type="text" placeholder="Top" name="top" [(ngModel)]="model.top" #top="ngModel">
+		</md-input-container>
+		<md-input-container>
+			<input mdInput [disabled]="!isLocationDefineSelected()" type="text" placeholder="Venstre" name="left" [(ngModel)]="model.left" #left="ngModel">
+		</md-input-container>
+	</div>
 </div>
-<div>
+<div class="buttonright">
 	<button md-raised-button (click)="add()">Tilføj</button>
+	<button md-raised-button (click)="remove()">Tilføj</button>
 </div>
 <div id="websitesim">
-	<canvas #site></canvas>
+	<canvas #site ></canvas>
+</div>
+<div>
 </div>
 

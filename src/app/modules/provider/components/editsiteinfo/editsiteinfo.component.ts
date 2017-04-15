@@ -6,7 +6,7 @@ import { EditInterface } from '../editdialog/editinterface';
 import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import 'rxjs/add/operator/startWith';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-editsiteinfo',

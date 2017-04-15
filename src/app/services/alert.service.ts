@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MdSnackBar } from '@angular/material';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()

@@ -6,11 +6,16 @@ import { Organisation } from '../model/organisation';
 import { PlaceSelection } from '../model/placeselection';
 import { PlaceType } from '../model/placetype';
 import { WebSite } from '../model/site';
+import { AuthenticationService } from './authentication.service';
 import { Injectable } from '@angular/core';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class SiteService {
+
+  private baseUrl = environment.websiteUrl;
 
   private webSites: WebSite[] = [
     new WebSite(
@@ -310,8 +315,8 @@ export class SiteService {
   ];
 
   bannerSizes = [
-    [468,  60],
-    [728,  90],
+    [468, 60],
+    [728, 90],
     [336, 280],
     [300, 250],
     [250, 250],
@@ -319,24 +324,24 @@ export class SiteService {
     [120, 600],
     [120, 240],
     [240, 400],
-    [234,  60],
+    [234, 60],
     [180, 150],
     [125, 125],
-    [120,  90],
-    [120,  60],
-    [ 88,  31],
-    [  0,   0]
+    [120, 90],
+    [120, 60],
+    [88, 31],
+    [0, 0]
   ];
 
   bannerLocations: PlaceSelection[] = [
-    new PlaceSelection(PlaceType.Top,    'Top'),
+    new PlaceSelection(PlaceType.Top, 'Top'),
     new PlaceSelection(PlaceType.Bottom, 'Bund'),
-    new PlaceSelection(PlaceType.Right,  'Højre'),
-    new PlaceSelection(PlaceType.Left,   'Venstre'),
+    new PlaceSelection(PlaceType.Right, 'Højre'),
+    new PlaceSelection(PlaceType.Left, 'Venstre'),
     new PlaceSelection(PlaceType.Define, 'Definer')
   ];
 
-  constructor() { }
+  constructor(private http: Http, private authService: AuthenticationService) { }
 
   public getCountries(): string[] {
     return this.countries;
@@ -353,7 +358,26 @@ export class SiteService {
   }
 
   public edit(webSite: WebSite): Observable<boolean> {
+    const romableSite = this.webSites.find(e => e.name === webSite.name);
+    const index = this.webSites.indexOf(romableSite);
+    this.webSites.splice(index, 1);
+    this.webSites.push(webSite);
     return Observable.of(true);
+//    return this.http
+//      .post(this.baseUrl + '/update', webSite, this.getHeadersWithToken())
+//      .map(response => true)
+//      .catch(response => {
+//        throw new Error('Fejl ved ændring af kampagnen');
+//      });
   }
+
+  private getHeadersWithToken(): RequestOptions {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=utf-8');
+    headers.append('Accept', 'application/json');
+    headers.append('token', this.authService.getToken());
+    return new RequestOptions({ headers: headers });
+  }
+
 
 }

@@ -2,7 +2,7 @@ import { environment } from '../../environments/environment';
 import { Area } from '../model/area';
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptionsArgs, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 import { Campaign } from '../model/campaign';
 import { Banner } from '../model/bannerNode';
@@ -85,7 +85,7 @@ export class CampaignService {
       });
   }
 
-  public create(campaign: Campaign): Observable<boolean> {
+  public add(campaign: Campaign): Observable<boolean> {
     return this.http
       .post(this.baseUrl + '/create', campaign, this.getHeadersWithToken())
       .map(response => true)
@@ -99,7 +99,7 @@ export class CampaignService {
   }
 
   private getHeadersWithToken(): RequestOptions {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Content-Type', 'application/json; charset=utf-8');
     headers.append('Accept', 'application/json');
     headers.append('token', this.authService.getToken());

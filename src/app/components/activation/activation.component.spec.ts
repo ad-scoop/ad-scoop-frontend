@@ -7,7 +7,7 @@ import { AlertService } from '../../services/alert.service'
 import { UserService } from '../../services/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 
 describe('ActivationComponent', () => {

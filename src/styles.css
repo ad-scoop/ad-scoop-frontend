@@ -31,3 +31,9 @@ login {
 	    top: 60px;
 	}
 }
+
+@media ( max-width : 500px ) {
+	.mat-dialog-container {
+		display: inline !important; 
+	}
+}

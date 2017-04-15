@@ -1,10 +1,11 @@
+import { Gender } from '../../../../model/gender';
 import { WebSite } from '../../../../model/site';
 import { AlertService } from '../../../../services/alert.service';
 import { SiteService } from '../../../../services/site.service';
 import { EditDialogComponent } from '../editdialog/editdialog.component';
 import { Component, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-site',
@@ -41,21 +42,38 @@ export class SiteComponent implements OnInit {
   }
 
   add(): void {
-    let site = new WebSite('', '', false);
+    const site = new WebSite('', '', false);
     this.openEditDialog(site, 'Opret').subscribe(result => {
       if (result) {
-        this.siteService.edit(result).subscribe(
-          responce => {
-            this.siteService.add(site);
-            this.ngOnInit();
-          },
+        this.siteService.add(result).subscribe(
+          responce =>
+            this.ngOnInit(),
           error => this.alertService.error(error));
       }
     });
   }
 
+  public genderStr(gender: Gender[]): string {
+    if (gender) {
+      return gender
+        .map(gen => this.genderConvert(gen))
+        .join(', ');
+    }
+    return '';
+  }
+
+  private genderConvert(gender: Gender): string {
+    switch (gender) {
+      case Gender.Man: return 'Mænd';
+      case Gender.Woman: return 'Kvinder';
+      case Gender.Unisex: return 'Unisex';
+      case Gender.Children: return 'Børn';
+    }
+    return '';
+  }
+
   private openEditDialog(site: WebSite, type: string): Observable<any> {
-    let dialogRef = this.dialog.open(EditDialogComponent);
+    const dialogRef = this.dialog.open(EditDialogComponent);
     dialogRef.componentInstance.site = site;
     dialogRef.componentInstance.type = type;
     return dialogRef.afterClosed();

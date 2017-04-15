@@ -4,7 +4,7 @@
 		<md-card-header color="accent">
 			<button class="next" color="primary" md-button (click)="next()" *ngIf="!isBannerStep()">Næste</button>
 			<button class="next" color="primary" md-raised-button (click)="edit()" *ngIf="isBannerStep()">{{type}}</button>
-			<button class="back" color="primary" md-button (click)="back()">Tilbage</button>
+			<button class="back" color="primary" md-button (click)="back()" *ngIf="isNotFirstStep()">Tilbage</button>
 			<div md-card-avatar><md-icon>group_work</md-icon></div>
    			<md-card-title>{{type}}</md-card-title> 
 		</md-card-header>

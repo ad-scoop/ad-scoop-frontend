@@ -4,7 +4,7 @@ import { AuthenticationService } from './../../services/authentication.service';
 import { AlertService } from './../../services/alert.service';
 import { Router } from '@angular/router';
 import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'login',
@@ -33,7 +33,7 @@ export class Login {
   }
 
   registry(): void {
-    let config = new MdDialogConfig();
+    const config = new MdDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
 
     this.dialogRef = this.dialog.open(RegistryComponent, config);
@@ -54,8 +54,8 @@ export class Login {
   }
 
   private selectProfile(profiles: string[]): Observable<string> {
-    let advertiser = profiles.filter(e => e === AuthenticationService.ADVERTISER)[0];
-    let provider = profiles.filter(e => e === AuthenticationService.PROVIDER)[0];
+    const advertiser = profiles.filter(e => e === AuthenticationService.ADVERTISER)[0];
+    const provider = profiles.filter(e => e === AuthenticationService.PROVIDER)[0];
 
     if (advertiser && provider) {
       return this.showDialog();
@@ -64,7 +64,7 @@ export class Login {
   }
 
   private showDialog(): Observable<string> {
-    let config = new MdDialogConfig();
+    const config = new MdDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
     this.dialogRef = this.dialog.open(ProfileDialogComponent, config);
     return this.dialogRef.afterClosed();

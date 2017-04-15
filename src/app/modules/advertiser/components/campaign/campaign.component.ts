@@ -5,7 +5,7 @@ import { EditCampaignComponent } from '../editcampaign/editcampaign.component';
 import { EditDialogComponent } from '../editdialog/editdialog.component';
 import { SearchsitesComponent } from '../searchsites/searchsites.component';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { BannerComponent } from './../banner/banner.component';
 import { SiteComponent } from './../site/site.component';
 import { MdDialog } from '@angular/material';
@@ -30,7 +30,7 @@ export class CampaignComponent implements OnInit {
   }
 
   public remove(campaign: Campaign): void {
-    let dialogRef = this.dialog.open(ConfirmDialogComponent);
+    const dialogRef = this.dialog.open(ConfirmDialogComponent);
     dialogRef.componentInstance.headline = 'Slet kampagne';
     dialogRef.componentInstance.confirmation = 'Er du sikker?';
     dialogRef.afterClosed().subscribe(result => {
@@ -43,10 +43,10 @@ export class CampaignComponent implements OnInit {
   }
 
   public add(): void {
-    let campaign = new Campaign(new Date().valueOf());
+    const campaign = new Campaign(new Date().valueOf());
     this.openEditDialog(campaign, 'Opret').subscribe(result => {
       if (result) {
-        this.campaignService.create(result).subscribe(
+        this.campaignService.add(result).subscribe(
           responce => this.ngOnInit(),
           error => this.alertService.error(error));
       }
@@ -64,7 +64,7 @@ export class CampaignComponent implements OnInit {
   }
 
   private openEditDialog(campaign: Campaign, type: string): Observable<any> {
-    let dialogRef = this.dialog.open(EditDialogComponent);
+    const dialogRef = this.dialog.open(EditDialogComponent);
     dialogRef.componentInstance.type = type;
     dialogRef.componentInstance.campaign = campaign;
     return dialogRef.afterClosed();

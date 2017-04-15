@@ -8,7 +8,7 @@ import { DebugElement } from '@angular/core';
 import { MaterialModule, MdDialog } from '@angular/material';
 
 import { SiteComponent } from './site.component';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { UrlSafePipe } from '../../../../utils/urlsafe.pipe';
 
 

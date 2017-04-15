@@ -1,5 +1,4 @@
 app-banner {
-	min-width: 500px;
     display: block;
 }
 
@@ -33,10 +32,13 @@ a {
 }
 	
 @media ( max-width : 500px) {
+	md-card-header {
+		margin-bottom: 15px;
+	}
 	.next {
 		display: inherit;
 		position: absolute;
-		right: 20px;
+		right: 35px;
 	}
 	.back {
 		display: inherit;
