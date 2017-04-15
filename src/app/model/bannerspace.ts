@@ -12,4 +12,8 @@ export class BannerSpace extends AbstractId {
     super();
   }
 
+  public isSet(): boolean {
+    return this.place !== undefined && this.width !== undefined && this.height !== undefined;
+  }
+
 }

@@ -1,3 +1,4 @@
+import { BannerSize } from '../../../../model/bannersize';
 import { BannerSpace } from '../../../../model/bannerspace';
 import { PlaceSelection } from '../../../../model/placeselection';
 import { PlaceType } from '../../../../model/placetype';
@@ -28,8 +29,7 @@ export class BannerComponent implements EditInterface, AfterViewInit {
   bannerLocations = [];
   bannerSizes = [];
 
-  define = 'Definer';
-  selectedSize: any = '';
+  selectedSize: BannerSize = new BannerSize();
   selectedLocation: PlaceSelection = new PlaceSelection(null, '');
 
   context: CanvasRenderingContext2D;
@@ -62,22 +62,30 @@ export class BannerComponent implements EditInterface, AfterViewInit {
     });
   }
 
-  @HostListener('mouseclick', ['$event'])
-  onMouseclick(event: MouseEvent) {
-
+  canvasClick(event: MouseEvent) {
+    const realPosisition = this.getGlobalPosition(this.siteCanvas.nativeElement);
+    const x = event.x - realPosisition.x;
+    const y = event.y - realPosisition.y;
+    this.getSelectedSpace(x, y)
+      .subscribe(b => {
+        this.model = b;
+        this.selectedSize = this.bannerSizes.find(s => s.x === b.width && s.y === b.height);
+        this.selectedLocation = this.siteService.bannerLocations.find(p => b.place === p.place);
+      });
   }
 
   add(): void {
     this.site.bannerSpaces.push(new BannerSpace(
-      this.selectedSize[0],
-      this.selectedSize[1],
+      this.selectedSize.x,
+      this.selectedSize.y,
       this.model.top,
       this.model.left,
       this.selectedLocation.place));
+    this.clear();
   }
 
   valid(): boolean {
-    return true;
+    return this.site.bannerSpaces.length > 0;
   }
 
   invalid(): void {
@@ -89,15 +97,21 @@ export class BannerComponent implements EditInterface, AfterViewInit {
   }
 
   remove(): void {
-
+    const index = this.site.bannerSpaces.indexOf(this.model);
+    this.site.bannerSpaces.splice(index, 1);
+    this.clear();
   }
 
   isSizeDefineSelected(): boolean {
-    return this.selectedSize === this.define;
+    return this.selectedSize.isDefine();
   }
 
   isLocationDefineSelected(): boolean {
     return this.selectedLocation.place === PlaceType.Define;
+  }
+
+  isSelected(): boolean {
+    return this.model.isSet();
   }
 
   draw(): void {
@@ -110,6 +124,12 @@ export class BannerComponent implements EditInterface, AfterViewInit {
     this.site.bannerSpaces.forEach(b => {
       this.drawBannerSpace(b);
     });
+  }
+
+  private clear(): void {
+    this.model = new BannerSpace();
+    this.selectedLocation = new PlaceSelection(null, '');
+    this.selectedSize = new BannerSize();
   }
 
   private calcCanvasSize(): void {

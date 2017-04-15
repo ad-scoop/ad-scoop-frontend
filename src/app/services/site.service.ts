@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../../environments/environment';
+import { BannerSize } from '../model/bannersize';
 
 @Injectable()
 export class SiteService {
@@ -315,22 +316,22 @@ export class SiteService {
   ];
 
   bannerSizes = [
-    [468, 60],
-    [728, 90],
-    [336, 280],
-    [300, 250],
-    [250, 250],
-    [160, 600],
-    [120, 600],
-    [120, 240],
-    [240, 400],
-    [234, 60],
-    [180, 150],
-    [125, 125],
-    [120, 90],
-    [120, 60],
-    [88, 31],
-    [0, 0]
+    new BannerSize(468, 60),
+    new BannerSize(728, 90),
+    new BannerSize(336, 280),
+    new BannerSize(300, 250),
+    new BannerSize(250, 250),
+    new BannerSize(160, 600),
+    new BannerSize(120, 600),
+    new BannerSize(120, 240),
+    new BannerSize(240, 400),
+    new BannerSize(234, 60),
+    new BannerSize(180, 150),
+    new BannerSize(125, 125),
+    new BannerSize(120, 90),
+    new BannerSize(120, 60),
+    new BannerSize(88, 31),
+    new BannerSize(0, 0)
   ];
 
   bannerLocations: PlaceSelection[] = [

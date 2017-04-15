@@ -2,10 +2,7 @@
 	<div>
 		<md-select placeholder="Størrelse" name="size" [(ngModel)]="selectedSize">
 			<md-option *ngFor="let size of bannerSizes" [value]="size">
-		    	{{ size[0] }} x {{ size[1] }}
-		  	</md-option>
-		  	<md-option [value]="define">
-		  		{{define}}
+		    	{{ size.value }}
 		  	</md-option>
 		</md-select>
 		<md-input-container>
@@ -20,7 +17,7 @@
 			<md-option *ngFor="let location of bannerLocations" [value]="location">
 		    	{{ location.name }}
 		  	</md-option>
-			</md-select>
+		</md-select>
 		
 		<md-input-container>
 			<input mdInput [disabled]="!isLocationDefineSelected()" type="text" placeholder="Top" name="top" [(ngModel)]="model.top" #top="ngModel">
@@ -31,11 +28,12 @@
 	</div>
 </div>
 <div class="buttonright">
-	<button md-raised-button (click)="add()">Tilføj</button>
-	<button md-raised-button (click)="remove()">Tilføj</button>
+	<button md-raised-button (click)="add()" *ngIf="!isSelected()">Tilføj</button>
+	<button md-raised-button (click)="clear()" *ngIf="isSelected()">Ændre</button>
+	<button md-raised-button (click)="remove()" *ngIf="isSelected()">Slet</button>
 </div>
 <div id="websitesim">
-	<canvas #site ></canvas>
+	<canvas #site (click)="canvasClick($event)"></canvas>
 </div>
 <div>
 </div>
