@@ -8,12 +8,9 @@ export class BannerSpace extends AbstractId {
     public height?: number,
     public top?: number,
     public left?: number,
-    public place?: PlaceType) {
+    public place?: PlaceType,
+    public standardSize?: boolean) {
     super();
-  }
-
-  public isSet(): boolean {
-    return this.place !== undefined && this.width !== undefined && this.height !== undefined;
   }
 
 }

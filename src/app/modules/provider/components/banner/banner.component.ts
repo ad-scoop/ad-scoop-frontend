@@ -29,8 +29,8 @@ export class BannerComponent implements EditInterface, AfterViewInit {
   bannerLocations = [];
   bannerSizes = [];
 
-  selectedSize: BannerSize = new BannerSize();
-  selectedLocation: PlaceSelection = new PlaceSelection(null, '');
+  _selectedSize: BannerSize = new BannerSize();
+  _selectedLocation: PlaceSelection = new PlaceSelection(null, '');
 
   context: CanvasRenderingContext2D;
 
@@ -40,6 +40,32 @@ export class BannerComponent implements EditInterface, AfterViewInit {
     private componentFactoryResolver: ComponentFactoryResolver) {
     this.bannerSizes = this.siteService.bannerSizes;
     this.bannerLocations = this.siteService.bannerLocations;
+  }
+
+  get selectedLocation(): PlaceSelection {
+    return this._selectedLocation;
+  }
+
+  set selectedLocation(selectedLocation: PlaceSelection) {
+    if (selectedLocation) {
+      this.model.place = selectedLocation.place;
+    }
+    this._selectedLocation = selectedLocation;
+  }
+
+  get selectedSize(): BannerSize {
+    return this._selectedSize;
+  }
+
+  set selectedSize(selectedSize: BannerSize) {
+    if (selectedSize) {
+      this.model.standardSize = !selectedSize.defined;
+      if (this.model.standardSize) {
+        this.model.width = selectedSize.x;
+        this.model.height = selectedSize.y;
+      }
+    }
+    this._selectedSize = selectedSize;
   }
 
   ngAfterViewInit() {
@@ -68,19 +94,22 @@ export class BannerComponent implements EditInterface, AfterViewInit {
     const y = event.y - realPosisition.y;
     this.getSelectedSpace(x, y)
       .subscribe(b => {
-        this.model = b;
-        this.selectedSize = this.bannerSizes.find(s => s.x === b.width && s.y === b.height);
-        this.selectedLocation = this.siteService.bannerLocations.find(p => b.place === p.place);
+        if (b) {
+          this.model = b;
+          if (b.standardSize) {
+            this.selectedSize = this.bannerSizes.find(s => s.x === b.width && s.y === b.height);
+          } else {
+            this.selectedSize = this.bannerSizes.find(s => s.x === 0 && s.y === 0);
+          }
+          this.selectedLocation = this.siteService.bannerLocations.find(p => b.place === p.place);
+        } else {
+          this.clear();
+        }
       });
   }
 
   add(): void {
-    this.site.bannerSpaces.push(new BannerSpace(
-      this.selectedSize.x,
-      this.selectedSize.y,
-      this.model.top,
-      this.model.left,
-      this.selectedLocation.place));
+    this.site.bannerSpaces.push(this.model);
     this.clear();
   }
 
@@ -93,7 +122,7 @@ export class BannerComponent implements EditInterface, AfterViewInit {
   }
 
   edit(): void {
-
+    this.clear();
   }
 
   remove(): void {
@@ -103,7 +132,7 @@ export class BannerComponent implements EditInterface, AfterViewInit {
   }
 
   isSizeDefineSelected(): boolean {
-    return this.selectedSize.isDefine();
+    return this.selectedSize && this.selectedSize.defined;
   }
 
   isLocationDefineSelected(): boolean {
@@ -111,7 +140,7 @@ export class BannerComponent implements EditInterface, AfterViewInit {
   }
 
   isSelected(): boolean {
-    return this.model.isSet();
+    return this.site.bannerSpaces.find(b => this.equalBannerSpace(b, this.model)) !== undefined;
   }
 
   draw(): void {
@@ -124,6 +153,10 @@ export class BannerComponent implements EditInterface, AfterViewInit {
     this.site.bannerSpaces.forEach(b => {
       this.drawBannerSpace(b);
     });
+  }
+
+  public equalBannerSpace(bs1: BannerSpace, bs2: BannerSpace): boolean {
+    return JSON.stringify(bs1) === JSON.stringify(bs2);
   }
 
   private clear(): void {
@@ -166,8 +199,10 @@ export class BannerComponent implements EditInterface, AfterViewInit {
   }
 
   private mousePosistionIn(b: BannerSpace, x: any, y: any): boolean {
-    return (b.left <= x && b.left + (b.width / this.canvasscale) >= x) &&
-      (b.top <= y && b.top + (b.height / this.canvasscale) >= y);
+    const place = this.calculatePlace(b);
+
+    return (place.x <= x && place.x + (b.width / this.canvasscale) >= x) &&
+      (place.y <= y && place.y + (b.height / this.canvasscale) >= y);
   }
 
   private getGlobalPosition(element: any): Position {
@@ -199,8 +234,6 @@ export class BannerComponent implements EditInterface, AfterViewInit {
     this.context.lineWidth = 1;
     this.context.strokeStyle = 'red';
     const place = this.calculatePlace(bannerSpace);
-    bannerSpace.top = place.y;
-    bannerSpace.left = place.x;
     this.context.rect(place.x, place.y, bannerSpace.width / this.canvasscale, bannerSpace.height / this.canvasscale);
     this.context.stroke();
 
@@ -211,24 +244,26 @@ export class BannerComponent implements EditInterface, AfterViewInit {
   }
 
   private calculatePlace(bannerSpace: BannerSpace): Position {
+    let result = new Position(0, 0);
+
     if (PlaceType.Top === bannerSpace.place) {
       const left = (this.canvaswidth - (bannerSpace.width / this.canvasscale)) / 2;
-      return new Position(left, 1);
+      result = new Position(left, 1);
     }
     if (PlaceType.Bottom === bannerSpace.place) {
       const left = (this.canvaswidth - (bannerSpace.width / this.canvasscale)) / 2;
-      return new Position(left, this.canvasheight - (bannerSpace.height / this.canvasscale));
+      result = new Position(left, this.canvasheight - (bannerSpace.height / this.canvasscale));
     }
     if (PlaceType.Define === bannerSpace.place) {
-      return new Position(bannerSpace.left, bannerSpace.top);
+      result = new Position(bannerSpace.left / this.canvasscale, bannerSpace.top / this.canvasscale);
     }
     if (PlaceType.Right === bannerSpace.place) {
-      return new Position(this.canvaswidth - (bannerSpace.width / this.canvasscale), 30);
+      result = new Position(this.canvaswidth - (bannerSpace.width / this.canvasscale), 30);
     }
     if (PlaceType.Left === bannerSpace.place) {
-      return new Position(0, 30);
+      result = new Position(0, 30);
     }
-    return new Position(0, 0);
+    return result;
   }
 
 }

@@ -331,7 +331,7 @@ export class SiteService {
     new BannerSize(120, 90),
     new BannerSize(120, 60),
     new BannerSize(88, 31),
-    new BannerSize(0, 0)
+    new BannerSize(0, 0, true)
   ];
 
   bannerLocations: PlaceSelection[] = [
