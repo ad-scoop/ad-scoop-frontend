@@ -17,6 +17,7 @@ import { EditDialogComponent } from './components/editdialog/editdialog.componen
 import { SearchsitesComponent } from './components/searchsites/searchsites.component';
 import { SiteComponent } from './components/site/site.component';
 import { FoucsDirective } from './utils/foucs.directive';
+import { BannerMatcherComponent } from './components/bannermatcher/bannermatcher.component';
 
 @NgModule({
   imports: [
@@ -38,6 +39,7 @@ import { FoucsDirective } from './utils/foucs.directive';
     BannerDialogComponent,
     EditDialogComponent,
     SearchsitesComponent,
+    BannerMatcherComponent,
   ],
   providers: [
     AdvertiserGuard,

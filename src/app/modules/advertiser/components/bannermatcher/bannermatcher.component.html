@@ -1,0 +1,15 @@
+<md-select placeholder="Vælg banner" [(ngModel)]="selectedBanner" name="banner">
+	<md-option *ngFor="let banner of campaign.banners" [value]="banner">
+		<img height="25px" src="{{banner.picture}}">
+  	</md-option>
+</md-select>
+<img class="selectedImage" *ngIf="selectedBanner" height="25px" src="{{selectedBanner.picture}}" />
+<md-select class="websiteselect" placeholder="Vælg website" [(ngModel)]="seleectedSite" name="sites">
+	<md-option *ngFor="let site of webSites(campaign)" [value]="site">
+    	{{site.name}} {{site.url}}
+  	</md-option>
+</md-select>
+
+<div id="websitesim">
+	<canvas #site (click)="canvasClick($event)"></canvas>
+</div>

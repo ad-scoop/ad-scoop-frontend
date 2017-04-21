@@ -8,6 +8,9 @@ import { CampaignService } from '../../../../services/campaign.service';
 import { Campaign } from '../../../../model/campaign';
 import { SiteComponent } from '../site/site.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SiteService } from '../../../../services/site.service';
+import { Observable } from 'rxjs/Observable';
+import { WebSite } from '../../../../model/site';
 
 import { SearchsitesComponent } from './searchsites.component';
 
@@ -17,6 +20,13 @@ describe('SearchSitesComponent', () => {
 
   class CampaignServiceMock {
 
+  }
+  
+  class SiteServiceMock {
+    industries = [];
+    serche(): Observable<WebSite[]> {
+      return Observable.of([]);
+    }
   }
 
   beforeEach(async(() => {
@@ -32,6 +42,7 @@ describe('SearchSitesComponent', () => {
       ],
       providers: [
         { provide: CampaignService, useClass: CampaignServiceMock },
+        { provide: SiteService, useClass: SiteServiceMock },
       ]
     })
       .compileComponents();

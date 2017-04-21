@@ -5,7 +5,7 @@ import { Http, Headers, Response, RequestOptionsArgs, RequestOptions } from '@an
 import { Observable } from 'rxjs/Observable';
 
 import { Campaign } from '../model/campaign';
-import { Banner } from '../model/bannerNode';
+import { Banner } from '../model/banner';
 import { Demografi } from '../model/demografi';
 import { Gender } from '../model/gender';
 import { Organisation } from '../model/organisation';
@@ -18,49 +18,11 @@ export class CampaignService {
 
   private baseUrl = environment.publisherUrl;
 
-  private sites: WebSite[] = [
-    new WebSite(
-      'Gundmann',
-      'http://www.gundmann.dk',
-      true,
-      new Demografi([Gender.Unisex]),
-      new Area('2720', 'Denmark'),
-      new Organisation('Sunhed')),
-    new WebSite(
-      'adscoop',
-      'http://www.ad-scoop.dk',
-      true,
-      new Demografi([Gender.Man]),
-      new Area('2720', 'Denmark'),
-      new Organisation('Forening')),
-    new WebSite(
-      'Hansen',
-      'http://www.hansen.dk',
-      false,
-      new Demografi([Gender.Woman]),
-      new Area('2720', 'Denmark'),
-      new Organisation('Frisør')),
-    new WebSite(
-      'VIF',
-      'http://www.vif.dk',
-      true,
-      new Demografi([Gender.Unisex]),
-      new Area('2720', 'Denmark'),
-      new Organisation('Forening')),
-    new WebSite(
-      'Amager',
-      'http://www.amager.dk',
-      true,
-      new Demografi([Gender.Unisex]),
-      new Area('2720', 'Denmark'),
-      new Organisation('Købmand'))
-  ];
-
   constructor(private http: Http, private authService: AuthenticationService) { }
 
   getCampaigns(): Observable<Campaign[]> {
     return this.http
-      .get(this.baseUrl + '/listUserCampagins', this.getHeadersWithToken())
+      .get(this.baseUrl, this.getHeadersWithToken())
       .map((resp: Response) => resp.json())
       .catch(response => {
         throw new Error('Fejl ved henting af kampagner');
@@ -92,10 +54,6 @@ export class CampaignService {
       .catch(response => {
         throw new Error('Fejl ved oprettelse af kampagnen');
       });
-  }
-
-  public serche(model: any): WebSite[] {
-    return this.sites;
   }
 
   private getHeadersWithToken(): RequestOptions {

@@ -1,5 +1,5 @@
 import { AbstractId } from './abstractid';
-import { Banner } from './bannerNode';
+import { Banner } from './banner';
 import { WebSite } from './site';
 
 export class Campaign extends AbstractId {
@@ -11,7 +11,7 @@ export class Campaign extends AbstractId {
   public price: number;
   public name: string;
 
-  public webSites: WebSite[] = [];
+  public webSiteIds: number[] = [];
 
   constructor(public startDate: number) {
     super();

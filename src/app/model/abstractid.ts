@@ -1,5 +1,5 @@
 export class AbstractId {
 
-  public id: Number;
+  public id: number;
 
 }

@@ -12,6 +12,8 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../../environments/environment';
 import { BannerSize } from '../model/bannersize';
+import { BannerSpace } from '../model/bannerspace';
+import { WebSiteSearchCriteria } from '../model/websitesearchcriteria';
 
 @Injectable()
 export class SiteService {
@@ -26,35 +28,40 @@ export class SiteService {
       new Demografi([Gender.Unisex]),
       new Area('2720', 'Denmark'),
       new Organisation('Sunhed')
-    ),
+    ).setId(11)
+      .addBannerSpace(new BannerSpace(PlaceType.Top, 720, 90).setId(1)),
     new WebSite(
       'adscoop',
       'https://www.ad-scoop.dk',
       true,
       new Demografi([Gender.Man]),
       new Area('2720', 'Denmark'),
-      new Organisation('Forening')),
+      new Organisation('Forening')
+    ).setId(2),
     new WebSite(
       'Hansen',
       'https://www.hansen.dk',
       false,
       new Demografi([Gender.Woman]),
       new Area('2720', 'Denmark'),
-      new Organisation('Frisør')),
+      new Organisation('Frisør')
+    ).setId(3),
     new WebSite(
       'VIF',
       'https://www.vif.dk',
       true,
       new Demografi([Gender.Unisex]),
       new Area('2720', 'Denmark'),
-      new Organisation('Forening')),
+      new Organisation('Forening')
+    ).setId(4),
     new WebSite(
       'Amager',
       'https://www.amager.dk',
       true,
       new Demografi([Gender.Unisex]),
       new Area('2720', 'Denmark'),
-      new Organisation('Købmand'))
+      new Organisation('Købmand')
+    ).setId(5),
   ];
 
   countries = [
@@ -353,6 +360,13 @@ export class SiteService {
     return Observable.of(this.webSites);
   }
 
+  public serche(model: WebSiteSearchCriteria): Observable<WebSite[]> {
+    if (model.ids) {
+      return  Observable.of(this.webSites.filter(e => model.ids.find(i => i === e.id) !== undefined));
+    }
+    return Observable.of(this.webSites.slice());
+  }
+
   public add(webSite: WebSite): Observable<boolean> {
     this.webSites.push(webSite);
     return Observable.of(true);
@@ -364,12 +378,12 @@ export class SiteService {
     this.webSites.splice(index, 1);
     this.webSites.push(webSite);
     return Observable.of(true);
-//    return this.http
-//      .post(this.baseUrl + '/update', webSite, this.getHeadersWithToken())
-//      .map(response => true)
-//      .catch(response => {
-//        throw new Error('Fejl ved ændring af kampagnen');
-//      });
+    //    return this.http
+    //      .post(this.baseUrl + '/update', webSite, this.getHeadersWithToken())
+    //      .map(response => true)
+    //      .catch(response => {
+    //        throw new Error('Fejl ved ændring af kampagnen');
+    //      });
   }
 
   private getHeadersWithToken(): RequestOptions {

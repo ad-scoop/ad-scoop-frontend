@@ -27,7 +27,7 @@ export class AuthenticationService {
   }
 
   selectProfile(profile: string) {
-    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     currentUser.labels = [profile];
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
   }

@@ -1,8 +1,12 @@
 import { Campaign } from '../../../../model/campaign';
+import { Industry } from '../../../../model/industry';
 import { WebSite } from '../../../../model/site';
+import { WebSiteSearchCriteria } from '../../../../model/websitesearchcriteria';
 import { CampaignService } from '../../../../services/campaign.service';
+import { SiteService } from '../../../../services/site.service';
 import { EditInterface } from '../editdialog/editinterface';
 import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-searchsites',
@@ -12,7 +16,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SearchsitesComponent implements EditInterface {
 
   @Input() campaign: Campaign;
-  model: any = {};
+  industries: Industry[];
+  model: WebSiteSearchCriteria = new WebSiteSearchCriteria();
   firstColName = 'Vælg';
   foundsites: WebSite[] = [];
   serchedHeadeline = 'Fremsøgte hjemmesider';
@@ -21,21 +26,25 @@ export class SearchsitesComponent implements EditInterface {
   doNotHide = '';
 
   addFunction = (site: WebSite) => {
-    if (!this.campaign.webSites) {
-      this.campaign.webSites = [];
+    if (!this.campaign.webSiteIds) {
+      this.campaign.webSiteIds = [];
     }
-    this.campaign.webSites.push(site);
+    this.campaign.webSiteIds.push(site.id);
     this.foundsites.splice(this.foundsites.indexOf(site), 1);
   }
 
   removeFunction = (site: WebSite) => {
-    this.campaign.webSites.splice(this.campaign.webSites.indexOf(site), 1);
+    this.campaign.webSiteIds.splice(this.campaign.webSiteIds.indexOf(site.id), 1);
   }
 
-  constructor(private campaignService: CampaignService) { }
+  constructor(
+    private campaignService: CampaignService,
+    private siteService: SiteService) {
+    this.industries = siteService.industries;
+  }
 
   search(): void {
-    this.foundsites = this.campaignService.serche(this.model);
+    this.siteService.serche(this.model).subscribe(list => this.foundsites = list);
   }
 
   valid(): boolean {
@@ -48,6 +57,30 @@ export class SearchsitesComponent implements EditInterface {
 
   edit(): void {
 
+  }
+
+  webSites(campaign: Campaign): WebSite[] {
+    let result = [];
+    const searchFor = new WebSiteSearchCriteria();
+    searchFor.ids = campaign.webSiteIds;
+    this.siteService.serche(searchFor)
+      .subscribe(r => result = r);
+    return result;
+  }
+
+  get categories(): string[] {
+    if (this.selectedIndustry) {
+      return this.selectedIndustry.categoris;
+    }
+    return [];
+  }
+
+  get selectedIndustry(): Industry {
+    return this.industries.find(i => i.name === this.model.organisationCategory);
+  }
+
+  set selectedIndustry(industry: Industry) {
+    this.model.organisationCategory = industry.name;
   }
 
 }

@@ -1,6 +1,9 @@
 import { Campaign } from '../../../../model/campaign';
+import { WebSite } from '../../../../model/site';
+import { WebSiteSearchCriteria } from '../../../../model/websitesearchcriteria';
 import { AlertService } from '../../../../services/alert.service';
 import { CampaignService } from '../../../../services/campaign.service';
+import { SiteService } from '../../../../services/site.service';
 import { EditCampaignComponent } from '../editcampaign/editcampaign.component';
 import { EditDialogComponent } from '../editdialog/editdialog.component';
 import { SearchsitesComponent } from '../searchsites/searchsites.component';
@@ -23,7 +26,8 @@ export class CampaignComponent implements OnInit {
   constructor(
     public dialog: MdDialog,
     private campaignService: CampaignService,
-    private alertService: AlertService) { }
+    private alertService: AlertService,
+    private siteService: SiteService) { }
 
   ngOnInit() {
     this.campaignService.getCampaigns().subscribe(cam => this.campaigns = cam);
@@ -61,6 +65,15 @@ export class CampaignComponent implements OnInit {
           error => this.alertService.error(error));
       }
     });
+  }
+
+  webSites(campaign: Campaign): WebSite[] {
+    let result = [];
+    const searchFor = new WebSiteSearchCriteria();
+    searchFor.ids = campaign.webSiteIds;
+    this.siteService.serche(searchFor)
+      .subscribe(r => result = r);
+    return result;
   }
 
   private openEditDialog(campaign: Campaign, type: string): Observable<any> {

@@ -9,7 +9,8 @@ import { MdDialogRef } from '@angular/material';
 enum SelectedStep {
   CAMPAIGN,
   BANNER,
-  SITES
+  SITES,
+  BANNER_SITE
 }
 
 @Component({
@@ -63,8 +64,8 @@ export class EditDialogComponent {
     return this.selectedStep !== SelectedStep.CAMPAIGN;
   }
 
-  isSiteStep(): boolean {
-    return this.selectedStep === SelectedStep.SITES;
+  isLastStep(): boolean {
+    return this.selectedStep === SelectedStep.BANNER_SITE;
   }
 
   private findActive(): EditInterface {
@@ -72,6 +73,8 @@ export class EditDialogComponent {
       return this.editCampaign;
     } else if (SelectedStep.BANNER === this.selectedStep) {
       return this.bannerUpload;
+    } else if (SelectedStep.BANNER_SITE === this.selectedStep) {
+
     }
     return this.searchsites;
   }

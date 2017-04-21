@@ -6,6 +6,10 @@
 	margin-bottom: 30px;
 }
 
+.inputcontainer md-select {
+	margin-bottom: 30px;
+}
+
 md-hint {
 	height: 10px;
 }

@@ -1,0 +1,17 @@
+.websiteselect {
+	width: 100%;
+	margin-top: 20px;
+}
+
+#websitesim {
+	display: flex;
+}
+
+canvas {
+	margin: auto;
+}
+
+.selectedImage {
+	position: absolute;
+    left: 25px;
+}
