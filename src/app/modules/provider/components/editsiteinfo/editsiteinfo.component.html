@@ -1,11 +1,6 @@
 <form class="center" (ngSubmit)="edit()" #f="ngForm" novalidate>
 	<div class="inputcontainer">
-		<md-input-container>
-			<input mdInput type="text" placeholder="Navn" focuced [(ngModel)]="site.name" name="name" required #name="ngModel">
-			<md-hint *ngIf="!(name.errors && (name.dirty || name.touched))">Navnet på websitet</md-hint>
-			<md-hint *ngIf="name.errors && (name.dirty || name.touched)" [ngStyle]="{'color': 'red'}">Navnet på websitet er krævet</md-hint>
-		</md-input-container>
-		
+	
 		<h3>Område</h3>
  		<md-input-container>
   			<input mdInput placeholder="Land" [mdAutocomplete]="auto" [formControl]="stateCtrl" [(ngModel)]="site.area.country">
