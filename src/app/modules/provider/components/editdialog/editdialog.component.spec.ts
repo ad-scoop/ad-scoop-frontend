@@ -50,7 +50,7 @@ describe('EditdialogComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EditDialogComponent);
     component = fixture.componentInstance;
-    component.site = new WebSite('', '', true, new Demografi([Gender.Children]), new Area('', ''));
+    component.site = new WebSite('', true, new Demografi([Gender.Children]), new Area('', ''));
     fixture.detectChanges();
   });
 

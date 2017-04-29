@@ -36,7 +36,7 @@ describe('BannerComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BannerComponent);
     component = fixture.componentInstance;
-    component.site = new WebSite('', '', false);
+    component.site = new WebSite('', false);
     fixture.detectChanges();
   });
 

@@ -6,7 +6,7 @@
 			<button md-mini-fab *ngIf="i == 0" (click)="add()"><md-icon>add</md-icon></button>
 			<md-card-header>
 				<div md-card-avatar><md-icon>group_work</md-icon></div>
-	   			<md-card-title>{{site.name}}</md-card-title> 
+	   			<md-card-title>{{site.url}}</md-card-title> 
 			</md-card-header>
 			<div class="frame-container">
 				<div class="frame">
@@ -14,10 +14,6 @@
 				</div>
 			</div>
 			<div class="info">
-				<div>
-					<label>Web-adresse</label>
-					<span><a [href]="site.url">{{site.url}}</a></span>
-				</div>
 				<div>
 					<label>Område</label>
 					<span>{{site.area.country}} {{site.area.zip}} </span>

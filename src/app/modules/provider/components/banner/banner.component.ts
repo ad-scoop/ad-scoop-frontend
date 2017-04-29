@@ -140,7 +140,7 @@ export class BannerComponent implements EditInterface, AfterViewInit {
     this.model = new BannerSpace();
     this.selectedLocation = new PlaceSelection(null, '');
     this.selectedSize = new BannerSize();
-    this.webSiteBanners.selected = null;;
+    this.webSiteBanners.selected = null;
   }
 
 }

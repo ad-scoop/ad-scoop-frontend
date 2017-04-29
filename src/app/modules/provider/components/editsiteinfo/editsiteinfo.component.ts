@@ -105,7 +105,7 @@ export class EditSiteInfoComponent implements EditInterface {
   }
 
   private hasGender(gender: Gender): boolean {
-    return this.site.demografi.gender.indexOf(gender) > -1;
+    return this.site.demografi && this.site.demografi.gender && this.site.demografi.gender.indexOf(gender) > -1;
   }
 
   private changeGender(gender: Gender): void {

@@ -42,7 +42,7 @@ export class SiteComponent implements OnInit {
   }
 
   add(): void {
-    const site = new WebSite('', '', false);
+    const site = new WebSite('', false);
     this.openEditDialog(site, 'Opret').subscribe(result => {
       if (result) {
         this.siteService.add(result).subscribe(

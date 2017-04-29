@@ -20,50 +20,6 @@ export class SiteService {
 
   private baseUrl = environment.websiteUrl;
 
-  private webSites: WebSite[] = [
-    new WebSite(
-      'Gundmann',
-      'https://www.gundmann.dk',
-      true,
-      new Demografi([Gender.Unisex]),
-      new Area('2720', 'Denmark'),
-      new Organisation('Sunhed')
-    ).setId(11)
-      .addBannerSpace(new BannerSpace(PlaceType.Top, 720, 90).setId(1)),
-    new WebSite(
-      'adscoop',
-      'https://www.ad-scoop.dk',
-      true,
-      new Demografi([Gender.Man]),
-      new Area('2720', 'Denmark'),
-      new Organisation('Forening')
-    ).setId(2),
-    new WebSite(
-      'Hansen',
-      'https://www.hansen.dk',
-      false,
-      new Demografi([Gender.Woman]),
-      new Area('2720', 'Denmark'),
-      new Organisation('Frisør')
-    ).setId(3),
-    new WebSite(
-      'VIF',
-      'https://www.vif.dk',
-      true,
-      new Demografi([Gender.Unisex]),
-      new Area('2720', 'Denmark'),
-      new Organisation('Forening')
-    ).setId(4),
-    new WebSite(
-      'Amager',
-      'https://www.amager.dk',
-      true,
-      new Demografi([Gender.Unisex]),
-      new Area('2720', 'Denmark'),
-      new Organisation('Købmand')
-    ).setId(5),
-  ];
-
   countries = [
     'Afghanistan',
     'Albanien',
@@ -355,35 +311,37 @@ export class SiteService {
     return this.countries;
   }
 
-
   public sites(): Observable<WebSite[]> {
-    return Observable.of(this.webSites);
+    return this.http
+      .post(this.baseUrl, this.getHeadersWithToken())
+      .catch(response => {
+        throw new Error('Fejl ved hentning af website');
+      });
   }
 
   public serche(model: WebSiteSearchCriteria): Observable<WebSite[]> {
-    if (model.ids) {
-      return  Observable.of(this.webSites.filter(e => model.ids.find(i => i === e.id) !== undefined));
-    }
-    return Observable.of(this.webSites.slice());
+//    if (model.ids) {
+//      return  Observable.of(this.webSites.filter(e => model.ids.find(i => i === e.id) !== undefined));
+//    }
+//    return Observable.of(this.webSites.slice());
+    return Observable.of(null);
   }
 
   public add(webSite: WebSite): Observable<boolean> {
-    this.webSites.push(webSite);
-    return Observable.of(true);
+    return this.http
+      .post(this.baseUrl + '/create', webSite, this.getHeadersWithToken())
+      .catch(response => {
+        throw new Error('Fejl ved oprettese af website');
+      });
   }
 
   public edit(webSite: WebSite): Observable<boolean> {
-    const romableSite = this.webSites.find(e => e.name === webSite.name);
-    const index = this.webSites.indexOf(romableSite);
-    this.webSites.splice(index, 1);
-    this.webSites.push(webSite);
-    return Observable.of(true);
-    //    return this.http
-    //      .post(this.baseUrl + '/update', webSite, this.getHeadersWithToken())
-    //      .map(response => true)
-    //      .catch(response => {
-    //        throw new Error('Fejl ved ændring af kampagnen');
-    //      });
+    return this.http
+      .post(this.baseUrl + '/update', webSite, this.getHeadersWithToken())
+      .map(response => true)
+      .catch(response => {
+        throw new Error('Fejl ved ændring af website');
+      });
   }
 
   private getHeadersWithToken(): RequestOptions {
