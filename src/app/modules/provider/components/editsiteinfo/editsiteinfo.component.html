@@ -1,4 +1,5 @@
 <form class="center" (ngSubmit)="edit()" #f="ngForm" novalidate>
+	<div class="explanation">Informationer om din side så annoncører kan finde den.</div>
 	<div class="inputcontainer">
 	
 		<h3>Område</h3>
@@ -22,7 +23,8 @@
 			<md-checkbox [(ngModel)]="woman" name="woman">Kvinder</md-checkbox>
 			<md-checkbox [(ngModel)]="unisex" name="unisex">Unisex</md-checkbox>
 			<md-checkbox [(ngModel)]="children" name="children">Children</md-checkbox>
-			
+		</div>
+		<div>
 		<md-input-container>
   			<input mdInput placeholder="Minimums alder" [(ngModel)]="site.demografi.minAge" name="minAge" >
 		</md-input-container>

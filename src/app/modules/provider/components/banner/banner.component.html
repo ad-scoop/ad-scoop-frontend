@@ -1,3 +1,4 @@
+<div class="explanation">Vælg placeringen af banner på din side. Størrelsen er vigtig, men placeringen behøves ikke at være presis. Det er får at brugeren kan se hvor deres reklame kan passe ind og hvor de kan placeres.</div>
 <div class="input">
 	<div>
 		<md-select placeholder="Størrelse" name="size" [(ngModel)]="selectedSize">
@@ -28,7 +29,7 @@
 	</div>
 </div>
 <div class="buttonright">
-	<button md-raised-button (click)="add()" *ngIf="!isSelected()">Tilføj</button>
+	<button md-raised-button (click)="add()" *ngIf="!isSelected()" [disabled]="canAdd()">Tilføj</button>
 	<button md-raised-button (click)="clear()" *ngIf="isSelected()">Ændre</button>
 	<button md-raised-button (click)="remove()" *ngIf="isSelected()">Slet</button>
 </div>

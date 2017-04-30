@@ -64,6 +64,10 @@ export class BannerComponent implements EditInterface, AfterViewInit {
     this._selectedSize = selectedSize;
   }
 
+  canAdd(): boolean {
+    return this._selectedLocation.place === null || this._selectedSize.x === undefined;
+  }
+
   ngAfterViewInit() {
     this.webSiteBanners = new WebSiteBanners(this.siteCanvas, this.site);
     this.webSiteBanners.draw();
