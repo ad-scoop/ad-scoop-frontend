@@ -1,8 +1,8 @@
 <h3>Reklamer</h3> 
-<div class="banner" *ngFor="let banner of banners">
+<div [class]="selectedClasses(banner)" *ngFor="let banner of banners">
 	<label class="clicklabel">Klik</label>
 	<span class="clickvalue">{{banner.clicks}} stk.</span>
-	<a (click)="openDialog(banner)">
+	<a (click)="select(banner)">
 		<img align="middle" [alt]="banner.name" [src]="banner.picture">
 	</a>
 	<span class="heightvalue">{{banner.height}} px</span>

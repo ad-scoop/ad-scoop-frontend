@@ -1,3 +1,7 @@
+.selected {
+	background-color: #FFF8DC;
+}
+
 .banner {
 	width: 120px;
 	display: inline-block;

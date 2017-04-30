@@ -21,6 +21,8 @@ export class BannerUploadComponent implements EditInterface {
   private file: File;
   model: any = {};
 
+  selectedBanner: Banner;
+
   constructor(private alertService: AlertService) { }
 
   valid(): boolean {
@@ -28,6 +30,18 @@ export class BannerUploadComponent implements EditInterface {
   }
 
   invalid(): void {
+  }
+
+  isSelected(): boolean {
+    return this.selectedBanner !== undefined;
+  }
+
+  select(seleted: Banner): void {
+    this.selectedBanner = seleted;
+  }
+
+  remove(): void {
+    this.campaign.banners.splice(this.campaign.banners.indexOf(this.selectedBanner), 1);
   }
 
   edit() {
@@ -59,19 +73,19 @@ export class BannerUploadComponent implements EditInterface {
   }
 
   base64(file: File, callback): void {
-    let fileInfo = new FileInfo();
+    const fileInfo = new FileInfo();
     fileInfo.imageType = file.type;
 
     function readerOnload(e) {
       fileInfo.base64 = 'data:' + fileInfo.imageType + ';base64,' + btoa(e.target.result);
-      let img = new Image();
+      const img = new Image();
       img.src = fileInfo.base64;
       fileInfo.width = img.width;
       fileInfo.height = img.height;
       callback(fileInfo);
     };
 
-    let reader = new FileReader();
+    const reader = new FileReader();
     reader.onload = readerOnload;
     reader.readAsBinaryString(file);
   }

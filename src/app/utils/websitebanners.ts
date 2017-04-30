@@ -128,7 +128,7 @@ export class WebSiteBanners {
 
     this.context.fillStyle = '#f0f0f0';
     this.context.font = '30px Roboto, sans-serif';
-    this.context.fillText('Webseite', (this.canvaswidth / 2) - 65, (this.canvasheight / 2) + 7.5);
+    this.context.fillText('Webside', (this.canvaswidth / 2) - 65, (this.canvasheight / 2) + 7.5);
   }
 
   private drawBannerSpace(bannerSpace: BannerSpace) {

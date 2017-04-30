@@ -29,9 +29,12 @@
 	</div>
 </div>
 <div class="buttonright">
-	<button md-raised-button (click)="add()" *ngIf="!isSelected()" [disabled]="canAdd()">Tilføj</button>
-	<button md-raised-button (click)="clear()" *ngIf="isSelected()">Ændre</button>
-	<button md-raised-button (click)="remove()" *ngIf="isSelected()">Slet</button>
+	<span class="clicktext">Klik på en banner for at ændre den.</span>
+	
+	<button md-mini-fab (click)="add()" [disabled]="isSelected() || canAdd()"><md-icon>add</md-icon></button>
+	<button md-mini-fab (click)="clear()" [disabled]="!isSelected()"><md-icon>edit</md-icon></button>
+	<button md-mini-fab (click)="remove()" [disabled]="!isSelected()"><md-icon>remove</md-icon></button>
+	
 </div>
 <div id="websitesim">
 	<canvas #site (click)="canvasClick($event)"></canvas>

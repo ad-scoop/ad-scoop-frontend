@@ -5,8 +5,8 @@
 			<button class="next" color="primary" md-button (click)="next()" *ngIf="!isBannerStep()">Næste</button>
 			<button class="next" color="primary" md-raised-button (click)="edit()" *ngIf="isBannerStep()">{{type}}</button>
 			<button class="back" color="primary" md-button (click)="back()" *ngIf="isNotFirstStep()">Tilbage</button>
-			<div md-card-avatar><md-icon>group_work</md-icon></div>
-   			<md-card-title>{{type}}</md-card-title> 
+			<div md-card-avatar><md-icon>web</md-icon></div>
+   			<md-card-title class="title">{{type}}</md-card-title> 
 		</md-card-header>
 		<app-editsite class="centerContent" #editSite [site]="site" *ngIf="selectedStep == selectedStepEnum.URL" ></app-editsite> 
 		<app-editsiteinfo #editsiteinfo [site]="site" *ngIf="selectedStep == selectedStepEnum.INFO" ></app-editsiteinfo>

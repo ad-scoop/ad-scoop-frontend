@@ -40,7 +40,7 @@ export class EditSiteComponent implements EditInterface, OnInit {
     if (url && url.startsWith('http')) {
       return url;
     }
-    return 'http://' + url;
+    return 'https://' + url;
   }
 
 }

@@ -1,4 +1,4 @@
-
+<div class="explanation">Tilføj reklamebanner ved at vælge et billed og der tryk på tilføj knappen.</div>
 <button md-raised-button id="file-button" (click)="upload()" focuced>
 	<label for="file-input">Vælg et billede</label>  
 </button>
@@ -8,7 +8,12 @@
 	<input mdInput type="text" placeholder="Navnet på banneren" [(ngModel)]="model.name" name="name" #name="ngModel"/>
 </md-input-container>
 
-<button md-raised-button (click)="addBanner()" class="add">Tilføj</button>
+<button class="add" md-mini-fab (click)="addBanner()"><md-icon>add</md-icon></button>
 
 <hr/>
-<app-banner [banners]="campaign.banners"></app-banner>
+
+<div>
+	<button class="add" md-mini-fab (click)="remove()" [disabled]="!isSelected()"><md-icon>remove</md-icon></button>
+</div>
+
+<app-banner [banners]="campaign.banners" (selectBanner)="select($event)"></app-banner>

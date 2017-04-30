@@ -28,8 +28,13 @@
 	</button>
 	<button *ngIf="userService.isLoggedInAsAdvertiser()" md-menu-item
 		routerLink="advertiser/campaigns">
-		<md-icon></md-icon>
+		<md-icon>group_work</md-icon>
 		<span>Kampagner</span>
+	</button>
+	<button *ngIf="userService.isLoggedAsProvider()" md-menu-item
+		routerLink="provider/site">
+		<md-icon>web</md-icon>
+		<span>Websider</span>
 	</button>
 	<button md-menu-item routerLink="underConstruction">
 		<md-icon></md-icon>
