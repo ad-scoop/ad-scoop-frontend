@@ -142,7 +142,7 @@ export class BannerComponent implements EditInterface, AfterViewInit {
     return this.site.bannerSpaces && this.site.bannerSpaces.find(b => JSON.stringify(b) === JSON.stringify(this.model)) !== undefined;
   }
 
-  private clear(): void {
+  clear(): void {
     this.model = new BannerSpace();
     this.selectedLocation = new PlaceSelection(null, '');
     this.selectedSize = new BannerSize();
