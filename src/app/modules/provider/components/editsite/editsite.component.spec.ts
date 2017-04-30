@@ -30,7 +30,7 @@ describe('EditsiteComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EditSiteComponent);
     component = fixture.componentInstance;
-    component.site = new WebSite('', '', true);
+    component.site = new WebSite('', true);
     fixture.detectChanges();
   });
 
