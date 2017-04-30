@@ -1,10 +1,9 @@
 import { AbstractId } from './abstractid';
-import { PlaceType } from './placetype';
 
 export class BannerSpace extends AbstractId {
 
   constructor(
-    public place?: PlaceType,
+    public place?: string,
     public width?: number,
     public height?: number,
     public standardSize?: boolean,

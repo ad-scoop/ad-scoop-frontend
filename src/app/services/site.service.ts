@@ -1,14 +1,12 @@
 import { Area } from '../model/area';
 import { Demografi } from '../model/demografi';
-import { Gender } from '../model/gender';
 import { Industry } from '../model/industry';
 import { Organisation } from '../model/organisation';
 import { PlaceSelection } from '../model/placeselection';
-import { PlaceType } from '../model/placetype';
 import { WebSite } from '../model/site';
 import { AuthenticationService } from './authentication.service';
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, Headers } from '@angular/http';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../../environments/environment';
 import { BannerSize } from '../model/bannersize';
@@ -298,11 +296,11 @@ export class SiteService {
   ];
 
   bannerLocations: PlaceSelection[] = [
-    new PlaceSelection(PlaceType.Top, 'Top'),
-    new PlaceSelection(PlaceType.Bottom, 'Bund'),
-    new PlaceSelection(PlaceType.Right, 'Højre'),
-    new PlaceSelection(PlaceType.Left, 'Venstre'),
-    new PlaceSelection(PlaceType.Define, 'Definer')
+    new PlaceSelection('Top', 'Top'),
+    new PlaceSelection('Bottom', 'Bund'),
+    new PlaceSelection('Right', 'Højre'),
+    new PlaceSelection('Left', 'Venstre'),
+    new PlaceSelection('Define', 'Definer')
   ];
 
   constructor(private http: Http, private authService: AuthenticationService) { }
@@ -313,7 +311,8 @@ export class SiteService {
 
   public sites(): Observable<WebSite[]> {
     return this.http
-      .post(this.baseUrl, this.getHeadersWithToken())
+      .get(this.baseUrl, this.getHeadersWithToken())
+      .map((resp: Response) => resp.json())
       .catch(response => {
         throw new Error('Fejl ved hentning af website');
       });

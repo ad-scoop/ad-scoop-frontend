@@ -1,7 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import { Area } from '../../../../model/area';
 import { Demografi } from '../../../../model/demografi';
-import { Gender } from '../../../../model/gender';
 import { Industry } from '../../../../model/industry';
 import { Organisation } from '../../../../model/organisation';
 import { WebSite } from '../../../../model/site';
@@ -45,7 +44,7 @@ describe('EditsiteinfoComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EditSiteInfoComponent);
     component = fixture.componentInstance;
-    component.site = new WebSite('', false, new Demografi([Gender.Man]), new Area('', ''), new Organisation('test'));
+    component.site = new WebSite('', false, new Demografi(['Man']), new Area('', ''), new Organisation('test'));
     fixture.detectChanges();
   });
 

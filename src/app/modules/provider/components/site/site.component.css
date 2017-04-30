@@ -1,3 +1,16 @@
+.noWebsits {
+	text-align: center;
+	margin-top: 60px;
+}
+
+.noWebsits button {
+	margin: 15px;
+}
+
+.noWebsits span {
+	display: block;
+}
+
 .centerContent {
 	display: flex;
 	flex-direction: row;
@@ -63,9 +76,9 @@ md-card {
 	background-color: #dae8e7;
 }
 
-button {
+.buttons button {
 	float: right;
 	margin-right: 12px;
 	position: relative;
-	top: -25px;
+	top: -40px;
 }

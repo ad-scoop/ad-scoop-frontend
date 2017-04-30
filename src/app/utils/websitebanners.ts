@@ -1,7 +1,7 @@
 import { BannerSpace } from '../model/bannerspace';
-import { PlaceType } from '../model/placetype';
 import { WebSite } from '../model/site';
 import { ElementRef } from '@angular/core';
+import { equal } from 'assert';
 import { Observable } from 'rxjs/Observable';
 
 export class WebSiteBanners {
@@ -26,7 +26,7 @@ export class WebSiteBanners {
 
     this.drawSpaces();
   }
-  
+
   get canvasscale() {
     return this._canvasscale;
   }
@@ -50,7 +50,7 @@ export class WebSiteBanners {
   }
 
   public mouseOverElement(x: any, y: any): Observable<boolean> {
-    if (this.site) {
+    if (this.site && this.site.bannerSpaces) {
       const realPosisition = this.getGlobalPosition(this.siteCanvas.nativeElement);
       x -= realPosisition.x;
       y -= realPosisition.y;
@@ -85,7 +85,7 @@ export class WebSiteBanners {
     });
 
     this.drawCanvas();
-    if (this.site) {
+    if (this.site && this.site.bannerSpaces) {
       this.site.bannerSpaces.forEach(b => {
         this.drawBannerSpace(b);
       });
@@ -160,21 +160,23 @@ export class WebSiteBanners {
   private calculatePlace(bannerSpace: BannerSpace): Position {
     let result = new Position(3, 3);
 
-    if (PlaceType.Top === bannerSpace.place) {
+    const currentPlace = bannerSpace.place;
+
+    if ('Top' === currentPlace) {
       const left = (this.canvaswidth - (bannerSpace.width / this._canvasscale)) / 2;
       result = new Position(left, 3);
     }
-    if (PlaceType.Bottom === bannerSpace.place) {
+    if ('Bottom' === currentPlace) {
       const left = (this.canvaswidth - (bannerSpace.width / this._canvasscale)) / 2;
       result = new Position(left, this.canvasheight - (bannerSpace.height / this._canvasscale) - 3);
     }
-    if (PlaceType.Define === bannerSpace.place) {
+    if ('Define' === currentPlace) {
       result = new Position(bannerSpace.left / this._canvasscale, bannerSpace.top / this._canvasscale);
     }
-    if (PlaceType.Right === bannerSpace.place) {
+    if ('Right' === currentPlace) {
       result = new Position((this.canvaswidth - (bannerSpace.width / this._canvasscale)) - 3, 120 / this._canvasscale);
     }
-    if (PlaceType.Left === bannerSpace.place) {
+    if ('Left' === currentPlace) {
       result = new Position(3, 120 / this._canvasscale);
     }
     return result;

@@ -1,7 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import { Area } from '../../../../model/area';
 import { Demografi } from '../../../../model/demografi';
-import { Gender } from '../../../../model/gender';
 import { WebSite } from '../../../../model/site';
 import { UrlSafePipe } from '../../../../utils/urlsafe.pipe';
 import { EditSiteComponent } from '../editsite/editsite.component';
@@ -50,7 +49,7 @@ describe('EditdialogComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EditDialogComponent);
     component = fixture.componentInstance;
-    component.site = new WebSite('', true, new Demografi([Gender.Children]), new Area('', ''));
+    component.site = new WebSite('', true, new Demografi(['Children']), new Area('', ''));
     fixture.detectChanges();
   });
 

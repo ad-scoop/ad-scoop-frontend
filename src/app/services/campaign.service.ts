@@ -7,7 +7,6 @@ import { Observable } from 'rxjs/Observable';
 import { Campaign } from '../model/campaign';
 import { Banner } from '../model/banner';
 import { Demografi } from '../model/demografi';
-import { Gender } from '../model/gender';
 import { Organisation } from '../model/organisation';
 import { WebSite } from '../model/site';
 import { AuthenticationService } from './authentication.service';

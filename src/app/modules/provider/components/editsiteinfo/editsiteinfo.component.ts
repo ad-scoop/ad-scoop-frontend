@@ -1,4 +1,4 @@
-import { Gender } from '../../../../model/gender';
+import { Demografi } from '../../../../model/demografi';
 import { Industry } from '../../../../model/industry';
 import { WebSite } from '../../../../model/site';
 import { SiteService } from '../../../../services/site.service';
@@ -73,46 +73,54 @@ export class EditSiteInfoComponent implements EditInterface {
   }
 
   get man(): boolean {
-    return this.hasGender(Gender.Man);
+    return this.hasGender('Man');
   }
 
   set man(selected: boolean) {
-    this.changeGender(Gender.Man);
+    this.changeGender('Man');
   }
 
   get woman(): boolean {
-    return this.hasGender(Gender.Woman);
+    return this.hasGender('Woman');
   }
 
   set woman(selected: boolean) {
-    this.changeGender(Gender.Woman);
+    this.changeGender('Woman');
   }
 
   get unisex(): boolean {
-    return this.hasGender(Gender.Unisex);
+    return this.hasGender('Unisex');
   }
 
   set unisex(selected: boolean) {
-    this.changeGender(Gender.Unisex);
+    this.changeGender('Unisex');
   }
 
   get children(): boolean {
-    return this.hasGender(Gender.Children);
+    return this.hasGender('Children');
   }
 
   set children(selected: boolean) {
-    this.changeGender(Gender.Children);
+    this.changeGender('Children');
   }
 
-  private hasGender(gender: Gender): boolean {
-    return this.site.demografi && this.site.demografi.gender && this.site.demografi.gender.indexOf(gender) > -1;
+  private hasGender(gender: string): boolean {
+    return this.site.demografi && this.site.demografi.genders && this.site.demografi.genders.indexOf(gender) > -1;
   }
 
-  private changeGender(gender: Gender): void {
-    if (this.site.demografi.gender.indexOf(gender) > 0) {
-      this.site.demografi.gender.splice(this.site.demografi.gender.indexOf(gender), 1);
+  private changeGender(gender: string): void {
+    if (!this.site.demografi) {
+      this.site.demografi = new Demografi();
+    }
+
+    if (!this.site.demografi.genders) {
+      this.site.demografi.genders = [];
+    }
+
+    if (this.site.demografi && this.site.demografi.genders.indexOf(gender) > -1) {
+      this.site.demografi.genders.splice(this.site.demografi.genders.indexOf(gender), 1);
     } else {
-      this.site.demografi.gender.push(gender);
+      this.site.demografi.genders.push(gender);
     }
   }
 

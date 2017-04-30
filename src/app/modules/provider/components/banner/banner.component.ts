@@ -1,7 +1,6 @@
 import { BannerSize } from '../../../../model/bannersize';
 import { BannerSpace } from '../../../../model/bannerspace';
 import { PlaceSelection } from '../../../../model/placeselection';
-import { PlaceType } from '../../../../model/placetype';
 import { WebSite } from '../../../../model/site';
 import { SiteService } from '../../../../services/site.service';
 import { WebSiteBanners } from '../../../../utils/websitebanners';
@@ -102,6 +101,9 @@ export class BannerComponent implements EditInterface, AfterViewInit {
   }
 
   add(): void {
+    if (!this.site.bannerSpaces) {
+      this.site.bannerSpaces = [];
+    }
     this.site.bannerSpaces.push(this.model);
     this.clear();
   }
@@ -129,11 +131,11 @@ export class BannerComponent implements EditInterface, AfterViewInit {
   }
 
   isLocationDefineSelected(): boolean {
-    return this.selectedLocation.place === PlaceType.Define;
+    return this.selectedLocation && this.selectedLocation.place && this.selectedLocation.place === 'Define';
   }
 
   isSelected(): boolean {
-    return this.site.bannerSpaces.find(b => JSON.stringify(b) === JSON.stringify(this.model)) !== undefined;
+    return this.site.bannerSpaces && this.site.bannerSpaces.find(b => JSON.stringify(b) === JSON.stringify(this.model)) !== undefined;
   }
 
   private clear(): void {

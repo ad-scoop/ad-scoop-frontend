@@ -1,4 +1,3 @@
-import { Gender } from '../../../../model/gender';
 import { WebSite } from '../../../../model/site';
 import { AlertService } from '../../../../services/alert.service';
 import { SiteService } from '../../../../services/site.service';
@@ -53,7 +52,7 @@ export class SiteComponent implements OnInit {
     });
   }
 
-  public genderStr(gender: Gender[]): string {
+  public genderStr(gender: string[]): string {
     if (gender) {
       return gender
         .map(gen => this.genderConvert(gen))
@@ -62,12 +61,12 @@ export class SiteComponent implements OnInit {
     return '';
   }
 
-  private genderConvert(gender: Gender): string {
+  private genderConvert(gender: string): string {
     switch (gender) {
-      case Gender.Man: return 'Mænd';
-      case Gender.Woman: return 'Kvinder';
-      case Gender.Unisex: return 'Unisex';
-      case Gender.Children: return 'Børn';
+      case 'Man': return 'Mænd';
+      case 'Woman': return 'Kvinder';
+      case 'Unisex': return 'Unisex';
+      case 'Children': return 'Børn';
     }
     return '';
   }

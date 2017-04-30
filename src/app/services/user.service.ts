@@ -35,13 +35,13 @@ export class UserService {
   }
 
   private getJsonHeaders(): Headers {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Accept', 'application/json');
     return headers;
   }
 
   private getTextHeaders(): Headers {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Content-Type', 'text/html; charset=utf-8');
     return headers;
   }

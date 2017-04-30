@@ -8,11 +8,11 @@ import { puts } from 'util';
 export class WebSite extends AbstractId {
 
   constructor(
-    public url: string,
-    public accepted: boolean,
-    public demografi?: Demografi,
-    public area?: Area,
-    public organisation?: Organisation,
+    public url?: string,
+    public accepted?: boolean,
+    public demografi: Demografi = new Demografi(),
+    public area: Area = new Area(),
+    public organisation: Organisation = new Organisation(),
     public clicks?: number,
     public bannerSpaces: BannerSpace[] = [],
     public labels: string[] = []

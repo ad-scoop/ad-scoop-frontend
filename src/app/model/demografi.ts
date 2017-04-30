@@ -1,9 +1,7 @@
-import { Gender } from './gender';
-
 export class Demografi {
 
   constructor(
-    public gender: Gender[],
+    public genders: string[] = [],
     public minAge?: number,
     public maxAge?: number) { }
 

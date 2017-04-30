@@ -1,8 +1,7 @@
-import { PlaceType } from './placetype';
 export class PlaceSelection {
 
   constructor(
-    public place: PlaceType,
+    public place: string,
     public name: string) { }
 
 }
