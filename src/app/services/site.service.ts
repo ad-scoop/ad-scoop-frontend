@@ -318,11 +318,19 @@ export class SiteService {
       });
   }
 
+  public remove(webSite: WebSite): Observable<boolean> {
+    return this.http
+      .delete(this.baseUrl + '/remove/' + webSite.id, this.getHeadersWithToken())
+      .catch(response => {
+        throw new Error('Fejl ved slette af website');
+      });
+  }
+
   public serche(model: WebSiteSearchCriteria): Observable<WebSite[]> {
-//    if (model.ids) {
-//      return  Observable.of(this.webSites.filter(e => model.ids.find(i => i === e.id) !== undefined));
-//    }
-//    return Observable.of(this.webSites.slice());
+    //    if (model.ids) {
+    //      return  Observable.of(this.webSites.filter(e => model.ids.find(i => i === e.id) !== undefined));
+    //    }
+    //    return Observable.of(this.webSites.slice());
     return Observable.of(null);
   }
 

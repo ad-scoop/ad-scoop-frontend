@@ -53,24 +53,24 @@ export class AuthenticationService {
   }
 
   getToken(): string {
-    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     return currentUser && currentUser.token;
   }
 
   getLabels(): string[] {
-    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     return currentUser && currentUser.labels;
   }
 
   private getHeaders(): Headers {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Accept', 'application/json');
     return headers;
   }
 
   private mapUser(response: Response): string[] {
-    let token = response.json().token;
-    let labels = response.json().labels;
+    const token = response.json().token;
+    const labels = response.json().labels;
     if (token) {
       localStorage.setItem('currentUser', JSON.stringify({ labels: labels, token: token }));
     } else {
