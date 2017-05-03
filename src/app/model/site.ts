@@ -7,6 +7,8 @@ import { puts } from 'util';
 
 export class WebSite extends AbstractId {
 
+  public checked: Boolean;
+
   constructor(
     public url?: string,
     public accepted?: boolean,
@@ -27,4 +29,5 @@ export class WebSite extends AbstractId {
     this.bannerSpaces.push(bannerSpace);
     return this;
   }
+
 }

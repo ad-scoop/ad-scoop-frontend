@@ -326,6 +326,16 @@ export class SiteService {
       });
   }
 
+  public validateUrl(url: string): boolean {
+    let result = true;
+    this.http
+      .get(url)
+      .subscribe(
+        data => result = true,
+        err => result = false);
+    return result;
+  }
+
   public serche(model: WebSiteSearchCriteria): Observable<WebSite[]> {
     //    if (model.ids) {
     //      return  Observable.of(this.webSites.filter(e => model.ids.find(i => i === e.id) !== undefined));

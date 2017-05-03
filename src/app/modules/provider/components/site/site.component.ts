@@ -29,8 +29,8 @@ export class SiteComponent implements OnInit {
   remove(site: WebSite): void {
     this.siteService
       .remove(site).subscribe(
-          responce => this.ngOnInit(),
-          error => this.alertService.error(error));
+      responce => this.ngOnInit(),
+      error => this.alertService.error(error));
   }
 
   edit(site: WebSite): void {
@@ -53,6 +53,13 @@ export class SiteComponent implements OnInit {
           error => this.alertService.error(error));
       }
     });
+  }
+
+  validUrl(webSite: WebSite): boolean {
+    if (webSite.checked === undefined) {
+      webSite.checked = this.siteService.validateUrl(webSite.url);
+    }
+    return webSite.checked.valueOf();
   }
 
   public genderStr(gender: string[]): string {

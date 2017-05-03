@@ -11,7 +11,8 @@
 			</md-card-header>
 			<div class="frame-container">
 				<div class="frame">
-					<iframe [src]="site.url | urlsafe"></iframe>
+					<div *ngIf="!validUrl(site)">Siden er ikke sikker og kan derfor ikke visses</div>
+					<iframe *ngIf="validUrl(site)" [src]="site.url | urlsafe"></iframe>
 				</div>
 			</div>
 			<div class="info">
