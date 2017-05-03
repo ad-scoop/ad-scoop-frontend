@@ -55,13 +55,6 @@ export class SiteComponent implements OnInit {
     });
   }
 
-  validUrl(webSite: WebSite): boolean {
-    if (webSite.checked === undefined) {
-      webSite.checked = this.siteService.validateUrl(webSite.url);
-    }
-    return webSite.checked.valueOf();
-  }
-
   public genderStr(gender: string[]): string {
     if (gender) {
       return gender
