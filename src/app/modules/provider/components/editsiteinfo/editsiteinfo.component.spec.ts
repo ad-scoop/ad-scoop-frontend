@@ -44,7 +44,7 @@ describe('EditsiteinfoComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EditSiteInfoComponent);
     component = fixture.componentInstance;
-    component.site = new WebSite('', false, new Demografi(['Man']), new Area('', ''), new Organisation('test'));
+    component.site = new WebSite('', false, new Demografi(['Man']), [new Area('', '')], new Organisation('test'));
     fixture.detectChanges();
   });
 

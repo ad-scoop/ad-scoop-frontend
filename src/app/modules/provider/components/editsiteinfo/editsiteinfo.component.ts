@@ -1,3 +1,4 @@
+import { Area } from '../../../../model/area';
 import { Demografi } from '../../../../model/demografi';
 import { Industry } from '../../../../model/industry';
 import { WebSite } from '../../../../model/site';
@@ -23,6 +24,8 @@ export class EditSiteInfoComponent implements EditInterface {
   @Input() site: WebSite;
   industries: Industry[];
 
+  area: Area = new Area();
+
   constructor(private siteService: SiteService) {
     this.stateCtrl = new FormControl();
     this.filteredCountry = this.stateCtrl.valueChanges
@@ -45,6 +48,18 @@ export class EditSiteInfoComponent implements EditInterface {
 
   edit(): void {
 
+  }
+
+  addArea(): void {
+    if (!this.site.areas) {
+      this.site.areas = [];
+    }
+    this.site.areas.push(this.area);
+    this.area = new Area();
+  }
+
+  removeArea(area: Area) {
+    this.site.areas.splice(this.site.areas.indexOf(area), 1);
   }
 
   add(value: string): void {

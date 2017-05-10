@@ -13,7 +13,7 @@ export class WebSite extends AbstractId {
     public url?: string,
     public accepted?: boolean,
     public demografi: Demografi = new Demografi(),
-    public area: Area = new Area(),
+    public areas: Area[] = [],
     public organisation: Organisation = new Organisation(),
     public clicks?: number,
     public bannerSpaces: BannerSpace[] = [],

@@ -43,6 +43,38 @@ export class SiteComponent implements OnInit {
     });
   }
 
+  countries(site: WebSite): string {
+    if (site.areas && site.areas.length > 0) {
+      return site.areas.map(e => e.country).filter(this.isEmpty).join(' ');
+    }
+    return '';
+  }
+
+  labels(site: WebSite): string {
+    if (site.areas && site.areas.length > 0) {
+      return site.labels.join(' ');
+    }
+    return '';
+  }
+
+  region(site: WebSite): string {
+    if (site.areas && site.areas.length > 0) {
+      return site.areas.map(e => e.region).filter(this.isEmpty).join(' ');
+    }
+    return '';
+  }
+
+  cities(site: WebSite): string {
+    if (site.areas && site.areas.length > 0) {
+      return site.areas.map(e => e.city).filter(this.isEmpty).join(' ');
+    }
+    return '';
+  }
+
+  private isEmpty = (e: string) => {
+    return e !== null || e !== undefined || e !== '';
+  }
+
   add(): void {
     const site = new WebSite('', false);
     this.openEditDialog(site, 'Opret').subscribe(result => {

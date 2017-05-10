@@ -17,15 +17,19 @@
 			<div class="info">
 				<div>
 					<label>Område</label>
-					<span>{{site.area.country}} {{site.area.zip}} </span>
+					<span title="{{countries(site)}} {{region(site)}} {{cities(site)}}">{{countries(site)}} {{region(site)}} {{cities(site)}}</span>
 				</div>
 				<div>
 					<label>Demografi</label>
-					<span>{{genderStr(site.demografi.gender)}} min. alder: {{site.demografi.minAge}} max. alder: {{site.demografi.maxAge}}</span>
+					<span>{{genderStr(site.demografi.gender)}} min. alder: {{site.demografi.minAge }} max. alder: {{site.demografi.maxAge}}</span>
 				</div>
 				<div>
 					<label>Website info</label>
 					<span>{{site.organisation.type}} {{site.organisation.category}}</span>
+				</div>
+				<div>
+					<label>Søgeord</label>
+					<span title="{{labels(site)}}">{{labels(site)}}</span>
 				</div>
 			</div>
 			

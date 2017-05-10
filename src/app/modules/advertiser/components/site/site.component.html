@@ -6,7 +6,7 @@
 			<th>Navn</th>
 			<th>Adresse</th>
 			<th [class]="hideSmall">Branche</th>
-			<th [class]="hideSmall">Post nr.</th>
+			<th [class]="hideSmall">Område</th>
 			<th *ngIf="showclicks" class="click">Klik</th>
 		</tr>
 		<tr *ngFor="let site of sites">
@@ -15,7 +15,7 @@
 			<td>{{site.name}}</td>
 			<td><a [href]="site.url">{{site.url}}</a></td>
 			<td [class]="hideSmall">{{getIndustry(site)}}</td>
-			<td [class]="hideSmall">{{getZip(site)}}</td>
+			<td [class]="hideSmall">{{getArea(site)}}</td>
 			<td *ngIf="showclicks" class="click">{{site.clicks}}</td>
 		</tr>
 	</table>

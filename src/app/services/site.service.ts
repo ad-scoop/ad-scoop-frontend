@@ -277,8 +277,8 @@ export class SiteService {
   ];
 
   bannerSizes = [
-    new BannerSize(468, 60),
     new BannerSize(728, 90),
+    new BannerSize(468, 60),
     new BannerSize(336, 280),
     new BannerSize(300, 250),
     new BannerSize(250, 250),
@@ -344,7 +344,7 @@ export class SiteService {
 
   public edit(webSite: WebSite): Observable<boolean> {
     return this.http
-      .post(this.baseUrl + '/update', webSite, this.getHeadersWithToken())
+      .put(this.baseUrl + '/update', webSite, this.getHeadersWithToken())
       .map(response => true)
       .catch(response => {
         throw new Error('Fejl ved ændring af website');

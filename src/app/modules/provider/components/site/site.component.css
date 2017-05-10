@@ -36,6 +36,15 @@
 
 .info div {
 	margin-bottom: 10px;
+	display: flex;
+}
+
+.info span {
+	display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 200px;
+    overflow: hidden;
 }
 
 .frame-container {

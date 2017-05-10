@@ -23,16 +23,16 @@ export class SiteComponent {
     this.clickFunction(site);
   }
 
-  getZip(site: WebSite): String {
-    if (site.area) {
-      return site.area.zip;
+  getArea(site: WebSite): String {
+    if (site.areas) {
+      return site.areas.map(e => e.country + ' ' + e.region + ' ' + e.country).join(' ');
     }
     return '';
   }
 
   getIndustry(site: WebSite): String {
     if (site.organisation) {
-      return site.organisation.type;
+      return site.organisation.category + ' ' + site.organisation.type;
     }
     return '';
   }
