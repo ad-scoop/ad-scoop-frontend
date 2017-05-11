@@ -42,6 +42,12 @@ module.exports = function(config) {
 		logLevel : config.LOG_INFO,
 		autoWatch : true,
 	    browsers: ['Chrome'],
+	    customLaunchers: {
+	        Chrome_without_security: {
+	          base: 'Chrome',
+	          flags: ['--disable-gpu',  '-no-sandbox']
+	        }
+	      },
 		singleRun : false
 	});
 };
