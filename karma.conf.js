@@ -45,7 +45,7 @@ module.exports = function(config) {
 	    customLaunchers: {
 	        Chrome_without_security: {
 	          base: 'Chrome',
-	          flags: ['--disable-gpu',  '-no-sandbox']
+	          flags: ['--disable-gpu',  '-no-sandbox', '--headless']
 	        }
 	      },
 		singleRun : false
