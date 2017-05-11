@@ -41,13 +41,14 @@ module.exports = function(config) {
 		colors : true,
 		logLevel : config.LOG_INFO,
 		autoWatch : true,
-		browsers : [ 'Chrome_headless' ], // You may use 'ChromeCanary', 'Chromium' or any other supported browser
+		browsers : [
+			'ChromeNoSandbox'
+		],
 
-		// you can define custom flags
 		customLaunchers : {
-			Chrome_headless : {
+			ChromeNoSandbox : {
 				base : 'Chrome',
-				flags : [ '--headless', '--disable-gpu' ]
+				flags : [ '--no-sandbox' ]
 			}
 		},
 		singleRun : false
