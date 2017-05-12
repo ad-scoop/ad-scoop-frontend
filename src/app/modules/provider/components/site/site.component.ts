@@ -87,13 +87,27 @@ export class SiteComponent implements OnInit {
     });
   }
 
-  public genderStr(gender: string[]): string {
-    if (gender) {
-      return gender
+  public genderStr(site: WebSite): string {
+    if (site.demografi && site.demografi.genders) {
+      return site.demografi.genders
         .map(gen => this.genderConvert(gen))
         .join(', ');
     }
     return '';
+  }
+
+  minAge(site: WebSite): string {
+    if (site.demografi && site.demografi.minAge) {
+      return site.demografi.minAge.toString();
+    }
+    return '-';
+  }
+
+  maxAge(site: WebSite): string {
+    if (site.demografi && site.demografi.maxAge) {
+      return site.demografi.maxAge.toString();
+    }
+    return '-';
   }
 
   private genderConvert(gender: string): string {
