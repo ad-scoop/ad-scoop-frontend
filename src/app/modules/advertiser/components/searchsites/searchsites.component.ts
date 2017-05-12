@@ -24,6 +24,7 @@ export class SearchsitesComponent implements EditInterface {
   selectedHeadline = 'Valgte hjemmesider';
   removeColumn = true;
   doNotHide = '';
+  selectedIndustry;
 
   addFunction = (site: WebSite) => {
     if (!this.campaign.webSiteIds) {
@@ -73,14 +74,6 @@ export class SearchsitesComponent implements EditInterface {
       return this.selectedIndustry.categoris;
     }
     return [];
-  }
-
-  get selectedIndustry(): Industry {
-    return this.industries.find(i => i.name === this.model.organisationCategory);
-  }
-
-  set selectedIndustry(industry: Industry) {
-    this.model.organisationCategory = industry.name;
   }
 
 }
