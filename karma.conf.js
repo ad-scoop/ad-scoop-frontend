@@ -41,13 +41,7 @@ module.exports = function(config) {
 		colors : true,
 		logLevel : config.LOG_INFO,
 		autoWatch : true,
-	    browsers: ['Chrome_without_security'],
-	    customLaunchers: {
-	        Chrome_without_security: {
-	          base: 'Chrome',
-	          flags: ['--disable-gpu',  '-no-sandbox', '--headless']
-	        }
-	      },
+	    browsers: ['Chrome'],
 		singleRun : false
 	});
 };
