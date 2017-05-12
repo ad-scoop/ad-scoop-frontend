@@ -43,7 +43,7 @@ module.exports = function(config) {
 		autoWatch : true,
 	    browsers: ['Chrome_without_gpu'],
 	    customLaunchers: {
-	        Chrome_without_security: {
+	    	Chrome_without_gpu: {
 	          base: 'Chrome',
 	          flags: ['--disable-gpu']
 	        }
