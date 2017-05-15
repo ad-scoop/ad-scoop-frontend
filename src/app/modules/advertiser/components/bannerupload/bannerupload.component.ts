@@ -79,10 +79,12 @@ export class BannerUploadComponent implements EditInterface {
     function readerOnload(e) {
       fileInfo.base64 = 'data:' + fileInfo.imageType + ';base64,' + btoa(e.target.result);
       const img = new Image();
+      img.onload = function () {
+        fileInfo.width = img.width;
+        fileInfo.height = img.height;
+        callback(fileInfo);
+      };
       img.src = fileInfo.base64;
-      fileInfo.width = img.width;
-      fileInfo.height = img.height;
-      callback(fileInfo);
     };
 
     const reader = new FileReader();
