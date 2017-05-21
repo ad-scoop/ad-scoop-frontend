@@ -27,6 +27,11 @@ describe('SearchSitesComponent', () => {
     serche(): Observable<WebSite[]> {
       return Observable.of([]);
     }
+    
+    sercheByIds(ids: number[]): Observable<WebSite[]> {
+      return Observable.of([]);
+    }
+    
   }
 
   beforeEach(async(() => {
