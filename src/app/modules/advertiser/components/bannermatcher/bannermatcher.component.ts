@@ -1,6 +1,7 @@
 import { Component, Input, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { Banner } from '../../../../model/banner';
 import { BannerSpace } from '../../../../model/bannerspace';
+import { CachedWebsite } from '../../../../model/cachedwebsite';
 import { Campaign } from '../../../../model/campaign';
 import { WebSite } from '../../../../model/site';
 import { WebSiteSearchCriteria } from '../../../../model/websitesearchcriteria';
@@ -18,6 +19,7 @@ export class BannerMatcherComponent {
   @ViewChild('site') siteCanvas: ElementRef;
 
   selectedBanner: Banner;
+  cachedWebsite: CachedWebsite;
 
   private _seleectedSite: WebSite;
 
@@ -34,26 +36,22 @@ export class BannerMatcherComponent {
     });
   }
 
-  constructor(private siteService: SiteService) { }
+  constructor(private siteService: SiteService) {
+    this.cachedWebsite = new CachedWebsite(this.siteService);
+  }
 
-  get seleectedSite(): WebSite {
+  get selectedSite(): WebSite {
     return this._seleectedSite;
   }
 
-  set seleectedSite(seleectedSite: WebSite) {
+  set selectedSite(seleectedSite: WebSite) {
     if (this.webSiteBanners) {
       this.webSiteBanners.clear();
       this.webSiteBanners = null;
     }
-    const serchFor = new WebSiteSearchCriteria();
-    serchFor.ids = [seleectedSite.id];
-    this.siteService.serche(serchFor).subscribe(sites => {
-      if (sites[0]) {
-        this.webSiteBanners = new WebSiteBanners(this.siteCanvas, sites[0], this.callbackDraw);
-        this.webSiteBanners.draw();
-        this._seleectedSite = seleectedSite;
-      }
-    });
+    this.webSiteBanners = new WebSiteBanners(this.siteCanvas, seleectedSite, this.callbackDraw);
+    this.webSiteBanners.draw();
+    this._seleectedSite = seleectedSite;
   }
 
   @HostListener('mousemove', ['$event'])
@@ -77,21 +75,18 @@ export class BannerMatcherComponent {
       this.webSiteBanners.getSelectedSpace(x, y)
         .subscribe(b => {
           if (b) {
-            this.selectedBanner.bannerSpaceIds.push(b.id);
-          } else {
-            //          this.clear();
+            if (this.selectedBanner.bannerSpaceIds.find(id => id === b.id)) {
+              this.selectedBanner.bannerSpaceIds.splice(this.selectedBanner.bannerSpaceIds.indexOf(b.id), 1);
+            } else {
+              this.selectedBanner.bannerSpaceIds.push(b.id);
+            }
           }
         });
     }
   }
 
   webSites(campaign: Campaign): WebSite[] {
-    let result = [];
-    const searchFor = new WebSiteSearchCriteria();
-    searchFor.ids = campaign.webSiteIds;
-    this.siteService.serche(searchFor)
-      .subscribe(r => result = r);
-    return result;
+    return this.cachedWebsite.getWebSites(campaign);
   }
 
   private findBanners(bannerSpace: BannerSpace): Banner[] {

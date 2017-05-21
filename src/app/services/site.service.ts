@@ -326,12 +326,28 @@ export class SiteService {
       });
   }
 
+  public sercheByIds(webSitesIds: number[]): Observable<WebSite[]> {
+    const result: WebSite[] = [];
+    webSitesIds.forEach(id => {
+      this.http
+        .get(this.baseUrl + '/' + id, this.getHeadersWithToken())
+        .forEach((resp: Response) => result.push(resp.json()))
+        .catch(error => {
+          console.error('Fejl ved søgning af website: ' + error);
+          return [];
+        });
+    });
+    return Observable.of(result);
+  }
+
   public serche(model: WebSiteSearchCriteria): Observable<WebSite[]> {
-    //    if (model.ids) {
-    //      return  Observable.of(this.webSites.filter(e => model.ids.find(i => i === e.id) !== undefined));
-    //    }
-    //    return Observable.of(this.webSites.slice());
-    return Observable.of(null);
+    return this.http
+      .get(this.baseUrl + '/' + model.extractUrl(), this.getHeadersWithToken())
+      .map((resp: Response) => resp.json())
+      .catch(error => {
+        console.error('Fejl ved søgning af website: ' + error);
+        return [];
+      });
   }
 
   public add(webSite: WebSite): Observable<boolean> {

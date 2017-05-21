@@ -4,7 +4,7 @@
   	</md-option>
 </md-select>
 <img class="selectedImage" *ngIf="selectedBanner" height="25px" src="{{selectedBanner.picture}}" />
-<md-select class="websiteselect" placeholder="Vælg website" [(ngModel)]="seleectedSite" name="sites">
+<md-select class="websiteselect" placeholder="Vælg website" [(ngModel)]="selectedSite" name="sites">
 	<md-option *ngFor="let site of webSites(campaign)" [value]="site">
     	{{site.name}} {{site.url}}
   	</md-option>

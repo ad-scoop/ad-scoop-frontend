@@ -29,8 +29,8 @@ export class SiteComponent implements OnInit {
   remove(site: WebSite): void {
     this.siteService
       .remove(site).subscribe(
-      responce => this.ngOnInit(),
-      error => this.alertService.error(error));
+        responce => this.ngOnInit(),
+        error => this.alertService.error(error));
   }
 
   edit(site: WebSite): void {

@@ -1,3 +1,4 @@
+import { CachedWebsite } from '../../../../model/cachedwebsite';
 import { Campaign } from '../../../../model/campaign';
 import { WebSite } from '../../../../model/site';
 import { WebSiteSearchCriteria } from '../../../../model/websitesearchcriteria';
@@ -22,12 +23,15 @@ import { MdDialogRef, MdDialogConfig } from '@angular/material';
 export class CampaignComponent implements OnInit {
 
   campaigns: Campaign[];
+  cachedWebsite: CachedWebsite;
 
   constructor(
     public dialog: MdDialog,
     private campaignService: CampaignService,
     private alertService: AlertService,
-    private siteService: SiteService) { }
+    private siteService: SiteService) {
+    this.cachedWebsite = new CachedWebsite(this.siteService);
+  }
 
   ngOnInit() {
     this.campaignService.getCampaigns().subscribe(cam => this.campaigns = cam);
@@ -68,12 +72,7 @@ export class CampaignComponent implements OnInit {
   }
 
   webSites(campaign: Campaign): WebSite[] {
-    let result = [];
-    const searchFor = new WebSiteSearchCriteria();
-    searchFor.ids = campaign.webSiteIds;
-    this.siteService.serche(searchFor)
-      .subscribe(r => result = r);
-    return result;
+    return this.cachedWebsite.getWebSites(campaign);
   }
 
   private openEditDialog(campaign: Campaign, type: string): Observable<any> {

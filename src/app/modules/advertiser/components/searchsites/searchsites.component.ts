@@ -1,3 +1,4 @@
+import { CachedWebsite } from '../../../../model/cachedwebsite';
 import { Campaign } from '../../../../model/campaign';
 import { Industry } from '../../../../model/industry';
 import { WebSite } from '../../../../model/site';
@@ -25,16 +26,19 @@ export class SearchsitesComponent implements EditInterface {
   removeColumn = true;
   doNotHide = '';
   selectedIndustry;
+  cachedWebsite: CachedWebsite;
 
   addFunction = (site: WebSite) => {
     if (!this.campaign.webSiteIds) {
       this.campaign.webSiteIds = [];
     }
+    this.cachedWebsite.clear();
     this.campaign.webSiteIds.push(site.id);
     this.foundsites.splice(this.foundsites.indexOf(site), 1);
   }
 
   removeFunction = (site: WebSite) => {
+    this.cachedWebsite.clear();
     this.campaign.webSiteIds.splice(this.campaign.webSiteIds.indexOf(site.id), 1);
   }
 
@@ -42,6 +46,7 @@ export class SearchsitesComponent implements EditInterface {
     private campaignService: CampaignService,
     private siteService: SiteService) {
     this.industries = siteService.industries;
+    this.cachedWebsite = new CachedWebsite(this.siteService);
   }
 
   search(): void {
@@ -61,12 +66,7 @@ export class SearchsitesComponent implements EditInterface {
   }
 
   webSites(campaign: Campaign): WebSite[] {
-    let result = [];
-    const searchFor = new WebSiteSearchCriteria();
-    searchFor.ids = campaign.webSiteIds;
-    this.siteService.serche(searchFor)
-      .subscribe(r => result = r);
-    return result;
+    return this.cachedWebsite.getWebSites(campaign);
   }
 
   get categories(): string[] {
