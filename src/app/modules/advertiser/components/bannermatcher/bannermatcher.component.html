@@ -1,4 +1,6 @@
-<md-select placeholder="Vælg banner" [(ngModel)]="selectedBanner" name="banner">
+<div class="explanation">Du har mulighed for at vælge en banner og tilknytte den til et website. Når banneret er valgt kan du klikke på de steder hvor der er banner, så tilføjer du det. Klikker du på det igen fjernes det.</div>
+<div>
+<md-select class="bannerselect" placeholder="Vælg banner" [(ngModel)]="selectedBanner" name="banner">
 	<md-option *ngFor="let banner of campaign.banners" [value]="banner">
 		<img height="25px" src="{{banner.picture}}">
   	</md-option>
@@ -9,7 +11,7 @@
     	{{site.name}} {{site.url}}
   	</md-option>
 </md-select>
-
+</div>
 <div id="websitesim">
 	<canvas #site (click)="canvasClick($event)"></canvas>
 </div>

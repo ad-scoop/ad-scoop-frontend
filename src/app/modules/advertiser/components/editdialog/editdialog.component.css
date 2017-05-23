@@ -1,6 +1,24 @@
+.header-background {
+	background-color: #dae8e7;
+	width: 100%;
+	height: 64px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+md-card-header {
+	background-color: #dae8e7;
+}
+
+md-card {
+	box-shadow: inherit !important;
+	padding: 0 !important;
+}
+
 .title {
 	margin-top: 5px;
-    font-weight: 900;
+	font-weight: 900;
 }
 
 md-card-content {
@@ -28,12 +46,12 @@ a {
 	.next {
 		display: inherit;
 		position: absolute;
-		right: 20px;
+		right: 0px;
 	}
 	.back {
 		display: inherit;
 		position: absolute;
-		right: 110px;
+		right: 85px;
 	}
 	.rightbutton {
 		display: none;
@@ -56,5 +74,19 @@ a {
 		top: 0;
 		left: 0;
 		border-radius: 0;
+		box-sizing: border-box;
+	}
+	.header-background {
+		display: none;
+	}
+	md-card-header {
+		background-color: inherit;
+	}
+	md-card {
+		padding: 20px !important;
+	}
+	md-card-content {
+		width: 100%;
+		min-height: 500px;
 	}
 }

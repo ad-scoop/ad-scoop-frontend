@@ -1,5 +1,24 @@
+.header-background {
+	background-color: #dae8e7;
+	width: 100%;
+	height: 64px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+md-card-header {
+	background-color: #dae8e7;
+	margin-bottom: 15px;
+}
+
+md-card {
+	box-shadow: inherit !important;
+	padding: 0 !important;
+}
+
 md-checkbox {
-	margin-right: 10px;	
+	margin-right: 10px;
 }
 
 .selected-value {
@@ -30,16 +49,17 @@ a {
 	.create {
 		display: inherit;
 		float: right;
-		margin-right: 20px;
+		padding-top: 20px;
 	}
 	a {
 		cursor: pointer;
 		float: left;
 		display: inherit;
+		padding-top: 20px;
 	}
 	.md-card-footer {
 		display: none;
-	}	
+	}
 	.fullscreen-dialog {
 		height: 100%;
 		width: 100%;
@@ -50,4 +70,20 @@ a {
 		left: 0;
 		border-radius: 0;
 	}
+	md-card-header {
+		background-color: inherit;
+	}
+	md-card-header div {
+		padding-top: 20px;
+	}
+	md-card-title {
+		padding-top: 25px;
+	}
+	md-card-footer {
+		display: none;
+	}
+	.center {
+		padding-left: 20px;
+	}
+	
 }

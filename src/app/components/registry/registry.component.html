@@ -1,3 +1,4 @@
+<div class="header-background"></div>
 <form class="center" (ngSubmit)="f.form.valid && create()" #f="ngForm" >
 	<md-card class="fullscreen-dialog">
 		<md-card-content class="content"> 
@@ -7,50 +8,50 @@
 				<div md-card-avatar><md-icon>person</md-icon></div>
     			<md-card-title>Registere</md-card-title> 
 			</md-card-header> 
-			
-			<div>
-				<md-checkbox (change)="changeLabelAdvertiser()" #advetiser [required]="!provider.checked">Jeg er annoncør</md-checkbox>
-				<md-checkbox (change)="changeLabelProvider()"  #provider  [required]="!advetiser.checked">Jeg har et website</md-checkbox>
-				<md-hint *ngIf="(advetiser.dirty || advetiser.touched || provider.dirty || provider.touched) && !provider.checked && !advetiser.checked" [ngStyle]="{'color': 'red'}">Vælg én af profilerne</md-hint>
-			</div>
-			<div>
-				<md-input-container class="input">
-					<input mdInput placeholder="Fornavn" [(ngModel)]="model.firstname" name="firstname" required maxlength="200" #firstname="ngModel">
-					<md-hint *ngIf="firstname.errors && (firstname.dirty || firstname.touched)" [ngStyle]="{'color': 'red'}">Fornavnet er krævet</md-hint>
-				</md-input-container>
-	
-				<md-input-container class="input">
-					<input mdInput placeholder="Mellemnavn" [(ngModel)]="model.middelltname" name="middelltname" maxlength="200" #middelltname="ngModel">
-				</md-input-container>
+			<div class="center">
+				<div>
+					<md-checkbox (change)="changeLabelAdvertiser()" #advetiser [required]="!provider.checked">Jeg er annoncør</md-checkbox>
+					<md-checkbox (change)="changeLabelProvider()"  #provider  [required]="!advetiser.checked">Jeg har et website</md-checkbox>
+					<md-hint *ngIf="(advetiser.dirty || advetiser.touched || provider.dirty || provider.touched) && !provider.checked && !advetiser.checked" [ngStyle]="{'color': 'red'}">Vælg én af profilerne</md-hint>
+				</div>
+				<div>
+					<md-input-container class="input">
+						<input mdInput placeholder="Fornavn" [(ngModel)]="model.firstname" name="firstname" required maxlength="200" #firstname="ngModel">
+						<md-hint *ngIf="firstname.errors && (firstname.dirty || firstname.touched)" [ngStyle]="{'color': 'red'}">Fornavnet er krævet</md-hint>
+					</md-input-container>
 		
-				<md-input-container class="input">
-					<input mdInput placeholder="Efternavn" [(ngModel)]="model.lastname" name="lastname" required maxlength="200" #lastname="ngModel">
-					<md-hint *ngIf="lastname.errors && (lastname.dirty || lastname.touched)" [ngStyle]="{'color': 'red'}">Efternavnet er krævet</md-hint>
-				</md-input-container>
+					<md-input-container class="input">
+						<input mdInput placeholder="Mellemnavn" [(ngModel)]="model.middelltname" name="middelltname" maxlength="200" #middelltname="ngModel">
+					</md-input-container>
+			
+					<md-input-container class="input">
+						<input mdInput placeholder="Efternavn" [(ngModel)]="model.lastname" name="lastname" required maxlength="200" #lastname="ngModel">
+						<md-hint *ngIf="lastname.errors && (lastname.dirty || lastname.touched)" [ngStyle]="{'color': 'red'}">Efternavnet er krævet</md-hint>
+					</md-input-container>
+				</div>
+	 	
+				<div>
+					<md-input-container class="input">
+						<input mdInput tyep="email" placeholder="Email" [(ngModel)]="model.email" name="email" required #email="ngModel" maxlength="200" autocomplete="off">
+						<md-hint *ngIf="email.errors && (email.dirty || email.touched)" [ngStyle]="{'color': 'red'}">Email adressen er krævet</md-hint>
+					</md-input-container>
+				</div>
+	
+				<div>
+					<md-input-container class="input">
+						<input mdInput type="password" placeholder="Password" [(ngModel)]="model.password" name="password" required #password="ngModel" autocomplete="off">
+						<md-hint *ngIf="password.errors && (password.dirty || password.touched)" [ngStyle]="{'color': 'red'}">Password er krævet</md-hint>
+					</md-input-container>
+				</div>
+	
+				<div>
+					<md-input-container class="input">
+						<input mdInput type="password" placeholder="Gendtag password" [(ngModel)]="model.passwordtest" name="passwordtest" required #passwordtest="ngModel">
+						<md-hint *ngIf="passwordtest.errors && (passwordtest.dirty || passwordtest.touched)" [ngStyle]="{'color': 'red'}">Password er krævet</md-hint>
+						<md-hint *ngIf="(passwordtest.value != password.value) && (passwordtest.dirty || passwordtest.touched)" [ngStyle]="{'color': 'red'}">De to password er forskellige</md-hint>
+					</md-input-container>
+				</div>
 			</div>
- 	
-			<div>
-				<md-input-container class="input">
-					<input mdInput tyep="email" placeholder="Email" [(ngModel)]="model.email" name="email" required #email="ngModel" maxlength="200" autocomplete="off">
-					<md-hint *ngIf="email.errors && (email.dirty || email.touched)" [ngStyle]="{'color': 'red'}">Email adressen er krævet</md-hint>
-				</md-input-container>
-			</div>
-
-			<div>
-				<md-input-container class="input">
-					<input mdInput type="password" placeholder="Password" [(ngModel)]="model.password" name="password" required #password="ngModel" autocomplete="off">
-					<md-hint *ngIf="password.errors && (password.dirty || password.touched)" [ngStyle]="{'color': 'red'}">Password er krævet</md-hint>
-				</md-input-container>
-			</div>
-
-			<div>
-				<md-input-container class="input">
-					<input mdInput type="password" placeholder="Gendtag password" [(ngModel)]="model.passwordtest" name="passwordtest" required #passwordtest="ngModel">
-					<md-hint *ngIf="passwordtest.errors && (passwordtest.dirty || passwordtest.touched)" [ngStyle]="{'color': 'red'}">Password er krævet</md-hint>
-					<md-hint *ngIf="(passwordtest.value != password.value) && (passwordtest.dirty || passwordtest.touched)" [ngStyle]="{'color': 'red'}">De to password er forskellige</md-hint>
-				</md-input-container>
-			</div>
-
 			<md-card-footer>
 				<button md-button color="accent" align="end" class="right" (click)="dialogRef.close()">Annuller</button>
 				<button md-button color="primary" align="end" class="right" type="submit">Opret</button>

@@ -1,3 +1,8 @@
+.explanation {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 .inputcontainer input {
 	width: 185px;
 }

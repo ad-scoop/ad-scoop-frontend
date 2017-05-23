@@ -1,7 +1,7 @@
 <form class="center" (ngSubmit)="edit()" #f="ngForm" novalidate>
-	<p>
+	<div class="explanation">
 		Her kan du søg efter udbyder af reklameplads i nærheden af dig.
-	</p>
+	</div>
 	<div class="inputcontainer">		
 		<md-input-container>
 			<input mdInput focuced type="text" focuced placeholder="Geografisk område" [(ngModel)]="model.area" name="area" #area="ngModel" >
