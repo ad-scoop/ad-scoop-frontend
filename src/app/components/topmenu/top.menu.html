@@ -1,4 +1,4 @@
-<a md-button routerLink="." class="logoSmall"></a>
+<a md-button [routerLink]="toHome()" class="logoSmall"></a>
 <span *ngIf="userService.isNotLoggedIn()" class="topMenuItems"> <a
 	md-button routerLink="underConstruction">Om os</a> <span>|</span> <a
 	md-button routerLink="underConstruction">Idéen</a> <span>|</span> <a
@@ -7,7 +7,7 @@
 </span>
 
 <span *ngIf="userService.isLoggedInAsAdvertiser()" class="topMenuItems">
-	<a md-button routerLink="advertiser/campaigns">Kampagner</a> <span>|</span>
+	<a md-button routerLink="advertiser/campaigns">Planlæg og indryk</a> <span>|</span>
 	<a md-button (click)="logout()">Log ud</a>
 </span>
 
@@ -29,7 +29,7 @@
 	<button *ngIf="userService.isLoggedInAsAdvertiser()" md-menu-item
 		routerLink="advertiser/campaigns">
 		<md-icon>group_work</md-icon>
-		<span>Kampagner</span>
+		<span>Planlæg og indryk</span>
 	</button>
 	<button *ngIf="userService.isLoggedAsProvider()" md-menu-item
 		routerLink="provider/site">

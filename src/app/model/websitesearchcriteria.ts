@@ -3,7 +3,8 @@ export class WebSiteSearchCriteria {
   constructor(
     public area?: string,
     public near?: boolean,
-    public organisationCategory?: string
+    public organisationCategory?: string,
+    public branchCategory?: string
   ) { }
 
   public extractUrl(): string {

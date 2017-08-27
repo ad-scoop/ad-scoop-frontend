@@ -46,7 +46,7 @@ export class Login {
     this.selectProfile(profiles).subscribe(profile => {
       this.userServcie.selectProfile(profile);
       if (profile === AuthenticationService.ADVERTISER) {
-        this.router.navigate(['/advertiser/campaigns']);
+        this.router.navigate(['/advertiser/home']);
       } else if (profile === AuthenticationService.PROVIDER) {
         this.router.navigate(['/provider/site']);
       }

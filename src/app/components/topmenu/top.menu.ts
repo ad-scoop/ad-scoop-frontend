@@ -16,6 +16,15 @@ export class TopMenu {
     this.userService.logout();
     this.router.navigate(['/']);
   }
+  
+  toHome(): string {
+    if (this.userService.isLoggedInAsAdvertiser()) { 
+      return 'advertiser/home';
+    } else if (this.userService.isLoggedAsProvider()) {
+      return 'provider/home';
+    }
+    return '/';
+  }
 
 }
 
