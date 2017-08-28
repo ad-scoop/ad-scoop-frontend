@@ -1,0 +1,109 @@
+.frontBack {
+	background-image: url(/assets/images/publicher-home.png);
+	height: 448px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.leftBanner {
+	position: relative;
+	color: white;
+	font-size: 47px;
+	width: 300px;
+	top: 100px;
+	left: 2vw;
+	font-weight: bold;
+}
+
+.rightBanner {
+	background-image: url(/assets/images/rightside.png);
+	height: 284px;
+	width: 241px;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 110px;
+	right: 2vw;
+}
+
+.rightBanner span {
+	position: absolute;
+	top: 110px;
+	left: 10px;
+	color: white;
+	font-size: 25px;
+	width: 161px;
+	text-align: center;
+}
+
+.textArea {
+	background-color: #dae8e7;
+	padding-bottom: 25px;
+}
+
+.textArea ul {
+	margin-top: 0;
+}
+
+.box {
+	float: left;
+	height: 300px;
+	width: 150px;
+	margin: 2vw;
+}
+
+.bullets {
+	line-height: 35px;
+	font-size: 18px;
+	font-weight: bold;
+	margin-left: 6vw;
+	margin-right: 0;
+	width: 450px;
+}
+
+.buttons {
+	padding-top: 50px;
+}
+
+.buttons app-button {
+	display: inline-block;
+	margin-left: 7vw;
+}
+
+@media ( max-width : 770px ) {
+	.leftBanner {
+		top: 80px;
+	}
+	.buttons app-button {
+		display: inline-block;
+		margin-left: auto;
+	}
+}
+
+@media ( max-width : 1200px) {
+	.box {
+		float: none;
+		margin: auto;
+	}
+	.bullets {
+		line-height: 35px;
+		font-size: 18px;
+		font-weight: bold;
+		margin-left: 6vw;
+		margin-right: 0;
+		width: 90%;
+	}
+	.rightBanner {
+		display: none;
+	}
+	.buttons {
+		margin-bottom: 25px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+	}
+	.buttons {
+		padding-top: 40px;
+	}
+}

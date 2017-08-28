@@ -1,4 +1,5 @@
 import { EditDialogComponent } from './components/editdialog/editdialog.component';
+import { HomeComponent } from './components/home/home.component';
 import { Routes } from '@angular/router';
 import { SiteComponent } from './components/site/site.component';
 import { ProviderComponent } from './provider.component';
@@ -14,6 +15,7 @@ export const providerRoutes: Routes = [
       path: '',
       canActivateChild: [ProviderGuard],
       children: [
+        { path: 'home', component: HomeComponent },
         { path: 'site', component: SiteComponent },
         { path: 'edit', component: EditDialogComponent },
       ]

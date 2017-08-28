@@ -10,7 +10,9 @@ import { ProviderGuard } from './provider.guard';
 import { MaterialModule } from '@angular/material';
 import { UrlSafePipe } from '../../utils/urlsafe.pipe';
 import { BannerComponent } from './components/banner/banner.component';
+import { ButtonComponent } from './components/button/button.component';
 import { EditSiteInfoComponent } from './components/editsiteinfo/editsiteinfo.component';
+import { HomeComponent } from './components/home/home.component';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -34,7 +36,9 @@ import { FoucsDirective } from './utils/foucs.directive';
     ProviderComponent,
     UrlSafePipe,
     EditSiteInfoComponent,
-    BannerComponent
+    BannerComponent,
+    HomeComponent,
+    ButtonComponent
   ],
   providers: [
     ProviderGuard,

@@ -12,7 +12,7 @@
 </span>
 
 <span *ngIf="userService.isLoggedAsProvider()" class="topMenuItems">
-	<a md-button routerLink="provider/site">Websider</a> <span>|</span>
+	<a md-button routerLink="provider/site">Opret bannerplads</a> <span>|</span>
 	<a md-button (click)="logout()">Log ud</a>
 </span>
 
@@ -34,7 +34,7 @@
 	<button *ngIf="userService.isLoggedAsProvider()" md-menu-item
 		routerLink="provider/site">
 		<md-icon>web</md-icon>
-		<span>Websider</span>
+		<span>Opret bannerplads</span>
 	</button>
 	<button md-menu-item routerLink="underConstruction">
 		<md-icon></md-icon>
