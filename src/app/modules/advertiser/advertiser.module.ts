@@ -18,7 +18,7 @@ import {SearchsitesComponent} from './components/searchsites/searchsites.compone
 import {SiteComponent} from './components/site/site.component';
 import {FoucsDirective} from './utils/foucs.directive';
 import {BannerMatcherComponent} from './components/bannermatcher/bannermatcher.component';
-import {AdvetiserFrontComponent} from './components/advetiser/advetiserfront.component';
+import {HomeComponent} from './components/home/home.component';
 import {ButtonComponent} from './components/button/button.component';
 
 @NgModule({
@@ -42,7 +42,7 @@ import {ButtonComponent} from './components/button/button.component';
     EditDialogComponent,
     SearchsitesComponent,
     BannerMatcherComponent,
-    AdvetiserFrontComponent,
+    HomeComponent,
     ButtonComponent,
   ],
   providers: [

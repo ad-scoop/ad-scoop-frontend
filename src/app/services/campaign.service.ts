@@ -30,7 +30,7 @@ export class CampaignService {
 
   public remove(campaign: Campaign): Observable<boolean> {
     return this.http
-      .delete(this.baseUrl + '/remove?id=' + campaign.id, this.getHeadersWithToken())
+      .delete(this.baseUrl + '/remove/' + campaign.id, this.getHeadersWithToken())
       .map(response => true)
       .catch(response => {
         throw new Error('Fejl ved sletning af kampagnen');

@@ -12,7 +12,7 @@
 				<div>
 					<md-checkbox (change)="changeLabelAdvertiser()" #advetiser [required]="!provider.checked">Jeg er annoncør</md-checkbox>
 					<md-checkbox (change)="changeLabelProvider()"  #provider  [required]="!advetiser.checked">Jeg har et website</md-checkbox>
-					<md-hint *ngIf="(advetiser.dirty || advetiser.touched || provider.dirty || provider.touched) && !provider.checked && !advetiser.checked" [ngStyle]="{'color': 'red'}">Vælg én af profilerne</md-hint>
+					<md-hint *ngIf="!provider.checked && !advetiser.checked" [ngStyle]="{'color': 'red'}">Vælg én af profilerne</md-hint>
 				</div>
 				<div>
 					<md-input-container class="input">
