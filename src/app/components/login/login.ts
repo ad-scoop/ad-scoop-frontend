@@ -48,7 +48,7 @@ export class Login {
       if (profile === AuthenticationService.ADVERTISER) {
         this.router.navigate(['/advertiser/home']);
       } else if (profile === AuthenticationService.PROVIDER) {
-        this.router.navigate(['/provider/site']);
+        this.router.navigate(['/provider/home']);
       }
     });
   }
