@@ -1,5 +1,5 @@
-import { WebSite } from '../../../../model/site';
-import { Component, Input } from '@angular/core';
+import {WebSite} from '../../../../model/site';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-site',
@@ -21,6 +21,10 @@ export class SiteComponent {
 
   click(site: WebSite) {
     this.clickFunction(site);
+  }
+  
+  hasSites(): boolean {
+    return this.sites && this.sites.length > 0;
   }
 
   getArea(site: WebSite): String {
