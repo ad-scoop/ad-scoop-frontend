@@ -23,6 +23,7 @@ export class SearchsitesComponent implements EditInterface {
   foundsites: WebSite[] = [];
   serchedHeadeline = 'Fremsøgte hjemmesider';
   selectedHeadline = 'Valgte hjemmesider';
+  selectSubtitle = 'Tryk på plusset for at tilføje fremsøgte websites';
   removeColumn = true;
   doNotHide = '';
   selectedIndustry;

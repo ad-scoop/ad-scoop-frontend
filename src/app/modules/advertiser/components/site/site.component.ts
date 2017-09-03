@@ -12,6 +12,7 @@ export class SiteComponent {
   @Input() showclicks = true;
   @Input() hideSmall = 'hideSmall';
   @Input() firstColName = '';
+  @Input() subtitle = '';
   @Input() headline = 'Hjemmesider';
   @Input() clickFunction: ClickFunction;
   @Input() removeColumn = false;
@@ -22,7 +23,7 @@ export class SiteComponent {
   click(site: WebSite) {
     this.clickFunction(site);
   }
-  
+
   hasSites(): boolean {
     return this.sites && this.sites.length > 0;
   }
