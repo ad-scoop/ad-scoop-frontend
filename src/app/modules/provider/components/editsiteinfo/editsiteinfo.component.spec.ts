@@ -2,6 +2,7 @@
 import { Area } from '../../../../model/area';
 import { Demografi } from '../../../../model/demografi';
 import { Industry } from '../../../../model/industry';
+import { Country } from '../../../../model/country';
 import { Organisation } from '../../../../model/organisation';
 import { WebSite } from '../../../../model/site';
 import { SiteService } from '../../../../services/site.service';
@@ -22,6 +23,7 @@ describe('EditsiteinfoComponent', () => {
 
   class SiteServiceMock {
     industries: Industry[] = [];
+    countries: Country[] = [];
   }
 
   beforeEach(async(() => {

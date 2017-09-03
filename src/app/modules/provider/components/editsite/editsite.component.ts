@@ -1,7 +1,7 @@
-import { WebSite } from '../../../../model/site';
-import { EditDialogComponent } from '../editdialog/editdialog.component';
-import { EditInterface } from '../editdialog/editinterface';
-import { Component, OnInit, Input } from '@angular/core';
+import {WebSite} from '../../../../model/site';
+import {EditDialogComponent} from '../editdialog/editdialog.component';
+import {EditInterface} from '../editdialog/editinterface';
+import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'app-editsite',
@@ -13,10 +13,14 @@ export class EditSiteComponent implements EditInterface, OnInit {
   @Input() site: WebSite;
   public url: string;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.url = this.site.url;
+  }
+
+  isNotSafe(): boolean {
+    return !this.url || this.url.indexOf('https') === -1;
   }
 
   refresh(): void {

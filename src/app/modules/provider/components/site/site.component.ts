@@ -1,10 +1,10 @@
-import { WebSite } from '../../../../model/site';
-import { AlertService } from '../../../../services/alert.service';
-import { SiteService } from '../../../../services/site.service';
-import { EditDialogComponent } from '../editdialog/editdialog.component';
-import { Component, OnInit } from '@angular/core';
-import { MdDialog } from '@angular/material';
-import { Observable } from 'rxjs/Observable';
+import {WebSite} from '../../../../model/site';
+import {AlertService} from '../../../../services/alert.service';
+import {SiteService} from '../../../../services/site.service';
+import {EditDialogComponent} from '../editdialog/editdialog.component';
+import {Component, OnInit} from '@angular/core';
+import {MdDialog} from '@angular/material';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-site',
@@ -18,7 +18,7 @@ export class SiteComponent implements OnInit {
   constructor(
     private siteService: SiteService,
     private alertService: AlertService,
-    public dialog: MdDialog) { }
+    public dialog: MdDialog) {}
 
   ngOnInit() {
     this.siteService
@@ -26,11 +26,15 @@ export class SiteComponent implements OnInit {
       .subscribe(sites => this.sites = sites);
   }
 
+  isNotSafe(site: WebSite): boolean {
+    return !site.url || site.url.indexOf('https') === -1;
+  }
+
   remove(site: WebSite): void {
     this.siteService
       .remove(site).subscribe(
-        responce => this.ngOnInit(),
-        error => this.alertService.error(error));
+      responce => this.ngOnInit(),
+      error => this.alertService.error(error));
   }
 
   edit(site: WebSite): void {

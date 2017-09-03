@@ -9,6 +9,9 @@
 	height: calc(768px * 0.4);
 	overflow: hidden;
 	position: relative;
+	border-color: #dae8e7;
+	border-width: 1px;
+	border-style: solid;
 }
 
 .small {
@@ -30,7 +33,7 @@
 	-o-transform-origin: 0 0;
 	-webkit-transform-origin: 0 0;
 	transform-origin: 0 0;
-	width: 1280px;
+	width: 1248px;
 }
 
 .frame iframe {
@@ -47,6 +50,12 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
+}
+
+.insecureSite {
+	text-align: center;
+	font-size: 35px;
+	margin-top: 145px;
 }
 
 .width60 {

@@ -1,9 +1,9 @@
 export class Area {
 
   constructor(
-    public city?: String,
-    public country?: String,
-    public region?: String,
+    public city?: string,
+    public country?: string,
+    public region?: string,
   ) { }
 
 }

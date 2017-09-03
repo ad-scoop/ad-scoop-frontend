@@ -1,13 +1,14 @@
-import { Area } from '../../../../model/area';
-import { Demografi } from '../../../../model/demografi';
-import { Industry } from '../../../../model/industry';
-import { WebSite } from '../../../../model/site';
-import { SiteService } from '../../../../services/site.service';
-import { EditInterface } from '../editdialog/editinterface';
-import { Component, Input, ViewChild, ElementRef } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import {Area} from '../../../../model/area';
+import {Country} from '../../../../model/country';
+import {Demografi} from '../../../../model/demografi';
+import {Industry} from '../../../../model/industry';
+import {WebSite} from '../../../../model/site';
+import {SiteService} from '../../../../services/site.service';
+import {EditInterface} from '../editdialog/editinterface';
+import {Component, Input, ViewChild, ElementRef} from '@angular/core';
+import {FormControl} from '@angular/forms';
 import 'rxjs/add/operator/startWith';
-import { Observable } from 'rxjs/Observable';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-editsiteinfo',
@@ -18,8 +19,10 @@ export class EditSiteInfoComponent implements EditInterface {
 
   @ViewChild('label') label: ElementRef;
 
-  stateCtrl: FormControl;
+  countryCtrl: FormControl;
+  regionCtrl: FormControl;
   filteredCountry: any;
+  filteredRegion: any;
 
   @Input() site: WebSite;
   industries: Industry[];
@@ -27,15 +30,42 @@ export class EditSiteInfoComponent implements EditInterface {
   area: Area = new Area();
 
   constructor(private siteService: SiteService) {
-    this.stateCtrl = new FormControl();
-    this.filteredCountry = this.stateCtrl.valueChanges
+    this.countryCtrl = new FormControl();
+    this.regionCtrl = new FormControl();
+    this.filteredCountry = this.countryCtrl.valueChanges
       .startWith(null)
       .map(name => this.filterCountries(name));
+
+    this.filteredRegion = this.regionCtrl.valueChanges
+      .startWith(null)
+      .map(name => this.filterRegion(name));
+
     this.industries = siteService.industries;
   }
 
-  filterCountries(val: string) {
-    return val ? this.siteService.countries.filter((s) => new RegExp(val, 'gi').test(s)) : null;
+  filterCountries(val: string): string[] {
+    return val ? this.siteService.countries
+      .filter((c) => new RegExp(val, 'gi').test(c.name))
+      .map(c => c.name) : null;
+  }
+
+  filterRegion(val: string): String[] {
+    const counties = this.siteService.countries.filter(c => c.name === this.area.country);
+    if (counties && counties.length === 1 && val) {
+      return counties[0].regions.filter((r) => new RegExp(val, 'gi').test(r));
+    }
+    return null;
+  }
+
+  get country(): string {
+    return this.area.country;
+  }
+
+  set country(val: string) {
+    if (this.area.country !== val) {
+      this.area.region = null;
+    }
+    this.area.country = val;
   }
 
   valid(): boolean {
