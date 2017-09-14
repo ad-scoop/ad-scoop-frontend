@@ -1,4 +1,5 @@
 import {AppModule} from '../../app.module';
+import { MaterialModule } from '../../material.module';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
@@ -6,7 +7,6 @@ import {RouterModule} from '@angular/router';
 import {advertiserRoutes} from './advertiser.routes';
 import {AdvertiserComponent} from './advertiser.component';
 import {AdvertiserGuard} from './advertiser.guard';
-import {MaterialModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {CampaignComponent, ConfirmDialogComponent} from './components/campaign/campaign.component';
@@ -25,7 +25,7 @@ import {ButtonComponent} from './components/button/button.component';
   imports: [
     CommonModule,
     RouterModule.forChild(advertiserRoutes),
-    MaterialModule.forRoot(),
+    MaterialModule,
     FormsModule,
     BrowserAnimationsModule,
   ],

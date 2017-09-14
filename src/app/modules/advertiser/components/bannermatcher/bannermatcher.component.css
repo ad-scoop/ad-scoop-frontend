@@ -1,24 +1,23 @@
-.explanation {
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-.websiteselect {
-	position: absolute;
-	right: 0px;
-	top: 120px;
+.websiteSelect {
 	width: 350px;
+	float: right;
 }
 
-.bannerselect {
-	position: absolute;
-	top: 120px;
-	left: 0px;
-}
-
-#websitesim {
+.banner {
 	display: flex;
-	height: 500px;
+	justify-content: center;
+	margin-top: 10px;
+	width: 100%;
+}
+
+.buttons {
+	width: 615px;
+}
+
+#websitesimg {
+	display: flex;
+	width: 100%;
+	margin-top: 10px;
 }
 
 canvas {
@@ -26,13 +25,18 @@ canvas {
 }
 
 .selectedImage {
-	position: absolute;
-	left: 0px;
-	top: 123px;
+	position: relative;
+	top: 5px;
+}
+
+.bannerSelect {
+	width: 200px;
+	position: relative;
+	left: -60px;
 }
 
 @media ( max-width : 500px) {
-	.websiteselect {
+	.websiteSelect {
 		position: inherit;
 		margin-bottom: 20px;
 	}
@@ -40,12 +44,7 @@ canvas {
 		position: inherit;
 		margin-bottom: 20px;
 	}
-	.selectedImage {
-		position: absolute;
-		left: 25px;
-		top: inherit;
-	}
-	#websitesim {
+	#websitesimg {
 		display: flex;
 		height: inherit;
 	}

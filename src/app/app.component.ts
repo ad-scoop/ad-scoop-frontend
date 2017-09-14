@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {MdIconRegistry} from '@angular/material';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'ad-scoop';
+
+  constructor(mdIconRegistry: MdIconRegistry, sanitizer: DomSanitizer) {
+    mdIconRegistry
+      .addSvgIcon('banner', sanitizer.bypassSecurityTrustResourceUrl('/assets/images/create-banner-small.svg'))
+      .addSvgIcon('campaigns', sanitizer.bypassSecurityTrustResourceUrl('/assets/images/campaigns-small.svg'));
+  }
+
 }

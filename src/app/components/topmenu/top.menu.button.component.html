@@ -1,0 +1,12 @@
+<button *ngIf="item.link" md-menu-item routerLink="{{item.link}}" >
+	<md-icon *ngIf="item.svg" svgIcon="{{item.svg}}" class="svgIcon"></md-icon>
+	<md-icon *ngIf="!item.svg">{{item.icon}}</md-icon>
+	<span>{{item.text}}</span>
+</button> 
+<button *ngIf="!item.link" md-menu-item (click)="owner[item.method]()" >
+	<md-icon *ngIf="item.svg" svgIcon="{{item.svg}}" class="svgIcon"></md-icon>
+	<md-icon *ngIf="!item.svg">{{item.icon}}</md-icon>
+	<span>{{item.text}}</span>
+</button> 
+
+<span class="splitterMenuItem">|</span>

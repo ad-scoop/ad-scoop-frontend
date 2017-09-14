@@ -28,6 +28,10 @@
 	height: 210px;
 }
 
+md-form-field {
+	width: auto;
+}
+
 @media ( max-width : 500px) {
 	.centerButton {
 		width: 92%;

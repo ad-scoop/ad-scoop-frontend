@@ -3,6 +3,7 @@ import { WebSite } from '../model/site';
 import { ElementRef } from '@angular/core';
 import { equal } from 'assert';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 export class WebSiteBanners {
 

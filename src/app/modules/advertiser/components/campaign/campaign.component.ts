@@ -16,6 +16,18 @@ import { MdDialog } from '@angular/material';
 import { MdDialogRef, MdDialogConfig } from '@angular/material';
 
 @Component({
+  templateUrl: './confirmdialog.component.html',
+})
+export class ConfirmDialogComponent {
+
+  public headline: string;
+  public confirmation: string;
+
+  constructor(public dialogRef: MdDialogRef<ConfirmDialogComponent>) { }
+
+}
+
+@Component({
   selector: 'app-campaign',
   templateUrl: './campaign.component.html',
   styleUrls: ['./campaign.component.css']
@@ -76,22 +88,13 @@ export class CampaignComponent implements OnInit {
   }
 
   private openEditDialog(campaign: Campaign, type: string): Observable<any> {
-    const dialogRef = this.dialog.open(EditDialogComponent);
+    const config = new MdDialogConfig();
+    config.height = '80%';
+    config.width = '70%';
+    const dialogRef = this.dialog.open(EditDialogComponent, config);
     dialogRef.componentInstance.type = type;
     dialogRef.componentInstance.campaign = campaign;
     return dialogRef.afterClosed();
   }
-
-}
-
-@Component({
-  templateUrl: './confirmdialog.component.html',
-})
-export class ConfirmDialogComponent {
-
-  public headline: string;
-  public confirmation: string;
-
-  constructor(public dialogRef: MdDialogRef<ConfirmDialogComponent>) { }
 
 }

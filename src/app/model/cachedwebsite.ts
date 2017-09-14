@@ -1,12 +1,12 @@
-import { SiteService } from '../services/site.service';
-import { Campaign } from './campaign';
-import { WebSite } from './site';
+import {SiteService} from '../services/site.service';
+import {Campaign} from './campaign';
+import {WebSite} from './site';
 
 export class CachedWebsite {
 
   private cachedWebSites: Map<Campaign, WebSite[]> = new Map<Campaign, WebSite[]>();
 
-  constructor(private siteService: SiteService) { }
+  constructor(private siteService: SiteService) {}
 
   public clear(): void {
     this.cachedWebSites.clear();

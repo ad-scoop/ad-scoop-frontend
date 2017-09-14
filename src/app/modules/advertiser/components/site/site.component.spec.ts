@@ -2,9 +2,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { MaterialModule } from '@angular/material';
 
 import { SiteComponent } from './site.component';
+import {MaterialModule} from '../../../../material.module';
 
 describe('SiteComponent', () => {
   let component: SiteComponent;
@@ -14,7 +14,7 @@ describe('SiteComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ SiteComponent ],
       imports: [
-        MaterialModule.forRoot(),
+        MaterialModule,
       ],
     })
     .compileComponents();

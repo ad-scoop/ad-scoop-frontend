@@ -10,28 +10,34 @@
 	background-repeat: no-repeat;
 	width: 100%;
 	height: 100%;
-    border-radius: 100px;
-    background: white;
+	border-radius: 100px;
+	background: white;
+	border-width: 0;
+	padding: 0;
 }
 
 button.blue:HOVER {
-    background: #7494c3;
+	background: #7494c3;
+	cursor: pointer;
 }
 
 button.dark:HOVER {
 	background: #31343d;
+	cursor: pointer;
 }
 
 button.gray:HOVER {
 	background: #6b6969;
+	cursor: pointer;
 }
 
 button.green:HOVER {
- 	background: #7dbbb5;
+	background: #7dbbb5;
+	cursor: pointer;
 }
 
 .button span {
 	display: block;
-	font-size: 21px;
+	font-size: 16px;
 	font-weight: bold;
 }

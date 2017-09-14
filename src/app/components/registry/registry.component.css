@@ -7,14 +7,24 @@
 	top: 0;
 }
 
+.center {
+	padding: 24px;
+}
+
 md-card-header {
 	background-color: #dae8e7;
-	margin-bottom: 15px;
+	padding-top: 20px;
+	padding-left: 24px;
 }
 
 md-card {
 	box-shadow: inherit !important;
 	padding: 0 !important;
+}
+
+md-card-title {
+	 margin-top: 5px;
+	 margin-bottom: 0;
 }
 
 md-checkbox {
@@ -43,6 +53,10 @@ a {
 
 .create {
 	display: none;
+}
+
+md-card-footer {
+	margin: 0 !important;
 }
 
 @media ( max-width : 500px) {

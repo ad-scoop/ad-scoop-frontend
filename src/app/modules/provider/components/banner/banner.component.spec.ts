@@ -1,14 +1,14 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-import { WebSite } from '../../../../model/site';
-import { MaterialModule } from '@angular/material';
-import { FormsModule } from '@angular/forms';
-import { SiteService } from '../../../../services/site.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {By} from '@angular/platform-browser';
+import {DebugElement} from '@angular/core';
+import {WebSite} from '../../../../model/site';
+import {FormsModule} from '@angular/forms';
+import {SiteService} from '../../../../services/site.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import { BannerComponent } from './banner.component';
+import {BannerComponent} from './banner.component';
+import {MaterialModule} from '../../../../material.module';
 
 describe('BannerComponent', () => {
   let component: BannerComponent;
@@ -21,13 +21,13 @@ describe('BannerComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        MaterialModule.forRoot(),
+        MaterialModule,
         FormsModule,
         BrowserAnimationsModule,
       ],
       declarations: [BannerComponent],
       providers: [
-        { provide: SiteService, useClass: SiteServiceMock },
+        {provide: SiteService, useClass: SiteServiceMock},
       ]
     })
       .compileComponents();

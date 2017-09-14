@@ -1,31 +1,58 @@
-import { RegistryComponent } from '../registry/registry.component'
-import { Component, ViewContainerRef } from '@angular/core';
-import { AuthenticationService } from './../../services/authentication.service';
-import { AlertService } from './../../services/alert.service';
-import { Router } from '@angular/router';
-import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
-import { Observable } from 'rxjs/Observable';
+import { EventService, Event } from '../../services/event.service';
+import {FormControl, Validators, FormGroup} from '@angular/forms';
+import {RegistryComponent} from '../registry/registry.component';
+import {Component, ViewContainerRef} from '@angular/core';
+import {AuthenticationService} from './../../services/authentication.service';
+import {AlertService} from './../../services/alert.service';
+import {Router} from '@angular/router';
+import {MdDialog, MdDialogConfig, MdDialogRef} from '@angular/material';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 @Component({
-  selector: 'login',
-  templateUrl: './login.html',
-  styleUrls: ['./login.css']
+  templateUrl: './profile.dialog.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class ProfileDialogComponent {
+
+  constructor(public dialogRef: MdDialogRef<ProfileDialogComponent>) {}
+
+  selectAdvetiser(): void {
+    this.dialogRef.close(AuthenticationService.ADVERTISER);
+  }
+
+  selectProvider(): void {
+    this.dialogRef.close(AuthenticationService.PROVIDER);
+  }
+
+}
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 
-export class Login {
+export class LoginComponent {
 
   dialogRef: MdDialogRef<any>;
   model: any = {};
+
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required])
+  });
 
   constructor(
     private router: Router,
     private userServcie: AuthenticationService,
     private alertService: AlertService,
     public dialog: MdDialog,
-    public viewContainerRef: ViewContainerRef) { }
+    public viewContainerRef: ViewContainerRef,
+    private eventService: EventService) {}
 
   login() {
-    this.userServcie.login(this.model.email, this.model.password)
+    this.userServcie.login(this.loginForm.controls.email.value, this.loginForm.controls.password.value)
       .subscribe(
       (data) => this.redirect(data),
       (err) => this.alertService.error('E-mail eller password er forkert!')
@@ -50,6 +77,7 @@ export class Login {
       } else if (profile === AuthenticationService.PROVIDER) {
         this.router.navigate(['/provider/home']);
       }
+      this.eventService.sendEvent(null);
     });
   }
 
@@ -68,24 +96,6 @@ export class Login {
     config.viewContainerRef = this.viewContainerRef;
     this.dialogRef = this.dialog.open(ProfileDialogComponent, config);
     return this.dialogRef.afterClosed();
-  }
-
-}
-
-@Component({
-  templateUrl: './profile.dialog.component.html',
-  styleUrls: ['./login.css']
-})
-export class ProfileDialogComponent {
-
-  constructor(public dialogRef: MdDialogRef<ProfileDialogComponent>) { }
-
-  selectAdvetiser(): void {
-    this.dialogRef.close(AuthenticationService.ADVERTISER);
-  }
-
-  selectProvider(): void {
-    this.dialogRef.close(AuthenticationService.PROVIDER);
   }
 
 }

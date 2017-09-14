@@ -1,23 +1,23 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-import { AlertService } from '../../../../services/alert.service'
-import { MaterialModule } from '@angular/material';
-import { FormsModule } from '@angular/forms';
-import { BannerComponent } from '../banner/banner.component';
-import { Campaign } from '../../../../model/campaign';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {By} from '@angular/platform-browser';
+import {DebugElement} from '@angular/core';
+import {AlertService} from '../../../../services/alert.service'
+import {FormsModule} from '@angular/forms';
+import {BannerComponent} from '../banner/banner.component';
+import {Campaign} from '../../../../model/campaign';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import { BannerUploadComponent } from './bannerupload.component';
-import { Observable } from 'rxjs/Observable';
+import {BannerUploadComponent} from './bannerupload.component';
+import {Observable} from 'rxjs/Observable';
+import {MaterialModule} from '../../../../material.module';
 
 describe('BannerUploadComponent', () => {
   let component: BannerUploadComponent;
   let fixture: ComponentFixture<BannerUploadComponent>;
 
   class AlertServiceMock {
-    getMessage(): Observable<any> { return Observable.of(''); }
+    getMessage(): Observable<any> {return Observable.of('');}
   }
 
   beforeEach(async(() => {
@@ -27,12 +27,12 @@ describe('BannerUploadComponent', () => {
         BannerComponent,
       ],
       imports: [
-        MaterialModule.forRoot(),
+        MaterialModule,
         FormsModule,
         BrowserAnimationsModule,
       ],
       providers: [
-        { provide: AlertService, useClass: AlertServiceMock },
+        {provide: AlertService, useClass: AlertServiceMock},
       ]
     })
       .compileComponents();

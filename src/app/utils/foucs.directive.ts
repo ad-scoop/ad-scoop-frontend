@@ -1,16 +1,14 @@
-import { Directive, Renderer, ElementRef, AfterViewInit } from '@angular/core';
+import {Input, ViewChildren, Directive, Renderer, ElementRef, OnInit} from '@angular/core';
 
 @Directive({
   selector: '[focuced]'
 })
-export class FoucsDirective implements AfterViewInit {
+export class FoucsDirective implements OnInit {
 
-  constructor(public renderer: Renderer, public elementRef: ElementRef) { }
+  constructor(private hostElement: ElementRef, private renderer: Renderer) {}
 
-  ngAfterViewInit() {
-    this.renderer.invokeElementMethod(
-      this.elementRef.nativeElement, 'focus', []);
-    this.renderer.invokeElementMethod(
-      this.elementRef.nativeElement, 'click', []);
+  ngOnInit() {
+      this.renderer.invokeElementMethod(this.hostElement.nativeElement, 'focus');
   }
+
 }

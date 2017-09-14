@@ -1,6 +1,6 @@
 .topMenu {
 	padding-top: 10px;
-	background-color: white;		
+	background-color: white;
 }
 
 .logoSmall {
@@ -15,20 +15,34 @@
 .topMenuItems {
 	position: absolute;
 	right: 0;
-	top: 10px;
+	display: flex;
 }
 
 .topMenuItems a {
 	text-decoration: none;
+	display: inline-block;
+	position: relative;
+	top: 10px;
+	margin-right: 20px;
+	width: 100%;
 }
 
-.topMenuItems span {
-	margin-left: 5px;
-	margin-right: 5px;
+.splitterMenuItem {
+	top: 15px;
+	position: absolute;
+	display: inline-block;
 }
 
 .dropDowntopMenuItems {
 	display: none;
+}
+
+button.mat-menu-item {
+	width: auto !important;
+}
+
+.svgIcon {
+	vertical-align: text-bottom !important;
 }
 
 @media ( max-width : 770px) {
@@ -40,8 +54,10 @@
 		float: right;
 	}
 	.topMenu {
-		position: fixed;
-    	display: block;
-    	z-index: 1;	
-    	}
+		display: block;
+		z-index: 1;
+	}
+	.splitterMenuItem {
+		display: none;
+	}
 }

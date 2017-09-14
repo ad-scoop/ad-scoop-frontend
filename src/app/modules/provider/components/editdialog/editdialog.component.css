@@ -1,3 +1,8 @@
+.float {
+	width: 100%;
+	height: 100%;
+}
+
 .header-background {
 	background-color: #dae8e7;
 	width: 100%;
@@ -7,13 +12,22 @@
 	top: 0;
 }
 
+.center {
+	padding: 24px;
+	height: 80%;
+}
+
 md-card-header {
 	background-color: #dae8e7;
+	padding-top: 20px;
+	padding-left: 24px;
 }
 
 md-card {
 	box-shadow: inherit !important;
 	padding: 0 !important;
+	width: 100%;
+	height: 100%;
 }
 
 .title {
@@ -21,21 +35,9 @@ md-card {
 	font-weight: 900;
 }
 
-app-banner {
-	display: block;
-}
-
-.centerContent {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-}
-
 md-card-content {
-	max-width: 500px;
-	min-height: 600px;
+	height: 100%;
+	overflow: hidden;
 }
 
 .rightbutton button {
@@ -52,6 +54,13 @@ a {
 
 .back {
 	display: none;
+}
+
+md-card-footer {
+	margin: 0 !important;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
 }
 
 @media ( max-width : 500px) {

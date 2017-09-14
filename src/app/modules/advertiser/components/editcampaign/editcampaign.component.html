@@ -1,6 +1,6 @@
-<div class="explanation">Indtast inforation om kampangen. Du har bla. mullighed for at angive det maksimale beløb du har råd til at betale pr. dag.Indtast information om kampagnen. Du har bla. mulighed for at angive det maksimale beløb du har råd til at betale pr. dag.</div>
-<form class="center" (ngSubmit)="edit()" #f="ngForm" novalidate>
-	<div class="inputcontainer">
+<div>Indtast inforation om kampangen. Du har bla. mullighed for at angive det maksimale beløb du har råd til at betale pr. dag.Indtast information om kampagnen. Du har bla. mulighed for at angive det maksimale beløb du har råd til at betale pr. dag.</div>
+<div class="center">
+<form class="form" (ngSubmit)="edit()" #f="ngForm" novalidate>
 		<md-input-container>
 			<input mdInput type="text" placeholder="Navn" focuced [(ngModel)]="campaign.name" name="name" required #name="ngModel">
 			<md-hint *ngIf="!(name.errors && (name.dirty || name.touched))">Navnet på kampagnen</md-hint>
@@ -12,8 +12,7 @@
 			<md-hint *ngIf="!(maxPricePrDay.errors && (maxPricePrDay.dirty || maxPricePrDay.touched))">Maksimal beløb pr. dag kampagnen må koste.</md-hint>
 			<md-hint *ngIf="maxPricePrDay.errors && (maxPricePrDay.dirty || maxPricePrDay.touched)" [ngStyle]="{'color': 'red'}">Maksimal beløb pr. dag er krævet</md-hint>
 		</md-input-container>
-	</div>
-	<div class="inputcontainer">
+
 		<md-input-container>
 			<input mdInput type="date" placeholder="Start dato" (value)="dateParse(campaign.startDate)" name="startDate" required #startDate (input)="campaign.startDate=parseDate($event.target.value)">
 			<md-hint *ngIf="startDate.errors && (startDate.dirty || startDate.touched)" [ngStyle]="{'color': 'red'}">Start dato er krævet</md-hint>
@@ -22,5 +21,5 @@
  		<md-input-container>
 			<input mdInput type="date" placeholder="Slut dato" (value)="dateParse(campaign.endDate)" name="enddate" #endDate (input)="campaign.endDate=parseDate($event.target.value)">
 		</md-input-container>
- 	</div>
 </form>
+</div>

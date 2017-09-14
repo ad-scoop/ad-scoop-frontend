@@ -1,6 +1,7 @@
 .explanation {
 	margin-top: 10px;
 	margin-bottom: 10px;
+	display: inline;
 }
 
 #file-input {
@@ -10,18 +11,19 @@
 .add {
 	position: absolute;
 	right: 25px;
+	top: 110px;
+}
+
+.remove {
+	position: absolute;
+    right: 25px;
 }
 
 app-banner {
 	overflow: auto;
-	height: 362px;
 	display: block;
 }
 
 .bannerName {
 	margin-left: 10px;
-}
-
-.explanation {
-	margin-bottom: 10px;
 }

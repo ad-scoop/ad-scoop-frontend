@@ -5,11 +5,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
-import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { EditSiteComponent } from './editsite.component';
 import { FormsModule } from '@angular/forms';
+import {MaterialModule} from '../../../../material.module';
 
 describe('EditsiteComponent', () => {
   let component: EditSiteComponent;
@@ -18,7 +18,7 @@ describe('EditsiteComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        MaterialModule.forRoot(),
+        MaterialModule,
         FormsModule,
         BrowserAnimationsModule,
       ],

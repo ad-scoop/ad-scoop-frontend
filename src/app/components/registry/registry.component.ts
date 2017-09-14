@@ -36,7 +36,7 @@ export class RegistryComponent implements OnInit {
   }
 
   changeLabel(label: string): void {
-    let index = this.model.labels.indexOf(label);
+    const index = this.model.labels.indexOf(label);
     if (index > -1) {
       this.model.labels.splice(index, 1);
     } else {

@@ -1,5 +1,4 @@
-<div class="header-background"></div>
-<form class="center" (ngSubmit)="f.form.valid && create()" #f="ngForm" >
+<form (ngSubmit)="f.form.valid && create()" #f="ngForm" >
 	<md-card class="fullscreen-dialog">
 		<md-card-content class="content"> 
 			<a (click)="dialogRef.close()"><md-icon>close</md-icon></a>

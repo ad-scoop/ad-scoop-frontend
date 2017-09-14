@@ -3,7 +3,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MaterialModule } from '@angular/material';
 import { CampaignService } from '../../../../services/campaign.service';
 import { Campaign } from '../../../../model/campaign';
 import { SiteComponent } from '../site/site.component';
@@ -13,6 +12,7 @@ import { Observable } from 'rxjs/Observable';
 import { WebSite } from '../../../../model/site';
 
 import { SearchsitesComponent } from './searchsites.component';
+import {MaterialModule} from '../../../../material.module';
 
 describe('SearchSitesComponent', () => {
   let component: SearchsitesComponent;
@@ -41,7 +41,7 @@ describe('SearchSitesComponent', () => {
         SiteComponent
       ],
       imports: [
-        MaterialModule.forRoot(),
+        MaterialModule,
         FormsModule,
         BrowserAnimationsModule,
       ],

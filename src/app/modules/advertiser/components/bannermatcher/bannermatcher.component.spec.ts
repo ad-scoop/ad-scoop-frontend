@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
-import { MaterialModule } from '@angular/material';
 import { SiteService } from '../../../../services/site.service';
 
 import { BannerMatcherComponent } from './bannermatcher.component';
+import {MaterialModule} from '../../../../material.module';
 
 xdescribe('BannerMatcherComponent', () => {
   let component: BannerMatcherComponent;
@@ -14,7 +14,7 @@ xdescribe('BannerMatcherComponent', () => {
   
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialModule.forRoot ],
+      imports: [MaterialModule],
       declarations: [ BannerMatcherComponent ],
       providers: [
         { provide: SiteService, useClass: SiteServiceMock },

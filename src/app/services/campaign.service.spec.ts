@@ -5,7 +5,7 @@ import { CampaignService } from './campaign.service';
 import { Http } from '@angular/http';
 import { AuthenticationService } from './authentication.service';
 
-describe('BannerService', () => {
+describe('CampaignService', () => {
 
   class HttpMock {
 

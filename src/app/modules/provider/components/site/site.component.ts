@@ -3,7 +3,7 @@ import {AlertService} from '../../../../services/alert.service';
 import {SiteService} from '../../../../services/site.service';
 import {EditDialogComponent} from '../editdialog/editdialog.component';
 import {Component, OnInit} from '@angular/core';
-import {MdDialog} from '@angular/material';
+import {MdDialog, MdDialogConfig} from '@angular/material';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
@@ -125,7 +125,11 @@ export class SiteComponent implements OnInit {
   }
 
   private openEditDialog(site: WebSite, type: string): Observable<any> {
-    const dialogRef = this.dialog.open(EditDialogComponent);
+    const config = new MdDialogConfig();
+    config.height = '80%';
+    config.width = '70%';
+
+    const dialogRef = this.dialog.open(EditDialogComponent, config);
     dialogRef.componentInstance.site = site;
     dialogRef.componentInstance.type = type;
     return dialogRef.afterClosed();

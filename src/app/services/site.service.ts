@@ -8,6 +8,7 @@ import { AuthenticationService } from './authentication.service';
 import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 import { environment } from '../../environments/environment';
 import { BannerSize } from '../model/bannersize';
 import { BannerSpace } from '../model/bannerspace';

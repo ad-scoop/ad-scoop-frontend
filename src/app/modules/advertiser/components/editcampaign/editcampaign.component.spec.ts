@@ -4,10 +4,10 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { Campaign } from '../../../../model/campaign';
 import { FormsModule } from '@angular/forms';
-import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { EditCampaignComponent } from './editcampaign.component';
+import {MaterialModule} from '../../../../material.module';
 
 describe('EditCampaignComponent', () => {
   let component: EditCampaignComponent;
@@ -17,7 +17,7 @@ describe('EditCampaignComponent', () => {
     TestBed.configureTestingModule({
       declarations: [EditCampaignComponent],
       imports: [
-        MaterialModule.forRoot(),
+        MaterialModule,
         FormsModule,
         BrowserAnimationsModule,
       ],
