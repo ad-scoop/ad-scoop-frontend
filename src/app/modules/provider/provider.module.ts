@@ -1,4 +1,4 @@
-import {MaterialModule} from '../../material.module';
+import {MaterialComponent} from '../../material.component';
 import {EditDialogComponent} from './components/editdialog/editdialog.component';
 import {EditSiteComponent} from './components/editsite/editsite.component';
 import {NgModule} from '@angular/core';
@@ -23,7 +23,7 @@ import {FoucsDirective} from './utils/foucs.directive';
   imports: [
     CommonModule,
     RouterModule.forChild(providerRoutes),
-    MaterialModule,
+    MaterialComponent,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,

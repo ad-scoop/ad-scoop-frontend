@@ -1,0 +1,18 @@
+<form class="center" [formGroup]="contactForm" >
+	<md-form-field>
+		<input mdInput type="email" placeholder="Email fra" focuced formControlName="email" maxlength="256">
+		<md-error *ngIf="contactForm.get('email').hasError('required')" [ngStyle]="{'color': 'red'}">Email adressen er krævet</md-error>
+	</md-form-field>
+	<br/>	
+	<md-form-field>
+		<input mdInput type="text" placeholder="Emne" formControlName="subject" maxlength="256">
+	</md-form-field>
+	<br/>
+	<md-form-field>
+		<input mdInput type="text" maxlength="256" placeholder="Besked" formControlName="text">
+	</md-form-field>
+	<br/>
+	<div>
+		<button color="primary" md-button type="submit" (click)="send()" (keydown.enter)="send()">Send</button>
+	</div>
+</form>

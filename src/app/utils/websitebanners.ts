@@ -5,6 +5,14 @@ import { equal } from 'assert';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
+export class Position {
+
+  constructor(
+    public x: number,
+    public y: number) { }
+
+}
+
 export class WebSiteBanners {
 
   private canvaswidth = 500;
@@ -184,12 +192,3 @@ export class WebSiteBanners {
   }
 
 }
-
-export class Position {
-
-  constructor(
-    public x: number,
-    public y: number) { }
-
-}
-

@@ -18,7 +18,7 @@ export class ActivationComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
-      let token = params['token'];
+      const token = params['token'];
       this.userService.activate(token).subscribe(
         (data) => this.router.navigate(['/login']),
         (err) => {

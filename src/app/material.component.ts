@@ -32,4 +32,4 @@ import {
     MdIconModule,
   ]
 })
-export class MaterialModule {}
+export class MaterialComponent {}

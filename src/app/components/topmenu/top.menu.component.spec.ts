@@ -2,7 +2,7 @@ import {TestBed, async} from '@angular/core/testing';
 import {TopMenuComponent, TopMenuButtonComponent, MenuItem} from './top.menu.component';
 import {AuthenticationService} from '../../services/authentication.service';
 import {RouterTestingModule} from '@angular/router/testing';
-import {MaterialModule} from '../../material.module';
+import {MaterialComponent} from '../../material.component';
 import {EventService} from './../../services/event.service';
 
 describe('TopMenuComponent', () => {
@@ -17,7 +17,7 @@ describe('TopMenuComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        MaterialModule,
+        MaterialComponent,
         RouterTestingModule.withRoutes([
           {path: 'underConstruction', component: TopMenuComponent},
           {path: 'login', component: TopMenuComponent},

@@ -22,7 +22,7 @@ import {ProviderModule} from './modules/provider/provider.module';
 import {ActivationComponent} from './components/activation/activation.component';
 
 import {RegistryComponent} from './components/registry/registry.component';
-import {MaterialModule} from './material.module';
+import {MaterialComponent} from './material.component';
 import {CampaignService} from './services/campaign.service';
 import {EventService} from './services/event.service';
 import {SiteService} from './services/site.service';
@@ -30,8 +30,10 @@ import {UserService} from './services/user.service';
 import {FoucsDirective} from './utils/foucs.directive';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {ButtonComponent} from './components/button/button.component';
+import {AgmCoreModule} from '@agm/core';
 
 import 'hammerjs';
+import {ContactComponent} from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import 'hammerjs';
     ProfileDialogComponent,
     ButtonComponent,
     TopMenuButtonComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,8 +60,11 @@ import 'hammerjs';
     AdvertiserModule,
     ProviderModule,
     BrowserAnimationsModule,
-    MaterialModule,
+    MaterialComponent,
     ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAWS8jINtZMGD1P3Z5tEh_dH03O13_HrHw'
+    })
   ],
   providers: [
     AuthenticationService,

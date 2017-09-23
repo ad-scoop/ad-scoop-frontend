@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { SiteComponent } from './site.component';
-import {MaterialModule} from '../../../../material.module';
+import {MaterialComponent} from '../../../../material.component';
 
 describe('SiteComponent', () => {
   let component: SiteComponent;
@@ -14,7 +14,7 @@ describe('SiteComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ SiteComponent ],
       imports: [
-        MaterialModule,
+        MaterialComponent,
       ],
     })
     .compileComponents();

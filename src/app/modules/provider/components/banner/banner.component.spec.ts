@@ -8,7 +8,7 @@ import {SiteService} from '../../../../services/site.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {BannerComponent} from './banner.component';
-import {MaterialModule} from '../../../../material.module';
+import {MaterialComponent} from '../../../../material.component';
 
 describe('BannerComponent', () => {
   let component: BannerComponent;
@@ -21,7 +21,7 @@ describe('BannerComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        MaterialModule,
+        MaterialComponent,
         FormsModule,
         BrowserAnimationsModule,
       ],

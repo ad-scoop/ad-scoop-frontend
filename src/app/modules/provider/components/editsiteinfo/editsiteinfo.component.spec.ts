@@ -13,7 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { fakeAsync, tick } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MaterialModule} from '../../../../material.module';
+import {MaterialComponent} from '../../../../material.component';
 
 import { EditSiteInfoComponent } from './editsiteinfo.component';
 
@@ -29,7 +29,7 @@ describe('EditsiteinfoComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        MaterialModule,
+        MaterialComponent,
         FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,

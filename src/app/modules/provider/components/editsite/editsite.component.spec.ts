@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { EditSiteComponent } from './editsite.component';
 import { FormsModule } from '@angular/forms';
-import {MaterialModule} from '../../../../material.module';
+import {MaterialComponent} from '../../../../material.component';
 
 describe('EditsiteComponent', () => {
   let component: EditSiteComponent;
@@ -18,7 +18,7 @@ describe('EditsiteComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        MaterialModule,
+        MaterialComponent,
         FormsModule,
         BrowserAnimationsModule,
       ],

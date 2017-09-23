@@ -10,7 +10,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {RegistryComponent} from './registry.component';
 import {Observable} from 'rxjs/Observable';
-import {MaterialModule} from '../../material.module';
+import {MaterialComponent} from '../../material.component';
 
 describe('RegistryComponent', () => {
   let component: RegistryComponent;
@@ -31,7 +31,7 @@ describe('RegistryComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        MaterialModule,
+        MaterialComponent,
         FormsModule,
         BrowserAnimationsModule,
       ],

@@ -10,7 +10,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {BannerUploadComponent} from './bannerupload.component';
 import {Observable} from 'rxjs/Observable';
-import {MaterialModule} from '../../../../material.module';
+import {MaterialComponent} from '../../../../material.component';
 
 describe('BannerUploadComponent', () => {
   let component: BannerUploadComponent;
@@ -27,7 +27,7 @@ describe('BannerUploadComponent', () => {
         BannerComponent,
       ],
       imports: [
-        MaterialModule,
+        MaterialComponent,
         FormsModule,
         BrowserAnimationsModule,
       ],

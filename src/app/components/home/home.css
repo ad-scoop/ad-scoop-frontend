@@ -229,9 +229,9 @@
 	display: block;
 }
 
-.contactImage {
+agm-map {
 	background-image: url(/assets/images/about-home.png);
-	height: 500px;
+	height: 450px;
 	background-position: center;
 	background-repeat: no-repeat;
 	position: relative;

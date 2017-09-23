@@ -3,6 +3,18 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MdDialogRef, MdDialog } from '@angular/material';
 
 @Component({
+  templateUrl: './banner.dialog.component.html',
+  styleUrls: ['./banner.component.css']
+})
+export class BannerDialogComponent {
+
+  @Input() banner: Banner;
+
+  constructor(public dialogRef: MdDialogRef<BannerDialogComponent>) { }
+
+}
+
+@Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.css']
@@ -39,17 +51,5 @@ export class BannerComponent {
     const dialogRef = this.dialog.open(BannerDialogComponent);
     dialogRef.componentInstance.banner = banner;
   }
-
-}
-
-@Component({
-  templateUrl: './banner.dialog.component.html',
-  styleUrls: ['./banner.component.css']
-})
-export class BannerDialogComponent {
-
-  @Input() banner: Banner;
-
-  constructor(public dialogRef: MdDialogRef<BannerDialogComponent>) { }
 
 }

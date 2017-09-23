@@ -9,7 +9,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {AuthenticationService} from './services/authentication.service';
 import {AlertService} from './services/alert.service';
 import {Observable} from 'rxjs/Observable';
-import {MaterialModule} from './material.module';
+import {MaterialComponent} from './material.component';
 import {EventService} from './services/event.service';
 import {HttpModule} from '@angular/http';
 
@@ -33,7 +33,7 @@ describe('AppComponent', () => {
           {path: 'login', component: AppComponent},
           {path: '.', component: AppComponent}
         ]),
-        MaterialModule,
+        MaterialComponent,
         HttpModule,
       ],
       declarations: [

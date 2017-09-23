@@ -5,7 +5,7 @@ import {SiteService} from '../../../../services/site.service';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
-import {MaterialModule} from '../../../../material.module';
+import {MaterialComponent} from '../../../../material.component';
 import {MdDialog} from '@angular/material';
 
 import {SiteComponent} from './site.component';
@@ -32,7 +32,7 @@ describe('SiteComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        MaterialModule,
+        MaterialComponent,
       ],
       declarations: [SiteComponent, UrlSafePipe],
       providers: [

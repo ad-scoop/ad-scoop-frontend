@@ -12,7 +12,7 @@ import {MdDialogRef} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BannerComponent} from '../banner/banner.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MaterialModule} from '../../../../material.module';
+import {MaterialComponent} from '../../../../material.component';
 
 import {EditDialogComponent} from './editdialog.component';
 
@@ -27,7 +27,7 @@ describe('EditdialogComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        MaterialModule,
+        MaterialComponent,
         FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,

@@ -49,9 +49,9 @@ export class EditCampaignComponent implements EditInterface, OnInit {
   }
 
   invalid(): void {
-    for (let key in this.form.controls) {
+    for (const key in this.form.controls) {
       if (this.form.controls.hasOwnProperty(key)) {
-        let control: AbstractControl = this.form.controls[key];
+        const control: AbstractControl = this.form.controls[key];
         control.markAsTouched();
       }
     }

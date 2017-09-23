@@ -59,11 +59,15 @@
       <div class="parallax__layer parallax__layer--fore">
       	<div class="contact">
       		<span class="contactIcon"></span>
-      		<span class="contactText">Vestibulum quis cursus risus. Fusce non nulla non velit accumsan dictum sed vel sapien. Suspendisse posuere, diam interdum blandit condimentum, elit tellus feugiat nulla, sit amet sagittis tellus neque sit amet sapien. Nulla sodales sem eros, nec eleifend sapien egestas ac. Suspendisse id nisl ipsum. Etiam odio odio, dictum eu feugiat id, ullamcorper non dolor. Vivamus porttitor volutpat faucibus. Mauris quam elit, mollis et lacus at, aliquet mattis ligula. Suspendisse sit amet nisi eu ante finibus euismod. Sed ac nunc metus. Morbi sem metus, iaculis elementum sapien sit amet, malesuada interdum sapien. Sed commodo dignissim eros, eu vestibulum elit rutrum in. Ut in nisi rhoncus, mollis tellus id, cursus mi. Suspendisse nibh lorem, semper et massa fringilla, maximus consectetur turpis.</span>
+      		<span class="contactText">
+      			<app-contact></app-contact>
+      		</span>
       	</div>
       </div>
       <div class="parallax__layer parallax__layer--base">
-       <div class="contactImage"></div>
+       	<agm-map [latitude]="lat" [longitude]="lng">
+  			<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+		</agm-map>
 	  </div>
 	</div>
 </div>

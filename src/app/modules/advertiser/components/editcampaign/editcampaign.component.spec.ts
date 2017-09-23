@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { EditCampaignComponent } from './editcampaign.component';
-import {MaterialModule} from '../../../../material.module';
+import {MaterialComponent} from '../../../../material.component';
 
 describe('EditCampaignComponent', () => {
   let component: EditCampaignComponent;
@@ -17,7 +17,7 @@ describe('EditCampaignComponent', () => {
     TestBed.configureTestingModule({
       declarations: [EditCampaignComponent],
       imports: [
-        MaterialModule,
+        MaterialComponent,
         FormsModule,
         BrowserAnimationsModule,
       ],

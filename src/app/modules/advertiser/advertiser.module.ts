@@ -1,5 +1,5 @@
 import {AppModule} from '../../app.module';
-import { MaterialModule } from '../../material.module';
+import { MaterialComponent } from '../../material.component';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
@@ -25,7 +25,7 @@ import {ButtonComponent} from './components/button/button.component';
   imports: [
     CommonModule,
     RouterModule.forChild(advertiserRoutes),
-    MaterialModule,
+    MaterialComponent,
     FormsModule,
     BrowserAnimationsModule,
   ],

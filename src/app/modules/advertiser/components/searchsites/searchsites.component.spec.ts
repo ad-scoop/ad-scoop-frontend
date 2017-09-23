@@ -12,7 +12,7 @@ import { Observable } from 'rxjs/Observable';
 import { WebSite } from '../../../../model/site';
 
 import { SearchsitesComponent } from './searchsites.component';
-import {MaterialModule} from '../../../../material.module';
+import {MaterialComponent} from '../../../../material.component';
 
 describe('SearchSitesComponent', () => {
   let component: SearchsitesComponent;
@@ -41,7 +41,7 @@ describe('SearchSitesComponent', () => {
         SiteComponent
       ],
       imports: [
-        MaterialModule,
+        MaterialComponent,
         FormsModule,
         BrowserAnimationsModule,
       ],
