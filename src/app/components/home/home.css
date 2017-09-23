@@ -1,18 +1,91 @@
-.frontBack {
+.parallax {
+	height: 500px; /* fallback for older browsers */
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	-webkit-perspective: 300px;
+	perspective: 300px;
+	-webkit-perspective-origin-x: 100%;
+	perspective-origin-x: 100%;
+}
+
+.parallax__group {
+	position: relative;
+	height: 500px; /* fallback for older browsers */
+	height: 100vh;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.parallax__layer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	-webkit-transform-origin-x: 100%;
+	transform-origin-x: 100%;
+}
+
+.parallax__layer--base {
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	z-index: 4;
+}
+
+.parallax__layer--fore {
+	-webkit-transform: translateZ(90px) scale(.7);
+	transform: translateZ(90px) scale(.7);
+	z-index: 1;
+}
+
+.parallax__layer--back {
+	-webkit-transform: translateZ(-300px) scale(2);
+	transform: translateZ(-300px) scale(2);
+	z-index: 3;
+}
+
+.parallax__layer--deep {
+	-webkit-transform: translateZ(-600px) scale(3);
+	transform: translateZ(-600px) scale(3);
+	z-index: 2;
+}
+
+#home {
+	z-index: 5; /* slide over group 2 */
+}
+
+.homeImage {
 	background-image: url(/assets/images/front.jpeg);
-	height: 448px;
+	height: 383px;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	position: relative;
+	top: 48px;
+	z-index: 5;
+}
+
+.homeText {
+	background-color: #dae8e7;
+	position: relative;
+	z-index: 5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-direction: row;
+	min-height: 325px;
+	top: 48px;
 }
 
 .leftBanner {
 	position: relative;
 	color: white;
-	font-size: 47px;
-	width: 270px;
-	top: 52px;
-	left: 2vw;
+	font-size: 43px;
+	width: 279px;
+	top: 33px;
+	left: 3vw;
 	font-weight: bold;
 }
 
@@ -23,92 +96,174 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	position: absolute;
-	top: 110px;
+	top: 40px;
 	right: 2vw;
 }
 
 .rightBanner span {
 	position: absolute;
-    top: 114px;
-    left: 28px;
-    color: white;
-    font-size: 30px;
-    width: 130px;
+	top: 114px;
+	left: 28px;
+	color: white;
+	font-size: 30px;
+	width: 130px;
 }
 
-.textArea {
-	background-color: #dae8e7;
-	min-height: 335px;
-}
-
-.textArea ul {
-	margin-top: 0;
-}
-
-.box {
-	float: left;
-	height: 200px;
-	width: 25vw;
-	margin: 2vw;
+.boxHome {
+	width: 505px;
+	padding: 10px;
 }
 
 .bullets {
 	line-height: 35px;
 	font-size: 18px;
 	font-weight: bold;
-	margin-top: 100px;
-	margin-left: 6vw;
-	margin-right: 0;
-	width: 20vw;
+	display: flex;
+	justify-content: center;
 }
 
 .advances {
 	font-size: 18px;
-	margin-top: 45px;
 	text-align: justify;
 }
 
 .buttons {
-	padding-top: 50px;
+	display: flex;
 }
 
-.buttons app-button {
-	display: inline-block;
-	margin-left: 7vw;
+#idea {
+	z-index: 3; /* slide under groups 1 and 3 */
 }
 
-@media ( max-width : 770px ) {
-	.leftBanner {
-	    top: 80px;
+.ideaImage {
+	background-image: url(/assets/images/idea-home.png);
+	height: 500px;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+	left: -12px;
+	width: 50%;
+	z-index: 3;
+	top: 350px;
+}
+
+.idea {
+	position: absolute;
+	width: 50%;
+	height: 500px;
+	right: 0;
+	top: 48px;
+}
+
+.ideaIcon {
+	background-image: url("/assets/images/idea.png");
+	height: 185px;
+	width: 185px;
+	display: block;
+}
+
+.ideaText {
+	display: block;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#about {
+	z-index: 4; /* slide over group 2 and 4 */
+}
+
+.about {
+	position: absolute;
+	width: 50%;
+	height: 500px;
+	left: 0;
+	top: 48px;
+}
+
+.aboutText {
+	display: block;
+	padding-left: 20px;
+	padding-right: 10px;
+}
+
+.aboutIcon {
+	background-image: url("/assets/images/about.png");
+	height: 185px;
+	width: 185px;
+	display: block;
+}
+
+.aboutImage {
+	background-image: url(/assets/images/about-home.png);
+	height: 500px;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: absolute;
+	width: 50%;
+	top: 350px;
+	right: 0;
+}
+
+#contact {
+	z-index: 4; /* slide over group 2 and 4 */
+}
+
+.contact {
+	position: absolute;
+	width: 50%;
+	height: 500px;
+	right: 0;
+	top: 48px;
+}
+
+.contactText {
+	display: block;
+	padding-left: 20px;
+	padding-right: 10px;
+}
+
+.contactIcon {
+	background-image: url("/assets/images/contact.png");
+	height: 185px;
+	width: 185px;
+	display: block;
+}
+
+.contactImage {
+	background-image: url(/assets/images/about-home.png);
+	height: 500px;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+	left: -12px;
+	width: 50%;
+	z-index: 3;
+	top: 350px;
+}
+
+@media ( max-width : 1050px) {
+	#idea {
+		z-index: 3;
+		top: 148px;
+	}
+}
+
+@media ( max-width : 450px) {
+	#idea {
+		z-index: 3;
+		top: 300px;
 	}
 }
 
 @media ( max-width : 1200px) {
-	.box {
-		float: none;
-		margin: auto;
-	}
 	.rightBanner {
 		display: none;
-	}
-	.bullets {
-		position: relative;
-		top: 140px;
-		height: 192px;
-		width: 319px;
-		transform: translateY(-50%);
-	}
-	.advances {
-		float: none;
-		margin: auto;
-		width: 330px;
-		height: 250px;
-		margin-bottom: 20px;	
 	}
 	.advances h2 {
 		text-align: center;
 	}
 	.advertiser {
+		
 	}
 	.website {
 		

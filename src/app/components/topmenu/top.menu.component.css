@@ -1,6 +1,9 @@
 .topMenu {
-	padding-top: 10px;
+	position: absolute;
+	z-index: 100;
+	width: 100%;
 	background-color: white;
+	height: 48px;
 }
 
 .logoSmall {
@@ -10,6 +13,7 @@
 	width: 195px;
 	height: 39px;
 	margin-left: 10px !important;
+	margin-top: 5px !important;
 }
 
 .topMenuItems {

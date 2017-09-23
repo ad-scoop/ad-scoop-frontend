@@ -4,6 +4,8 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	position: relative;
+	top: 48px;
 }
 
 .leftBanner {
@@ -40,6 +42,7 @@
 .textArea {
 	background-color: #f8f0ec;
 	padding-bottom: 25px;
+	position: relative;
 }
 
 .textArea ul {

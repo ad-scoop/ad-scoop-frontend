@@ -1,10 +1,11 @@
 .footer {
     font-weight: bold;
     font-size: 18px;
-    height: 45px;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

@@ -9,5 +9,8 @@
   "exclude": [
     "test.ts",
     "**/*.spec.ts"
+  ],
+  "scripts": [
+  	"../node_modules/smoothscroll-polyfill/dist/smoothscroll.js"
   ]
 }

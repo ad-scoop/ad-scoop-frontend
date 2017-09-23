@@ -1,6 +1,7 @@
 .noCampagins {
 	text-align: center;
-	margin-top: 60px;
+	position: relative;
+	top: 60px;
 }
 
 .noCampagins button {
@@ -19,6 +20,8 @@
 	background-color: #f8f0ec;
 	padding-left: 0;
 	padding-right: 0;
+	position: relative;
+	top: 60px;
 }
 
 .cardWidth md-card-header {

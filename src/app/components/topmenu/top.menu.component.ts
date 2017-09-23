@@ -1,11 +1,13 @@
 import {Component, ViewEncapsulation, OnInit, Input} from '@angular/core';
 import {AuthenticationService} from './../../services/authentication.service';
-import {Router} from '@angular/router';
+import {Router, NavigationEnd} from '@angular/router';
 import {EventService} from './../../services/event.service';
 import {Subscription} from 'rxjs/Subscription';
 
 
 export class MenuItem {
+
+  public fragment: string;
 
   constructor(
     public text: string,
@@ -13,6 +15,11 @@ export class MenuItem {
     public icon?: string,
     public method?: string,
     public svg?: string) {
+  }
+
+  withFragment(value: string): MenuItem {
+    this.fragment = value;
+    return this;
   }
 }
 
@@ -38,9 +45,9 @@ export class TopMenuButtonComponent {
 export class TopMenuComponent implements OnInit {
 
   private anonymous = [
-    new MenuItem('Om os', 'underConstruction', 'people'),
-    new MenuItem('Idéen', 'underConstruction', 'lightbulb_outline'),
-    new MenuItem('Kontakt', 'underConstruction', 'phone'),
+    new MenuItem('Idéen', '/', 'lightbulb_outline').withFragment('idea'),
+    new MenuItem('Om os', '/', 'people').withFragment('about'),
+    new MenuItem('Kontakt', '/', 'phone').withFragment('contact'),
     new MenuItem('Log ind', 'login', 'person')
   ];
 
@@ -59,6 +66,17 @@ export class TopMenuComponent implements OnInit {
 
   constructor(public userService: AuthenticationService, private router: Router, private eventService: EventService) {
     this.subscription = this.eventService.getEvent().subscribe(event => {this.ngOnInit()});
+    router.events.subscribe(s => {
+      if (s instanceof NavigationEnd) {
+        const tree = router.parseUrl(this.router.url);
+        if (tree.fragment) {
+          const element = document.querySelector('#' + tree.fragment);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }
+    });
   }
 
   ngOnInit() {

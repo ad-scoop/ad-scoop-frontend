@@ -16,5 +16,8 @@
   "include": [
     "**/*.spec.ts",
     "**/*.d.ts"
+  ],
+  "scripts": [
+  	"../node_modules/smoothscroll-polyfill/dist/smoothscroll.js"
   ]
 }
