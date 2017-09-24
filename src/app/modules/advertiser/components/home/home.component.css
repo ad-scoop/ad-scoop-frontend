@@ -1,6 +1,6 @@
 .frontBack {
 	background-image: url(/assets/images/advertiser-front.jpeg);
-	height: 448px;
+	height: 383px;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -11,10 +11,10 @@
 .leftBanner {
 	position: relative;
 	color: white;
-	font-size: 47px;
-	width: 360px;
-	top: 100px;
-	left: 2vw;
+	font-size: 43px;
+	width: 337px;
+	top: 74px;
+	left: 3vw;
 	font-weight: bold;
 }
 
@@ -25,83 +25,64 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	position: absolute;
-	top: 110px;
+	top: 40px;
 	right: 2vw;
 }
 
 .rightBanner span {
 	position: absolute;
-	top: 95px;
-	left: 10px;
+	top: 110px;
+	left: 14px;
 	color: white;
-	font-size: 25px;
-	width: 161px;
-	text-align: center;
+	font-size: 24px;
+	width: 158px;
 }
 
 .textArea {
 	background-color: #f8f0ec;
-	padding-bottom: 25px;
 	position: relative;
-}
-
-.textArea ul {
-	margin-top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-direction: row;
+	min-height: 325px;
+	top: 48px;
+	padding-bottom: 30px;
 }
 
 .box {
-	float: left;
-	height: 345px;
-	width: 150px;
-	margin: 2vw;
+	padding: 10px;
 }
 
 .bullets {
 	line-height: 35px;
 	font-size: 18px;
 	font-weight: bold;
-	margin-left: 6vw;
-	margin-right: 0;
-	width: 450px;
+	display: flex;
+	justify-content: center;
 }
 
 .buttons {
-	padding-top: 50px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
-.buttons app-button {
-	display: inline-block;
+@media ( max-width : 758px) {
+	.textArea {
+		padding-bottom: 50px;
+	}
 }
 
-@media ( max-width : 770px ) {
-	.leftBanner {
-		top: 80px;
+@media ( max-width : 408px) {
+	.textArea {
+		padding-bottom: 70px;
 	}
 }
 
 @media ( max-width : 1200px) {
-	.box {
-		float: none;
-		margin: auto;
-	}
-	.bullets {
-		line-height: 35px;
-		font-size: 18px;
-		font-weight: bold;
-		margin-left: 6vw;
-		margin-right: 0;
-		width: 94%;
-	}
 	.rightBanner {
 		display: none;
-	}
-	.buttons {
-		margin-bottom: 25px;
-		margin-left: auto;
-		margin-right: auto;
-		width: 50%;
-	}
-	.buttons {
-		padding-top: 0;
 	}
 }

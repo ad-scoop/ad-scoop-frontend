@@ -1,11 +1,11 @@
 .frontBack {
 	background-image: url(/assets/images/publicher-home.png);
-	height: 448px;
+	height: 383px;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
-    top: 48px;
+	top: 48px;
 }
 
 .leftBanner {
@@ -25,7 +25,7 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	position: absolute;
-	top: 110px;
+	top: 35px;
 	right: 2vw;
 }
 
@@ -41,72 +41,49 @@
 
 .textArea {
 	background-color: #dae8e7;
-	padding-bottom: 25px;
 	position: relative;
-}
-
-.textArea ul {
-	margin-top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-direction: row;
+	min-height: 325px;
+	top: 48px;
+	padding-bottom: 30px;
 }
 
 .box {
-	float: left;
-	height: 300px;
-	width: 150px;
-	margin: 2vw;
+	padding: 10px;
 }
 
 .bullets {
 	line-height: 35px;
 	font-size: 18px;
 	font-weight: bold;
-	margin-left: 6vw;
-	margin-right: 0;
-	width: 450px;
+	display: flex;
+	justify-content: center;
 }
 
 .buttons {
-	padding-top: 50px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
-.buttons app-button {
-	display: inline-block;
-	margin-left: 7vw;
-}
-
-@media ( max-width : 770px ) {
-	.leftBanner {
-		top: 80px;
+@media ( max-width : 758px) {
+	.textArea {
+		padding-bottom: 50px;
 	}
-	.buttons app-button {
-		display: inline-block;
-		margin-left: auto;
+}
+
+@media ( max-width : 408px) {
+	.textArea {
+		padding-bottom: 70px;
 	}
 }
 
 @media ( max-width : 1200px) {
-	.box {
-		float: none;
-		margin: auto;
-	}
-	.bullets {
-		line-height: 35px;
-		font-size: 18px;
-		font-weight: bold;
-		margin-left: 6vw;
-		margin-right: 0;
-		width: 90%;
-	}
 	.rightBanner {
 		display: none;
-	}
-	.buttons {
-		margin-bottom: 25px;
-		margin-left: auto;
-		margin-right: auto;
-		width: 50%;
-	}
-	.buttons {
-		padding-top: 40px;
 	}
 }
