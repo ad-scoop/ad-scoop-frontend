@@ -166,6 +166,7 @@
 	display: block;
 	padding-left: 10px;
 	padding-right: 10px;
+	text-align: justify;
 }
 
 #about {
@@ -184,6 +185,7 @@
 	display: block;
 	padding-left: 20px;
 	padding-right: 10px;
+	text-align: justify;
 }
 
 .aboutIcon {
