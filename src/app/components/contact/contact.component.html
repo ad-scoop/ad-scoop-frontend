@@ -1,6 +1,6 @@
 <form class="center" [formGroup]="contactForm" >
 	<md-form-field>
-		<input mdInput type="email" placeholder="Email fra" focuced formControlName="email" maxlength="256">
+		<input mdInput type="email" placeholder="Email fra" formControlName="email" maxlength="256">
 		<md-error *ngIf="contactForm.get('email').hasError('required')" [ngStyle]="{'color': 'red'}">Email adressen er krævet</md-error>
 	</md-form-field>
 	<br/>	
