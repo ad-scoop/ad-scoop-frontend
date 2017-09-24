@@ -243,15 +243,19 @@ agm-map {
 
 @media ( max-width : 1050px) {
 	#idea {
-		z-index: 3;
 		top: 148px;
 	}
 }
 
 @media ( max-width : 450px) {
 	#idea {
-		z-index: 3;
-		top: 300px;
+		top: 350px;
+	}
+	#about {
+		top: 450px;
+	}
+	#contact {
+		top: 630px;
 	}
 }
 
