@@ -20,6 +20,9 @@ import {FoucsDirective} from './utils/foucs.directive';
 import {BannerMatcherComponent} from './components/bannermatcher/bannermatcher.component';
 import {HomeComponent} from './components/home/home.component';
 import {ButtonComponent} from './components/button/button.component';
+import { ChartsModule } from 'ng2-charts';
+import { EffectComponent } from './components/effect/effect.component';
+import { ClicksComponent } from './components/clicks/clicks.component';
 
 @NgModule({
   imports: [
@@ -28,6 +31,7 @@ import {ButtonComponent} from './components/button/button.component';
     MaterialComponent,
     FormsModule,
     BrowserAnimationsModule,
+    ChartsModule,
   ],
   declarations: [
     FoucsDirective,
@@ -44,6 +48,8 @@ import {ButtonComponent} from './components/button/button.component';
     BannerMatcherComponent,
     HomeComponent,
     ButtonComponent,
+    EffectComponent,
+    ClicksComponent,
   ],
   providers: [
     AdvertiserGuard,

@@ -344,7 +344,7 @@ export class SiteService {
 
   public serche(model: WebSiteSearchCriteria): Observable<WebSite[]> {
     return this.http
-      .get(this.baseUrl + '/' + model.extractUrl(), this.getHeadersWithToken())
+      .get(this.baseUrl + '/search/' + model.extractUrl(), this.getHeadersWithToken())
       .map((resp: Response) => resp.json())
       .catch(error => {
         console.error('Fejl ved søgning af website: ' + error);

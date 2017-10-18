@@ -1,0 +1,15 @@
+.effects {
+	position: relative;
+	top: 48px;
+}
+
+.effects h1 {
+	margin-left: 20vw;	
+}
+
+.effects div {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-direction: row;
+}

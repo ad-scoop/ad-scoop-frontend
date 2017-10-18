@@ -58,6 +58,7 @@ export class TopMenuComponent implements OnInit {
 
   private advertiser = [
     new MenuItem('Planlæg og indryk', 'advertiser/campaigns', '', '', 'campaigns'),
+    new MenuItem('Overvåg effekt', 'advertiser/effect', '', '', 'effekt'),
     new MenuItem('Log ud', '', 'person', 'logout')
   ];
 

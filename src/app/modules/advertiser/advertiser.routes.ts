@@ -5,6 +5,7 @@ import { AdvertiserGuard } from './advertiser.guard';
 import { HomeComponent } from './components/home/home.component';
 import { BannerDialogComponent } from './components/banner/banner.component';
 import { EditDialogComponent } from './components/editdialog/editdialog.component';
+import { EffectComponent } from './components/effect/effect.component';
 
 
 export const advertiserRoutes: Routes = [
@@ -20,6 +21,7 @@ export const advertiserRoutes: Routes = [
                    { path: 'confirm', component: ConfirmDialogComponent },
                    { path: 'edit', component: EditDialogComponent },
                    { path: 'bannder', component: BannerDialogComponent },
+                   { path: 'effect', component: EffectComponent },
                ]
         }
     ]
