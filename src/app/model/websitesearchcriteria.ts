@@ -5,10 +5,14 @@ export class WebSiteSearchCriteria {
     public near?: boolean,
     public organisationCategory?: string,
     public branchCategory?: string
-  ) { }
+  ) {}
 
   public extractUrl(): string {
-    return '?' + this.convertOrganisation(this.convertArea());
+    const parameters = this.convertOrganisation(this.convertArea());
+    if (parameters) {
+      return '?' + parameters;
+    }
+    return '?';
   }
 
   private convertArea(): string {
