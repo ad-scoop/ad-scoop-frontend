@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-
+import {Observable} from "rxjs/Observable";
+import  {EventSource} from "eventsource"
 @Component({
   selector: 'app-clicks',
   templateUrl: './clicks.component.html',
@@ -37,6 +38,18 @@ export class ClicksComponent {
 
   public chartHovered(e: any): void {
     console.log(e);
+  }
+
+  getData() {
+   const observable =  Observable.create(res => {
+  const event = new EventSource('');
+
+  event.onmessage = data => {
+    data
+
+  }
+    })
+
   }
 
 }
