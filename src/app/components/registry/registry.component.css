@@ -11,23 +11,23 @@
 	padding: 24px;
 }
 
-md-card-header {
+mat-card-header {
 	background-color: #dae8e7;
 	padding-top: 20px;
 	padding-left: 24px;
 }
 
-md-card {
+mat-card {
 	box-shadow: inherit !important;
 	padding: 0 !important;
 }
 
-md-card-title {
+mat-card-title {
 	 margin-top: 5px;
 	 margin-bottom: 0;
 }
 
-md-checkbox {
+mat-checkbox {
 	margin-right: 10px;
 }
 
@@ -84,20 +84,20 @@ md-card-footer {
 		left: 0;
 		border-radius: 0;
 	}
-	md-card-header {
+	mat-card-header {
 		background-color: inherit;
 	}
-	md-card-header div {
+	mat-card-header div {
 		padding-top: 20px;
 	}
-	md-card-title {
+	mat-card-title {
 		padding-top: 25px;
 	}
-	md-card-footer {
+	mat-card-footer {
 		display: none;
 	}
 	.center {
 		padding-left: 20px;
 	}
-	
+
 }

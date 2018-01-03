@@ -1,40 +1,40 @@
 <div class="explanation">Vælg placeringen af banner på din side. Størrelsen er vigtig, men placeringen behøves ikke at være presis. Det er får at brugeren kan se hvor deres reklame kan passe ind og hvor de kan placeres.</div>
 <div class="input">
 	<div>
-		<md-select placeholder="Størrelse" name="size" [(ngModel)]="selectedSize">
-			<md-option *ngFor="let size of bannerSizes" [value]="size">
+		<mat-select placeholder="Størrelse" name="size" [(ngModel)]="selectedSize">
+			<mat-option *ngFor="let size of bannerSizes" [value]="size">
 		    	{{ size.value }}
-		  	</md-option>
-		</md-select>
-		<md-input-container>
-			<input mdInput [disabled]="!isSizeDefineSelected()" type="text" placeholder="Bredde" name="width" [(ngModel)]="model.width" #width="ngModel">
-		</md-input-container>
-		<md-input-container>
-			<input mdInput [disabled]="!isSizeDefineSelected()" type="text" placeholder="Højde" name="height" [(ngModel)]="model.height" #height="ngModel">
-		</md-input-container>
+		  	</mat-option>
+		</mat-select>
+		<mat-input-container>
+			<input matInput [disabled]="!isSizeDefineSelected()" type="text" placeholder="Bredde" name="width" [(ngModel)]="model.width" #width="ngModel">
+		</mat-input-container>
+		<mat-input-container>
+			<input matInput [disabled]="!isSizeDefineSelected()" type="text" placeholder="Højde" name="height" [(ngModel)]="model.height" #height="ngModel">
+		</mat-input-container>
 	</div>
 	<div>
-		<md-select placeholder="Placering" name="location" [(ngModel)]="selectedLocation">
-			<md-option *ngFor="let location of bannerLocations" [value]="location">
+		<mat-select placeholder="Placering" name="location" [(ngModel)]="selectedLocation">
+			<mat-option *ngFor="let location of bannerLocations" [value]="location">
 		    	{{ location.name }}
-		  	</md-option>
-		</md-select>
-		
-		<md-input-container>
-			<input mdInput [disabled]="!isLocationDefineSelected()" type="text" placeholder="Top" name="top" [(ngModel)]="model.top" #top="ngModel">
-		</md-input-container>
-		<md-input-container>
-			<input mdInput [disabled]="!isLocationDefineSelected()" type="text" placeholder="Venstre" name="left" [(ngModel)]="model.left" #left="ngModel">
-		</md-input-container>
+		  	</mat-option>
+		</mat-select>
+
+		<mat-input-container>
+			<input matInput [disabled]="!isLocationDefineSelected()" type="text" placeholder="Top" name="top" [(ngModel)]="model.top" #top="ngModel">
+		</mat-input-container>
+		<mat-input-container>
+			<input matInput [disabled]="!isLocationDefineSelected()" type="text" placeholder="Venstre" name="left" [(ngModel)]="model.left" #left="ngModel">
+		</mat-input-container>
 	</div>
 </div>
 <div class="buttonright">
 	<span class="clicktext">Klik på en banner for at ændre den.</span>
-	
-	<button md-mini-fab (click)="add()" [disabled]="isSelected() || canAdd()"><md-icon>add</md-icon></button>
-	<button md-mini-fab (click)="clear()" [disabled]="!isSelected()"><md-icon>edit</md-icon></button>
-	<button md-mini-fab (click)="remove()" [disabled]="!isSelected()"><md-icon>remove</md-icon></button>
-	
+
+	<button mat-mini-fab (click)="add()" [disabled]="isSelected() || canAdd()"><mat-icon>add</mat-icon></button>
+	<button mat-mini-fab (click)="clear()" [disabled]="!isSelected()"><mat-icon>edit</mat-icon></button>
+	<button mat-mini-fab (click)="remove()" [disabled]="!isSelected()"><mat-icon>remove</mat-icon></button>
+
 </div>
 <div id="websitesim">
 	<canvas #site (click)="canvasClick($event)"></canvas>

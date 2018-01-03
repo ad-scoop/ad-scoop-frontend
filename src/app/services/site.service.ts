@@ -1,19 +1,17 @@
-import { Area } from '../model/area';
-import { Demografi } from '../model/demografi';
-import { Industry } from '../model/industry';
-import { Organisation } from '../model/organisation';
-import { PlaceSelection } from '../model/placeselection';
-import { WebSite } from '../model/site';
-import { AuthenticationService } from './authentication.service';
-import { Injectable } from '@angular/core';
-import { Http, Response, RequestOptions, Headers } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import {Industry} from '../model/industry';
+import {PlaceSelection} from '../model/placeselection';
+import {WebSite} from '../model/site';
+import {AuthenticationService} from './authentication.service';
+import {Injectable} from '@angular/core';
+import {Headers, Http, RequestOptions, Response} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-import { environment } from '../../environments/environment';
-import { BannerSize } from '../model/bannersize';
-import { BannerSpace } from '../model/bannerspace';
-import { Country } from '../model/country';
-import { WebSiteSearchCriteria } from '../model/websitesearchcriteria';
+import {environment} from '../../environments/environment';
+import {BannerSize} from '../model/bannersize';
+import {Country} from '../model/country';
+import {WebSiteSearchCriteria} from '../model/websitesearchcriteria';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {catchError, tap} from "rxjs/operators";
 
 @Injectable()
 export class SiteService {
@@ -305,7 +303,8 @@ export class SiteService {
     new PlaceSelection('Define', 'Definer')
   ];
 
-  constructor(private http: Http, private authService: AuthenticationService) { }
+  constructor(private http: HttpClient, private authService: AuthenticationService) {
+  }
 
   public getCountries(): Country[] {
     return this.countries;
@@ -313,68 +312,57 @@ export class SiteService {
 
   public sites(): Observable<WebSite[]> {
     return this.http
-      .get(this.baseUrl, this.getHeadersWithToken())
-      .map((resp: Response) => resp.json())
-      .catch(response => {
-        throw new Error('Fejl ved hentning af website');
-      });
+      .get<WebSite[]>(this.baseUrl, {
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+          'Accept' : 'application/json' , 'token' : this.authService.getToken()
+        } });
   }
 
   public remove(webSite: WebSite): Observable<boolean> {
     return this.http
-      .delete(this.baseUrl + '/remove/' + webSite.id, this.getHeadersWithToken())
-      .catch(response => {
-        throw new Error('Fejl ved slette af website');
-      });
+      .delete<boolean>(this.baseUrl + '/remove/' + webSite.id, {
+        headers: this.getHeadersWithToken()});
   }
 
   public sercheByIds(webSitesIds: number[]): Observable<WebSite[]> {
     const result: WebSite[] = [];
     webSitesIds.forEach(id => {
       this.http
-        .get(this.baseUrl + '/' + id, this.getHeadersWithToken())
-        .forEach((resp: Response) => result.push(resp.json()))
-        .catch(error => {
-          console.error('Fejl ved søgning af website: ' + error);
-          return [];
-        });
+        .get<WebSite[]>(this.baseUrl + '/' + id, {
+          headers: this.getHeadersWithToken() });
     });
     return Observable.of(result);
   }
 
   public serche(model: WebSiteSearchCriteria): Observable<WebSite[]> {
     return this.http
-      .get(this.baseUrl + '/search/' + model.extractUrl(), this.getHeadersWithToken())
-      .map((resp: Response) => resp.json())
-      .catch(error => {
-        console.error('Fejl ved søgning af website: ' + error);
-        return [];
-      });
+      .get<WebSite[]>(this.baseUrl + '/search/' + model.extractUrl(), {
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+          'Accept' : 'application/json' , 'token' : this.authService.getToken()
+        } });
   }
 
   public add(webSite: WebSite): Observable<boolean> {
     return this.http
-      .post(this.baseUrl + '/create', webSite, this.getHeadersWithToken())
-      .catch(response => {
-        throw new Error('Fejl ved oprettese af website');
-      });
+      .post<boolean>(this.baseUrl + '/create', webSite, {
+        headers: this.getHeadersWithToken() });
   }
 
   public edit(webSite: WebSite): Observable<boolean> {
-    return this.http
-      .put(this.baseUrl + '/update', webSite, this.getHeadersWithToken())
-      .map(response => true)
-      .catch(response => {
-        throw new Error('Fejl ved ændring af website');
-      });
+    return this.http.put<boolean>(this.baseUrl + '/update', webSite, {
+        headers: this.getHeadersWithToken());
   }
 
-  private getHeadersWithToken(): RequestOptions {
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json; charset=utf-8');
-    headers.append('Accept', 'application/json');
-    headers.append('token', this.authService.getToken());
-    return new RequestOptions({ headers: headers });
+
+  private getHeadersWithToken(): HttpHeaders {
+    return new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'Accept': 'application/json', 'token': this.authService.getToken()
+    });
   }
+
+
 
 }

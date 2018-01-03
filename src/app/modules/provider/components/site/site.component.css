@@ -90,7 +90,7 @@
 	margin-top: 90px;
 }
 
-md-card {
+mat-card {
 	float: left;
 	max-width: 320px;
 	max-height: 340px;

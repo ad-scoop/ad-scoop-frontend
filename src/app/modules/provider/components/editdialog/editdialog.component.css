@@ -17,13 +17,13 @@
 	height: 80%;
 }
 
-md-card-header {
+mat-card-header {
 	background-color: #dae8e7;
 	padding-top: 20px;
 	padding-left: 24px;
 }
 
-md-card {
+mat-card {
 	box-shadow: inherit !important;
 	padding: 0 !important;
 	width: 100%;
@@ -35,7 +35,7 @@ md-card {
 	font-weight: 900;
 }
 
-md-card-content {
+mat-card-content {
 	height: 100%;
 	overflow: hidden;
 }
@@ -56,7 +56,7 @@ a {
 	display: none;
 }
 
-md-card-footer {
+mat-card-footer {
 	margin: 0 !important;
 	position: absolute;
 	bottom: 0px;
@@ -104,13 +104,13 @@ md-card-footer {
 	.header-background {
 		display: none;
 	}
-	md-card-header {
+	mat-card-header {
 		background-color: inherit;
 	}
-	md-card {
+	mat-card {
 		padding: 20px !important;
 	}
-	md-card-content {
+	mat-card-content {
 		width: 100%;
 		min-height: 500px;
 	}

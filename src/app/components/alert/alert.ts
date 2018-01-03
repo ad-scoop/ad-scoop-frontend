@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertService } from '../../services/alert.service';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'alert',
@@ -9,7 +9,7 @@ import { MdSnackBar } from '@angular/material';
 
 export class Alert implements OnInit {
 
-  constructor(public snackBar: MdSnackBar, private alertService: AlertService) { }
+  constructor(public snackBar: MatSnackBar, private alertService: AlertService) { }
 
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {

@@ -1,5 +1,5 @@
 <div>
-	<h3>{{headline}}</h3> 
+	<h3>{{headline}}</h3>
 	<div>{{subtitle}}</div>
 	<table>
 		<tr>
@@ -14,8 +14,8 @@
 			<td colSpan="6">Du har ikke tilføjet nogle websites tryk på redigér knappen</td>
 		</tr>
 		<tr *ngFor="let site of sites">
-			<td *ngIf="!firstColName"><md-icon *ngIf="site.accepted">checked</md-icon></td>
-			<td *ngIf="firstColName"><button md-mini-fab (click)="click(site)"><md-icon *ngIf="removeColumn">remove</md-icon><md-icon *ngIf="!removeColumn">add</md-icon></button></td>
+			<td *ngIf="!firstColName"><mat-icon *ngIf="site.accepted">checked</mat-icon></td>
+			<td *ngIf="firstColName"><button mat-mini-fab (click)="click(site)"><mat-icon *ngIf="removeColumn">remove</mat-icon><mat-icon *ngIf="!removeColumn">add</mat-icon></button></td>
 			<td><a [href]="site.url">{{site.url}}</a></td>
 			<td [class]="hideSmall">{{getIndustry(site)}}</td>
 			<td [class]="hideSmall">{{getArea(site)}}</td>

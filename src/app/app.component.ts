@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {MdIconRegistry} from '@angular/material';
+import {MatIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 import {polyfill } from 'smoothscroll-polyfill';
 
@@ -11,7 +11,7 @@ import {polyfill } from 'smoothscroll-polyfill';
 export class AppComponent {
   title = 'ad-scoop';
 
-  constructor(mdIconRegistry: MdIconRegistry, sanitizer: DomSanitizer) {
+  constructor(mdIconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
     polyfill();
     mdIconRegistry
       .addSvgIcon('banner', sanitizer.bypassSecurityTrustResourceUrl('/assets/images/create-banner-small.svg'))

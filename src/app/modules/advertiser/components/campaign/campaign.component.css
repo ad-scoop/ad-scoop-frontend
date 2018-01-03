@@ -24,11 +24,11 @@
 	top: 60px;
 }
 
-.cardWidth md-card-header {
+.cardWidth mat-card-header {
 	margin-left: 10px;
 }
 
-.cardWidth md-card-title {
+.cardWidth mat-card-title {
 	font-weight: bold;
 	font-size: 16px;
 	position: relative;
@@ -42,7 +42,7 @@
 	top: -35px;
 }
 
-.cardWidth md-card {
+.cardWidth mat-card {
 	width: 29%;
 	float: left;
 	height: 115px;
@@ -82,7 +82,7 @@
 }
 
 @media ( max-width : 770px) {
-	.cardWidth md-card {
+	.cardWidth mat-card {
 		width: auto;
 		float: none;
 		height: 115px;

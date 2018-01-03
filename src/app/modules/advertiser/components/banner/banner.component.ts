@@ -1,6 +1,6 @@
 import { Banner } from '../../../../model/banner';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { MdDialogRef, MdDialog } from '@angular/material';
+import { MatDialogRef, MatDialog } from '@angular/material';
 
 @Component({
   templateUrl: './banner.dialog.component.html',
@@ -10,7 +10,7 @@ export class BannerDialogComponent {
 
   @Input() banner: Banner;
 
-  constructor(public dialogRef: MdDialogRef<BannerDialogComponent>) { }
+  constructor(public dialogRef: MatDialogRef<BannerDialogComponent>) { }
 
 }
 
@@ -29,7 +29,7 @@ export class BannerComponent {
 
   selectedBanner: Banner;
 
-  constructor(public dialog: MdDialog) { }
+  constructor(public dialog: MatDialog) { }
 
   select(selected: Banner): void {
     this.selectedBanner = selected;

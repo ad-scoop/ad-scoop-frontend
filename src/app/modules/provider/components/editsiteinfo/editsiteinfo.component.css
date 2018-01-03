@@ -14,12 +14,12 @@ a {
 	margin-left: 5px;
 }
 
-.inputcontainer md-input-container, md-select {
+.inputcontainer mat-accordion, mat-select {
 	margin-top: 5px;
 	width: 145px;
 }
 
-.inputcontainer md-select {
+.inputcontainer mat-select {
 	margin-top: 15px;
 }
 
@@ -32,7 +32,7 @@ h3 {
 	margin-bottom: 0px;
 }
 
-md-chip-list {
+mat-chip-list {
 	width: 500px;
 	overflow: auto;
 	display: block;

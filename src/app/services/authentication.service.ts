@@ -1,11 +1,10 @@
-import { environment } from '../../environments/environment';
-import { Injectable } from '@angular/core';
-import { Http, Response, Headers } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import {environment} from '../../environments/environment';
+import {Injectable} from '@angular/core';
+import {Response} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-
-import { User } from './../model/user';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Injectable()
 export class AuthenticationService {
@@ -15,15 +14,18 @@ export class AuthenticationService {
 
   private baseUrl = environment.userUrl;
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) {
+  }
 
-  login(email: string, password: string): Observable<string[]> {
-    return this.http
-      .post(this.baseUrl + '/login', { email: email, password: password }, this.getHeaders())
-      .map(this.mapUser)
+  login(email: string, password: string): Observable<any> {
+return  this.http
+      .post(this.baseUrl + '/login', {email: email, password: password}, {headers: this.getHeaders()})
+
       .catch(response => {
         throw new Error('' + response.status);
       });
+
+
   }
 
   selectProfile(profile: string) {
@@ -62,21 +64,21 @@ export class AuthenticationService {
     return currentUser && currentUser.labels;
   }
 
-  private getHeaders(): Headers {
-    const headers = new Headers();
+  private getHeaders(): HttpHeaders {
+    const headers = new HttpHeaders();
     headers.append('Accept', 'application/json');
     return headers;
   }
 
-  private mapUser(response: Response): string[] {
-    const token = response.json().token;
-    const labels = response.json().labels;
+  private mapUser(response: any): Observable<string[]> {
+    const token = response.token;
+    const labels = response.labels;
     if (token) {
-      localStorage.setItem('currentUser', JSON.stringify({ labels: labels, token: token }));
+      localStorage.setItem('currentUser', JSON.stringify({labels: labels, token: token}));
     } else {
       throw new Error('Fejl ved login');
     }
-    return labels;
+    return Observable.of(labels);
   }
 
 }

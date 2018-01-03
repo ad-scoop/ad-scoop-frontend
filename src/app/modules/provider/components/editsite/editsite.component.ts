@@ -1,7 +1,6 @@
 import {WebSite} from '../../../../model/site';
-import {EditDialogComponent} from '../editdialog/editdialog.component';
 import {EditInterface} from '../editdialog/editinterface';
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-editsite',
@@ -13,7 +12,8 @@ export class EditSiteComponent implements EditInterface, OnInit {
   @Input() site: WebSite;
   public url: string;
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.url = this.site.url;

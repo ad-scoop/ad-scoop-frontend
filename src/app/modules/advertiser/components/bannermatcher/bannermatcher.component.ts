@@ -1,12 +1,11 @@
-import {Component, Input, ViewChild, ElementRef, HostListener} from '@angular/core';
+import {Component, ElementRef, HostListener, Input, ViewChild} from '@angular/core';
 import {Banner} from '../../../../model/banner';
 import {BannerSpace} from '../../../../model/bannerspace';
 import {CachedWebsite} from '../../../../model/cachedwebsite';
 import {Campaign} from '../../../../model/campaign';
 import {WebSite} from '../../../../model/site';
-import {WebSiteSearchCriteria} from '../../../../model/websitesearchcriteria';
 import {SiteService} from '../../../../services/site.service';
-import {WebSiteBanners, Position} from '../../../../utils/websitebanners';
+import {Position, WebSiteBanners} from '../../../../utils/websitebanners';
 
 @Component({
   selector: 'app-bannermatcher',

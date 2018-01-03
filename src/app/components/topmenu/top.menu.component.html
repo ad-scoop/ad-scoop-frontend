@@ -1,21 +1,21 @@
 <div class="topMenu">
-	<a md-button [routerLink]="toHome()" class="logoSmall"></a>
-	
+	<a mat-button [routerLink]="toHome()" class="logoSmall"></a>
+
 	<span class="dropDowntopMenuItems">
-		<a md-button [mdMenuTriggerFor]="menu">
-			<md-icon>menu</md-icon>
-		</a> 
-		
-		<md-menu #menu="mdMenu">
+		<a mat-button [matMenuTriggerFor]="menu">
+			<mat-icon>menu</mat-icon>
+		</a>
+
+		<mat-menu #menu="matMenu">
 			<span *ngFor="let item of selectedMenu">
 				<app-top-menu-button [item]="item" [owner]="self"></app-top-menu-button>
-	 		</span>	
-		</md-menu>
+	 		</span>
+		</mat-menu>
 	</span>
-	
+
 	<span class="topMenuItems">
 		<span *ngFor="let item of selectedMenu">
 			<app-top-menu-button [item]="item" [owner]="self"></app-top-menu-button>
-		</span>	
+		</span>
 	</span>
 </div>

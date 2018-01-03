@@ -1,14 +1,13 @@
-<div class="noCampagins" *ngIf="!campaigns || campaigns.length == 0"><span>Du har ingen kampagner tryk på kanppen for at tilføje en kampagne</span><button md-mini-fab (click)="add()"><md-icon>add</md-icon></button></div>
-<md-card class="cardWidth" *ngFor="let campaign of campaigns; let i = index"> 
-	<md-card-content> 
-		<button md-mini-fab (click)="remove(campaign)"><md-icon>remove</md-icon></button>
-		<button md-mini-fab (click)="edit(campaign)"><md-icon>edit</md-icon></button>
-		<button md-mini-fab *ngIf="i == 0" (click)="add()"><md-icon>add</md-icon></button>
-		<md-card-header>
-			<div md-card-avatar><md-icon>group_work</md-icon></div>
-   			<md-card-title>{{campaign.name}}</md-card-title> 
-		</md-card-header> 
-		<md-card class="campaign">
+<div class="noCampagins" *ngIf="!campaigns || campaigns.length == 0"><span>Du har ingen kampagner tryk på kanppen for at tilføje en kampagne</span><button mat-mini-fab (click)="add()"><mat-icon>add</mat-icon></button></div>
+<mat-card class="cardWidth" *ngFor="let campaign of campaigns; let i = index">
+	<mat-card-content>
+		<button mat-mini-fab (click)="edit(campaign)"><mat-icon>edit</mat-icon></button>
+		<button mat-mini-fab *ngIf="i == 0" (click)="add()"><mat-icon>add</mat-icon></button>
+		<mat-card-header>
+			<div mat-card-avatar><mat-icon>group_work</mat-icon></div>
+   			<mat-card-title>{{campaign.name}}</mat-card-title>
+		</mat-card-header>
+		<mat-card class="campaign">
 			<div>
 				<label>Startdato</label>
 				<span>{{campaign.startDate | date}}</span>
@@ -29,17 +28,17 @@
 				<label>Pris</label>
 				<span>{{campaign.price | currency: 'DKK' :true:'1.2-2'}}</span>
 			</div>
-			
-		</md-card>
-		<md-card class="site">
+
+		</mat-card>
+		<mat-card class="site">
 			<app-site [sites]="webSites(campaign)"></app-site>
-		</md-card>
-		<md-card class="banner">
+		</mat-card>
+		<mat-card class="banner">
 			<app-banner [banners]="campaign.banners" showDialog="true"></app-banner>
-		</md-card>
-		<md-card-footer>
-		</md-card-footer> 
-	</md-card-content> 
-</md-card>
-			
-			
+		</mat-card>
+		<mat-card-footer>
+		</mat-card-footer>
+	</mat-card-content>
+</mat-card>
+
+

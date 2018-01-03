@@ -1,60 +1,61 @@
 <form (ngSubmit)="f.form.valid && create()" #f="ngForm" >
-	<md-card class="fullscreen-dialog">
-		<md-card-content class="content"> 
-			<a (click)="dialogRef.close()"><md-icon>close</md-icon></a>
-			<button md-button color="primary" class="create" type="submit">Opret</button>
-			<md-card-header>
-				<div md-card-avatar><md-icon>person</md-icon></div>
-    			<md-card-title>Registere</md-card-title> 
-			</md-card-header> 
+	<mat-card class="fullscreen-dialog">
+		<mat-card-content class="content">
+			<a (click)="dialogRef.close()"><mat-icon>close</mat-icon></a>
+			<button mat-button color="primary" class="create" type="submit">Opret</button>
+			<mat-card-header>
+				<div mat-card-avatar><mat-icon>person</mat-icon></div>
+    			<mat-card-title>Registere</mat-card-title>
+			</mat-card-header>
 			<div class="center">
 				<div>
-					<md-checkbox (change)="changeLabelAdvertiser()" #advetiser [required]="!provider.checked">Jeg er annoncør</md-checkbox>
-					<md-checkbox (change)="changeLabelProvider()"  #provider  [required]="!advetiser.checked">Jeg har et website</md-checkbox>
-					<md-hint *ngIf="!provider.checked && !advetiser.checked" [ngStyle]="{'color': 'red'}">Vælg én af profilerne</md-hint>
-				</div>
+          <section>
+					<mat-checkbox (change)="changeLabelAdvertiser()" #advetiser [required]="!provider.checked">Jeg er annoncør</mat-checkbox>
+					<mat-checkbox (change)="changeLabelProvider()"  #provider  [required]="!advetiser.checked">Jeg har et website</mat-checkbox>
+					<mat-hint *ngIf="!provider.checked && !advetiser.checked" [ngStyle]="{'color': 'red'}">Vælg én af profilerne</mat-hint>
+          </section>
+        </div>
 				<div>
-					<md-input-container class="input">
-						<input mdInput placeholder="Fornavn" [(ngModel)]="model.firstname" name="firstname" required maxlength="200" #firstname="ngModel">
-						<md-hint *ngIf="firstname.errors && (firstname.dirty || firstname.touched)" [ngStyle]="{'color': 'red'}">Fornavnet er krævet</md-hint>
-					</md-input-container>
-		
-					<md-input-container class="input">
-						<input mdInput placeholder="Mellemnavn" [(ngModel)]="model.middelltname" name="middelltname" maxlength="200" #middelltname="ngModel">
-					</md-input-container>
-			
-					<md-input-container class="input">
-						<input mdInput placeholder="Efternavn" [(ngModel)]="model.lastname" name="lastname" required maxlength="200" #lastname="ngModel">
-						<md-hint *ngIf="lastname.errors && (lastname.dirty || lastname.touched)" [ngStyle]="{'color': 'red'}">Efternavnet er krævet</md-hint>
-					</md-input-container>
+					<mat-form-field class="input">
+						<input matInput placeholder="Fornavn" [(ngModel)]="model.firstname" name="firstname" required maxlength="200" #firstname="ngModel">
+						<mat-hint *ngIf="firstname.errors && (firstname.dirty || firstname.touched)" [ngStyle]="{'color': 'red'}">Fornavnet er krævet</mat-hint>
+					</mat-form-field>
+
+					<mat-form-field class="input">
+						<input matInput placeholder="Mellemnavn" [(ngModel)]="model.middelltname" name="middelltname" maxlength="200" #middelltname="ngModel">
+					</mat-form-field>
+          <mat-input-container class="input">
+						<input matInput placeholder="Efternavn" [(ngModel)]="model.lastname" name="lastname" required maxlength="200" #lastname="ngModel">
+						<mat-hint *ngIf="lastname.errors && (lastname.dirty || lastname.touched)" [ngStyle]="{'color': 'red'}">Efternavnet er krævet</mat-hint>
+					</mat-input-container>
 				</div>
-	 	
+
 				<div>
-					<md-input-container class="input">
-						<input mdInput tyep="email" placeholder="Email" [(ngModel)]="model.email" name="email" required #email="ngModel" maxlength="200" autocomplete="off">
-						<md-hint *ngIf="email.errors && (email.dirty || email.touched)" [ngStyle]="{'color': 'red'}">Email adressen er krævet</md-hint>
-					</md-input-container>
+					<mat-form-field class="input">
+						<input matInput tyep="email" placeholder="Email" [(ngModel)]="model.email" name="email" required #email="ngModel" maxlength="200" autocomplete="off">
+						<mat-hint *ngIf="email.errors && (email.dirty || email.touched)" [ngStyle]="{'color': 'red'}">Email adressen er krævet</mat-hint>
+					</mat-form-field>
 				</div>
-	
+
 				<div>
-					<md-input-container class="input">
-						<input mdInput type="password" placeholder="Password" [(ngModel)]="model.password" name="password" required #password="ngModel" autocomplete="off">
-						<md-hint *ngIf="password.errors && (password.dirty || password.touched)" [ngStyle]="{'color': 'red'}">Password er krævet</md-hint>
-					</md-input-container>
+					<mat-form-field class="input">
+						<input matInput type="password" placeholder="Password" [(ngModel)]="model.password" name="password" required #password="ngModel" autocomplete="off">
+						<mat-hint *ngIf="password.errors && (password.dirty || password.touched)" [ngStyle]="{'color': 'red'}">Password er krævet</mat-hint>
+					</mat-form-field>
 				</div>
-	
+
 				<div>
-					<md-input-container class="input">
-						<input mdInput type="password" placeholder="Gendtag password" [(ngModel)]="model.passwordtest" name="passwordtest" required #passwordtest="ngModel">
-						<md-hint *ngIf="passwordtest.errors && (passwordtest.dirty || passwordtest.touched)" [ngStyle]="{'color': 'red'}">Password er krævet</md-hint>
-						<md-hint *ngIf="(passwordtest.value != password.value) && (passwordtest.dirty || passwordtest.touched)" [ngStyle]="{'color': 'red'}">De to password er forskellige</md-hint>
-					</md-input-container>
+					<mat-form-field class="input">
+						<input matInput type="password" placeholder="Gendtag password" [(ngModel)]="model.passwordtest" name="passwordtest" required #passwordtest="ngModel">
+						<mat-hint *ngIf="passwordtest.errors && (passwordtest.dirty || passwordtest.touched)" [ngStyle]="{'color': 'red'}">Password er krævet</mat-hint>
+						<mat-hint *ngIf="(passwordtest.value != password.value) && (passwordtest.dirty || passwordtest.touched)" [ngStyle]="{'color': 'red'}">De to password er forskellige</mat-hint>
+					</mat-form-field>
 				</div>
 			</div>
-			<md-card-footer>
-				<button md-button color="accent" align="end" class="right" (click)="dialogRef.close()">Annuller</button>
-				<button md-button color="primary" align="end" class="right" type="submit">Opret</button>
-			</md-card-footer> 
-		</md-card-content> 
-	</md-card>
+			<mat-card-footer>
+				<button mat-button color="accent" align="end" class="right" (click)="dialogRef.close()">Annuller</button>
+				<button mat-button color="primary" align="end" class="right" type="submit">Opret</button>
+			</mat-card-footer>
+		</mat-card-content>
+	</mat-card>
 </form>

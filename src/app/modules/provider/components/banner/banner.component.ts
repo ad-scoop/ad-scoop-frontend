@@ -1,15 +1,14 @@
-import { BannerSize } from '../../../../model/bannersize';
-import { BannerSpace } from '../../../../model/bannerspace';
-import { PlaceSelection } from '../../../../model/placeselection';
-import { WebSite } from '../../../../model/site';
-import { SiteService } from '../../../../services/site.service';
-import { WebSiteBanners } from '../../../../utils/websitebanners';
-import { EditInterface } from '../editdialog/editinterface';
+import {BannerSize} from '../../../../model/bannersize';
+import {BannerSpace} from '../../../../model/bannerspace';
+import {PlaceSelection} from '../../../../model/placeselection';
+import {WebSite} from '../../../../model/site';
+import {SiteService} from '../../../../services/site.service';
+import {WebSiteBanners} from '../../../../utils/websitebanners';
+import {EditInterface} from '../editdialog/editinterface';
 import {
-  Component, OnInit, Input, AfterViewInit, ViewChild,
-  ViewContainerRef, ComponentFactoryResolver, HostListener, ElementRef
+  AfterViewInit, Component, ComponentFactoryResolver, ElementRef, HostListener, Input, ViewChild,
+  ViewContainerRef
 } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-banner',
@@ -30,10 +29,9 @@ export class BannerComponent implements EditInterface, AfterViewInit {
 
   private webSiteBanners: WebSiteBanners;
 
-  constructor(
-    private siteService: SiteService,
-    private viewContainerRef: ViewContainerRef,
-    private componentFactoryResolver: ComponentFactoryResolver) {
+  constructor(private siteService: SiteService,
+              private viewContainerRef: ViewContainerRef,
+              private componentFactoryResolver: ComponentFactoryResolver) {
     this.bannerSizes = this.siteService.bannerSizes;
     this.bannerLocations = this.siteService.bannerLocations;
   }

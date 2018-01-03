@@ -1,26 +1,26 @@
 <div class="float">
-	<md-card class="fullscreen-dialog">
-		<md-card-content> 
-			<a (click)="dialogRef.close()"><md-icon>close</md-icon></a>
-			<md-card-header color="accent">
-				<button class="next" color="primary" md-button (click)="next()" *ngIf="!isLastStep()">Næste</button>
-				<button class="next" color="primary" md-raised-button (click)="edit()" *ngIf="isLastStep()">{{type}}</button>
-				<button class="back" color="primary" md-button (click)="back()" *ngIf="isNotFirstStep()">Tilbage</button>
-				<div md-card-avatar><md-icon>group_work</md-icon></div>
-	   			<md-card-title class="title">{{type}}</md-card-title> 
-			</md-card-header> 
+	<mat-card class="fullscreen-dialog">
+		<mat-card-content>
+			<a (click)="dialogRef.close()"><mat-icon>close</mat-icon></a>
+			<mat-card-header color="accent">
+				<button class="next" color="primary" mat-button (click)="next()" *ngIf="!isLastStep()">Næste</button>
+				<button class="next" color="primary" mat-raised-button (click)="edit()" *ngIf="isLastStep()">{{type}}</button>
+				<button class="back" color="primary" mat-button (click)="back()" *ngIf="isNotFirstStep()">Tilbage</button>
+				<div mat-card-avatar><mat-icon>group_work</mat-icon></div>
+	   			<mat-card-title class="title">{{type}}</mat-card-title>
+			</mat-card-header>
 			<div class="center">
 				<app-editcampaign #editcampaign class="small" *ngIf="selectedStep == selectedStepEnum.CAMPAIGN" [campaign]="campaign"></app-editcampaign>
 				<app-searchsites #searchsites class="small" *ngIf="selectedStep == selectedStepEnum.SITES" [campaign]="campaign"></app-searchsites>
 				<app-bannerupload #searchbanner class="small" *ngIf="selectedStep == selectedStepEnum.BANNER" [campaign]="campaign"></app-bannerupload>
 				<app-bannermatcher #bannermatcher class="small" *ngIf="selectedStep == selectedStepEnum.BANNER_SITE" [campaign]="campaign"></app-bannermatcher>
 			</div>
-			<md-card-footer class="rightbutton">
-				<button md-button color="accent" (click)="dialogRef.close()">Annuller</button>
-				<button color="primary" md-button (click)="next()" *ngIf="!isLastStep()">Næste</button>
-				<button color="primary" md-raised-button (click)="edit()" *ngIf="isLastStep()">{{type}}</button>
-				<button color="primary" md-button (click)="back()" *ngIf="isNotFirstStep()">Tilbage</button>
-			</md-card-footer> 
-		</md-card-content> 
-	</md-card>
+			<mat-card-footer class="rightbutton">
+				<button mat-button color="accent" (click)="dialogRef.close()">Annuller</button>
+				<button color="primary" mat-button (click)="next()" *ngIf="!isLastStep()">Næste</button>
+				<button color="primary" mat-raised-button (click)="edit()" *ngIf="isLastStep()">{{type}}</button>
+				<button color="primary" mat-button (click)="back()" *ngIf="isNotFirstStep()">Tilbage</button>
+			</mat-card-footer>
+		</mat-card-content>
+	</mat-card>
 </div>
