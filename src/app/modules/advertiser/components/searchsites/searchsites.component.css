@@ -8,15 +8,15 @@
 	width: 225px;
 }
 
-.inputcontainer md-input-container {
+.inputcontainer mat-input-container {
 	margin-bottom: 30px;
 }
 
-.inputcontainer md-select {
+.inputcontainer mat-select {
 	margin-bottom: 30px;
 }
 
-md-hint {
+mat-hint {
 	height: 10px;
 }
 

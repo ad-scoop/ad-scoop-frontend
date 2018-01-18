@@ -1,14 +1,14 @@
 <div class="centerContent">
-	<div class="noWebsits" *ngIf="!sites || sites.length == 0"><span>Du har ingen websider tryk på kanppen for at tilføje en webside</span><button md-mini-fab (click)="add()"><md-icon>add</md-icon></button></div>
-	<md-card *ngFor="let site of sites; let i = index"> 
-		<md-card-content class="buttons"> 
-			<button md-mini-fab (click)="remove(site)"><md-icon>remove</md-icon></button>
-			<button md-mini-fab (click)="edit(site)"><md-icon>edit</md-icon></button>
-			<button md-mini-fab *ngIf="i == 0" (click)="add()"><md-icon>add</md-icon></button>
-			<md-card-header>
-				<div md-card-avatar><md-icon class="mainIcon">web</md-icon></div>
-	   			<md-card-title>{{site.url}}</md-card-title> 
-			</md-card-header>
+	<div class="noWebsits" *ngIf="!sites || sites.length == 0"><span>Du har ingen websider tryk på kanppen for at tilføje en webside</span><button mat-mini-fab (click)="add()"><mat-icon>add</mat-icon></button></div>
+	<mat-card *ngFor="let site of sites; let i = index">
+		<mat-card-content class="buttons">
+			<button mat-mini-fab (click)="remove(site)"><mat-icon>remove</mat-icon></button>
+			<button mat-mini-fab (click)="edit(site)"><mat-icon>edit</mat-icon></button>
+			<button mat-mini-fab *ngIf="i == 0" (click)="add()"><mat-icon>add</mat-icon></button>
+			<mat-card-header>
+				<div mat-card-avatar><mat-icon class="mainIcon">web</mat-icon></div>
+	   			<mat-card-title>{{site.url}}</mat-card-title>
+			</mat-card-header>
 			<div class="frame-container">
 				<div class="frame">
 					<iframe *ngIf="!isNotSafe(site)" [src]="site.url | urlsafe"></iframe>
@@ -33,7 +33,7 @@
 					<span title="{{labels(site)}}">{{labels(site)}}</span>
 				</div>
 			</div>
-			
-		</md-card-content>
-	</md-card>
+
+		</mat-card-content>
+	</mat-card>
 </div>

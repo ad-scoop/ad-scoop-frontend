@@ -1,9 +1,8 @@
-import { Campaign } from '../../../../model/campaign';
-import { EditInterface } from '../editdialog/editinterface';
-import { DatePipe } from '@angular/common';
-import { Component, Input, ViewChild, OnInit, ElementRef } from '@angular/core';
-import { NgForm, AbstractControl } from '@angular/forms';
-import { MdDialogRef } from '@angular/material';
+import {Campaign} from '../../../../model/campaign';
+import {EditInterface} from '../editdialog/editinterface';
+import {DatePipe} from '@angular/common';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {AbstractControl, NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-editcampaign',
@@ -17,7 +16,8 @@ export class EditCampaignComponent implements EditInterface, OnInit {
   @Input() campaign: Campaign;
   @ViewChild('f') form: NgForm;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.startDate.nativeElement.setAttribute('value', this.dateParse(this.campaign.startDate));

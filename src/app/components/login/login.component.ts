@@ -1,11 +1,11 @@
 import { EventService, Event } from '../../services/event.service';
 import {FormControl, Validators, FormGroup} from '@angular/forms';
 import {RegistryComponent} from '../registry/registry.component';
-import {Component, ViewContainerRef} from '@angular/core';
+import {Component, Inject, ViewContainerRef} from '@angular/core';
 import {AuthenticationService} from './../../services/authentication.service';
 import {AlertService} from './../../services/alert.service';
 import {Router} from '@angular/router';
-import {MdDialog, MdDialogConfig, MdDialogRef} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogConfig, MatDialogRef} from '@angular/material/dialog';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
@@ -15,7 +15,7 @@ import 'rxjs/add/observable/of';
 })
 export class ProfileDialogComponent {
 
-  constructor(public dialogRef: MdDialogRef<ProfileDialogComponent>) {}
+  constructor(public dialogRef: MatDialogRef<ProfileDialogComponent>, @Inject(MAT_DIALOG_DATA) data: any) {}
 
   selectAdvetiser(): void {
     this.dialogRef.close(AuthenticationService.ADVERTISER);
@@ -35,7 +35,7 @@ export class ProfileDialogComponent {
 
 export class LoginComponent {
 
-  dialogRef: MdDialogRef<any>;
+  dialogRef: MatDialogRef<any>;
   model: any = {};
 
   loginForm = new FormGroup({
@@ -47,20 +47,22 @@ export class LoginComponent {
     private router: Router,
     private userServcie: AuthenticationService,
     private alertService: AlertService,
-    public dialog: MdDialog,
+    public dialog: MatDialog,
     public viewContainerRef: ViewContainerRef,
     private eventService: EventService) {}
 
   login() {
     this.userServcie.login(this.loginForm.controls.email.value, this.loginForm.controls.password.value)
       .subscribe(
-      (data) => this.redirect(data),
+      (data) => {  console.log(data.labels);
+                        this.redirect(this.mapUser(data));
+                          },
       (err) => this.alertService.error('E-mail eller password er forkert!')
       );
   }
 
   registry(): void {
-    const config = new MdDialogConfig();
+    const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
 
     this.dialogRef = this.dialog.open(RegistryComponent, config);
@@ -92,10 +94,22 @@ export class LoginComponent {
   }
 
   private showDialog(): Observable<string> {
-    const config = new MdDialogConfig();
+    const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
     this.dialogRef = this.dialog.open(ProfileDialogComponent, config);
     return this.dialogRef.afterClosed();
+  }
+
+
+  private mapUser(response: any): string[] {
+    const token = response.token;
+    const labels = response.labels;
+    if (token) {
+      localStorage.setItem('currentUser', JSON.stringify({labels: labels, token: token}));
+    } else {
+      throw new Error('Fejl ved login');
+    }
+    return labels;
   }
 
 }

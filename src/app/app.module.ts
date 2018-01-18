@@ -34,6 +34,7 @@ import {AgmCoreModule} from '@agm/core';
 
 import 'hammerjs';
 import {ContactComponent} from './components/contact/contact.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import {ContactComponent} from './components/contact/contact.component';
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpModule,
+    HttpClientModule,
     AdvertiserModule,
     ProviderModule,
     BrowserAnimationsModule,

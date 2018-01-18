@@ -2,18 +2,20 @@
 <div class="banner">
 	<div class="buttons">
 	<img class="selectedImage" *ngIf="selectedBanner" height="25px" src="{{selectedBanner.picture}}" />
-	<md-select class="bannerSelect" placeholder="Vælg banner" [(ngModel)]="selectedBanner" name="banner">
-		<md-option *ngFor="let banner of campaign.banners" [value]="banner">
+<mat-form-field>
+	<mat-select class="bannerSelect" placeholder="Vælg banner" [(ngModel)]="selectedBanner" name="banner">
+		<mat-option *ngFor="let banner of campaign.banners" [value]="banner">
 			<img height="25px" src="{{banner.picture}}">
-	  	</md-option>
-	</md-select>
-
-
-	<md-select class="websiteSelect" placeholder="Vælg website" [(ngModel)]="selectedSite" name="sites">
-		<md-option *ngFor="let site of webSites" [value]="site">
+	  	</mat-option>
+	</mat-select>
+</mat-form-field>
+<mat-form-field>
+	<mat-select class="websiteSelect" placeholder="Vælg website" [(ngModel)]="selectedSite" name="sites">
+		<mat-option *ngFor="let site of webSites" [value]="site">
 	    	{{site.url}}
-	  	</md-option>
-	</md-select>
+	  	</mat-option>
+	</mat-select>
+</mat-form-field>
 	</div>
 </div>
 <div id="websitesimg">

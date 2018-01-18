@@ -2,9 +2,8 @@ import { User } from '../../model/user'
 import { AlertService } from '../../services/alert.service'
 import { AuthenticationService } from '../../services/authentication.service';
 import { UserService } from '../../services/user.service'
-import { Component, Input, OnInit, ElementRef } from '@angular/core';
-import { Validator, AbstractControl } from '@angular/forms'
-import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
+import { Component, Input, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-registry',
@@ -18,10 +17,10 @@ export class RegistryComponent implements OnInit {
 
   model: any = {};
 
-  constructor(
-    public dialogRef: MdDialogRef<any>,
+  constructor(public dialogRef: MatDialogRef<RegistryComponent>,
     private userService: UserService,
-    private alertService: AlertService) { }
+    private alertService: AlertService) {
+  }
 
   ngOnInit() {
     this.model.labels = [];

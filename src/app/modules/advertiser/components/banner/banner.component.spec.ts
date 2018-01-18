@@ -2,7 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BannerComponent } from './banner.component';
@@ -19,7 +19,7 @@ describe('BannerlistComponent', () => {
     TestBed.configureTestingModule({
       declarations: [BannerComponent],
       providers: [
-        { provide: MdDialog, useClass: MdDialogMock },
+        { provide: MatDialog, useClass: MdDialogMock },
       ],
       imports: [ BrowserAnimationsModule ],
 

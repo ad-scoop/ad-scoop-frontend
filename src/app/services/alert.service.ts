@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
@@ -7,7 +7,7 @@ import { Subject } from 'rxjs/Subject';
 export class AlertService {
   private subject = new Subject<any>();
 
-  constructor(private snackBar: MdSnackBar) { }
+  constructor(private snackBar: MatSnackBar) { }
 
   success(message: string) {
     this.subject.next({ type: 'success', text: message });

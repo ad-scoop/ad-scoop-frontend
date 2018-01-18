@@ -1,13 +1,12 @@
-import { CachedWebsite } from '../../../../model/cachedwebsite';
-import { Campaign } from '../../../../model/campaign';
-import { Industry } from '../../../../model/industry';
-import { WebSite } from '../../../../model/site';
-import { WebSiteSearchCriteria } from '../../../../model/websitesearchcriteria';
-import { CampaignService } from '../../../../services/campaign.service';
-import { SiteService } from '../../../../services/site.service';
-import { EditInterface } from '../editdialog/editinterface';
-import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import {CachedWebsite} from '../../../../model/cachedwebsite';
+import {Campaign} from '../../../../model/campaign';
+import {Industry} from '../../../../model/industry';
+import {WebSite} from '../../../../model/site';
+import {WebSiteSearchCriteria} from '../../../../model/websitesearchcriteria';
+import {CampaignService} from '../../../../services/campaign.service';
+import {SiteService} from '../../../../services/site.service';
+import {EditInterface} from '../editdialog/editinterface';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-searchsites',
@@ -43,9 +42,8 @@ export class SearchsitesComponent implements EditInterface {
     this.campaign.webSiteIds.splice(this.campaign.webSiteIds.indexOf(site.id), 1);
   }
 
-  constructor(
-    private campaignService: CampaignService,
-    private siteService: SiteService) {
+  constructor(private campaignService: CampaignService,
+              private siteService: SiteService) {
     this.industries = siteService.industries;
     this.cachedWebsite = new CachedWebsite(this.siteService);
   }

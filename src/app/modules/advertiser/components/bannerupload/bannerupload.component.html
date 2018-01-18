@@ -1,21 +1,21 @@
 <div>Tilføj reklamebanner ved at vælge et billed og der tryk på tilføj knappen.</div>
 
 <div>
-	<button md-raised-button id="file-button" focuced>
-		<label for="file-input">Vælg et billede</label>  
+	<button mat-raised-button id="file-button" focuced>
+		<label for="file-input">Vælg et billede</label>
 	</button>
 	<input id="file-input" #fileinput type="file" accept="image/*" (change)="onChange($event)">
-	<md-input-container class="bannerName">
-		<input mdInput type="text" placeholder="Navnet på banneren" [(ngModel)]="model.name" name="name" #name="ngModel"/>
-	</md-input-container>
+	<mat-input-container class="bannerName">
+		<input matInput type="text" placeholder="Navnet på banneren" [(ngModel)]="model.name" name="name" #name="ngModel"/>
+	</mat-input-container>
 </div>
 
-<button class="add" md-mini-fab (click)="addBanner()"><md-icon>add</md-icon></button>
+<button class="add" mat-mini-fab (click)="addBanner()"><mat-icon>add</mat-icon></button>
 
 <hr/>
 
 <div>
-	<button class="remove" md-mini-fab (click)="remove()" [disabled]="!isSelected()"><md-icon>remove</md-icon></button>
+	<button class="remove" mat-mini-fab (click)="remove()" [disabled]="!isSelected()"><mat-icon>remove</mat-icon></button>
 </div>
 
 <app-banner [banners]="campaign.banners" (selectBanner)="select($event)"></app-banner>

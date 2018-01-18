@@ -4,7 +4,7 @@ import { BannerComponent } from '../banner/banner.component';
 import { EditSiteComponent } from '../editsite/editsite.component';
 import { EditSiteInfoComponent } from '../editsiteinfo/editsiteinfo.component';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 
 
 enum SelectedStep {
@@ -30,7 +30,7 @@ export class EditDialogComponent {
   public selectedStep = SelectedStep.URL;
   public selectedStepEnum = SelectedStep;
 
-  constructor(public dialogRef: MdDialogRef<EditDialogComponent>) { }
+  constructor(public dialogRef: MatDialogRef<EditDialogComponent>) { }
 
   get site(): WebSite {
     return this._site;

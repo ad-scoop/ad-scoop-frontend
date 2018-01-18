@@ -2,45 +2,51 @@
 	<div class="explanation">
 		Her kan du søg efter udbyder af reklameplads i nærheden af dig.
 	</div>
-	<div class="inputcontainer">		
-		<md-input-container>
-			<input mdInput focuced type="text" focuced placeholder="Geografisk område" [(ngModel)]="model.area" name="area" #area="ngModel" >
-			<md-hint>Der kan søges på f.eks. Ålborg, eller sjælland</md-hint>
-		</md-input-container>
-		<md-checkbox [(ngModel)]="model.near" name="near" #near="ngModel">Inden for dit postnummer og omegen</md-checkbox>
+	<div class="inputcontainer">
+		<mat-form-field>
+			<input matInput focuced type="text" focuced placeholder="Geografisk område" [(ngModel)]="model.area" name="area" #area="ngModel" >
+			<mat-hint>Der kan søges på f.eks. Ålborg, eller sjælland</mat-hint>
+		</mat-form-field>
+		<mat-checkbox [(ngModel)]="model.near" name="near" #near="ngModel">Inden for dit postnummer og omegen</mat-checkbox>
 	</div>
 	<div class="inputcontainer">
-		<md-select placeholder="Branche" [(ngModel)]="selectedIndustry" name="industry">
-    		<md-option *ngFor="let industry of industries" [value]="industry">
+    <mat-form-field>
+		<mat-select placeholder="Branche" [(ngModel)]="selectedIndustry" name="industry">
+    		<mat-option *ngFor="let industry of industries" [value]="industry">
       			{{industry.name}}
-    		</md-option>
-  		</md-select>
-		<md-select placeholder="Kategori" [(ngModel)]="model.organisationCategory" name="category">
-    		<md-option *ngFor="let category of categories" [value]="category">
+    		</mat-option>
+  		</mat-select>
+    </mat-form-field>
+    <mat-form-field>
+		<mat-select placeholder="Kategori" [(ngModel)]="model.organisationCategory" name="category">
+    		<mat-option *ngFor="let category of categories" [value]="category">
       			{{category}}
-    		</md-option>
-  		</md-select>
-  		<button class="right" md-mini-fab (click)="search()"><md-icon>search</md-icon></button>
+    		</mat-option>
+  		</mat-select>
+    </mat-form-field>
+
+      <button  class="right" mat-mini-fab (click)="search()"><mat-icon>search</mat-icon></button>
+
 	</div>
 	<div class="appSites">
-	<app-site 
+	<app-site
 		class="siteList"
-		[sites]="foundsites" 
+		[sites]="foundsites"
 		[subtitle]="selectSubtitle"
-		[showclicks]="false" 
-		[hideSmall]="doNotHide" 
-		[firstColName]="firstColName" 
-		[headline]="serchedHeadeline" 
+		[showclicks]="false"
+		[hideSmall]="doNotHide"
+		[firstColName]="firstColName"
+		[headline]="serchedHeadeline"
 		[clickFunction]="addFunction">
 	</app-site>
 	<hr/>
-	<app-site 
-		class="siteList" 
-		[sites]="webSites(campaign)" 
-		[showclicks]="false" 
-		[hideSmall]="doNotHide" 
-		[firstColName]="firstColName" 
-		[headline]="selectedHeadline" 
+	<app-site
+		class="siteList"
+		[sites]="webSites(campaign)"
+		[showclicks]="false"
+		[hideSmall]="doNotHide"
+		[firstColName]="firstColName"
+		[headline]="selectedHeadline"
 		[clickFunction]="removeFunction"
 		[removeColumn]="removeColumn">
 	</app-site>

@@ -4,7 +4,7 @@ import { EditCampaignComponent } from '../editcampaign/editcampaign.component';
 import { SearchsitesComponent } from '../searchsites/searchsites.component';
 import { EditInterface } from './editinterface';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 
 enum SelectedStep {
   CAMPAIGN,
@@ -30,7 +30,7 @@ export class EditDialogComponent {
 
   public selectedStepEnum = SelectedStep;
 
-  constructor(public dialogRef: MdDialogRef<EditDialogComponent>) { }
+  constructor(public dialogRef: MatDialogRef<EditDialogComponent>) { }
 
   get campaign(): Campaign {
     return this._campaign;

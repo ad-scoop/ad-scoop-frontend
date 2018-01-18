@@ -1,87 +1,87 @@
 <div>Informationer om din side så annoncører kan finde den.</div>
 <form class="center" (ngSubmit)="edit()" #f="ngForm" novalidate>
 	<div class="inputcontainer">
-	
+
 		<h3>Område</h3>
 		<div>
-	 		<md-input-container>
-	  			<input mdInput placeholder="Land" [mdAutocomplete]="autoCountry" [formControl]="countryCtrl" [(ngModel)]="country">
-			</md-input-container>
-	
-			<md-autocomplete #autoCountry="mdAutocomplete">
-	  			<md-option *ngFor="let country of filteredCountry | async" [value]="country">
-	    			{{ country }}
-	  			</md-option>
-			</md-autocomplete>
-			
-	 		<md-input-container>
-	  			<input mdInput placeholder="Region" [mdAutocomplete]="autoRegion" [formControl]="regionCtrl" [(ngModel)]="area.region">
-			</md-input-container>
-	
-			<md-autocomplete #autoRegion="mdAutocomplete">
-	  			<md-option *ngFor="let region of filteredRegion | async" [value]="region">
-	    			{{ region }}
-	  			</md-option>
-			</md-autocomplete>
+	 		<mat-input-container>
+	  			<input matInput placeholder="Land" [matAutocomplete]="autoCountry" [formControl]="countryCtrl" [(ngModel)]="country">
+			</mat-input-container>
 
-			<md-input-container>
-				<input mdInput type="text" placeholder="By" [(ngModel)]="area.city" name="region" #city="ngModel">
-			</md-input-container>
-			
-			<button md-mini-fab (click)="addArea()"><md-icon>add</md-icon></button>
+			<mat-autocomplete #autoCountry="matAutocomplete">
+	  			<mat-option *ngFor="let country of filteredCountry | async" [value]="country">
+	    			{{ country }}
+	  			</mat-option>
+			</mat-autocomplete>
+
+	 		<mat-input-container>
+	  			<input matInput placeholder="Region" [matAutocomplete]="autoRegion" [formControl]="regionCtrl" [(ngModel)]="area.region">
+			</mat-input-container>
+
+			<mat-autocomplete #autoRegion="matAutocomplete">
+	  			<mat-option *ngFor="let region of filteredRegion | async" [value]="region">
+	    			{{ region }}
+	  			</mat-option>
+			</mat-autocomplete>
+
+			<mat-input-container>
+				<input matInput type="text" placeholder="By" [(ngModel)]="area.city" name="region" #city="ngModel">
+			</mat-input-container>
+
+			<button mat-mini-fab (click)="addArea()"><mat-icon>add</mat-icon></button>
 		</div>
-		<md-chip-list class="mat-chip-list-stacked">
-		  	<md-chip color="accent" selected="true" role="option" *ngFor="let area of site.areas" class="clip">
+		<mat-chip-list class="mat-chip-list-stacked">
+		  	<mat-chip color="accent" selected="true" role="option" *ngFor="let area of site.areas" class="clip">
 		   	 	{{area.country}} {{area.region}} {{area.city}}
 		   	 	<a (click)=removeArea(area)>X</a>
-			</md-chip>
-		</md-chip-list>
-		
+			</mat-chip>
+		</mat-chip-list>
+
 		<h3>Demografi</h3>
 		<div>
-			<md-checkbox [(ngModel)]="man" name="man">Mænd</md-checkbox>
-			<md-checkbox [(ngModel)]="woman" name="woman">Kvinder</md-checkbox>
-			<md-checkbox [(ngModel)]="unisex" name="unisex">Unisex</md-checkbox>
-			<md-checkbox [(ngModel)]="children" name="children">Children</md-checkbox>
+			<mat-checkbox [(ngModel)]="man" name="man">Mænd</mat-checkbox>
+			<mat-checkbox [(ngModel)]="woman" name="woman">Kvinder</mat-checkbox>
+			<mat-checkbox [(ngModel)]="unisex" name="unisex">Unisex</mat-checkbox>
+			<mat-checkbox [(ngModel)]="children" name="children">Children</mat-checkbox>
 		</div>
 		<div>
-		<md-input-container>
-  			<input mdInput placeholder="Minimums alder" [(ngModel)]="site.demografi.minAge" name="minAge" >
-		</md-input-container>
-		<md-input-container>
-  			<input mdInput placeholder="Maksimum alder" [(ngModel)]="site.demografi.maxAge" name="maxAge" >
-		</md-input-container>
-			
+		<mat-form-field>
+  			<input matInput placeholder="Minimums alder" [(ngModel)]="site.demografi.minAge" name="minAge" >
+		</mat-form-field>
+		<mat-form-field>
+  			<input matInput placeholder="Maksimum alder" [(ngModel)]="site.demografi.maxAge" name="maxAge" >
+		</mat-form-field>
+
 		</div>
 
 		<h3>Website info</h3>
-		<md-select placeholder="Branche" [(ngModel)]="selectedIndustry" name="industry">
-    		<md-option *ngFor="let industry of industries" [value]="industry">
+		<mat-select placeholder="Branche" [(ngModel)]="selectedIndustry" name="industry">
+    		<mat-option *ngFor="let industry of industries" [value]="industry">
       			{{industry.name}}
-    		</md-option>
-  		</md-select>
-		<md-select placeholder="Kategori" [(ngModel)]="site.organisation.category" name="category">
-    		<md-option *ngFor="let category of categories" [value]="category">
+    		</mat-option>
+  		</mat-select>
+		<mat-select placeholder="Kategori" [(ngModel)]="site.organisation.category" name="category">
+    		<mat-option *ngFor="let category of categories" [value]="category">
       			{{category}}
-    		</md-option>
-  		</md-select>
-  		
-		<md-input-container>
-			<input mdInput type="text" placeholder="Besøgende pr dag" [(ngModel)]="site.organisation.visitors" name="visitors">
-		</md-input-container>
-		<md-checkbox [(ngModel)]="site.organisation.physicalShop" name="shop">Fysisk butik</md-checkbox>
-		
+    		</mat-option>
+  		</mat-select>
+
+		<mat-input-container>
+			<input matInput type="text" placeholder="Besøgende pr dag" [(ngModel)]="site.organisation.visitors" name="visitors">
+		</mat-input-container>
+		<mat-checkbox [(ngModel)]="site.organisation.physicalShop" name="shop">Fysisk butik</mat-checkbox>
+
 		<h3>Søgeord</h3>
-		<md-input-container>
-			<input mdInput type="text" placeholder="Tilføj søgeord" name="label" #label>
-		</md-input-container>
-		<button md-mini-fab (click)="add(label.value)"><md-icon>add</md-icon></button>
-		<md-chip-list class="mat-chip-list-stacked">
-		  	<md-chip color="accent" selected="true" role="option" *ngFor="let label of site.labels" class="clip">
-		   	 	{{label}} 
+		<mat-input-container>
+			<input matInput type="text" placeholder="Tilføj søgeord" name="label" #label>
+		</mat-input-container>
+		<button mat-mini-fab (click)="add(label.value)"><mat-icon>add</mat-icon></button>
+		<mat-chip-list class="mat-chip-list-stacked">
+		  	<mat-chip color="accent" selected="true" role="option" *ngFor="let label of site.labels" class="clip">
+		   	 	{{label}}
 		   	 	<a (click)=remove(label)>X</a>
-			</md-chip>
-		</md-chip-list>
-		
+			</mat-chip>
+		</mat-chip-list>
+
 	</div>
 </form>

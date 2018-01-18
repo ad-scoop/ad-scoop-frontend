@@ -12,8 +12,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { BannerComponent } from './../banner/banner.component';
 import { SiteComponent } from './../site/site.component';
-import { MdDialog } from '@angular/material';
-import { MdDialogRef, MdDialogConfig } from '@angular/material';
+import { MatDialog } from '@angular/material';
+import { MatDialogRef, MatDialogConfig } from '@angular/material';
 
 @Component({
   templateUrl: './confirmdialog.component.html',
@@ -23,7 +23,7 @@ export class ConfirmDialogComponent {
   public headline: string;
   public confirmation: string;
 
-  constructor(public dialogRef: MdDialogRef<ConfirmDialogComponent>) { }
+  constructor(public dialogRef: MatDialogRef<ConfirmDialogComponent>) { }
 
 }
 
@@ -38,7 +38,7 @@ export class CampaignComponent implements OnInit {
   cachedWebsite: CachedWebsite;
 
   constructor(
-    public dialog: MdDialog,
+    public dialog: MatDialog,
     private campaignService: CampaignService,
     private alertService: AlertService,
     private siteService: SiteService) {
@@ -88,7 +88,7 @@ export class CampaignComponent implements OnInit {
   }
 
   private openEditDialog(campaign: Campaign, type: string): Observable<any> {
-    const config = new MdDialogConfig();
+    const config = new MatDialogConfig();
     config.height = '80%';
     config.width = '70%';
     const dialogRef = this.dialog.open(EditDialogComponent, config);

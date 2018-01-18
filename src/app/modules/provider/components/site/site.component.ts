@@ -3,7 +3,7 @@ import {AlertService} from '../../../../services/alert.service';
 import {SiteService} from '../../../../services/site.service';
 import {EditDialogComponent} from '../editdialog/editdialog.component';
 import {Component, OnInit} from '@angular/core';
-import {MdDialog, MdDialogConfig} from '@angular/material';
+import {MatDialog, MatDialogConfig} from '@angular/material';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
@@ -18,7 +18,7 @@ export class SiteComponent implements OnInit {
   constructor(
     private siteService: SiteService,
     private alertService: AlertService,
-    public dialog: MdDialog) {}
+    public dialog: MatDialog) {}
 
   ngOnInit() {
     this.siteService
@@ -125,7 +125,7 @@ export class SiteComponent implements OnInit {
   }
 
   private openEditDialog(site: WebSite, type: string): Observable<any> {
-    const config = new MdDialogConfig();
+    const config = new MatDialogConfig();
     config.height = '80%';
     config.width = '70%';
 
