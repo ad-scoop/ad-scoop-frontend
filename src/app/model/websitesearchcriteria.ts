@@ -10,9 +10,9 @@ export class WebSiteSearchCriteria {
   public extractUrl(): string {
     const parameters = this.convertOrganisation(this.convertArea());
     if (parameters) {
-      return '?' + parameters;
+      return '/?' + parameters;
     }
-    return '?';
+    return '';
   }
 
   private convertArea(): string {

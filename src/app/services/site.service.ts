@@ -322,7 +322,7 @@ export class SiteService {
 
   public remove(webSite: WebSite): Observable<boolean> {
     return this.http
-      .delete(this.baseUrl + '/remove/' + webSite.id, this.getHeadersWithToken())
+      .delete<boolean>(this.baseUrl + '/remove/' + webSite.id, this.getHeadersWithToken())
       .catch(response => {
         throw new Error('Fejl ved slette af website');
       });
@@ -344,7 +344,7 @@ export class SiteService {
 
   public serche(model: WebSiteSearchCriteria): Observable<WebSite[]> {
     return this.http
-      .get(this.baseUrl + '/search/' + model.extractUrl(), this.getHeadersWithToken())
+      .get(this.baseUrl + '/search' + model.extractUrl(), this.getHeadersWithToken())
       .map((resp: Response) => resp.json())
       .catch(error => {
         console.error('Fejl ved søgning af website: ' + error);
@@ -354,7 +354,7 @@ export class SiteService {
 
   public add(webSite: WebSite): Observable<boolean> {
     return this.http
-      .post(this.baseUrl + '/create', webSite, this.getHeadersWithToken())
+      .post<boolean>(this.baseUrl + '/create', webSite, this.getHeadersWithToken())
       .catch(response => {
         throw new Error('Fejl ved oprettese af website');
       });
@@ -362,7 +362,7 @@ export class SiteService {
 
   public edit(webSite: WebSite): Observable<boolean> {
     return this.http
-      .put(this.baseUrl + '/update', webSite, this.getHeadersWithToken())
+      .put<boolean>(this.baseUrl + '/update', webSite, this.getHeadersWithToken())
       .map(response => true)
       .catch(response => {
         throw new Error('Fejl ved ændring af website');
