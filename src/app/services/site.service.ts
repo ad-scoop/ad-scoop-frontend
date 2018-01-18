@@ -352,7 +352,7 @@ export class SiteService {
 
   public edit(webSite: WebSite): Observable<boolean> {
     return this.http.put<boolean>(this.baseUrl + '/update', webSite, {
-        headers: this.getHeadersWithToken());
+        headers: this.getHeadersWithToken() });
   }
 
 

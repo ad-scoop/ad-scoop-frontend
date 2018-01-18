@@ -2,8 +2,8 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { CampaignService } from './campaign.service';
-import { Http } from '@angular/http';
 import { AuthenticationService } from './authentication.service';
+import { HttpClient } from '@angular/common/http';
 
 describe('CampaignService', () => {
 
@@ -19,7 +19,7 @@ describe('CampaignService', () => {
     TestBed.configureTestingModule({
       providers: [
         CampaignService,
-        { provide: Http, useClass: HttpMock },
+        { provide: HttpClient, useClass: HttpMock },
         { provide: AuthenticationService, useClass: AuthenticationServiceMock },
 
       ]

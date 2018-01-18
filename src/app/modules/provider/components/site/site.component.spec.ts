@@ -6,7 +6,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
 import {MaterialComponent} from '../../../../material.component';
-import {MdDialog} from '@angular/material';
+import {MatDialog} from '@angular/material';
 
 import {SiteComponent} from './site.component';
 import {Observable} from 'rxjs/Observable';
@@ -38,7 +38,7 @@ describe('SiteComponent', () => {
       providers: [
         {provide: SiteService, useClass: SiteServiceMock},
         {provide: AlertService, useClass: AlertServiceMock},
-        {provide: MdDialog, useClass: MdDialogMock},
+        {provide: MatDialog, useClass: MdDialogMock},
       ]
     })
       .compileComponents();

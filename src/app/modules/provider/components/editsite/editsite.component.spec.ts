@@ -4,7 +4,6 @@ import { UrlSafePipe } from '../../../../utils/urlsafe.pipe';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { EditSiteComponent } from './editsite.component';

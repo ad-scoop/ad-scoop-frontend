@@ -12,8 +12,8 @@ import {
   MatDialogModule,
   MatCardModule,
   MatButtonModule,
-  MatIconModule, MatAutocompleteModule,
-
+  MatIconModule, 
+  MatAutocompleteModule
 } from '@angular/material';
 
 @NgModule({

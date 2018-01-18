@@ -2,8 +2,8 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { SiteService } from './site.service';
-import { Http } from '@angular/http';
 import { AuthenticationService } from './authentication.service';
+import { HttpClient } from '@angular/common/http';
 
 describe('SiteService', () => {
 
@@ -17,8 +17,9 @@ describe('SiteService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SiteService,
-        { provide: Http, useClass: HttpMock },
+      providers: [
+        SiteService,
+        { provide: HttpClient, useClass: HttpMock },
         { provide: AuthenticationService, useClass: AuthenticationServiceMock },
       ]
     });
@@ -27,4 +28,5 @@ describe('SiteService', () => {
   it('should ...', inject([SiteService], (service: SiteService) => {
     expect(service).toBeTruthy();
   }));
+
 });

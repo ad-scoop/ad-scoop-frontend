@@ -10,10 +10,14 @@ describe('UserService', () => {
 
   }
 
+  class MockUserService {
+
+  }
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        UserService,
+        { provide: UserService, useClass: MockUserService },
         { provide: Http, useClass: HttpMock },
       ]
     });
@@ -22,4 +26,5 @@ describe('UserService', () => {
   it('should ...', inject([UserService], (service: UserService) => {
     expect(service).toBeTruthy();
   }));
+
 });

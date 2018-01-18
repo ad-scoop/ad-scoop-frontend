@@ -1,20 +1,20 @@
 /* tslint:disable:no-unused-variable */
-import {Area} from '../../../../model/area';
-import {Demografi} from '../../../../model/demografi';
-import {WebSite} from '../../../../model/site';
-import {UrlSafePipe} from '../../../../utils/urlsafe.pipe';
-import {EditSiteComponent} from '../editsite/editsite.component';
-import {EditSiteInfoComponent} from '../editsiteinfo/editsiteinfo.component';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {By} from '@angular/platform-browser';
-import {DebugElement} from '@angular/core';
-import {MdDialogRef} from '@angular/material';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {BannerComponent} from '../banner/banner.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MaterialComponent} from '../../../../material.component';
+import { Area } from '../../../../model/area';
+import { Demografi } from '../../../../model/demografi';
+import { WebSite } from '../../../../model/site';
+import { UrlSafePipe } from '../../../../utils/urlsafe.pipe';
+import { EditSiteComponent } from '../editsite/editsite.component';
+import { EditSiteInfoComponent } from '../editsiteinfo/editsiteinfo.component';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
+import { MatDialogRef } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BannerComponent } from '../banner/banner.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialComponent } from '../../../../material.component';
 
-import {EditDialogComponent} from './editdialog.component';
+import { EditDialogComponent } from './editdialog.component';
 
 describe('EditdialogComponent', () => {
   let component: EditDialogComponent;
@@ -40,7 +40,7 @@ describe('EditdialogComponent', () => {
         BannerComponent
       ],
       providers: [
-        {provide: MdDialogRef, useClass: MdDialogRefMock},
+        { provide: MatDialogRef, useClass: MdDialogRefMock },
       ]
 
     })
